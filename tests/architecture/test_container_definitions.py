@@ -9,6 +9,7 @@ from pathlib import Path
 
 _REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 _CONTAINERS = _REPOSITORY_ROOT / "infra" / "containers"
+_COMPOSE = _REPOSITORY_ROOT / "infra" / "compose"
 
 
 def test_backend_image_has_distinct_non_root_service_targets() -> None:
@@ -81,3 +82,37 @@ def test_container_smoke_workflow_builds_and_checks_every_service() -> None:
     assert "--target worker" in smoke_script
     assert "--target runtime" in smoke_script
     assert smoke_script.count("wait_until_healthy") == 4
+
+
+def test_compose_declares_complete_dependency_gated_runtime() -> None:
+    """Keep local infrastructure explicit, pinned, and dependency gated.
+
+    @skyhook-implements REQ-014
+    @skyhook-implements NFR-006
+    @skyhook-story STORY-009
+    """
+    compose = (_COMPOSE / "compose.yaml").read_text(encoding="utf-8")
+
+    for service in ("database", "storage-init", "api", "worker", "web"):
+        assert f"  {service}:" in compose
+    assert "postgres:18.6-bookworm@sha256:" in compose
+    assert compose.count("condition: service_healthy") >= 3
+    assert "condition: service_completed_successfully" in compose
+    assert "internal: true" in compose
+    assert "artifact-data:" in compose
+    assert "postgres-data:" in compose
+
+
+def test_compose_keeps_credentials_external_and_ports_local_only() -> None:
+    """Prevent usable credentials or public infrastructure bindings in Compose.
+
+    @skyhook-implements NFR-004
+    @skyhook-implements CON-004
+    @skyhook-story STORY-009
+    """
+    compose = (_COMPOSE / "compose.yaml").read_text(encoding="utf-8")
+    development = (_COMPOSE / "compose.dev.yaml").read_text(encoding="utf-8")
+
+    assert "POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?" in compose
+    assert "ports:" not in compose
+    assert development.count('"127.0.0.1:') == 3

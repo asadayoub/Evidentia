@@ -1,0 +1,16 @@
+# Local port exposure for the supported development composition.
+# @skyhook-implements NFR-004
+# @skyhook-story STORY-009
+
+services:
+  database:
+    ports:
+      - "127.0.0.1:${EVIDENTIA_DATABASE_PORT:-5432}:5432"
+
+  api:
+    ports:
+      - "127.0.0.1:${EVIDENTIA_API_PORT:-8000}:8000"
+
+  web:
+    ports:
+      - "127.0.0.1:${EVIDENTIA_WEB_PORT:-3000}:8080"
