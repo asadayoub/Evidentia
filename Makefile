@@ -1,4 +1,4 @@
-.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generated-check container-smoke check
+.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generated-check container-smoke local-init local-up local-verify local-down check
 
 bootstrap:
 	./ci/bootstrap.sh
@@ -30,6 +30,18 @@ generated-check:
 
 container-smoke:
 	./ci/container-smoke.sh
+
+local-init:
+	./scripts/generate-local-env.sh
+
+local-up:
+	./scripts/local-up.sh
+
+local-verify:
+	./ci/local-runtime-check.sh
+
+local-down:
+	docker compose --env-file .env -f infra/compose/compose.yaml -f infra/compose/compose.dev.yaml down
 
 check:
 	./ci/check.sh

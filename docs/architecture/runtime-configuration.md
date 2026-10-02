@@ -36,7 +36,7 @@ EVIDENTIA_API__RELOAD=false
 EVIDENTIA_WORKER__SHUTDOWN_GRACE_SECONDS=30
 ```
 
-This is a naming contract, not a usable environment example. Pass `009.5` will add sanitized examples and the supported secret-generation workflow.
+This naming contract is represented by the deliberately unusable `.env.example`. The supported `make local-init` workflow generates a private `.env` with a random local database password and refuses to replace an existing environment.
 
 ## Service ownership
 
