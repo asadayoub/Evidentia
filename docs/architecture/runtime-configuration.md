@@ -43,3 +43,14 @@ This is a naming contract, not a usable environment example. Pass `009.5` will a
 `ApiSettings` and `WorkerSettings` share database, logging, storage, environment, and version conventions. API binding/reload values and worker lifecycle values remain service-specific. Loading functions return fresh instances so tests and multiple process compositions cannot mutate shared global state.
 
 Secret values use Pydantic secret types and remain redacted in representations and serialized diagnostic output. Code that actually opens a database connection must unwrap the secret only at that adapter boundary.
+
+## Runtime observability
+
+API and worker composition roots share provider-neutral logging and health primitives from `evidentia.runtime`:
+
+- structured logs always carry service, environment, version, and correlation identifiers;
+- JSON logs defensively redact fields whose names indicate credentials or secrets;
+- liveness reports only that the process is running and never calls dependencies;
+- readiness runs the dependency checks supplied by the composition root and returns only `ready` or `not_ready` for each dependency, without exception text or connection details.
+
+No dependency registry is global. Later database, storage, and queue adapters will supply their checks when each process is assembled. This keeps readiness extensible without coupling runtime infrastructure to a provider or bounded context.

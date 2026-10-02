@@ -4,6 +4,6 @@
 @skyhook-story STORY-007
 """
 
-from evidentia.entrypoints.worker.main import main, worker_probe
+from evidentia.entrypoints.worker.main import main, worker_probe, worker_readiness
 
-__all__ = ["main", "worker_probe"]
+__all__ = ["main", "worker_probe", "worker_readiness"]

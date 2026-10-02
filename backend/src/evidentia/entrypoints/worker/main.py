@@ -1,10 +1,17 @@
-"""Minimal worker entrypoint used to prove independent execution.
+"""Worker composition root with explicit runtime configuration and health.
 
 @skyhook-implements REQ-014
+@skyhook-implements NFR-006
 @skyhook-story STORY-007
+@skyhook-story STORY-009
 """
 
-import json
+from collections.abc import Awaitable, Callable, Mapping
+
+from evidentia.config.settings import load_worker_settings
+from evidentia.runtime import configure_service_logging, readiness_report
+
+_ReadinessCheck = Callable[[], Awaitable[None]]
 
 
 def worker_probe() -> dict[str, str]:
@@ -16,10 +23,33 @@ def worker_probe() -> dict[str, str]:
     return {"status": "ok", "service": "worker", "mode": "bootstrap"}
 
 
-def main() -> None:
-    """Run the worker bootstrap probe.
+async def worker_readiness(
+    readiness_checks: Mapping[str, _ReadinessCheck] | None = None,
+) -> dict[str, str | dict[str, str]]:
+    """Report whether the worker's configured dependencies are available.
 
     @skyhook-implements REQ-014
-    @skyhook-story STORY-007
+    @skyhook-implements NFR-006
+    @skyhook-story STORY-009
     """
-    print(json.dumps(worker_probe(), sort_keys=True))
+    report = await readiness_report("worker", readiness_checks or {})
+    return report.as_dict()
+
+
+def main() -> None:
+    """Run the worker bootstrap with validated settings and structured logging.
+
+    @skyhook-implements REQ-014
+    @skyhook-implements NFR-004
+    @skyhook-implements NFR-006
+    @skyhook-story STORY-007
+    @skyhook-story STORY-009
+    """
+    settings = load_worker_settings()
+    logger = configure_service_logging(
+        settings.logging,
+        service=settings.service,
+        environment=settings.environment,
+        version=settings.version,
+    )
+    logger.info("worker bootstrap ready", extra={"mode": "bootstrap"})
