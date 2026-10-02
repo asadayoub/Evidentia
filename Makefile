@@ -1,4 +1,4 @@
-.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generated-check check
+.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generated-check container-smoke check
 
 bootstrap:
 	./ci/bootstrap.sh
@@ -27,6 +27,9 @@ unit-test:
 
 generated-check:
 	./ci/generated-check.sh
+
+container-smoke:
+	./ci/container-smoke.sh
 
 check:
 	./ci/check.sh

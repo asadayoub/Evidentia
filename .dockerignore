@@ -1,0 +1,40 @@
+# Version-control and agent metadata
+.git
+.github
+.skyhook
+.agents
+.codex
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Language caches, virtual environments, and dependencies
+.mypy_cache
+.pytest_cache
+.ruff_cache
+.uv-cache
+.venv
+**/__pycache__
+**/*.py[cod]
+**/*.egg-info
+node_modules
+**/node_modules
+
+# Generated and local product data
+**/dist
+**/build
+coverage
+playwright-report
+test-results
+.local
+data
+documents
+artifacts
+*.log
+
+# Editor and operating-system metadata
+.DS_Store
+.idea
+.vscode
