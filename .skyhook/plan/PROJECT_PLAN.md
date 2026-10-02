@@ -1,7 +1,7 @@
 # Project Plan: Evidentia
 
 > **Project ID**: `GPNKKMYX2EHA0GZ82WDJASXKGX` | **Profile**: `web-app`
-> **Compiled**: 2026-10-02T18:00:54.966Z by Skyhook Dynamic Plan Compiler
+> **Compiled**: 2026-10-02T18:15:52.246Z by Skyhook Dynamic Plan Compiler
 
 ## Executive Summary
 
@@ -170,6 +170,7 @@ gantt
 - **8BXHCC2GBDHS6939MV0GTA4AR3**: Use versioned JCS snapshots and SHA-256 for authorization binding (Status: `accepted`, Category: `security`)
 - **CGT2WV3E3VQDP8EX8B4K8BWMMK**: Use one product monorepo for Evidentia (Status: `accepted`, Category: `architecture`)
 - **2GQD4NWDSA1Q4J9TQYCW291KR9**: Adopt a reproducible contract-first development toolchain (Status: `accepted`, Category: `technology`)
+- **8VC3FRAN1GRTK2F99NB459BWWJ**: Establish the configuration and local runtime baseline while deferring production adapters (Status: `accepted`, Category: `architecture`)
 
 ## 4. Declared Tech Stack
 
