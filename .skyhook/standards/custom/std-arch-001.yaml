@@ -1,0 +1,35 @@
+schemaVersion: 1.0.0
+id: STD-ARCH-001
+title: Bounded-context ownership and dependency rules
+category: software
+domain: software
+tags:
+  - architecture
+  - ddd
+  - bounded-contexts
+  - modular-monolith
+  - dependency-direction
+severity: error
+version: 1.0.0
+summary: Enforces the Evidentia module ownership and dependency rules defined by the accepted bounded-context ADR and docs/architecture/domain-boundaries.md.
+guidelines:
+  - Each bounded context owns its domain entities, application ports, persistence models, repositories, tables, and migrations.
+  - Import another context only through its explicitly public application or read interface; never import its domain internals, persistence, repositories, or migrations.
+  - Do not query, join, or write another context's tables, and do not define cross-context ORM relationships.
+  - Keep domain packages independent of FastAPI, worker frameworks, database clients, storage clients, provider SDKs, identity SDKs, and realtime transports.
+  - Place external integrations behind ports implemented by infrastructure adapters.
+  - Use durable outbox/inbox events and idempotent consumers for asynchronous cross-context collaboration.
+  - Keep the shared kernel limited to stable value types and protocol primitives; it must not contain business entities or repositories.
+  - Reject cyclic module dependencies and business rules implemented in API routes, worker handlers, or adapters.
+  - Preserve tenant scope and trusted actor context through every application call, job, event, cache key, artifact, and integration operation.
+  - Treat projections, caches, search indexes, and realtime messages as non-authoritative.
+acceptanceCriteria:
+  - Every backend package is assigned to one documented bounded context, an infrastructure adapter, an interface layer, or the small shared kernel.
+  - Static dependency checks detect forbidden internal imports and cycles.
+  - Repository and migration ownership is unambiguous for every table.
+  - Cross-context commands, queries, snapshots, and events use documented versioned contracts.
+  - Architecture tests verify domain packages have no framework or provider dependencies.
+  - Code review can trace every state mutation to the owning context's application port.
+  - The module map and automated checks are updated together when an accepted ADR changes a boundary.
+remediation: Move the dependency behind the owning context's public application port or a versioned event, remove cross-context persistence access, and add or update an architecture test that protects the corrected boundary.
+createdAt: "2026-10-01T17:04:56.202Z"

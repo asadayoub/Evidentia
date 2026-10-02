@@ -1,0 +1,8 @@
+packages:
+  - frontend
+  - sdks/typescript
+
+disallowWorkspaceCycles: true
+
+onlyBuiltDependencies:
+  - esbuild

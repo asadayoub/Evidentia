@@ -1,0 +1,110 @@
+schemaVersion: 1.0.0
+requirements:
+  - id: REQ-001
+    statement: Evidentia shall ingest documents through interactive and programmatic interfaces, preserve original bytes and source metadata, detect duplicates, enforce configured limits, and create durable processing jobs.
+    rationale: The original document and its receipt context are the root of every traceable record.
+    priority: critical
+    createdAt: "2026-10-01T16:33:59.701Z"
+    updatedAt: "2026-10-01T16:33:59.701Z"
+  - id: REQ-002
+    statement: Evidentia shall parse native text and scanned content, classify document types, retain page and layout references, and support correctable schema selection.
+    rationale: Extraction and review require durable, inspectable source representations.
+    priority: critical
+    createdAt: "2026-10-01T16:34:03.655Z"
+    updatedAt: "2026-10-01T16:34:03.655Z"
+  - id: REQ-003
+    statement: Evidentia shall use immutable, versioned, schema-defined record structures rather than static document fields. Schemas shall support dynamic typed fields, identifiers, dates, currencies, fixed-precision decimals, booleans, arrays, nested objects, line-item tables, evidence expectations, normalization rules, validations, and import/export APIs.
+    rationale: Document fields vary by document class, tenant, jurisdiction, workflow, destination, and other governed context; the core lifecycle must remain generic while every historical record stays reproducible.
+    priority: critical
+    createdAt: "2026-10-01T16:34:06.219Z"
+    updatedAt: "2026-10-01T16:47:39.927Z"
+  - id: REQ-004
+    statement: Evidentia shall execute extraction through documented hosted and local provider adapters, recording configuration, model, prompt, attempts, outputs, usage, errors, and reprocessing comparisons.
+    rationale: The record lifecycle must not depend on one inference vendor or deployment model.
+    priority: critical
+    createdAt: "2026-10-01T16:34:08.709Z"
+    updatedAt: "2026-10-01T16:34:08.709Z"
+  - id: REQ-005
+    statement: Evidentia shall associate values with structured source evidence and explicitly distinguish extracted, normalized, inferred, corrected, and missing values.
+    rationale: Users must be able to establish what supports each important value.
+    priority: critical
+    createdAt: "2026-10-01T16:34:11.527Z"
+    updatedAt: "2026-10-01T16:34:11.527Z"
+  - id: REQ-006
+    statement: Evidentia shall run versioned structural, arithmetic, business, duplicate, and cross-document validations that produce explainable blocking errors and advisory findings.
+    rationale: Structurally valid extraction can still misrepresent a document.
+    priority: critical
+    createdAt: "2026-10-01T16:34:14.037Z"
+    updatedAt: "2026-10-01T16:34:14.037Z"
+  - id: REQ-007
+    statement: Evidentia shall provide collaborative review, assignments, comments, conflict detection, correction history, accessible table editing, and immutable submitted record revisions.
+    rationale: Human correction must be visible, attributable, and protected from silent overwrites.
+    priority: critical
+    createdAt: "2026-10-01T16:34:16.687Z"
+    updatedAt: "2026-10-01T16:34:16.687Z"
+  - id: REQ-008
+    statement: Evidentia shall expose an ApprovalAdapter contract and provide a secure local/manual approval implementation that binds decisions to an immutable revision and material content hash.
+    rationale: Evidentia must operate independently while preserving trustworthy authorization semantics.
+    priority: critical
+    createdAt: "2026-10-01T16:34:19.635Z"
+    updatedAt: "2026-10-01T16:34:19.635Z"
+  - id: REQ-009
+    statement: Evidentia shall support Delibera as an optional ApprovalAdapter implementation through versioned authenticated contracts, without requiring Delibera for standalone operation.
+    rationale: Delibera adds reusable authorization workflows but belongs to a separate project and lifecycle.
+    priority: high
+    createdAt: "2026-10-01T16:34:25.608Z"
+    updatedAt: "2026-10-01T16:34:25.608Z"
+  - id: REQ-010
+    statement: Evidentia shall deliver only authorized revisions through versioned destination adapters, with mappings, idempotency, retries, reconciliation, and independently tracked delivery outcomes.
+    rationale: Approval and external delivery are separate recoverable lifecycles.
+    priority: critical
+    createdAt: "2026-10-01T16:34:29.311Z"
+    updatedAt: "2026-10-01T16:34:29.311Z"
+  - id: REQ-011
+    statement: Evidentia shall support batch processing, document bundles, cross-document matching, exception queues, saved filters, and prioritized review workflows.
+    rationale: The full product must handle real operational workloads rather than isolated documents.
+    priority: high
+    createdAt: "2026-10-01T16:34:32.690Z"
+    updatedAt: "2026-10-01T16:34:32.690Z"
+  - id: REQ-012
+    statement: Evidentia shall provide versioned REST APIs, OpenAPI documentation, SDKs, authenticated integration components, stable errors, pagination, correlation identifiers, and extension interfaces.
+    rationale: Developers and automation agencies are first-class users of the platform.
+    priority: high
+    createdAt: "2026-10-01T16:34:35.121Z"
+    updatedAt: "2026-10-01T16:34:35.121Z"
+  - id: REQ-013
+    statement: Evidentia shall provide evaluation datasets, provider comparisons, accuracy and evidence metrics, correction-effort measurement, regression testing, and release evidence by document class and language.
+    rationale: Extraction quality must be measured rather than inferred from demonstrations.
+    priority: high
+    createdAt: "2026-10-01T16:34:37.498Z"
+    updatedAt: "2026-10-01T16:34:37.498Z"
+  - id: REQ-014
+    statement: Evidentia shall provide operational controls for retries, cancellation, reconciliation, reprocessing, retention, backup and restore, migrations, quotas, health, readiness, and audit inspection.
+    rationale: Routine recovery and sustained self-hosted operation are part of the product.
+    priority: high
+    createdAt: "2026-10-01T16:34:40.127Z"
+    updatedAt: "2026-10-01T16:34:40.127Z"
+  - id: REQ-015
+    statement: Evidentia shall establish its first quality benchmark using English supplier invoices in native and scanned PDF, PNG, and JPEG formats, while keeping ingestion, parsing, OCR, classification, schemas, evidence mapping, validation, and evaluation extensible to additional formats, languages, layouts, and document classes without changing the core record lifecycle.
+    rationale: A bounded benchmark is necessary for credible quality evidence, but the initial corpus must not become an architectural limitation.
+    priority: critical
+    createdAt: "2026-10-01T16:45:21.671Z"
+    updatedAt: "2026-10-01T16:45:21.671Z"
+  - id: REQ-016
+    statement: Evidentia shall deterministically resolve the applicable record schema by selecting or composing administrator-published, immutable schema modules using governed inputs such as document classification, tenant configuration, workflow, jurisdiction, destination, and versioned external reference data; it shall persist the resolved schema and context versions with every extraction run and record revision.
+    rationale: Documents require flexible structures, but governed composition prevents arbitrary runtime fields from undermining validation, authorization, interoperability, and historical reproducibility.
+    priority: critical
+    createdAt: "2026-10-01T16:47:43.723Z"
+    updatedAt: "2026-10-01T16:50:06.991Z"
+  - id: REQ-017
+    statement: Evidentia shall support schema discovery and evolution by retaining unmapped extraction candidates, allowing authorized users to convert suggested fields or structures into a draft schema version, validating that draft against representative documents, and requiring publication before those fields become part of authoritative records.
+    rationale: Novel document layouts and requirements should be easy to accommodate without silently admitting untyped, unreviewed, or unstable fields into approved business records.
+    priority: high
+    createdAt: "2026-10-01T16:50:10.876Z"
+    updatedAt: "2026-10-01T16:50:10.876Z"
+  - id: REQ-018
+    statement: Evidentia shall expose tenant- and permission-aware realtime update capabilities through a replaceable subscription port for workflow status, assignments, comments, findings, approvals, and delivery outcomes; PostgreSQL and durable domain state shall remain authoritative, and clients shall be able to recover missed updates through versioned API reads.
+    rationale: Collaborative review benefits from timely updates, but realtime transport choice must not couple domain logic to Firebase, WebSockets, Server-Sent Events, or another provider, nor make ephemeral delivery the system of record.
+    priority: high
+    createdAt: "2026-10-01T17:00:51.258Z"
+    updatedAt: "2026-10-01T17:00:51.258Z"

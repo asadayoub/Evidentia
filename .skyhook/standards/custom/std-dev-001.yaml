@@ -1,0 +1,34 @@
+schemaVersion: 1.0.0
+id: STD-DEV-001
+title: Reproducible development and contract quality gates
+category: devops
+domain: devops
+tags:
+  - toolchain
+  - lockfiles
+  - ci
+  - openapi
+  - testing
+  - type-safety
+  - reproducibility
+severity: error
+version: 1.0.0
+summary: Governs runtime support, dependency locking, static analysis, production-equivalent tests, API compatibility, generated SDKs, and provider-neutral CI.
+guidelines:
+  - Use the accepted Python, Node.js, and PostgreSQL runtime lines consistently in local development, CI, containers, and releases.
+  - Commit one uv lockfile and one pnpm lockfile and install them in locked or frozen mode in CI.
+  - Run formatting, linting, strict typing, architecture checks, unit tests, contract checks, and risk-appropriate integration and end-to-end tests before merge.
+  - Export and commit a deterministic OpenAPI 3.1 artifact, reject unapproved breaking changes, and reproduce generated SDKs in CI.
+  - Use disposable production-equivalent PostgreSQL containers for persistence integration tests rather than treating SQLite as compatible.
+  - Pin generators, standalone CI tools, and container images to exact versions or immutable digests.
+  - Keep CI validation in provider-neutral repository scripts and keep provider configuration thin.
+acceptanceCriteria:
+  - Locked installs fail rather than silently rewriting dependency resolution.
+  - The checked OpenAPI artifact is reproducible from the application and breaking changes are detected against the merge base.
+  - Generated TypeScript and Python clients reproduce without uncommitted differences.
+  - Backend and frontend production code pass their configured lint, format, and strict type checks.
+  - Architecture tests reject forbidden imports and cross-module persistence coupling.
+  - PostgreSQL integration tests run against a disposable supported PostgreSQL container.
+  - The required quality gates are runnable locally without a specific hosted CI provider.
+remediation: Restore the accepted runtime and lockfile configuration, regenerate contracts and SDKs with pinned tools, run the provider-neutral quality commands, and document any intentional exception with its owner and removal condition.
+createdAt: "2026-10-01T17:28:48.440Z"

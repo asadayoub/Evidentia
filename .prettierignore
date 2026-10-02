@@ -1,0 +1,8 @@
+.skyhook/
+.codex/
+.venv/
+node_modules/
+uv.lock
+pnpm-lock.yaml
+frontend/dist/
+docs/.DS_Store

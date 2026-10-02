@@ -1,0 +1,32 @@
+schemaVersion: 1.0.0
+constraints:
+  - id: CON-001
+    statement: Evidentia owns document processing and record lifecycle but shall not become an accounting ledger, payment executor, or general-purpose approval policy service.
+    rationale: Clear domain ownership prevents uncontrolled scope and preserves integration boundaries.
+    priority: critical
+    createdAt: "2026-10-01T16:35:07.487Z"
+    updatedAt: "2026-10-01T16:35:07.487Z"
+  - id: CON-002
+    statement: Evidentia shall not depend on direct access to Delibera data stores or private implementation; Delibera integration, when configured, shall use authenticated versioned contracts and shall never silently fall back after failure.
+    rationale: The projects require independent data ownership, deployment, release cycles, and standalone usefulness.
+    priority: critical
+    createdAt: "2026-10-01T16:35:10.013Z"
+    updatedAt: "2026-10-01T16:35:10.013Z"
+  - id: CON-003
+    statement: Monetary and arbitrary-precision values shall use canonical string representations, and authorization snapshots shall use a documented versioned canonical JSON contract based initially on RFC 8785 JCS with a versioned SHA-256 digest. The exact canonical payload shall be retained with its digest, and implementations shall never hash ordinary serializer output or binary floating-point business values.
+    rationale: Deterministic cross-language serialization and exact retained payloads are required to bind authorization safely to dynamic record content and destination scope.
+    priority: critical
+    createdAt: "2026-10-01T16:35:12.507Z"
+    updatedAt: "2026-10-01T17:15:49.957Z"
+  - id: CON-004
+    statement: Uploaded documents and extracted instructions shall be treated as untrusted data and shall not authorize command execution, arbitrary URL access, credential use, or active preview content.
+    rationale: Document processing creates a high-risk untrusted-input boundary.
+    priority: critical
+    createdAt: "2026-10-01T16:35:15.320Z"
+    updatedAt: "2026-10-01T16:35:15.320Z"
+  - id: CON-005
+    statement: Tenant identity shall be established from trusted authentication or job context and shall not be accepted solely from an unverified request field; storage keys, database queries, events, caches, and object references shall preserve tenant scope.
+    rationale: A tenant_id column alone does not provide isolation if callers can select arbitrary tenant context or asynchronous paths lose that context.
+    priority: critical
+    createdAt: "2026-10-01T16:57:00.255Z"
+    updatedAt: "2026-10-01T16:57:00.255Z"

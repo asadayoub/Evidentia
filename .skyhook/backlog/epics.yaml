@@ -1,0 +1,2244 @@
+schemaVersion: 1.0.0
+metadata:
+  createdAt: "2026-10-01T16:13:56.189Z"
+  updatedAt: "2026-10-02T18:00:49.838Z"
+  version: 0.1.0
+epics:
+  - id: CP8QDFDKKC659SR1GFMDBPCHG6
+    title: Domain contracts and lifecycle foundations
+    description: Governed by REQ-001–REQ-010, NFR-001, NFR-008, and CON-001. Defines ownership, aggregates, immutable revisions, state transitions, canonical snapshots, and service boundaries before implementation choices harden.
+    goal: Establish the complete document-to-delivery domain model and its independent state machines.
+    successMetrics: []
+    childStories:
+      - 3JVEA7J60SSVDTK16VMMW1R6CY
+      - HYFDZB6CJS5YV2KZ216C77VD3H
+      - HKDJB0N3JTKZ2RRFRP5PT70PF9
+    targetDate: null
+    status: done
+    createdAt: "2026-10-01T16:36:58.838Z"
+    updatedAt: "2026-10-01T17:17:43.384Z"
+  - id: ESXRMFV8AMRPA4EM9907RP91G0
+    title: Document ingestion and durable storage
+    description: Implements REQ-001, NFR-002, NFR-003, NFR-004, NFR-007, and CON-004 across uploads, APIs, batches, email, watched folders, object events, and connectors.
+    goal: Receive, identify, preserve, secure, and queue documents from all supported ingestion channels.
+    successMetrics: []
+    childStories:
+      - KMC5EK26PXNT868PT6W97RX06A
+      - D86X3Q727TBSXDQX5NRNNZEB63
+      - HFVVS2GASHC8W7HEMCW9VMP0TB
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-01T16:37:01.689Z"
+    updatedAt: "2026-10-01T16:37:01.689Z"
+  - id: 4SW4N0JFACNY6DTXECMKEKKKYR
+    title: Parsing OCR and document classification
+    description: Implements REQ-002, REQ-005, REQ-013, NFR-009, and CON-004 with evaluated native parsing and OCR adapters.
+    goal: Produce reliable source representations with page, layout, table, and classification context.
+    successMetrics: []
+    childStories:
+      - C37NZW5X9ASZRS7XHZ7W56MG8V
+      - RXAZEMKJVJNN58W029T397M3QN
+      - 1VED17WSNE77N7VVCZTXC2NAT5
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-01T16:37:04.398Z"
+    updatedAt: "2026-10-01T16:37:04.398Z"
+  - id: 0QDXE9R7PY4N4E743SZ1NHH6Z4
+    title: Versioned schemas normalization and extraction providers
+    description: Implements REQ-003, REQ-004, NFR-004, NFR-008, and CON-003.
+    goal: Support configurable document structures and interchangeable hosted or local extraction.
+    successMetrics: []
+    childStories:
+      - 4PJTJVE73D2MN7GT64T48S05HT
+      - BYNGTQS6SX4FB7HQ46D9FKTJR2
+      - 8PKADXET1MA10TAY9F6VBDYYAD
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-01T16:37:07.244Z"
+    updatedAt: "2026-10-01T16:37:07.244Z"
+  - id: G2T8V1PT0VBT62KQZX322TK77E
+    title: Source evidence validation and exception handling
+    description: Implements REQ-005, REQ-006, CON-003, NFR-001, and NFR-009.
+    goal: Make every important value inspectable and every validation outcome explainable.
+    successMetrics: []
+    childStories:
+      - XPNG59AKNVHXYMPRFWR71DSE0C
+      - 06SRF2HBM8APTGA5RP2D9XS3JP
+      - WJN4QJFCJQ98V9Q35KDDVW0HGN
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-01T16:37:10.618Z"
+    updatedAt: "2026-10-01T16:37:10.618Z"
+  - id: 0CVR0SEFHTXKEBZRPF89A9RBXV
+    title: Collaborative review corrections and revisions
+    description: Implements REQ-007, NFR-001, NFR-005, and NFR-007.
+    goal: Provide an efficient, accessible workspace for evidence-led correction and controlled submission.
+    successMetrics: []
+    childStories:
+      - ASQKQ6YH4S8G6SDQ6XN7BHYM8E
+      - 3J2M9KAE9H8THGD2AR9DSKXYTC
+      - B1B7G0DXYE4JSEGFSC2NT8MFD1
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-01T16:37:13.874Z"
+    updatedAt: "2026-10-01T16:37:13.874Z"
+  - id: WABR3N79SKBQ915Y0KCN0HVK7S
+    title: Authorization framework and optional Delibera integration
+    description: Implements REQ-008, REQ-009, NFR-003, NFR-008, and CON-002.
+    goal: Bind authorization to exact revisions while preserving independent Evidentia operation.
+    successMetrics: []
+    childStories:
+      - Q2840JNY2G50TCZHWY7MWRBKHT
+      - NWMGM72BETT2BVW6DPW6APQCGR
+      - 0P37MDJCQKH1STANM151Q81NHH
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-01T16:37:17.038Z"
+    updatedAt: "2026-10-01T16:37:17.038Z"
+  - id: EFY7ZB4SPHCZ2ENT9CC2JE72RH
+    title: Authorized delivery and destination integrations
+    description: Implements REQ-010, NFR-003, NFR-008, and CON-003.
+    goal: Deliver the authorized revision safely and independently of approval status.
+    successMetrics: []
+    childStories:
+      - FK5B70RZFH4QSTW7Y02R1D3E1N
+      - XRS5S2GBBCPV9Q9CCN2DXBJ2G3
+      - 0C4PR416ZZ5WCA73DMBZFK87CY
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-01T16:37:19.990Z"
+    updatedAt: "2026-10-01T16:37:19.990Z"
+  - id: JF0TVVT32B765KVE6X97AVP3P9
+    title: Bundles matching batches and advanced document capabilities
+    description: Implements REQ-011, REQ-013, and NFR-009.
+    goal: Support complex operational workloads across related documents, languages, and large queues.
+    successMetrics: []
+    childStories:
+      - GAAPXNG7SK2X48CW2GDDG7MJ06
+      - KYSVD7PWKX5ZAZW4FN67NXA26E
+      - 5DGKC77RV9C2GWTKWK49788S1B
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-01T16:37:22.830Z"
+    updatedAt: "2026-10-01T16:37:22.830Z"
+  - id: MNJPP3JA9GHKAMKNAT0H3DSVR2
+    title: Public API SDKs and extension ecosystem
+    description: Implements REQ-012, NFR-008, and CON-001.
+    goal: Make every core workflow integrable through stable contracts and supported extension points.
+    successMetrics: []
+    childStories:
+      - 75J1CS4ZFVG3RSXH2GDF7W82ME
+      - 89ZWE45CMH2MKH116P992C3BDS
+      - NGSBE5Q1QVXJG649C8FQ7JM41Y
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-01T16:37:25.751Z"
+    updatedAt: "2026-10-01T16:37:25.751Z"
+  - id: DGKPHK7KW42128GM4XAZMKN7WF
+    title: Identity tenant security and privacy controls
+    description: Implements NFR-002, NFR-007, CON-002, and CON-004.
+    goal: Protect documents and records across users, clients, workers, and integrations.
+    successMetrics: []
+    childStories:
+      - J53MR4BTE1N2XJHRYXHV4Z87JG
+      - 36P0MN74XTPQ943H6EVXGDX1WE
+      - 00B1KJ2YM4P1PBKNQTM3AWSPSP
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-01T16:37:28.784Z"
+    updatedAt: "2026-10-01T16:37:28.784Z"
+  - id: X9Q94XQS20PNPHN9F0WAFB042Z
+    title: Durable jobs observability and operational recovery
+    description: Implements REQ-014, NFR-003, NFR-006, and NFR-008.
+    goal: Make asynchronous processing and integrations diagnosable and recoverable under failure.
+    successMetrics: []
+    childStories:
+      - DC2ZQWDS83EVZ95JRJERYN90RP
+      - BNPAYSRAD7TJQ56MBQRP1BAHJQ
+      - WKW6R599VZYZS7J7V8MXGDXWZX
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-01T16:37:32.184Z"
+    updatedAt: "2026-10-01T16:37:32.184Z"
+  - id: 25Y3EMKGPZBZEHKRC5STM8Z2JC
+    title: Evaluation release evidence and open-source operations
+    description: Implements REQ-013, REQ-014, NFR-004, NFR-009, and the capability-gated product strategy.
+    goal: Prove quality, portability, and maintainability with reproducible evidence and independent setup.
+    successMetrics: []
+    childStories:
+      - JY8T325XB4VZ2F6DZRPYY7XEHD
+      - 99JY71R6GRKG8SXDWD92357XNV
+      - 7EGC5PWY8MQB5BKQKTR05DWBPQ
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-01T16:37:36.148Z"
+    updatedAt: "2026-10-01T16:37:36.148Z"
+  - id: CG7VFRWAF177CMZK333E19YND1
+    title: Executable platform foundation
+    description: Capability Gate 0. Establishes the reproducible monorepo, enforced module boundaries, local runtime, tenant-safe persistence and identity context, public API conventions, frontend shell, and provider-neutral quality gates required before product workflows are implemented. Governs REQ-012, REQ-014, NFR-002, NFR-003, NFR-004, NFR-005, NFR-006, NFR-008, CON-004, and CON-005.
+    goal: Produce a locally runnable, tested, tenant-aware API, worker, and web walking skeleton whose architecture, contracts, migrations, and quality gates are executable rather than documentary.
+    successMetrics: []
+    childStories: []
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-01T17:33:33.234Z"
+    updatedAt: "2026-10-01T17:33:33.234Z"
+stories:
+  - id: 3JVEA7J60SSVDTK16VMMW1R6CY
+    epicId: CP8QDFDKKC659SR1GFMDBPCHG6
+    title: Specify core aggregates and ownership
+    userStory: As a platform developer, I want explicit aggregate ownership so that lifecycle rules cannot be bypassed.
+    acceptanceCriteria:
+      - Document, extraction, record, approval, and delivery ownership is documented
+      - Evidentia and external-service boundaries are explicit
+      - Invariants and forbidden transitions are enumerated
+    priority: critical
+    status: done
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:36:58.839Z"
+    updatedAt: "2026-10-01T17:06:03.455Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-01T16:54:58.055Z"
+    completedAt: "2026-10-01T17:06:03.455Z"
+  - id: HYFDZB6CJS5YV2KZ216C77VD3H
+    epicId: CP8QDFDKKC659SR1GFMDBPCHG6
+    title: Specify independent lifecycle state machines
+    userStory: As an operator, I want processing, review, approval, events, and delivery represented separately so that failures remain understandable.
+    acceptanceCriteria:
+      - Each state dimension has defined transitions
+      - Terminal and recoverable states are identified
+      - Cross-lifecycle invariants are documented
+    priority: critical
+    status: done
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:36:58.839Z"
+    updatedAt: "2026-10-01T17:13:14.516Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-01T17:06:30.598Z"
+    completedAt: "2026-10-01T17:13:14.516Z"
+  - id: HKDJB0N3JTKZ2RRFRP5PT70PF9
+    epicId: CP8QDFDKKC659SR1GFMDBPCHG6
+    title: Define canonical revision snapshot contract
+    userStory: As an integrator, I want deterministic revision snapshots so that authorization binds to exact content.
+    acceptanceCriteria:
+      - Canonical serialization is versioned
+      - Material fields and content hashing are specified
+      - Supersession and resubmission rules are defined
+    priority: critical
+    status: done
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:36:58.839Z"
+    updatedAt: "2026-10-01T17:17:43.384Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-01T17:13:49.846Z"
+    completedAt: "2026-10-01T17:17:43.384Z"
+  - id: KMC5EK26PXNT868PT6W97RX06A
+    epicId: ESXRMFV8AMRPA4EM9907RP91G0
+    title: Implement document and artifact storage adapters
+    userStory: As an operator, I want originals and derived artifacts stored distinctly so that provenance and retention remain clear.
+    acceptanceCriteria:
+      - Local and S3-compatible contracts are defined
+      - Checksums and metadata are preserved
+      - Tenant and retention controls apply to every artifact
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:01.689Z"
+    updatedAt: "2026-10-01T16:37:01.689Z"
+  - id: D86X3Q727TBSXDQX5NRNNZEB63
+    epicId: ESXRMFV8AMRPA4EM9907RP91G0
+    title: Implement interactive and asynchronous ingestion
+    userStory: As a user or integration, I want to submit documents and track durable receipt.
+    acceptanceCriteria:
+      - Uploads and API ingestion create durable jobs
+      - Limits and file signatures are enforced
+      - Duplicate signals are recorded
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:01.689Z"
+    updatedAt: "2026-10-01T16:37:01.689Z"
+  - id: HFVVS2GASHC8W7HEMCW9VMP0TB
+    epicId: ESXRMFV8AMRPA4EM9907RP91G0
+    title: Add batch and connector ingestion channels
+    userStory: As an operations team, I want recurring sources ingested without manual upload.
+    acceptanceCriteria:
+      - Batch, email, folder, object-event, and connector contracts are defined
+      - Every source retains identity and correlation
+      - Failures are recoverable and visible
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:01.689Z"
+    updatedAt: "2026-10-01T16:37:01.689Z"
+  - id: C37NZW5X9ASZRS7XHZ7W56MG8V
+    epicId: 4SW4N0JFACNY6DTXECMKEKKKYR
+    title: Define parser and OCR adapter contracts
+    userStory: As a platform developer, I want replaceable parsing providers so that formats and local processing can evolve.
+    acceptanceCriteria:
+      - Native text, OCR, page, coordinate, reading-order, and table outputs are modeled
+      - Mixed and image-only documents are supported by contract
+      - Resource and trust boundaries are specified
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:04.398Z"
+    updatedAt: "2026-10-01T16:37:04.398Z"
+  - id: RXAZEMKJVJNN58W029T397M3QN
+    epicId: 4SW4N0JFACNY6DTXECMKEKKKYR
+    title: Implement document classification and correction
+    userStory: As a reviewer, I want ambiguous document types exposed so that the correct schema can be selected without losing history.
+    acceptanceCriteria:
+      - Classification candidates and confidence are stored
+      - Human correction is recorded
+      - Reclassification creates traceable processing history
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:04.398Z"
+    updatedAt: "2026-10-01T16:37:04.398Z"
+  - id: 1VED17WSNE77N7VVCZTXC2NAT5
+    epicId: 4SW4N0JFACNY6DTXECMKEKKKYR
+    title: Evaluate difficult source qualities
+    userStory: As a release owner, I want measured behavior on scans, mixed PDFs, and multi-page tables.
+    acceptanceCriteria:
+      - Representative fixtures exist
+      - Parser and OCR results are compared
+      - Known limitations and evidence quality are reported
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:04.398Z"
+    updatedAt: "2026-10-01T16:37:04.398Z"
+  - id: 4PJTJVE73D2MN7GT64T48S05HT
+    epicId: 0QDXE9R7PY4N4E743SZ1NHH6Z4
+    title: Build versioned schema lifecycle
+    userStory: As an administrator, I want draft and immutable published schemas so that historical records stay reproducible.
+    acceptanceCriteria:
+      - Typed fields, arrays, nested objects, and tables are supported
+      - Published versions are immutable
+      - Import, export, migration, and reprocessing rules are defined
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:07.244Z"
+    updatedAt: "2026-10-01T16:37:07.244Z"
+  - id: BYNGTQS6SX4FB7HQ46D9FKTJR2
+    epicId: 0QDXE9R7PY4N4E743SZ1NHH6Z4
+    title: Build hosted and local extraction provider interface
+    userStory: As an administrator, I want provider choice without changing the record lifecycle.
+    acceptanceCriteria:
+      - Credentials, limits, timeouts, budgets, and fallback policy are explicit
+      - Runs record model, prompt, parser, attempts, usage, and errors
+      - Document instructions cannot invoke tools or credentials
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:07.244Z"
+    updatedAt: "2026-10-01T16:37:07.244Z"
+  - id: 8PKADXET1MA10TAY9F6VBDYYAD
+    epicId: 0QDXE9R7PY4N4E743SZ1NHH6Z4
+    title: Build reprocessing and comparison workflow
+    userStory: As a reviewer, I want new extraction results proposed beside current data so that history is never overwritten.
+    acceptanceCriteria:
+      - Reprocessing creates a new run and proposed revision
+      - Differences can be reviewed before adoption
+      - Submitted and approved history remains immutable
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:07.244Z"
+    updatedAt: "2026-10-01T16:37:07.244Z"
+  - id: XPNG59AKNVHXYMPRFWR71DSE0C
+    epicId: G2T8V1PT0VBT62KQZX322TK77E
+    title: Model field and table evidence
+    userStory: As a reviewer, I want values linked to source spans or regions so that I can verify them quickly.
+    acceptanceCriteria:
+      - Page, span, excerpt, table position, and bounding-box evidence are modeled
+      - Unsupported model quotations are not marked verified
+      - Value origins are visually and structurally distinct
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:10.618Z"
+    updatedAt: "2026-10-01T16:37:10.618Z"
+  - id: 06SRF2HBM8APTGA5RP2D9XS3JP
+    epicId: G2T8V1PT0VBT62KQZX322TK77E
+    title: Implement versioned validation engine
+    userStory: As an operator, I want structured findings so that errors and warnings can be resolved consistently.
+    acceptanceCriteria:
+      - Structural, arithmetic, business, duplicate, and relationship rules are versioned
+      - Findings identify severity, fields, explanation, and support
+      - Overrides require actor, reason, authority, and revision
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:10.621Z"
+    updatedAt: "2026-10-01T16:37:10.621Z"
+  - id: WJN4QJFCJQ98V9Q35KDDVW0HGN
+    epicId: G2T8V1PT0VBT62KQZX322TK77E
+    title: Build prioritized exception queues
+    userStory: As an operations team, I want work prioritized by risk and failure type.
+    acceptanceCriteria:
+      - Missing evidence, blocking findings, failed processing, and unmatched references are filterable
+      - Priority signals remain explainable
+      - Bulk assignment and saved filters are supported
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:10.621Z"
+    updatedAt: "2026-10-01T16:37:10.621Z"
+  - id: ASQKQ6YH4S8G6SDQ6XN7BHYM8E
+    epicId: 0CVR0SEFHTXKEBZRPF89A9RBXV
+    title: Build document-and-record review workspace
+    userStory: As a reviewer, I want the source beside editable structured data so that verification and correction are efficient.
+    acceptanceCriteria:
+      - Field selection reveals evidence
+      - Original, current, origin, findings, and history are visible
+      - Tables support row and cell review
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:13.874Z"
+    updatedAt: "2026-10-01T16:37:13.874Z"
+  - id: 3J2M9KAE9H8THGD2AR9DSKXYTC
+    epicId: 0CVR0SEFHTXKEBZRPF89A9RBXV
+    title: Implement collaboration and conflict handling
+    userStory: As a review team, we want assignments, comments, drafts, and conflict detection so that work is coordinated safely.
+    acceptanceCriteria:
+      - Ownership and handoff are visible
+      - Revision checks prevent silent overwrites
+      - Conflicts can be understood and resolved
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:13.874Z"
+    updatedAt: "2026-10-01T16:37:13.874Z"
+  - id: B1B7G0DXYE4JSEGFSC2NT8MFD1
+    epicId: 0CVR0SEFHTXKEBZRPF89A9RBXV
+    title: Implement immutable submission and supersession
+    userStory: As an approver, I want a frozen reviewed revision so that my decision cannot attach to later edits.
+    acceptanceCriteria:
+      - Submission freezes an exact revision
+      - Material changes require a new revision and request
+      - Previous revisions and decisions remain linked history
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:13.875Z"
+    updatedAt: "2026-10-01T16:37:13.875Z"
+  - id: Q2840JNY2G50TCZHWY7MWRBKHT
+    epicId: WABR3N79SKBQ915Y0KCN0HVK7S
+    title: Define ApprovalAdapter and authorization semantics
+    userStory: As an application developer, I want one approval boundary so that local and external implementations preserve identical invariants.
+    acceptanceCriteria:
+      - Submission, lookup, cancellation, decision, expiry, revocation, and reconciliation contracts are defined
+      - Tenant, revision, hash, policy, and destination scope are verified
+      - No failure path assumes approval
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:17.038Z"
+    updatedAt: "2026-10-01T16:37:17.038Z"
+  - id: NWMGM72BETT2BVW6DPW6APQCGR
+    epicId: WABR3N79SKBQ915Y0KCN0HVK7S
+    title: Implement secure local manual approval
+    userStory: As a standalone deployment, I want authorized local reviewers to decide exact submitted revisions.
+    acceptanceCriteria:
+      - Reviewer authority and separation of duties are enforced
+      - Approve, reject, request-changes, cancel, expire, and revoke are recorded
+      - Concurrent terminal decisions resolve consistently
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:17.038Z"
+    updatedAt: "2026-10-01T16:37:17.038Z"
+  - id: 0P37MDJCQKH1STANM151Q81NHH
+    epicId: WABR3N79SKBQ915Y0KCN0HVK7S
+    title: Implement optional Delibera adapter
+    userStory: As an administrator, I want to configure Delibera without coupling Evidentia to its implementation.
+    acceptanceCriteria:
+      - Versioned authenticated submission and event contracts are used
+      - Outbox, inbox, idempotency, signatures, ordering, and polling reconciliation are covered
+      - Integration failure remains waiting and never silently falls back
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:17.038Z"
+    updatedAt: "2026-10-01T16:37:17.038Z"
+  - id: FK5B70RZFH4QSTW7Y02R1D3E1N
+    epicId: EFY7ZB4SPHCZ2ENT9CC2JE72RH
+    title: Define DestinationAdapter and mapping versions
+    userStory: As an integrator, I want versioned destination mappings so that delivered fields remain traceable.
+    acceptanceCriteria:
+      - Mappings and configuration versions are stored
+      - Authorization scope is rechecked before execution
+      - Downloads, webhooks, databases, and accounting connectors fit one contract
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:19.990Z"
+    updatedAt: "2026-10-01T16:37:19.990Z"
+  - id: XRS5S2GBBCPV9Q9CCN2DXBJ2G3
+    epicId: EFY7ZB4SPHCZ2ENT9CC2JE72RH
+    title: Implement idempotent delivery orchestration
+    userStory: As an operator, I want failed delivery retried without duplicating business actions.
+    acceptanceCriteria:
+      - Stable operation keys and attempt history are recorded
+      - Ambiguous outcomes enter reconciliation
+      - Approval remains distinct from delivery failure
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:19.991Z"
+    updatedAt: "2026-10-01T16:37:19.991Z"
+  - id: 0C4PR416ZZ5WCA73DMBZFK87CY
+    epicId: EFY7ZB4SPHCZ2ENT9CC2JE72RH
+    title: Build delivery administration and recovery
+    userStory: As an operator, I want to inspect, retry, reconcile, and cancel delivery work safely.
+    acceptanceCriteria:
+      - Outcome and history are visible
+      - Safe retries preserve authorized scope
+      - Revocation timing and completed-delivery handling are explicit
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:19.991Z"
+    updatedAt: "2026-10-01T16:37:19.991Z"
+  - id: GAAPXNG7SK2X48CW2GDDG7MJ06
+    epicId: JF0TVVT32B765KVE6X97AVP3P9
+    title: Implement document bundles and relationships
+    userStory: As an operator, I want invoices, orders, receipts, and supporting documents grouped without losing individual identity.
+    acceptanceCriteria:
+      - Bundle membership and evidence provenance are explicit
+      - Documents retain independent lifecycles
+      - Combined workflow state is understandable
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:22.830Z"
+    updatedAt: "2026-10-01T16:37:22.830Z"
+  - id: KYSVD7PWKX5ZAZW4FN67NXA26E
+    epicId: JF0TVVT32B765KVE6X97AVP3P9
+    title: Implement cross-document matching
+    userStory: As a procurement reviewer, I want candidate matches and discrepancies surfaced for confirmation.
+    acceptanceCriteria:
+      - Configurable tolerances are supported
+      - Ambiguous matches require confirmation
+      - Quantity, price, currency, and receipt discrepancies are explainable
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:22.831Z"
+    updatedAt: "2026-10-01T16:37:22.831Z"
+  - id: 5DGKC77RV9C2GWTKWK49788S1B
+    epicId: JF0TVVT32B765KVE6X97AVP3P9
+    title: Expand tables languages and batch operations
+    userStory: As a global operations team, I want evaluated multilingual, multi-page, and bulk workflows.
+    acceptanceCriteria:
+      - Support is gated by representative fixtures
+      - Batch assignment and bulk actions preserve permissions and audit
+      - Results are reported by language and document class
+    priority: medium
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:22.831Z"
+    updatedAt: "2026-10-01T16:37:22.831Z"
+  - id: 75J1CS4ZFVG3RSXH2GDF7W82ME
+    epicId: MNJPP3JA9GHKAMKNAT0H3DSVR2
+    title: Publish versioned REST and OpenAPI contracts
+    userStory: As an integrator, I want stable documented APIs for the full lifecycle.
+    acceptanceCriteria:
+      - Authentication, idempotency, pagination, errors, async status, and correlation are specified
+      - Conflict semantics are documented
+      - Contracts cover documents, schemas, revisions, submissions, events, and deliveries
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:25.751Z"
+    updatedAt: "2026-10-01T16:37:25.751Z"
+  - id: 89ZWE45CMH2MKH116P992C3BDS
+    epicId: MNJPP3JA9GHKAMKNAT0H3DSVR2
+    title: Publish Python and JavaScript SDKs
+    userStory: As a developer, I want supported clients and examples so that integration does not require hand-written protocol code.
+    acceptanceCriteria:
+      - SDKs are generated or contract-tested
+      - Retry and idempotency guidance is included
+      - Independent examples run against documented releases
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:25.751Z"
+    updatedAt: "2026-10-01T16:37:25.751Z"
+  - id: NGSBE5Q1QVXJG649C8FQ7JM41Y
+    epicId: MNJPP3JA9GHKAMKNAT0H3DSVR2
+    title: Publish adapter development interfaces
+    userStory: As an extension author, I want stable parser, extraction, validator, approval, and destination interfaces.
+    acceptanceCriteria:
+      - Extension permissions and lifecycle invariants are documented
+      - Compatibility policy is versioned
+      - Reference adapters and conformance tests exist
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:25.751Z"
+    updatedAt: "2026-10-01T16:37:25.751Z"
+  - id: J53MR4BTE1N2XJHRYXHV4Z87JG
+    epicId: DGKPHK7KW42128GM4XAZMKN7WF
+    title: Implement tenant and action authorization model
+    userStory: As a tenant administrator, I want least-privilege access enforced consistently across every execution path.
+    acceptanceCriteria:
+      - Users, clients, roles, workers, downloads, and searches enforce tenant scope
+      - Cross-tenant tests cover APIs and jobs
+      - External reviewer mappings are explicit
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:28.784Z"
+    updatedAt: "2026-10-01T16:37:28.784Z"
+  - id: 36P0MN74XTPQ943H6EVXGDX1WE
+    epicId: DGKPHK7KW42128GM4XAZMKN7WF
+    title: Secure untrusted document processing
+    userStory: As an operator, I want hostile files and embedded instructions contained.
+    acceptanceCriteria:
+      - Type verification, resource limits, safe preview, converter isolation, URL controls, and secret boundaries are specified
+      - Active content is disabled
+      - Security failures are auditable
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:28.785Z"
+    updatedAt: "2026-10-01T16:37:28.785Z"
+  - id: 00B1KJ2YM4P1PBKNQTM3AWSPSP
+    epicId: DGKPHK7KW42128GM4XAZMKN7WF
+    title: Implement retention privacy and audit controls
+    userStory: As an administrator, I want artifact-specific retention and deletion so that policy can match deployment needs.
+    acceptanceCriteria:
+      - Originals, derivatives, provider data, records, and decisions have separate policies
+      - Logs redact sensitive content
+      - Tombstones and audit preservation are explicit
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:28.786Z"
+    updatedAt: "2026-10-01T16:37:28.786Z"
+  - id: DC2ZQWDS83EVZ95JRJERYN90RP
+    epicId: X9Q94XQS20PNPHN9F0WAFB042Z
+    title: Select and implement durable job execution
+    userStory: As an operator, I want jobs to survive crashes without uncontrolled retries or lost work.
+    acceptanceCriteria:
+      - Leases, heartbeats, retries, budgets, poison-work handling, and interrupted-work recovery are tested
+      - Worker choice is recorded by ADR
+      - Operation identities prevent duplicate effects
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:32.184Z"
+    updatedAt: "2026-10-01T16:37:32.184Z"
+  - id: BNPAYSRAD7TJQ56MBQRP1BAHJQ
+    epicId: X9Q94XQS20PNPHN9F0WAFB042Z
+    title: Implement outbox inbox and reconciliation patterns
+    userStory: As an integrator, I want duplicated, delayed, missing, and reordered messages handled safely.
+    acceptanceCriteria:
+      - Local state and outbound events commit together
+      - Inbound events are durably deduplicated
+      - Authoritative reconciliation prevents state regression
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:32.186Z"
+    updatedAt: "2026-10-01T16:37:32.186Z"
+  - id: WKW6R599VZYZS7J7V8MXGDXWZX
+    epicId: X9Q94XQS20PNPHN9F0WAFB042Z
+    title: Build observability and recovery console
+    userStory: As an operator, I want health, queues, failures, and recovery actions visible without reading worker logs.
+    acceptanceCriteria:
+      - Metrics cover queue depth, age, latency, failures, approvals, callbacks, and delivery
+      - Correlation spans the full lifecycle
+      - Retry, cancel, reconcile, and reprocess controls are permissioned
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:32.186Z"
+    updatedAt: "2026-10-01T16:37:32.186Z"
+  - id: JY8T325XB4VZ2F6DZRPYY7XEHD
+    epicId: 25Y3EMKGPZBZEHKRC5STM8Z2JC
+    title: Build permission-cleared evaluation program
+    userStory: As a release owner, I want held-out datasets and reproducible metrics so that quality claims are defensible.
+    acceptanceCriteria:
+      - Fixtures span layouts, currencies, languages, scans, missing fields, and tables
+      - Tuning and held-out sets are separated
+      - Accuracy, invention, evidence, correction effort, latency, and cost are measured
+    priority: critical
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:36.148Z"
+    updatedAt: "2026-10-01T16:37:36.148Z"
+  - id: 99JY71R6GRKG8SXDWD92357XNV
+    epicId: 25Y3EMKGPZBZEHKRC5STM8Z2JC
+    title: Create deployment backup and upgrade profiles
+    userStory: As a self-hosting operator, I want repeatable installation and verified recovery.
+    acceptanceCriteria:
+      - Local evaluation, operational, combined, and local-inference profiles are documented
+      - Backup and restore include objects and database references
+      - Migrations and compatible upgrades are tested
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:36.148Z"
+    updatedAt: "2026-10-01T16:37:36.148Z"
+  - id: 7EGC5PWY8MQB5BKQKTR05DWBPQ
+    epicId: 25Y3EMKGPZBZEHKRC5STM8Z2JC
+    title: Publish release and contributor evidence
+    userStory: As an adopter, I want supported capabilities and limitations stated clearly.
+    acceptanceCriteria:
+      - Quickstarts, contracts, recovery guides, security reporting, and contribution guidance are published
+      - Release benchmarks include scope and configuration
+      - License and extension compatibility policy are recorded
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-01T16:37:36.149Z"
+    updatedAt: "2026-10-01T16:37:36.149Z"
+  - id: STORY-001
+    title: Establish the first invoice benchmark and extension conformance suite
+    description: Implements REQ-015 by defining a representative English supplier-invoice corpus for native PDF, scanned PDF, PNG, and JPEG while testing that shared processing contracts remain language- and document-class-neutral.
+    epicId: 25Y3EMKGPZBZEHKRC5STM8Z2JC
+    status: backlog
+    storyPoints: 1
+    priority: critical
+    standards: []
+    relatedRequirements: []
+    acceptanceCriteria:
+      - The corpus includes permission-cleared native PDFs, scanned PDFs, PNGs, and JPEGs across multiple supplier layouts and source qualities.
+      - Ground truth covers normalized values and supporting source evidence.
+      - Results separate missing values, invented values, field accuracy, table quality, evidence coverage, latency, cost, and correction effort.
+      - A new document class, language, parser, and evidence representation can be introduced through documented extension contracts without changing core lifecycle aggregates.
+      - Supported scope and known limitations are published with benchmark results.
+    dependsOn:
+      - C37NZW5X9ASZRS7XHZ7W56MG8V
+      - 4PJTJVE73D2MN7GT64T48S05HT
+      - XPNG59AKNVHXYMPRFWR71DSE0C
+    createdAt: "2026-10-01T16:45:47.491Z"
+    updatedAt: "2026-10-01T16:45:47.491Z"
+  - id: STORY-002
+    title: Implement contextual schema resolution and composition
+    description: Implements REQ-016 and the schema-driven record ADR. Resolve dynamic record structures from document classification and governed operating context without embedding document-specific fields in core models.
+    epicId: 0QDXE9R7PY4N4E743SZ1NHH6Z4
+    status: backlog
+    storyPoints: 1
+    priority: critical
+    standards: []
+    relatedRequirements: []
+    acceptanceCriteria:
+      - Resolution inputs can include document class, tenant, workflow, jurisdiction, destination, and versioned external references.
+      - Precedence and composition rules are deterministic, validated, and explainable.
+      - Every extraction run and record revision stores the resolved schema identifier, version, resolution inputs, and relevant context versions.
+      - Later configuration or external-data changes cannot reinterpret an existing run or revision.
+      - Adding a schema pack or resolver input does not require changing core document, record, review, approval, or delivery aggregates.
+    dependsOn:
+      - 4PJTJVE73D2MN7GT64T48S05HT
+      - C37NZW5X9ASZRS7XHZ7W56MG8V
+    createdAt: "2026-10-01T16:48:07.988Z"
+    updatedAt: "2026-10-01T16:48:07.988Z"
+  - id: STORY-003
+    title: Build governed schema discovery and evolution workflow
+    description: Implements REQ-017 by turning unfamiliar fields and structures into reviewable schema suggestions rather than silently changing authoritative records.
+    epicId: 0QDXE9R7PY4N4E743SZ1NHH6Z4
+    status: backlog
+    storyPoints: 1
+    priority: high
+    standards: []
+    relatedRequirements: []
+    acceptanceCriteria:
+      - Unexpected provider fields are retained as raw output or explicit unmapped candidates and never silently inserted into authoritative records.
+      - Suggestions retain their document, provider, evidence, type inference, and occurrence context.
+      - Authorized users can accept, rename, type, constrain, group, reject, and document suggested fields in a draft schema.
+      - Draft schemas can be evaluated against representative documents and compared with the current published version.
+      - Publishing creates a new immutable schema version and does not reinterpret existing extraction runs or record revisions.
+      - Schema discovery and publication actions are permission-controlled and auditable.
+    dependsOn:
+      - 4PJTJVE73D2MN7GT64T48S05HT
+      - STORY-002
+    createdAt: "2026-10-01T16:50:46.326Z"
+    updatedAt: "2026-10-01T16:50:46.326Z"
+  - id: STORY-004
+    title: Evaluate and implement the realtime subscription port
+    description: Implements REQ-018. Establish transport-neutral realtime contracts, then compare self-hosted WebSockets, Server-Sent Events, and an optional managed adapter such as Firebase before selecting defaults.
+    epicId: 0CVR0SEFHTXKEBZRPF89A9RBXV
+    status: backlog
+    storyPoints: 1
+    priority: medium
+    standards: []
+    relatedRequirements: []
+    acceptanceCriteria:
+      - The application publishes realtime notifications only after durable state commits.
+      - Subscriptions enforce tenant and action permissions and support revocation.
+      - Messages include resource identity and version so clients can detect gaps and refresh through the REST API.
+      - WebSockets, Server-Sent Events, and an optional managed provider are compared for self-hosting, authorization, scaling, recovery, operational burden, and cost.
+      - The selected default and any optional adapter are recorded in an ADR and covered by reconnect, duplicate, stale, and missed-message tests.
+      - No realtime transport becomes the authoritative store for Evidentia records.
+    dependsOn:
+      - ASQKQ6YH4S8G6SDQ6XN7BHYM8E
+      - BNPAYSRAD7TJQ56MBQRP1BAHJQ
+    createdAt: "2026-10-01T17:01:13.325Z"
+    updatedAt: "2026-10-01T17:01:13.325Z"
+  - id: STORY-005
+    title: Define the Evidentia monorepo structure
+    description: Define the repository layout for the Python backend, independently runnable API and worker entry points, React frontend, generated SDKs, versioned contracts, tests, evaluation fixtures, infrastructure, and documentation while keeping Delibera in a separate repository.
+    epicId: CP8QDFDKKC659SR1GFMDBPCHG6
+    status: done
+    storyPoints: 1
+    priority: critical
+    standards: []
+    relatedRequirements: []
+    acceptanceCriteria:
+      - The backend package layout maps explicitly to the accepted bounded contexts.
+      - API, worker, and frontend are independently runnable and deployable from one repository.
+      - OpenAPI, event contracts, generated SDKs, tests, fixtures, infrastructure, and documentation have clear ownership and locations.
+      - Generated files and source-of-truth contracts are distinguishable.
+      - Delibera code is excluded and integration occurs only through versioned public contracts.
+      - CI and architecture-check locations are identified without selecting unapproved tools.
+    dependsOn: []
+    createdAt: "2026-10-01T17:20:25.791Z"
+    updatedAt: "2026-10-01T17:22:51.739Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-01T17:20:45.939Z"
+    completedAt: "2026-10-01T17:22:51.739Z"
+  - id: STORY-006
+    title: Select the Evidentia development toolchain
+    description: Select supported runtimes and contributor tooling for Python, TypeScript, PostgreSQL, dependency locking, ORM and migrations, formatting, linting, type checking, testing, OpenAPI compatibility, generated clients, architecture checks, and provider-neutral CI gates.
+    epicId: CP8QDFDKKC659SR1GFMDBPCHG6
+    status: done
+    storyPoints: 1
+    priority: critical
+    standards: []
+    relatedRequirements: []
+    acceptanceCriteria:
+      - Selections are based on currently supported stable releases and primary documentation.
+      - Python, Node.js, PostgreSQL, package-manager, ORM, migration, lint, format, type-check, test, and contract workflows are specified.
+      - Frontend and backend commands can be reproduced locally and in provider-neutral CI.
+      - Version ranges, lockfile ownership, generated artifacts, and upgrade policy are defined.
+      - Deferred parser, inference, worker, realtime, and CI-host decisions remain explicit.
+      - The resulting ADR, technology declarations, and repository documentation agree.
+    dependsOn: []
+    createdAt: "2026-10-01T17:24:32.246Z"
+    updatedAt: "2026-10-01T17:31:04.346Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-01T17:24:53.153Z"
+    completedAt: "2026-10-01T17:31:04.346Z"
+  - id: STORY-007
+    title: Bootstrap the governed monorepo and locked toolchains
+    description: Implements the engineering foundation for REQ-012, NFR-004, and NFR-008 under ADR 2GQD4NWDSA1Q4J9TQYCW291KR9. Create only the accepted repository roots and runnable package skeletons; do not implement business workflows.
+    epicId: CG7VFRWAF177CMZK333E19YND1
+    status: done
+    storyPoints: 5
+    priority: critical
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-012
+      - NFR-004
+      - NFR-008
+    acceptanceCriteria:
+      - Root runtime configuration pins Python 3.14.x and Node.js 24 LTS and documents PostgreSQL 18.x.
+      - A uv workspace covers the backend and Python SDK with one committed uv.lock produced from declared dependencies.
+      - A pnpm workspace covers the frontend and TypeScript SDK with one committed pnpm-lock.yaml and rejects workspace cycles.
+      - Backend API and worker packages plus the React/Vite application have minimal runnable entrypoints in their accepted repository locations.
+      - Provider-neutral commands exist for bootstrap, format-check, lint, type-check, unit tests, and generated-file checks.
+      - Fresh-checkout setup instructions reproduce the workspace without relying on globally floating package versions.
+    dependsOn: []
+    createdAt: "2026-10-01T17:34:38.318Z"
+    updatedAt: "2026-10-02T03:12:47.886Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-01T17:41:10.273Z"
+    completedAt: "2026-10-02T03:12:47.886Z"
+  - id: STORY-008
+    title: Create bounded-context package skeletons and executable boundary tests
+    description: Implements NFR-008 and the accepted bounded-context, modular-monolith, and repository decisions. Every exported test symbol or production symbol introduced by this story carries the applicable Skyhook annotation.
+    epicId: CG7VFRWAF177CMZK333E19YND1
+    status: done
+    storyPoints: 5
+    priority: critical
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-ARCH-004
+      - STD-DEV-001
+    relatedRequirements:
+      - NFR-008
+    acceptanceCriteria:
+      - All accepted backend bounded contexts exist as importable src-layout packages with documented public surfaces.
+      - Domain packages cannot import FastAPI, SQLAlchemy, entrypoints, or infrastructure packages.
+      - Cross-module imports are limited to declared public application or contract surfaces.
+      - Import Linter and repository-owned architecture tests fail on representative forbidden dependency and circular-import fixtures.
+      - API and worker composition roots can import modules without modules importing either entrypoint.
+      - The architecture checks run through the provider-neutral quality command.
+    dependsOn:
+      - STORY-007
+    tasks:
+      - MH5NTGAWXFX9RS65Z1CAST13X8
+      - 0P2Q18S7JJVZMWC0XZW6793XNG
+      - 88WD0RN7M46MBNDS469VBNSC0B
+      - R5TKQHSSMXWZYVH4FS7076N2N8
+      - D1KWVTV4A2PCZDQ1YY4TV1C9K1
+    createdAt: "2026-10-01T17:35:34.054Z"
+    updatedAt: "2026-10-02T18:00:49.838Z"
+    startedAt: "2026-10-02T17:47:53.873Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    completedAt: "2026-10-02T18:00:49.838Z"
+  - id: STORY-009
+    title: Establish secure configuration and the local Compose runtime
+    description: Implements REQ-014, NFR-004, NFR-006, CON-004, and CON-005. The local profile is a supported adapter composition, not a separate architecture.
+    epicId: CG7VFRWAF177CMZK333E19YND1
+    status: ready
+    storyPoints: 5
+    priority: critical
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-014
+      - NFR-004
+      - NFR-006
+      - CON-004
+      - CON-005
+    acceptanceCriteria:
+      - Typed configuration has explicit development, test, and production validation with fail-closed handling of missing production secrets.
+      - Docker Compose starts PostgreSQL 18, the API, worker, web application, and local object/file storage composition with health checks.
+      - Environment examples contain no usable credentials and generated secrets, documents, caches, and database volumes are excluded from version control.
+      - Structured startup logs include service, environment, version, and correlation-ready metadata without secret values.
+      - Health and readiness behavior distinguishes process liveness from dependency readiness.
+      - One documented command starts and one documented command verifies the local stack.
+    dependsOn:
+      - STORY-007
+    tasks:
+      - FV595298S33682ZG245328MQZP
+      - 6Q6NJ2B20NAPY0N9J3TV8N79YW
+      - VK91GGAY4ZF479Y492W6BW17Q9
+      - XBM1A9G9QASGFZN646J27J0PZK
+      - M4DDMT8R1JZ1ZN0MXJBQ5BTWAJ
+    createdAt: "2026-10-01T17:35:37.121Z"
+    updatedAt: "2026-10-02T03:13:04.724Z"
+  - id: STORY-010
+    title: Build module-owned migrations and tenant-safe persistence primitives
+    description: Implements NFR-002, NFR-007, NFR-008, CON-003, and CON-005. This establishes shared persistence mechanics but does not create a shared business-domain model.
+    epicId: CG7VFRWAF177CMZK333E19YND1
+    status: backlog
+    storyPoints: 8
+    priority: critical
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-ARCH-004
+      - STD-DEV-001
+    relatedRequirements:
+      - NFR-002
+      - NFR-007
+      - NFR-008
+      - CON-003
+      - CON-005
+    acceptanceCriteria:
+      - SQLAlchemy 2 async and psycopg 3 connection/session factories use explicit transaction and tenant execution context.
+      - Alembic supports module-owned migration locations with deterministic upgrade order and a single operational command.
+      - A minimal tenant registry and audit-safe identifier primitives are owned by the access module; other modules reference tenant identity without ORM relationships to access tables.
+      - Repository helpers require trusted tenant context and reject missing or conflicting tenant scope.
+      - Integration tests use disposable PostgreSQL 18 containers and demonstrate rejection of a cross-tenant read and write.
+      - Migration upgrade, downgrade policy, schema drift detection, and empty-database bootstrap are documented and tested.
+    dependsOn:
+      - STORY-008
+      - STORY-009
+    tasks:
+      - YJFG8ES4230YKCM9TSSFRTPGFV
+      - WCSV13692MDV23NE5YAGGHWAYD
+      - WBG3FHGC0HGN7CEF17XZMVDHEC
+      - 1ZK15F4E4G2SZQMM470PM7P2YD
+      - FF1VNW6C6T7MVC6MQ2C4RAHXN5
+    createdAt: "2026-10-01T17:35:40.572Z"
+    updatedAt: "2026-10-01T17:35:40.572Z"
+  - id: STORY-011
+    title: Implement trusted identity, tenant context, and authorization hooks
+    description: Implements NFR-002, CON-004, and CON-005. Provide local authentication for standalone operation and an OIDC adapter boundary without making an external identity provider mandatory.
+    epicId: CG7VFRWAF177CMZK333E19YND1
+    status: backlog
+    storyPoints: 8
+    priority: critical
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-DEV-001
+    relatedRequirements:
+      - NFR-002
+      - CON-004
+      - CON-005
+    acceptanceCriteria:
+      - Local authentication supports secure password hashing, session or token invalidation, bootstrap administration, and rate-limit hooks without default shared credentials.
+      - An OIDC validation adapter maps verified issuer, audience, subject, and claims into the same internal principal contract.
+      - Tenant context is derived from authenticated membership or trusted worker context and never solely from a request body, query, or unverified header.
+      - Application authorization hooks evaluate principal, tenant, action, and resource context and deny by default.
+      - Worker context has an authenticated system identity, initiating actor where applicable, tenant scope, and correlation/causation identifiers.
+      - Security tests cover tenant spoofing, disabled membership, invalid tokens, missing context, and sensitive-log redaction.
+    dependsOn:
+      - STORY-010
+    tasks:
+      - TQYHB4XBMDACH1KDSYQGZQJNA1
+      - 4JNVFG5S5T9VHM46DFB396TJDJ
+      - J140S2TCZ5M9FNDMWSAH0F7YKT
+      - APZA7WW1DE272JH9EZKHH5AQ83
+      - 58T1AD5JEJSBBMP5EAFVYYN0DX
+    createdAt: "2026-10-01T17:35:44.989Z"
+    updatedAt: "2026-10-01T17:35:44.989Z"
+  - id: STORY-012
+    title: Establish versioned API, errors, correlation, and OpenAPI generation
+    description: Implements REQ-012, NFR-006, and NFR-008. HTTP routes remain thin adapters to application ports.
+    epicId: CG7VFRWAF177CMZK333E19YND1
+    status: backlog
+    storyPoints: 5
+    priority: critical
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-004
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-012
+      - NFR-006
+      - NFR-008
+    acceptanceCriteria:
+      - The API has an explicit versioning convention, stable error envelope, pagination convention, request limits, and correlation identifier propagation.
+      - Authentication, tenant, authorization, validation, conflict, rate-limit, and unexpected failures map to documented non-leaking responses.
+      - Every operation has a stable unique operationId, bounded-context tag, response model, authorization description, and relevant idempotency semantics.
+      - OpenAPI 3.1 exports deterministically to contracts/openapi and validates without contacting external services.
+      - oasdiff compares the contract with the merge-base version and fails on unapproved breaking changes.
+      - A generated TypeScript client and Python client reproduce from pinned generators and pass build/type smoke tests.
+    dependsOn:
+      - STORY-008
+      - STORY-011
+    tasks:
+      - RNCKN65TQF82EC2C9S2M69DPFW
+      - WEZARFV69Q3ZW23FJCJ9PGP36C
+      - NTHQRKDGX4V7TTAVYS8BEE00JM
+      - YF7GZD3TZ318QGG2V5AAZ3R28N
+      - 553PG6YBGDPXN7XT6V2J95T3X2
+    createdAt: "2026-10-01T17:35:48.164Z"
+    updatedAt: "2026-10-01T17:35:48.164Z"
+  - id: STORY-013
+    title: Build the accessible application shell and generated-client boundary
+    description: Implements REQ-012 and NFR-005. This story establishes reusable interaction infrastructure without hard-coding invoice-specific fields.
+    epicId: CG7VFRWAF177CMZK333E19YND1
+    status: backlog
+    storyPoints: 5
+    priority: high
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-012
+      - NFR-005
+    acceptanceCriteria:
+      - React, TypeScript, Vite, Tailwind, and Radix UI form a runnable shell with route, layout, theme-token, and error-boundary conventions.
+      - The frontend consumes only the generated/supported API client for backend calls and has centralized authentication and correlation handling.
+      - Tenant identity and current principal are visible and switching or selecting tenant scope cannot be performed through an untrusted arbitrary identifier.
+      - Keyboard navigation, focus management, landmarks, contrast tokens, reduced-motion handling, and automated jsx-a11y checks meet the baseline for WCAG 2.1 AA.
+      - Vitest and Testing Library cover shell navigation, loading, empty, forbidden, and failure states.
+      - No document-class-specific form fields are introduced into the shared shell.
+    dependsOn:
+      - STORY-007
+      - STORY-012
+    tasks:
+      - H1415C2QNPYT3ASVCKZT2VR71P
+      - FDDXY2CJ89633714J3JQXFGTC4
+      - QB1HWDBRYHG9A8XMW8NWGSZSHA
+      - YVR9J8NZ0KKC702GD8KBNKNX9R
+      - 0203XS0XEJA6WAXJE453SDXKEY
+    createdAt: "2026-10-01T17:35:51.375Z"
+    updatedAt: "2026-10-01T17:35:51.375Z"
+  - id: STORY-014
+    title: Create the worker composition root and durable work port
+    description: Implements REQ-014, NFR-002, NFR-003, and NFR-006. This creates the composition and port contract; selection of the production durable-job engine remains governed by story DC2ZQWDS83EVZ95JRJERYN90RP.
+    epicId: CG7VFRWAF177CMZK333E19YND1
+    status: backlog
+    storyPoints: 5
+    priority: critical
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-014
+      - NFR-002
+      - NFR-003
+      - NFR-006
+    acceptanceCriteria:
+      - The worker entrypoint starts independently, reports liveness/readiness, and shuts down gracefully.
+      - A versioned work-envelope contract includes tenant, job type, payload version, idempotency key, attempt, correlation, causation, actor/system identity, and trace metadata.
+      - Application modules depend on a durable-work scheduling port rather than a queue framework.
+      - Dispatch rejects unknown job or payload versions and missing trusted tenant context.
+      - A deterministic in-process test adapter supports unit tests but is explicitly not the production durability implementation.
+      - Contract tests prove retry classification, cancellation signaling, idempotency handoff, and context restoration behavior.
+    dependsOn:
+      - STORY-008
+      - STORY-010
+      - STORY-011
+    tasks:
+      - 0WTGARHRNTRC7N7WYVZYHV1JAQ
+      - P8J3196REQF7M8DXVH698M97TQ
+      - MZ0QNT1YHKY49ETEG90SF13W6A
+      - 00NQ03THY3ECYEWHC8FQHEZ9FX
+      - G415QTQM57QT5BVB8HXCD9QSWG
+    createdAt: "2026-10-01T17:35:54.534Z"
+    updatedAt: "2026-10-01T17:35:54.534Z"
+  - id: STORY-015
+    title: Implement provider-neutral continuous quality and supply-chain gates
+    description: Implements REQ-012, REQ-014, NFR-004, NFR-008, and NFR-009 according to STD-DEV-001.
+    epicId: CG7VFRWAF177CMZK333E19YND1
+    status: backlog
+    storyPoints: 8
+    priority: critical
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-012
+      - REQ-014
+      - NFR-004
+      - NFR-008
+      - NFR-009
+    acceptanceCriteria:
+      - Provider-neutral commands enforce frozen installs, format, lint, strict typing, unit tests, architecture rules, Skyhook policies/standards/traceability, and generated-file cleanliness.
+      - OpenAPI validation, oasdiff, SDK regeneration, PostgreSQL integration tests, and selected Playwright journeys are separate composable jobs.
+      - Secret, dependency, license-policy, and container vulnerability scans have documented severity and exception policies.
+      - API, worker, and web production artifacts build reproducibly and pass startup and health smoke tests.
+      - Jobs support caching and parallel execution without making correctness depend on cache contents.
+      - A CI-provider adapter can call the commands without reimplementing business validation in provider YAML.
+    dependsOn:
+      - STORY-008
+      - STORY-009
+      - STORY-010
+      - STORY-012
+      - STORY-013
+      - STORY-014
+    tasks:
+      - MKMZQ1Z3WR8YMR3XEEAKQF47CH
+      - BYFMPYZA71E5H65HA3GCP3RM97
+      - G64RKEWH5C4DFGN53NFMYSA1XB
+      - DZV8X4BAZ3XQXXEVZ80ABCS0VS
+      - C55W6NV4W420XTMBHB5RK2MQXY
+    createdAt: "2026-10-01T17:35:58.548Z"
+    updatedAt: "2026-10-01T17:35:58.548Z"
+  - id: STORY-016
+    title: Prove the tenant-aware API-worker-web walking skeleton
+    description: Gate 0 exit story implementing cross-cutting portions of REQ-012, REQ-014, NFR-002, NFR-003, NFR-004, NFR-005, NFR-006, and NFR-008. It uses a neutral diagnostic resource, not a fake document workflow.
+    epicId: CG7VFRWAF177CMZK333E19YND1
+    status: backlog
+    storyPoints: 5
+    priority: critical
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-ARCH-004
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-012
+      - REQ-014
+      - NFR-002
+      - NFR-003
+      - NFR-004
+      - NFR-005
+      - NFR-006
+      - NFR-008
+    acceptanceCriteria:
+      - A fresh checkout can start the supported local stack and apply all migrations through documented commands.
+      - An authenticated local user can load the web shell and call a tenant-scoped versioned diagnostic API through the generated client.
+      - The API can schedule a diagnostic work envelope through the test/local adapter and the worker restores tenant and correlation context.
+      - A second tenant cannot read the first tenant's diagnostic resource through API, repository, cache, storage key, or worker context.
+      - OpenAPI and SDK artifacts reproduce and all required Gate 0 quality checks pass from a clean workspace.
+      - The Gate 0 runbook records supported capabilities, known non-capabilities, troubleshooting, and the next enabled product stories.
+    dependsOn:
+      - STORY-009
+      - STORY-011
+      - STORY-012
+      - STORY-013
+      - STORY-014
+      - STORY-015
+    tasks:
+      - RNKXVD2RV7TXHAQKZDSFCDH6EW
+      - 6RMGBHG0CQ25Q4ZG08HFX1DRX4
+      - E3CTNQKVW6HREV84JBYH10D625
+      - Z905R4Q96N5Q7T69HRPP101SNA
+      - 0SDFG842JNTB1BS8G595CKF0E0
+      - BC3ZF3K4AR4ZNW7CV1P87NHJD2
+    createdAt: "2026-10-01T17:36:02.289Z"
+    updatedAt: "2026-10-01T17:36:02.289Z"
+tasks:
+  - id: MH5NTGAWXFX9RS65Z1CAST13X8
+    title: "Pass 008.1: Declare bounded-context package map"
+    description: Defines the authoritative backend context inventory and public surfaces so later packages have explicit ownership and dependency direction.
+    type: task
+    storyId: STORY-008
+    status: ready
+    priority: 100
+    estimate: "{ value: 3, unit: hours, confidence: 0.8 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-ARCH-004
+    technicalNotes: Deliver the context-to-package map, allowed dependency matrix, public API naming convention, and architecture-test fixtures. Verify every accepted context has one owner and no ambiguous shared-domain package.
+    dependencies: []
+    metadata:
+      implementationPass: "008.1"
+      feature: Bounded-context ownership map
+      contribution: Establishes the module boundaries that every later backend feature must respect.
+      outOfScope: Production domain behavior and persistence models.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: 0P2Q18S7JJVZMWC0XZW6793XNG
+    title: "Pass 008.2: Scaffold context packages and public surfaces"
+    description: Creates importable src-layout packages and minimal public application or contract surfaces for every bounded context.
+    type: task
+    storyId: STORY-008
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-DEV-001
+    technicalNotes: Add package skeletons, package documentation, explicit exports, and composition hooks. Verify API and worker roots import modules while modules remain independent of entrypoints.
+    dependencies:
+      - MH5NTGAWXFX9RS65Z1CAST13X8
+    metadata:
+      implementationPass: "008.2"
+      feature: Importable bounded-context skeletons
+      contribution: Provides stable locations and public seams for incremental domain implementation.
+      outOfScope: Concrete adapters and database schemas.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: 88WD0RN7M46MBNDS469VBNSC0B
+    title: "Pass 008.3: Enforce architectural import contracts"
+    description: Adds executable import rules that prohibit framework leakage into domains and unauthorized cross-context dependencies.
+    type: task
+    storyId: STORY-008
+    status: backlog
+    priority: 100
+    estimate: "{ value: 4, unit: hours, confidence: 0.8 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+    technicalNotes: Configure Import Linter contracts for domain purity, entrypoint direction, infrastructure isolation, and context public surfaces. Verification must fail on a controlled forbidden import.
+    dependencies:
+      - 0P2Q18S7JJVZMWC0XZW6793XNG
+    metadata:
+      implementationPass: "008.3"
+      feature: Automated module-boundary enforcement
+      contribution: Converts the architectural design into continuously enforceable rules.
+      outOfScope: Runtime authorization and tenant isolation.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: R5TKQHSSMXWZYVH4FS7076N2N8
+    title: "Pass 008.4: Prove forbidden and circular dependencies fail"
+    description: Adds repository-owned negative fixtures and cycle tests so architecture checks are proven effective rather than merely configured.
+    type: task
+    storyId: STORY-008
+    status: backlog
+    priority: 100
+    estimate: "{ value: 4, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-DEV-001
+    technicalNotes: Create isolated fixtures for framework-in-domain, private cross-context import, entrypoint inversion, and circular dependency. Assert each produces a useful diagnostic.
+    dependencies:
+      - 88WD0RN7M46MBNDS469VBNSC0B
+    metadata:
+      implementationPass: "008.4"
+      feature: Architecture rule regression suite
+      contribution: Prevents silent erosion of DDD boundaries as the codebase grows.
+      outOfScope: Product behavior tests.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: D1KWVTV4A2PCZDQ1YY4TV1C9K1
+    title: "Pass 008.5: Integrate boundary checks into quality commands"
+    description: Makes architectural validation part of the normal provider-neutral development workflow and documents extension rules.
+    type: task
+    storyId: STORY-008
+    status: backlog
+    priority: 100
+    estimate: "{ value: 3, unit: hours, confidence: 0.85 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Wire checks into ci/check.sh and Make targets, document how to add a context or public contract, then run all quality and Skyhook governance checks.
+    dependencies:
+      - R5TKQHSSMXWZYVH4FS7076N2N8
+    metadata:
+      implementationPass: "008.5"
+      feature: Governed architecture-check workflow
+      contribution: Ensures local and CI execution enforce the same module rules.
+      outOfScope: CI-provider configuration.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: FV595298S33682ZG245328MQZP
+    title: "Pass 009.1: Implement typed environment configuration"
+    description: Introduces validated development, test, and production settings with fail-closed production secret handling.
+    type: task
+    storyId: STORY-009
+    status: ready
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.8 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Define typed settings, source precedence, safe defaults, secret types, and validation tests. Production startup must reject missing or placeholder credentials.
+    dependencies: []
+    metadata:
+      implementationPass: "009.1"
+      feature: Secure typed configuration
+      contribution: Gives every service one predictable and testable configuration contract.
+      outOfScope: External secret-manager adapters.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: 6Q6NJ2B20NAPY0N9J3TV8N79YW
+    title: "Pass 009.2: Add structured startup logging and health semantics"
+    description: Adds non-secret startup metadata plus distinct liveness and dependency-readiness behavior for API and worker processes.
+    type: task
+    storyId: STORY-009
+    status: backlog
+    priority: 100
+    estimate: "{ value: 4, unit: hours, confidence: 0.8 }"
+    standards:
+      - STD-DEV-001
+    technicalNotes: Emit service, environment, version, and correlation-ready fields; redact secrets; add readiness dependency probes and tests that distinguish live from ready.
+    dependencies:
+      - FV595298S33682ZG245328MQZP
+    metadata:
+      implementationPass: "009.2"
+      feature: Observable service startup and health
+      contribution: Makes local orchestration and future operations diagnose service state correctly.
+      outOfScope: Full telemetry backend and dashboards.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: VK91GGAY4ZF479Y492W6BW17Q9
+    title: "Pass 009.3: Build reproducible service containers"
+    description: Creates pinned development container definitions for API, worker, and web services with secure runtime defaults.
+    type: task
+    storyId: STORY-009
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.7 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Add container files and ignore rules, non-root execution where practical, deterministic dependency installation, startup commands, and image smoke tests.
+    dependencies:
+      - 6Q6NJ2B20NAPY0N9J3TV8N79YW
+    metadata:
+      implementationPass: "009.3"
+      feature: Containerized application services
+      contribution: Makes service execution reproducible across contributor machines and CI.
+      outOfScope: Production deployment manifests.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: XBM1A9G9QASGFZN646J27J0PZK
+    title: "Pass 009.4: Compose PostgreSQL and local object storage"
+    description: Provides the supported local runtime containing PostgreSQL 18, application services, and provider-neutral local object storage.
+    type: task
+    storyId: STORY-009
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Add Compose services, named volumes, internal networking, health checks, dependency conditions, and pinned images. Verify clean startup and service readiness.
+    dependencies:
+      - VK91GGAY4ZF479Y492W6BW17Q9
+    metadata:
+      implementationPass: "009.4"
+      feature: Complete local Compose runtime
+      contribution: Supplies the infrastructure baseline required by persistence and ingestion work.
+      outOfScope: Cloud object-storage configuration and database schema migrations.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: M4DDMT8R1JZ1ZN0MXJBQ5BTWAJ
+    title: "Pass 009.5: Secure and document local runtime operations"
+    description: Adds safe environment examples and one-command start and verification workflows for a fresh checkout.
+    type: task
+    storyId: STORY-009
+    status: backlog
+    priority: 100
+    estimate: "{ value: 3, unit: hours, confidence: 0.85 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Provide non-usable example credentials, generated-secret guidance, ignore coverage, bootstrap and verify commands, teardown guidance, and troubleshooting.
+    dependencies:
+      - XBM1A9G9QASGFZN646J27J0PZK
+    metadata:
+      implementationPass: "009.5"
+      feature: Safe local-runtime runbook
+      contribution: Lets contributors reproduce and validate the supported development environment safely.
+      outOfScope: Production operations runbooks.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: YJFG8ES4230YKCM9TSSFRTPGFV
+    title: "Pass 010.1: Establish async database runtime"
+    description: Adds SQLAlchemy 2 async and psycopg 3 connection, session, transaction, and tenant execution-context primitives.
+    type: task
+    storyId: STORY-010
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-004
+    technicalNotes: Implement infrastructure-level factories and explicit transaction boundaries with tests for commit, rollback, disposal, and missing tenant context.
+    dependencies: []
+    metadata:
+      implementationPass: "010.1"
+      feature: Tenant-aware async persistence runtime
+      contribution: Provides safe database mechanics without creating a shared business model.
+      outOfScope: Domain repositories and tables beyond foundation primitives.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: WCSV13692MDV23NE5YAGGHWAYD
+    title: "Pass 010.2: Create access-owned tenant primitives"
+    description: Establishes the minimal tenant registry and audit-safe identifiers owned exclusively by the access context.
+    type: task
+    storyId: STORY-010
+    status: backlog
+    priority: 100
+    estimate: "{ value: 4, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+    technicalNotes: Define tenant identifiers, registry model, public contracts, and migration ownership. Other contexts may store scalar tenant IDs but no ORM relationship to access tables.
+    dependencies:
+      - YJFG8ES4230YKCM9TSSFRTPGFV
+    metadata:
+      implementationPass: "010.2"
+      feature: Canonical tenant identity primitives
+      contribution: Establishes safe tenant references while preserving bounded-context ownership.
+      outOfScope: Membership, authentication, and authorization behavior.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: WBG3FHGC0HGN7CEF17XZMVDHEC
+    title: "Pass 010.3: Implement module-owned migration orchestration"
+    description: Adds Alembic migration locations per module with deterministic ordering and one operational command.
+    type: task
+    storyId: STORY-010
+    status: backlog
+    priority: 100
+    estimate: "{ value: 6, unit: hours, confidence: 0.7 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Create migration registry and conventions, deterministic upgrade runner, empty-database bootstrap, and upgrade tests against PostgreSQL 18.
+    dependencies:
+      - WCSV13692MDV23NE5YAGGHWAYD
+    metadata:
+      implementationPass: "010.3"
+      feature: Module-owned database migrations
+      contribution: Allows contexts to evolve storage independently without losing operational consistency.
+      outOfScope: Product-domain migrations not yet required.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: 1ZK15F4E4G2SZQMM470PM7P2YD
+    title: "Pass 010.4: Enforce tenant-scoped repository access"
+    description: Adds repository helpers that require trusted tenant context and reject absent or conflicting scope.
+    type: task
+    storyId: STORY-010
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.7 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+    technicalNotes: Implement tenant predicates, scoped unit-of-work helpers, invariant checks, and representative read/write repositories with explicit failure modes.
+    dependencies:
+      - WBG3FHGC0HGN7CEF17XZMVDHEC
+    metadata:
+      implementationPass: "010.4"
+      feature: Tenant-safe repository foundation
+      contribution: Makes tenant isolation the default persistence behavior rather than caller convention.
+      outOfScope: HTTP identity derivation and user permissions.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: FF1VNW6C6T7MVC6MQ2C4RAHXN5
+    title: "Pass 010.5: Prove isolation and migration safety"
+    description: Adds disposable PostgreSQL integration tests, schema drift checks, and migration operational documentation.
+    type: task
+    storyId: STORY-010
+    status: backlog
+    priority: 100
+    estimate: "{ value: 6, unit: hours, confidence: 0.7 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Test empty bootstrap, upgrade ordering, cross-tenant read/write rejection, conflicting context, and schema drift; document downgrade and recovery policy.
+    dependencies:
+      - 1ZK15F4E4G2SZQMM470PM7P2YD
+    metadata:
+      implementationPass: "010.5"
+      feature: Persistence safety verification
+      contribution: Supplies evidence that the persistence foundation protects tenant boundaries and evolves predictably.
+      outOfScope: Production backup automation.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: TQYHB4XBMDACH1KDSYQGZQJNA1
+    title: "Pass 011.1: Define principal and membership contracts"
+    description: Defines the internal principal, tenant membership, action, resource, and trusted execution-context contracts shared by authentication adapters.
+    type: task
+    storyId: STORY-011
+    status: backlog
+    priority: 100
+    estimate: "{ value: 4, unit: hours, confidence: 0.8 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+    technicalNotes: Specify immutable value objects and application ports with deny-by-default semantics, actor/system identity, correlation, and causation fields.
+    dependencies: []
+    metadata:
+      implementationPass: "011.1"
+      feature: Trusted identity contract
+      contribution: Gives local and external identity providers one security model.
+      outOfScope: Credential verification implementations.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: 4JNVFG5S5T9VHM46DFB396TJDJ
+    title: "Pass 011.2: Implement secure local authentication"
+    description: Adds standalone authentication with secure password hashing, bootstrap administration, invalidation, and rate-limit hooks.
+    type: task
+    storyId: STORY-011
+    status: backlog
+    priority: 100
+    estimate: "{ value: 7, unit: hours, confidence: 0.65 }"
+    standards:
+      - STD-ARCH-001
+      - STD-DEV-001
+    technicalNotes: Implement credential storage and verification, safe first-admin bootstrap, session/token revocation, disabled accounts, and tests without shared default credentials.
+    dependencies:
+      - TQYHB4XBMDACH1KDSYQGZQJNA1
+    metadata:
+      implementationPass: "011.2"
+      feature: Standalone local identity provider
+      contribution: Keeps Evidentia deployable without requiring an external identity service.
+      outOfScope: User-facing account management UI.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: J140S2TCZ5M9FNDMWSAH0F7YKT
+    title: "Pass 011.3: Implement the OIDC validation adapter"
+    description: Adds a provider-neutral OIDC adapter that maps verified external claims into the internal principal contract.
+    type: task
+    storyId: STORY-011
+    status: backlog
+    priority: 100
+    estimate: "{ value: 6, unit: hours, confidence: 0.65 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-DEV-001
+    technicalNotes: Validate issuer, audience, signature, time claims, subject, and configured claim mappings; reject unverified tenant claims and cover key rotation/error cases.
+    dependencies:
+      - TQYHB4XBMDACH1KDSYQGZQJNA1
+    metadata:
+      implementationPass: "011.3"
+      feature: External OIDC identity adapter
+      contribution: Enables enterprise identity integration without coupling the core to one provider.
+      outOfScope: Provider-specific provisioning or administration.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: APZA7WW1DE272JH9EZKHH5AQ83
+    title: "Pass 011.4: Derive trusted request and worker context"
+    description: Builds tenant and actor context only from authenticated membership or trusted system execution data.
+    type: task
+    storyId: STORY-011
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.7 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+    technicalNotes: Add request and worker context factories, membership validation, correlation/causation propagation, and rejection of body/query/header tenant spoofing.
+    dependencies:
+      - 4JNVFG5S5T9VHM46DFB396TJDJ
+      - J140S2TCZ5M9FNDMWSAH0F7YKT
+    metadata:
+      implementationPass: "011.4"
+      feature: Trusted tenant execution context
+      contribution: Connects identity to tenant-safe application and persistence operations.
+      outOfScope: Fine-grained product permissions.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: 58T1AD5JEJSBBMP5EAFVYYN0DX
+    title: "Pass 011.5: Add authorization hooks and adversarial tests"
+    description: Implements deny-by-default authorization evaluation and security tests for common identity and tenant attacks.
+    type: task
+    storyId: STORY-011
+    status: backlog
+    priority: 100
+    estimate: "{ value: 6, unit: hours, confidence: 0.7 }"
+    standards:
+      - STD-ARCH-001
+      - STD-DEV-001
+    technicalNotes: Evaluate principal, tenant, action, and resource context; test spoofing, invalid tokens, disabled membership, missing context, revocation, and sensitive-log redaction.
+    dependencies:
+      - APZA7WW1DE272JH9EZKHH5AQ83
+    metadata:
+      implementationPass: "011.5"
+      feature: Application authorization foundation
+      contribution: Creates the secure enforcement seam used by every protected feature.
+      outOfScope: Delibera approval decisions and feature-specific policies.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: RNCKN65TQF82EC2C9S2M69DPFW
+    title: "Pass 012.1: Define the versioned HTTP contract conventions"
+    description: Establishes API versioning, stable errors, pagination, limits, idempotency, and operation naming conventions.
+    type: task
+    storyId: STORY-012
+    status: backlog
+    priority: 100
+    estimate: "{ value: 4, unit: hours, confidence: 0.8 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-004
+    technicalNotes: Document and encode reusable request/response models and route conventions, including stable operationId and bounded-context tagging rules.
+    dependencies: []
+    metadata:
+      implementationPass: "012.1"
+      feature: Versioned API contract baseline
+      contribution: Gives all future endpoints a predictable, evolvable external interface.
+      outOfScope: Document workflow endpoints.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: WEZARFV69Q3ZW23FJCJ9PGP36C
+    title: "Pass 012.2: Implement correlation and safe error middleware"
+    description: Adds correlation propagation and non-leaking error mappings for authentication, tenant, authorization, validation, conflict, rate, and unexpected failures.
+    type: task
+    storyId: STORY-012
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-001
+      - STD-DEV-001
+    technicalNotes: Implement middleware and exception adapters with structured logs and tests for response codes, envelopes, correlation headers, and secret/stack redaction.
+    dependencies:
+      - RNCKN65TQF82EC2C9S2M69DPFW
+    metadata:
+      implementationPass: "012.2"
+      feature: Safe API middleware foundation
+      contribution: Makes failures diagnosable to operators and stable for clients without leaking internals.
+      outOfScope: Distributed tracing exporter selection.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: NTHQRKDGX4V7TTAVYS8BEE00JM
+    title: "Pass 012.3: Add governed operation metadata"
+    description: Ensures each route declares stable identity, context ownership, response models, authorization meaning, and idempotency behavior.
+    type: task
+    storyId: STORY-012
+    status: backlog
+    priority: 100
+    estimate: "{ value: 4, unit: hours, confidence: 0.8 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-004
+    technicalNotes: Add reusable route helpers and meta-tests that fail for duplicate/missing operationIds, tags, response models, authorization descriptions, or mutation idempotency notes.
+    dependencies:
+      - WEZARFV69Q3ZW23FJCJ9PGP36C
+    metadata:
+      implementationPass: "012.3"
+      feature: Governed API operation metadata
+      contribution: Keeps OpenAPI, client generation, and security expectations complete as routes grow.
+      outOfScope: Business-specific endpoint implementations.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: YF7GZD3TZ318QGG2V5AAZ3R28N
+    title: "Pass 012.4: Export and validate deterministic OpenAPI"
+    description: Produces a reproducible OpenAPI 3.1 contract and validates it without external services.
+    type: task
+    storyId: STORY-012
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Add deterministic export, normalization, linting, offline validation, generated-file cleanliness checks, and merge-base oasdiff breaking-change detection.
+    dependencies:
+      - NTHQRKDGX4V7TTAVYS8BEE00JM
+    metadata:
+      implementationPass: "012.4"
+      feature: Reproducible OpenAPI contract
+      contribution: Makes the API specification an auditable build artifact and compatibility gate.
+      outOfScope: Public API release publishing.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: 553PG6YBGDPXN7XT6V2J95T3X2
+    title: "Pass 012.5: Generate and smoke-test supported SDK clients"
+    description: Generates pinned Python and TypeScript clients from OpenAPI and proves they build and type-check reproducibly.
+    type: task
+    storyId: STORY-012
+    status: backlog
+    priority: 100
+    estimate: "{ value: 6, unit: hours, confidence: 0.7 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Pin generator tooling and templates, integrate regeneration checks, preserve supported hand-written seams, and run import/build/type smoke tests for both SDKs.
+    dependencies:
+      - YF7GZD3TZ318QGG2V5AAZ3R28N
+    metadata:
+      implementationPass: "012.5"
+      feature: Generated Python and TypeScript clients
+      contribution: Establishes the only supported backend-call boundary for the frontend and external consumers.
+      outOfScope: Package-registry publication.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: H1415C2QNPYT3ASVCKZT2VR71P
+    title: "Pass 013.1: Establish design tokens and accessible primitives"
+    description: Adds Tailwind and Radix foundations with semantic theme tokens and baseline accessibility behavior.
+    type: task
+    storyId: STORY-013
+    status: backlog
+    priority: 75
+    estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Configure tokens for color, spacing, typography, focus, contrast, and reduced motion; wrap only the reusable primitives required by the shell.
+    dependencies: []
+    metadata:
+      implementationPass: "013.1"
+      feature: Accessible visual-system foundation
+      contribution: Gives future interfaces consistent semantics without hard-coding document-specific fields.
+      outOfScope: Full component library and branded visual design.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: FDDXY2CJ89633714J3JQXFGTC4
+    title: "Pass 013.2: Build routed application shell"
+    description: Creates the primary layout, routing, navigation, error boundaries, and standard loading and empty-state infrastructure.
+    type: task
+    storyId: STORY-013
+    status: backlog
+    priority: 75
+    estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Implement landmarks, keyboard navigation, route boundaries, shell-level loading/empty/forbidden/failure states, and responsive layout tests.
+    dependencies:
+      - H1415C2QNPYT3ASVCKZT2VR71P
+    metadata:
+      implementationPass: "013.2"
+      feature: Accessible routed application shell
+      contribution: Provides the reusable navigation and state frame for every product workspace.
+      outOfScope: Document review and administration screens.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: QB1HWDBRYHG9A8XMW8NWGSZSHA
+    title: "Pass 013.3: Add generated-client application boundary"
+    description: Integrates only the supported generated TypeScript client with centralized auth, correlation, and error handling.
+    type: task
+    storyId: STORY-013
+    status: backlog
+    priority: 75
+    estimate: "{ value: 5, unit: hours, confidence: 0.7 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Create client provider/factory, authenticated transport, correlation capture, cancellation, normalized errors, and tests that prevent ad-hoc backend fetch calls.
+    dependencies:
+      - FDDXY2CJ89633714J3JQXFGTC4
+    metadata:
+      implementationPass: "013.3"
+      feature: Governed frontend API boundary
+      contribution: Keeps frontend/backend compatibility generated, typed, and centrally secured.
+      outOfScope: Offline synchronization and realtime transport.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: YVR9J8NZ0KKC702GD8KBNKNX9R
+    title: "Pass 013.4: Present trusted principal and tenant context"
+    description: Displays the authenticated principal and active tenant while preventing arbitrary untrusted tenant selection.
+    type: task
+    storyId: STORY-013
+    status: backlog
+    priority: 75
+    estimate: "{ value: 4, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Build context display and membership-backed tenant selection using server-supported options; test forbidden, expired, and unavailable membership states.
+    dependencies:
+      - QB1HWDBRYHG9A8XMW8NWGSZSHA
+    metadata:
+      implementationPass: "013.4"
+      feature: Trusted tenant-aware shell
+      contribution: Makes security context visible and safe in every future user workflow.
+      outOfScope: Tenant administration and invitations.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: 0203XS0XEJA6WAXJE453SDXKEY
+    title: "Pass 013.5: Verify shell accessibility and states"
+    description: Adds automated and interaction tests for navigation, focus, contrast assumptions, reduced motion, and standard application states.
+    type: task
+    storyId: STORY-013
+    status: backlog
+    priority: 75
+    estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Use Vitest, Testing Library, and jsx-a11y; cover keyboard flow, focus restoration, landmarks, loading, empty, forbidden, and failure behavior.
+    dependencies:
+      - YVR9J8NZ0KKC702GD8KBNKNX9R
+    metadata:
+      implementationPass: "013.5"
+      feature: Application-shell conformance suite
+      contribution: Prevents accessibility and state-handling regressions before product screens multiply.
+      outOfScope: Full browser journey suite.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: 0WTGARHRNTRC7N7WYVZYHV1JAQ
+    title: "Pass 014.1: Define durable work envelope and scheduling port"
+    description: Establishes versioned work messages and the provider-neutral application port used to schedule durable operations.
+    type: task
+    storyId: STORY-014
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.8 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+    technicalNotes: Model tenant, job type, payload version, idempotency key, attempt, correlation, causation, actor/system identity, and trace metadata with strict validation.
+    dependencies: []
+    metadata:
+      implementationPass: "014.1"
+      feature: Versioned durable-work contract
+      contribution: Decouples application use cases from the eventual production queue engine.
+      outOfScope: Choosing or deploying the production durable-job product.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: P8J3196REQF7M8DXVH698M97TQ
+    title: "Pass 014.2: Build independent worker composition lifecycle"
+    description: Makes the worker start, report health, restore dependencies, and shut down independently from the API process.
+    type: task
+    storyId: STORY-014
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-DEV-001
+    technicalNotes: Implement composition root, lifecycle hooks, liveness/readiness, signal handling, graceful in-flight shutdown, and startup/shutdown tests.
+    dependencies:
+      - 0WTGARHRNTRC7N7WYVZYHV1JAQ
+    metadata:
+      implementationPass: "014.2"
+      feature: Standalone worker runtime
+      contribution: Creates the process boundary for asynchronous ingestion and processing workloads.
+      outOfScope: Production autoscaling and orchestration.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: MZ0QNT1YHKY49ETEG90SF13W6A
+    title: "Pass 014.3: Implement versioned dispatch registry"
+    description: Routes known work types to handlers while rejecting unknown types, payload versions, or untrusted tenant context.
+    type: task
+    storyId: STORY-014
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+    technicalNotes: Add explicit handler registration, envelope decoding, context restoration, retry classification seam, cancellation signaling, and deterministic error outcomes.
+    dependencies:
+      - P8J3196REQF7M8DXVH698M97TQ
+    metadata:
+      implementationPass: "014.3"
+      feature: Safe work dispatch and context restoration
+      contribution: Makes asynchronous execution version-aware, tenant-safe, and diagnosable.
+      outOfScope: Business-specific job handlers.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: 00NQ03THY3ECYEWHC8FQHEZ9FX
+    title: "Pass 014.4: Add deterministic in-process work adapter"
+    description: Supplies a non-production scheduler/executor adapter for fast unit and integration testing of asynchronous application behavior.
+    type: task
+    storyId: STORY-014
+    status: backlog
+    priority: 100
+    estimate: "{ value: 4, unit: hours, confidence: 0.8 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-DEV-001
+    technicalNotes: Implement enqueue, controlled execution, recorded envelopes, failure injection, and cancellation; label it explicitly as non-durable and non-production.
+    dependencies:
+      - MZ0QNT1YHKY49ETEG90SF13W6A
+    metadata:
+      implementationPass: "014.4"
+      feature: In-process durable-work test adapter
+      contribution: Lets domain/application features test async workflows before production engine selection.
+      outOfScope: Persistence guarantees across process crashes.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: G415QTQM57QT5BVB8HXCD9QSWG
+    title: "Pass 014.5: Prove work-port behavior with contract tests"
+    description: Adds adapter-neutral contract tests for retries, cancellation, idempotency handoff, version rejection, and context restoration.
+    type: task
+    storyId: STORY-014
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.8 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Create a reusable conformance suite future queue adapters must pass; exercise the in-process adapter and worker dispatch end to end.
+    dependencies:
+      - 00NQ03THY3ECYEWHC8FQHEZ9FX
+    metadata:
+      implementationPass: "014.5"
+      feature: Durable-work adapter conformance suite
+      contribution: Protects application semantics when the production job engine is introduced or replaced.
+      outOfScope: Throughput and chaos benchmarks.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: MKMZQ1Z3WR8YMR3XEEAKQF47CH
+    title: "Pass 015.1: Consolidate provider-neutral quality orchestration"
+    description: Makes frozen install, formatting, linting, typing, unit, architecture, Skyhook, traceability, and generated-file checks one composable command set.
+    type: task
+    storyId: STORY-015
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.8 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Refine scripts and Make targets with stable exit codes, clear diagnostics, local/CI parity, no provider-specific assumptions, and clean-workspace verification.
+    dependencies: []
+    metadata:
+      implementationPass: "015.1"
+      feature: Unified continuous-quality command surface
+      contribution: Creates one trustworthy definition of code quality for contributors and automation.
+      outOfScope: CI vendor workflow files.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: BYFMPYZA71E5H65HA3GCP3RM97
+    title: "Pass 015.2: Separate contract, integration, and journey jobs"
+    description: Adds composable jobs for OpenAPI compatibility, SDK regeneration, PostgreSQL integration tests, and selected Playwright journeys.
+    type: task
+    storyId: STORY-015
+    status: backlog
+    priority: 100
+    estimate: "{ value: 6, unit: hours, confidence: 0.7 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Define isolated commands, dependency setup, artifacts, timeouts, and failure diagnostics so expensive suites can run independently or together.
+    dependencies:
+      - MKMZQ1Z3WR8YMR3XEEAKQF47CH
+    metadata:
+      implementationPass: "015.2"
+      feature: Layered verification jobs
+      contribution: Supports fast feedback plus deeper compatibility and system evidence.
+      outOfScope: Broad end-to-end product workflow coverage.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: G64RKEWH5C4DFGN53NFMYSA1XB
+    title: "Pass 015.3: Add supply-chain and secret security gates"
+    description: Adds secret, dependency, license-policy, and container vulnerability scanning with governed severity and exception handling.
+    type: task
+    storyId: STORY-015
+    status: backlog
+    priority: 100
+    estimate: "{ value: 6, unit: hours, confidence: 0.65 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Pin scanners, define blocking thresholds, baselines, expiring exceptions with rationale, offline behavior where possible, and actionable reports.
+    dependencies:
+      - MKMZQ1Z3WR8YMR3XEEAKQF47CH
+    metadata:
+      implementationPass: "015.3"
+      feature: Software supply-chain gates
+      contribution: Detects leaked secrets and risky dependencies before release artifacts are trusted.
+      outOfScope: Runtime intrusion detection.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: DZV8X4BAZ3XQXXEVZ80ABCS0VS
+    title: "Pass 015.4: Prove reproducible production artifacts"
+    description: Builds API, worker, and web production artifacts and verifies their startup and health behavior.
+    type: task
+    storyId: STORY-015
+    status: backlog
+    priority: 100
+    estimate: "{ value: 6, unit: hours, confidence: 0.7 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Use locked dependencies and deterministic inputs, inspect artifact composition, run container/process smoke tests, and record version/build metadata.
+    dependencies:
+      - BYFMPYZA71E5H65HA3GCP3RM97
+      - G64RKEWH5C4DFGN53NFMYSA1XB
+    metadata:
+      implementationPass: "015.4"
+      feature: Reproducible release artifact verification
+      contribution: Ensures tested source becomes deployable, observable application artifacts.
+      outOfScope: Registry publishing and environment deployment.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: C55W6NV4W420XTMBHB5RK2MQXY
+    title: "Pass 015.5: Document CI adapter and cache rules"
+    description: Defines how any CI provider invokes the repository commands with safe parallelism and correctness-independent caching.
+    type: task
+    storyId: STORY-015
+    status: backlog
+    priority: 100
+    estimate: "{ value: 4, unit: hours, confidence: 0.8 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Document job graph, inputs, artifacts, cache keys, concurrency, required gates, and provider adapter responsibilities; verify cold-cache execution.
+    dependencies:
+      - DZV8X4BAZ3XQXXEVZ80ABCS0VS
+    metadata:
+      implementationPass: "015.5"
+      feature: CI-provider integration contract
+      contribution: Allows GitHub or another provider to orchestrate validation without owning its logic.
+      outOfScope: Selecting or configuring the final hosted CI provider.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: RNKXVD2RV7TXHAQKZDSFCDH6EW
+    title: "Pass 016.1: Prove clean local bootstrap and migrations"
+    description: Verifies a fresh checkout can start the supported stack, become ready, and apply all migrations using documented commands.
+    type: task
+    storyId: STORY-016
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Automate clean-state bootstrap, readiness wait, migration execution, repeatability, teardown, and captured diagnostics for failures.
+    dependencies: []
+    metadata:
+      implementationPass: "016.1"
+      feature: Fresh-checkout platform bootstrap proof
+      contribution: Demonstrates that the foundation is reproducible outside an already-configured developer machine.
+      outOfScope: Production installation profiles.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: 6RMGBHG0CQ25Q4ZG08HFX1DRX4
+    title: "Pass 016.2: Add tenant-scoped diagnostic API resource"
+    description: Implements a neutral persisted diagnostic resource exposed through the versioned API to exercise identity, authorization, and tenant-safe storage.
+    type: task
+    storyId: STORY-016
+    status: backlog
+    priority: 100
+    estimate: "{ value: 6, unit: hours, confidence: 0.7 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-ARCH-004
+    technicalNotes: Add application use cases, repository, migration, authorized API operations, OpenAPI models, and cross-tenant API tests with traceability annotations.
+    dependencies:
+      - RNKXVD2RV7TXHAQKZDSFCDH6EW
+    metadata:
+      implementationPass: "016.2"
+      feature: Tenant-aware diagnostic vertical slice
+      contribution: Proves the core request-to-database security path without pretending to implement document workflow.
+      outOfScope: Document ingestion or review behavior.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: E3CTNQKVW6HREV84JBYH10D625
+    title: "Pass 016.3: Connect the web shell through generated client"
+    description: Adds an authenticated tenant-aware diagnostic screen using only the generated TypeScript client.
+    type: task
+    storyId: STORY-016
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Implement list/create interaction and loading, empty, forbidden, and failure states; verify principal/tenant display and prohibit ad-hoc HTTP calls.
+    dependencies:
+      - 6RMGBHG0CQ25Q4ZG08HFX1DRX4
+    metadata:
+      implementationPass: "016.3"
+      feature: Generated-client web vertical slice
+      contribution: Proves the browser-to-API contract, authentication, and UX foundations work together.
+      outOfScope: Production document screens and visual polish.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: Z905R4Q96N5Q7T69HRPP101SNA
+    title: "Pass 016.4: Schedule and execute diagnostic work"
+    description: Connects the diagnostic use case to the durable-work port and proves the worker restores tenant and correlation context.
+    type: task
+    storyId: STORY-016
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.7 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-DEV-001
+    technicalNotes: Schedule a versioned envelope, execute it through the local/test adapter, persist an observable result, and assert identity, tenant, correlation, and causation continuity.
+    dependencies:
+      - 6RMGBHG0CQ25Q4ZG08HFX1DRX4
+    metadata:
+      implementationPass: "016.4"
+      feature: API-to-worker diagnostic flow
+      contribution: Proves synchronous and asynchronous platform paths share trusted context.
+      outOfScope: Production durable queue guarantees.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: 0SDFG842JNTB1BS8G595CKF0E0
+    title: "Pass 016.5: Prove cross-tenant isolation across all seams"
+    description: Adds adversarial tests showing one tenant cannot access another tenant's diagnostic data through API, repository, cache, storage key, or worker context.
+    type: task
+    storyId: STORY-016
+    status: backlog
+    priority: 100
+    estimate: "{ value: 7, unit: hours, confidence: 0.65 }"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-DEV-001
+    technicalNotes: Exercise spoofed identifiers, mismatched context, direct repository access, work-envelope tampering, and any configured cache/object-storage namespace with explicit denial evidence.
+    dependencies:
+      - E3CTNQKVW6HREV84JBYH10D625
+      - Z905R4Q96N5Q7T69HRPP101SNA
+    metadata:
+      implementationPass: "016.5"
+      feature: End-to-end tenant isolation proof
+      contribution: Supplies the Gate 0 security evidence required before real document data is introduced.
+      outOfScope: Formal penetration testing and certification.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: BC3ZF3K4AR4ZNW7CV1P87NHJD2
+    title: "Pass 016.6: Publish Gate 0 evidence and capability runbook"
+    description: Runs every Gate 0 check and documents supported capabilities, known non-capabilities, troubleshooting, and the next enabled product stories.
+    type: task
+    storyId: STORY-016
+    status: backlog
+    priority: 100
+    estimate: "{ value: 5, unit: hours, confidence: 0.8 }"
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    technicalNotes: Regenerate OpenAPI/SDKs, run quality/security/integration/journey suites from clean state, record evidence, update Skyhook traces/drift, and publish the Gate 0 runbook.
+    dependencies:
+      - 0SDFG842JNTB1BS8G595CKF0E0
+    metadata:
+      implementationPass: "016.6"
+      feature: Gate 0 release evidence
+      contribution: Converts the foundation into a verified platform baseline ready for document capabilities.
+      outOfScope: General availability release and product performance claims.
+    createdAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-02T17:30:08.000Z"
+prioritization:
+  method: wsjf
+  criteria: {}

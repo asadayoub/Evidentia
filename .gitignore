@@ -1,0 +1,36 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Python
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.uv-cache/
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Node and frontend
+node_modules/
+frontend/dist/
+coverage/
+playwright-report/
+test-results/
+
+# Local product data
+.local/
+data/
+documents/
+artifacts/
+*.log
+
+# IDEs
+.idea/
+.vscode/
+.codex/mcp.json
+.skyhook/harness-manifest.json

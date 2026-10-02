@@ -1,0 +1,80 @@
+schemaVersion: 1.0.0
+technologies:
+  - name: Python
+    category: Language
+    version: 3.14.x
+  - name: FastAPI
+    category: Backend Framework
+  - name: TypeScript
+    category: Language
+  - name: React
+    category: Frontend Framework
+  - name: Vite
+    category: Frontend Build Tool
+  - name: PostgreSQL
+    category: Database
+    version: 18.x
+  - name: REST with OpenAPI
+    category: API
+  - name: Docker Compose
+    category: Deployment
+  - name: Local filesystem storage adapter
+    category: Document Storage
+  - name: S3-compatible storage adapter
+    category: Document Storage
+  - name: OIDC
+    category: Identity
+  - name: Tailwind CSS
+    category: Styling
+  - name: Radix UI
+    category: Component Primitives
+  - name: Modular monolith with separate API and worker processes
+    category: Architecture Pattern
+  - name: Module-owned PostgreSQL tables and migrations
+    category: Architecture Pattern
+  - name: Evidentia product monorepo
+    category: Repository Pattern
+  - name: Node.js
+    category: Language Runtime
+    version: 24 LTS
+  - name: uv
+    category: Python Package Management
+  - name: pnpm
+    category: TypeScript Package Management
+  - name: Pydantic
+    category: Backend Framework
+    version: 2.x
+  - name: SQLAlchemy
+    category: Database & ORM
+    version: 2.x
+  - name: psycopg
+    category: Database Driver
+    version: 3.x
+  - name: Alembic
+    category: Database Migration
+  - name: Ruff
+    category: Backend Quality
+  - name: mypy
+    category: Backend Quality
+  - name: pytest and pytest-asyncio
+    category: Testing
+  - name: Testcontainers for Python
+    category: Testing
+  - name: Import Linter
+    category: Architecture Testing
+  - name: ESLint and typescript-eslint
+    category: Frontend Quality
+  - name: Prettier
+    category: Frontend Quality
+  - name: Vitest and React Testing Library
+    category: Testing
+  - name: Playwright
+    category: Testing
+  - name: openapi-typescript and openapi-fetch
+    category: SDK Generation
+  - name: openapi-python-client
+    category: SDK Generation
+  - name: oasdiff
+    category: API Contract Testing
+patterns: []
+constraints: []

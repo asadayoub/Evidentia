@@ -1,0 +1,32 @@
+schemaVersion: 1.0.0
+id: STD-ARCH-002
+title: Explicit lifecycle transition integrity
+category: software
+domain: software
+tags:
+  - architecture
+  - state-machine
+  - concurrency
+  - audit
+  - recovery
+severity: error
+version: 1.0.0
+summary: Governs state transitions, terminal history, concurrency, and recovery for all Evidentia lifecycle aggregates.
+guidelines:
+  - Represent document custody, processing, schema, revision, review, authorization, event, and delivery lifecycles as separate explicit state machines.
+  - Perform state transitions only through the owning module's application port and inside a transaction with optimistic concurrency or locking.
+  - Validate the current state, tenant, actor authority, aggregate version, server-time deadlines, and command invariants before committing a transition.
+  - Record prior state, next state, aggregate version, actor or system principal, reason, correlation ID, causation ID, and server timestamp.
+  - Do not reset or rewrite terminal history; create linked attempts, jobs, revisions, requests, or delivery operations for recovery.
+  - Treat UI combined statuses and realtime notifications as derived views rather than authoritative lifecycle state.
+  - Handle duplicated, delayed, missing, and reordered events idempotently without allowing aggregate state regression.
+  - Keep review, authorization, and delivery outcomes independent.
+acceptanceCriteria:
+  - Every aggregate state has an enumerated transition matrix with guards and terminal-state behavior.
+  - Unit tests cover every allowed transition and representative forbidden transitions.
+  - Concurrency tests prove competing terminal commands resolve to one consistent outcome.
+  - Expiry and deadline guards use server time during the decision transaction.
+  - Recovery tests prove terminal history is preserved and linked replacement work is traceable.
+  - Read models expose underlying lifecycle dimensions and operator attention reasons.
+remediation: Route the command through the owning aggregate's transition function, add the missing guard and audit metadata, preserve terminal history with linked recovery work, and add transition plus concurrency tests.
+createdAt: "2026-10-01T17:12:45.417Z"

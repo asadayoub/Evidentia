@@ -1,0 +1,56 @@
+schemaVersion: 1.0.0
+requirements:
+  - id: NFR-001
+    statement: Every material record value, correction, validation, submitted revision, authorization reference, and delivery attempt shall be traceable through immutable or explicitly superseded history.
+    rationale: End-to-end provenance is Evidentia's central trust property.
+    priority: critical
+    createdAt: "2026-10-01T16:34:43.013Z"
+    updatedAt: "2026-10-01T16:34:43.013Z"
+  - id: NFR-002
+    statement: Every owned aggregate, stored artifact, background job, search index entry, audit event, credential, and integration configuration shall carry and enforce tenant scope. APIs and workers shall authorize actions against trusted identity context, deployments shall support one or multiple tenants through the same model, cross-tenant references shall be rejected, and sensitive data shall be excluded from routine logs.
+    rationale: Uniform tenant scoping avoids separate single-tenant and multi-tenant architectures and prevents data exposure across every synchronous and asynchronous execution path.
+    priority: critical
+    createdAt: "2026-10-01T16:34:45.488Z"
+    updatedAt: "2026-10-01T16:56:56.339Z"
+  - id: NFR-003
+    statement: External operations and background jobs shall use durable state, bounded retries, idempotency, deduplication, recovery of interrupted work, and reconciliation of ambiguous outcomes.
+    rationale: Failures must not cause lost work, duplicated business actions, or assumed authorization.
+    priority: critical
+    createdAt: "2026-10-01T16:34:47.962Z"
+    updatedAt: "2026-10-01T16:34:47.962Z"
+  - id: NFR-004
+    statement: Evidentia shall be self-hostable and independently deployable, with documented local-storage and local-processing configurations plus replaceable infrastructure adapters.
+    rationale: Local control and deployment portability are core adoption goals.
+    priority: high
+    createdAt: "2026-10-01T16:34:50.698Z"
+    updatedAt: "2026-10-01T16:34:50.698Z"
+  - id: NFR-005
+    statement: The review and administration interfaces shall meet WCAG 2.1 AA and support efficient keyboard-oriented workflows.
+    rationale: Document review is repetitive operational work and must be broadly usable.
+    priority: high
+    createdAt: "2026-10-01T16:34:53.389Z"
+    updatedAt: "2026-10-01T16:34:53.389Z"
+  - id: NFR-006
+    statement: The system shall expose metrics, structured logs, and correlation identifiers covering processing, review, approvals, events, and delivery, with performance targets established from measured workloads.
+    rationale: Operators need observable and diagnosable lifecycle behavior.
+    priority: high
+    createdAt: "2026-10-01T16:34:56.454Z"
+    updatedAt: "2026-10-01T16:34:56.454Z"
+  - id: NFR-007
+    statement: Retention and deletion shall be configurable independently for originals, derived artifacts, provider responses, records, and authorization history, with explicit audit-preservation behavior.
+    rationale: Privacy and audit obligations differ by artifact type and deployment.
+    priority: critical
+    createdAt: "2026-10-01T16:34:59.327Z"
+    updatedAt: "2026-10-01T16:34:59.327Z"
+  - id: NFR-008
+    statement: Public APIs, events, schemas, adapters, and stored workflow state shall be versioned to support compatible migrations and independent upgrades.
+    rationale: Evidentia and integrations must evolve without synchronized releases.
+    priority: high
+    createdAt: "2026-10-01T16:35:02.261Z"
+    updatedAt: "2026-10-01T16:35:02.261Z"
+  - id: NFR-009
+    statement: Releases shall publish supported capabilities, benchmark scope, known limitations, recovery instructions, and regression evidence; quality claims shall be tied to representative held-out data.
+    rationale: Trustworthy extraction requires explicit evidence and bounded claims.
+    priority: critical
+    createdAt: "2026-10-01T16:35:04.880Z"
+    updatedAt: "2026-10-01T16:35:04.880Z"

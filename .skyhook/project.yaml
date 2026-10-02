@@ -1,0 +1,43 @@
+schemaVersion: 1.0.0
+id: GPNKKMYX2EHA0GZ82WDJASXKGX
+name: Evidentia
+description: "An open-source, self-hostable platform that converts documents into inspectable, correctable, validated, authorized, and traceable business records."
+type: web-app
+profile: web-app
+createdAt: "2026-10-01T16:13:56.186Z"
+updatedAt: "2026-10-01T16:42:18.155Z"
+version: 0.1.0
+repository:
+  url: ""
+  branch: main
+  provider: none
+skyhookVersion: 1.9.1
+ignoreDirs:
+  - .venv
+  - venv
+  - env
+  - node_modules
+  - .uv-cache
+  - .pytest_cache
+  - .mypy_cache
+  - .ruff_cache
+  - dist
+  - build
+  - coverage
+configuration:
+  questionThreshold: contextual
+  autoPlan: true
+  standardsLevel: advisory
+  trackDecisions: true
+  syncOnCommit: false
+metadata: {}
+project-name: Evidentia
+project-description: An open-source, self-hostable platform that converts documents into inspectable, correctable, validated, authorized, and traceable business records.
+target-users: Initially, small accounting and operations teams processing recurring supplier invoices, supported by internal developers or automation agencies; later, broader document-heavy teams and integrating developers.
+core-value: Turn source documents into trustworthy business records by preserving field-level evidence, uncertainty, corrections, immutable revisions, authorization binding, and delivery history.
+auth-strategy: Local authenticated operation by default, with optional standards-based OIDC integration for external identity providers.
+database-choice: PostgreSQL
+deployment-target: Docker Compose-first self-hosted deployment, portable to VPS or Kubernetes-style environments.
+api-style: Versioned REST APIs documented with OpenAPI and used to generate supported clients.
+design-direction: Enterprise/professional, restrained, information-dense, accessibility-first, and optimized for repeated document-review work rather than marketing-style visual effects.
+component-library: Custom application components built with Radix UI accessibility primitives and Tailwind CSS design tokens.
