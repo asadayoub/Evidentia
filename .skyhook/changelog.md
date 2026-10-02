@@ -1,6 +1,7 @@
 # Changelog
 
 ## [Unreleased]
+- Story STORY-009: in-progress to in-review
 - Story STORY-009: ready to in-progress
 - Recorded decision: Establish the configuration and local runtime baseline while deferring production adapters (8VC3FRAN1GRTK2F99NB459BWWJ)
 - Story STORY-008: in-review to done
