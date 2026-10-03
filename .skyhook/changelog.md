@@ -1,6 +1,7 @@
 # Changelog
 
 ## [Unreleased]
+- Recorded decision: Require explicit PostgreSQL runtime selection before persistence work (HKSQBTGX2CZT36GCS8D3ZTM2PA)
 - Story STORY-009: in-progress to in-review
 - Story STORY-009: ready to in-progress
 - Recorded decision: Establish the configuration and local runtime baseline while deferring production adapters (8VC3FRAN1GRTK2F99NB459BWWJ)
