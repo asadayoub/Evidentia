@@ -43,6 +43,11 @@ def test_local_environment_generator_creates_private_random_secret(
 
     assert len(password) == 64
     assert password != "__GENERATE_WITH_MAKE_LOCAL_INIT__"
+    assert f"EVIDENTIA_DATABASE__PASSWORD={password}" in contents
+    assert "EVIDENTIA_DATABASE__HOST=127.0.0.1" in contents
+    assert "EVIDENTIA_DATABASE__NAME=evidentia" in contents
+    assert "EVIDENTIA_DATABASE__USER=evidentia" in contents
+    assert "EVIDENTIA_DATABASE__SSLMODE=prefer" in contents
     assert stat.S_IMODE(target.stat().st_mode) == 0o600
 
 
@@ -96,4 +101,5 @@ def test_checked_environment_example_contains_no_usable_secret() -> None:
     example = (_REPOSITORY_ROOT / ".env.example").read_text(encoding="utf-8")
 
     assert "POSTGRES_PASSWORD=__GENERATE_WITH_MAKE_LOCAL_INIT__" in example
+    assert "EVIDENTIA_DATABASE__PASSWORD=__GENERATE_WITH_MAKE_LOCAL_INIT__" in example
     assert ".env\n" in (_REPOSITORY_ROOT / ".gitignore").read_text(encoding="utf-8")

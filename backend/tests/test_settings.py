@@ -48,6 +48,8 @@ def test_nested_environment_file_loads_service_specific_settings(tmp_path: Path)
                 "EVIDENTIA_ENVIRONMENT=test",
                 "EVIDENTIA_DATABASE__HOST=database.internal",
                 "EVIDENTIA_DATABASE__PORT=5544",
+                "EVIDENTIA_DATABASE__SSLMODE=require",
+                "EVIDENTIA_DATABASE__APPLICATION_NAME=evidentia-test",
                 "EVIDENTIA_LOGGING__LEVEL=WARNING",
                 "EVIDENTIA_LOGGING__JSON=true",
                 "EVIDENTIA_STORAGE__ROOT=/tmp/evidentia-artifacts",
@@ -64,6 +66,8 @@ def test_nested_environment_file_loads_service_specific_settings(tmp_path: Path)
     assert api.environment is RuntimeEnvironment.TEST
     assert api.database.host == "database.internal"
     assert api.database.port == 5544
+    assert api.database.sslmode == "require"
+    assert api.database.application_name == "evidentia-test"
     assert api.logging.level == "WARNING"
     assert api.logging.json_output is True
     assert api.storage.root == Path("/tmp/evidentia-artifacts")
@@ -129,3 +133,15 @@ def test_production_api_disables_reload() -> None:
             database={"password": "a-unique-production-password"},
             api={"reload": True},
         )
+
+
+def test_database_settings_reject_invalid_ssl_mode_and_application_name() -> None:
+    """Keep connection policy explicit and observable without exposing secrets.
+
+    @skyhook-implements NFR-004
+    @skyhook-story 0VJ9SHA39TA291D8QXB0TQS3HQ
+    """
+    with pytest.raises(ValidationError):
+        ApiSettings(database={"sslmode": "trust-everything"})
+    with pytest.raises(ValidationError):
+        ApiSettings(database={"application_name": ""})

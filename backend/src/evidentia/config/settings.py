@@ -44,6 +44,7 @@ class DatabaseSettings(BaseModel):
 
     @skyhook-implements NFR-004
     @skyhook-story STORY-009
+    @skyhook-story 0VJ9SHA39TA291D8QXB0TQS3HQ
     """
 
     model_config = ConfigDict(frozen=True)
@@ -54,6 +55,8 @@ class DatabaseSettings(BaseModel):
     user: str = Field(default="evidentia", min_length=1)
     password: SecretStr | None = None
     connect_timeout_seconds: float = Field(default=5.0, gt=0, le=60)
+    sslmode: Literal["disable", "prefer", "require", "verify-ca", "verify-full"] = "prefer"
+    application_name: str = Field(default="evidentia", min_length=1, max_length=64)
 
 
 class LoggingSettings(BaseModel):

@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-03T16:57:36.861Z"
+  updatedAt: "2026-10-03T17:10:25.607Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -3551,7 +3551,7 @@ tasks:
     parentType: story
     parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
     type: chore
-    status: ready
+    status: in-review
     priority: critical
     storyPoints: 2
     estimatedMinutes: 120
@@ -3568,26 +3568,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Diagnose the PostgreSQL 16 Homebrew service error without deleting or resetting data
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:06.969Z"
+        completedAt: "2026-10-03T17:10:05.871Z"
       - id: SUB-002
         title: Define development database, role, host, port, and secret-handling expectations
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:06.969Z"
+        completedAt: "2026-10-03T17:10:08.531Z"
       - id: SUB-003
         title: Add environment-driven application settings with safe validation and no committed credentials
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:06.969Z"
+        completedAt: "2026-10-03T17:10:12.591Z"
       - id: SUB-004
         title: Add a non-destructive connectivity/readiness check
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:06.969Z"
+        completedAt: "2026-10-03T17:10:15.120Z"
       - id: SUB-005
         title: Document start, stop, status, and troubleshooting commands for the native workflow
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:06.969Z"
+        completedAt: "2026-10-03T17:10:17.815Z"
     createdAt: "2026-10-03T16:55:06.969Z"
-    updatedAt: "2026-10-03T16:55:06.969Z"
+    updatedAt: "2026-10-03T17:10:25.607Z"
+    lease:
+      agentId: Codex
+      leasedAt: "2026-10-03T17:00:17.665Z"
+      expiresAt: "2026-10-03T18:30:17.665Z"
+      durationMinutes: 90
+      heartbeatAt: "2026-10-03T17:00:17.665Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-03T17:00:32.360Z"
   - id: TASK-010
     title: Define module-owned schema persistence and migrations
     description: "Purpose: translate the completed schema lifecycle into module-owned PostgreSQL storage. Contribution: drafts, publications, artifacts, compatibility evidence, and provenance survive restarts without leaking persistence into domain objects."

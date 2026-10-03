@@ -1,4 +1,4 @@
-.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generated-check container-smoke local-init local-up local-verify local-down check
+.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generated-check container-smoke local-init native-db-init native-db-verify local-up local-verify local-down check
 
 bootstrap:
 	./ci/bootstrap.sh
@@ -33,6 +33,12 @@ container-smoke:
 
 local-init:
 	./scripts/generate-local-env.sh
+
+native-db-verify:
+	uv run python tools/check_native_postgres.py
+
+native-db-init:
+	uv run python tools/check_native_postgres.py --bootstrap
 
 local-up:
 	./scripts/local-up.sh

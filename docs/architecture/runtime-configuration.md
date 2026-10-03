@@ -21,11 +21,14 @@ Nested settings use a double underscore:
 
 ```text
 EVIDENTIA_ENVIRONMENT=development
-EVIDENTIA_DATABASE__HOST=postgres
+EVIDENTIA_DATABASE__HOST=127.0.0.1
 EVIDENTIA_DATABASE__PORT=5432
 EVIDENTIA_DATABASE__NAME=evidentia
 EVIDENTIA_DATABASE__USER=evidentia
 EVIDENTIA_DATABASE__PASSWORD=<generated-local-value>
+EVIDENTIA_DATABASE__CONNECT_TIMEOUT_SECONDS=5
+EVIDENTIA_DATABASE__SSLMODE=prefer
+EVIDENTIA_DATABASE__APPLICATION_NAME=evidentia
 EVIDENTIA_LOGGING__LEVEL=INFO
 EVIDENTIA_LOGGING__JSON=false
 EVIDENTIA_STORAGE__BACKEND=filesystem
@@ -37,6 +40,8 @@ EVIDENTIA_WORKER__SHUTDOWN_GRACE_SECONDS=30
 ```
 
 This naming contract is represented by the deliberately unusable `.env.example`. The supported `make local-init` workflow generates a private `.env` with a random local database password and refuses to replace an existing environment.
+
+The current development workflow uses native PostgreSQL 16.x. `make native-db-init` creates or aligns the dedicated local role and database without running migrations, and `make native-db-verify` performs a read-only authenticated version/database/role check. Docker remains optional until the deferred hybrid profile is implemented.
 
 ## Service ownership
 
