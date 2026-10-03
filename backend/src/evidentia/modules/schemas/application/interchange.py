@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from decimal import Decimal
 from typing import Any
 
+from evidentia.modules.schemas.application.publish_schema import SchemaDraft
 from evidentia.modules.schemas.domain.artifact_links import (
     ArtifactBindings,
     PublishedArtifactReference,
@@ -47,6 +48,8 @@ from evidentia.modules.schemas.domain.modules import PublishedSchemaModule, Publ
 
 INTERCHANGE_FORMAT = "evidentia.schema"
 INTERCHANGE_VERSION = 1
+DRAFT_INTERCHANGE_FORMAT = "evidentia.schema-draft"
+DRAFT_INTERCHANGE_VERSION = 1
 
 
 @dataclass(frozen=True, slots=True)
@@ -95,6 +98,53 @@ def import_schema(payload: bytes | str) -> SchemaInterchangeEnvelope:
         raise ValueError("unsupported schema interchange version")
     return SchemaInterchangeEnvelope(
         INTERCHANGE_FORMAT, INTERCHANGE_VERSION, _schema_in(document.get("schema"))
+    )
+
+
+def export_schema_draft(draft: SchemaDraft) -> bytes:
+    """Return deterministic JSON for one mutable draft snapshot.
+
+    @skyhook-implements REQ-003
+    @skyhook-story 0VJ9SHA39TA291D8QXB0TQS3HQ
+    """
+    document = {
+        "format": DRAFT_INTERCHANGE_FORMAT,
+        "version": DRAFT_INTERCHANGE_VERSION,
+        "schema": {
+            "id": draft.schema_id.value,
+            "version": draft.version.value,
+            "releaseLabel": None if draft.release_label is None else draft.release_label.value,
+            "fields": [_field_out(item) for item in draft.fields],
+            "modules": [_module_out(item) for item in draft.modules],
+            "artifacts": _artifacts_out(draft.artifacts),
+        },
+    }
+    return json.dumps(document, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode()
+
+
+def import_schema_draft(payload: bytes | str) -> SchemaDraft:
+    """Validate and restore a persisted mutable draft snapshot.
+
+    @skyhook-implements REQ-003
+    @skyhook-implements NFR-008
+    @skyhook-story 0VJ9SHA39TA291D8QXB0TQS3HQ
+    """
+    try:
+        document = json.loads(payload)
+    except (json.JSONDecodeError, UnicodeDecodeError) as error:
+        raise ValueError("schema draft interchange must be valid UTF-8 JSON") from error
+    if not isinstance(document, dict) or document.get("format") != DRAFT_INTERCHANGE_FORMAT:
+        raise ValueError("unsupported schema draft interchange format")
+    if document.get("version") != DRAFT_INTERCHANGE_VERSION:
+        raise ValueError("unsupported schema draft interchange version")
+    data = _object(document.get("schema"), "schema draft")
+    return SchemaDraft(
+        schema_id=SchemaId(_string(data, "id")),
+        version=SchemaVersion(_integer(data, "version")),
+        fields=tuple(_field_in(item) for item in _list(data, "fields")),
+        modules=tuple(_module_in(item) for item in _list(data, "modules")),
+        release_label=_label(data.get("releaseLabel")),
+        artifacts=_artifacts_in(data.get("artifacts", [])),
     )
 
 

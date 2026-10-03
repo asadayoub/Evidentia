@@ -15,7 +15,8 @@ from alembic import context
 from sqlalchemy import URL, Connection, pool
 from sqlalchemy.ext.asyncio import create_async_engine
 
-from evidentia.config.settings import DatabaseSettings, load_api_settings
+from evidentia.config.settings import load_api_settings
+from evidentia.modules.schemas.infrastructure.database import schema_database_url
 from evidentia.modules.schemas.infrastructure.persistence import SchemaPersistenceBase
 
 _REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
@@ -26,30 +27,14 @@ if config.config_file_name is not None:
 target_metadata = SchemaPersistenceBase.metadata
 
 
-def _database_url(settings: DatabaseSettings) -> URL:
-    password = None if settings.password is None else settings.password.get_secret_value()
-    return URL.create(
-        drivername="postgresql+psycopg",
-        username=settings.user,
-        password=password,
-        host=settings.host,
-        port=settings.port,
-        database=settings.name,
-        query={
-            "application_name": f"{settings.application_name}-migration",
-            "connect_timeout": str(max(1, int(settings.connect_timeout_seconds))),
-            "sslmode": settings.sslmode,
-        },
-    )
-
-
-def _settings() -> DatabaseSettings:
-    return load_api_settings(_REPOSITORY_ROOT / ".env").database
+def _database_url() -> URL:
+    settings = load_api_settings(_REPOSITORY_ROOT / ".env").database
+    return schema_database_url(settings, purpose="migration")
 
 
 def _run_offline_migrations() -> None:
     context.configure(
-        url=_database_url(_settings()),
+        url=_database_url(),
         target_metadata=target_metadata,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
@@ -72,7 +57,7 @@ def _run_migrations(connection: Connection) -> None:
 
 
 async def _run_online_migrations() -> None:
-    connectable = create_async_engine(_database_url(_settings()), poolclass=pool.NullPool)
+    connectable = create_async_engine(_database_url(), poolclass=pool.NullPool)
     async with connectable.connect() as connection:
         await connection.run_sync(_run_migrations)
     await connectable.dispose()

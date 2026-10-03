@@ -5,6 +5,11 @@ from decimal import Decimal
 
 import pytest
 
+from evidentia.modules.schemas.application.interchange import (
+    export_schema_draft,
+    import_schema_draft,
+)
+from evidentia.modules.schemas.application.publish_schema import SchemaDraft
 from evidentia.modules.schemas.public import (
     ArtifactBindings,
     Cardinality,
@@ -99,3 +104,21 @@ def test_unknown_core_type_and_envelope_version_are_rejected() -> None:
     document["version"] = 2
     with pytest.raises(ValueError, match="unsupported schema interchange version"):
         import_schema(json.dumps(document))
+
+
+def test_empty_mutable_draft_has_a_deterministic_round_trip() -> None:
+    """Persist workbench drafts before their first field is defined.
+
+    @skyhook-implements REQ-003
+    @skyhook-story 0VJ9SHA39TA291D8QXB0TQS3HQ
+    """
+    draft = SchemaDraft(
+        SchemaId("123e4567-e89b-12d3-a456-426614174000"),
+        SchemaVersion(1),
+    )
+
+    payload = export_schema_draft(draft)
+
+    assert import_schema_draft(payload) == draft
+    assert export_schema_draft(draft) == payload
+    assert b'"format":"evidentia.schema-draft"' in payload

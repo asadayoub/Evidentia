@@ -123,7 +123,20 @@ def publish_schema(
         published_at=published_at or datetime.now(UTC),
         acknowledgement=acknowledgement,
     )
-    return SchemaPublication(schema, _digest(schema), provenance, report)
+    return SchemaPublication(schema, schema_content_sha256(schema), provenance, report)
+
+
+def schema_content_sha256(schema: PublishedSchemaVersion) -> str:
+    """Return the canonical content digest used by publication persistence.
+
+    @skyhook-implements REQ-003
+    @skyhook-implements NFR-001
+    @skyhook-story 0VJ9SHA39TA291D8QXB0TQS3HQ
+    """
+    payload = json.dumps(
+        _canonical(schema), sort_keys=True, separators=(",", ":"), ensure_ascii=False
+    )
+    return hashlib.sha256(payload.encode()).hexdigest()
 
 
 def _artifact_references(schema: PublishedSchemaVersion) -> tuple[PublishedArtifactReference, ...]:
@@ -146,13 +159,6 @@ def _field_artifacts(field: FieldDefinition) -> tuple[PublishedArtifactReference
     for child in children:
         references.extend(_field_artifacts(child))
     return tuple(references)
-
-
-def _digest(value: object) -> str:
-    payload = json.dumps(
-        _canonical(value), sort_keys=True, separators=(",", ":"), ensure_ascii=False
-    )
-    return hashlib.sha256(payload.encode()).hexdigest()
 
 
 def _canonical(value: Any) -> Any:

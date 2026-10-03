@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-03T17:33:05.426Z"
+  updatedAt: "2026-10-03T17:48:13.860Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -3659,7 +3659,7 @@ tasks:
     parentType: story
     parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
     type: feature
-    status: ready
+    status: in-review
     priority: critical
     storyPoints: 5
     estimatedMinutes: 360
@@ -3676,30 +3676,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Define persistence-independent schema repository ports
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:17.428Z"
+        completedAt: "2026-10-03T17:47:51.333Z"
       - id: SUB-002
         title: Implement tenant-scoped draft create, update, list, and retrieval operations
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:17.428Z"
+        completedAt: "2026-10-03T17:47:56.611Z"
       - id: SUB-003
         title: Implement atomic publication with duplicate-version protection
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:17.428Z"
+        completedAt: "2026-10-03T17:47:59.594Z"
       - id: SUB-004
         title: Load exact immutable snapshots and referenced artifact metadata
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:17.428Z"
+        completedAt: "2026-10-03T17:48:02.545Z"
       - id: SUB-005
         title: Reject cross-tenant identities and optimistic concurrency conflicts
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:17.428Z"
+        completedAt: "2026-10-03T17:48:05.921Z"
     createdAt: "2026-10-03T16:55:17.428Z"
-    updatedAt: "2026-10-03T17:33:05.426Z"
+    updatedAt: "2026-10-03T17:48:13.860Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
+    lease:
+      agentId: Codex
+      leasedAt: "2026-10-03T17:35:46.572Z"
+      expiresAt: "2026-10-03T19:35:46.572Z"
+      durationMinutes: 120
+      heartbeatAt: "2026-10-03T17:35:46.572Z"
+    startedAt: "2026-10-03T17:35:55.981Z"
   - id: TASK-012
     title: Prove schema durability, immutability, and tenant isolation
     description: "Purpose: verify the native PostgreSQL implementation through restart-safe integration behavior. Contribution: establishes trustworthy persistence evidence before API and UI work consume it."

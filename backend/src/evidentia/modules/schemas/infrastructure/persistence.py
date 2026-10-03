@@ -143,7 +143,7 @@ class SchemaPublicationRecord(SchemaPersistenceBase):
     snapshot: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False)
     content_sha256: Mapped[str] = mapped_column(String(64), nullable=False)
     compatibility_level: Mapped[str | None] = mapped_column(String(32))
-    compatibility: Mapped[dict[str, object] | None] = mapped_column(JSONB)
+    compatibility: Mapped[dict[str, object] | None] = mapped_column(JSONB(none_as_null=True))
     actor_id: Mapped[str] = mapped_column(String(255), nullable=False)
     correlation_id: Mapped[str] = mapped_column(String(255), nullable=False)
     acknowledgement: Mapped[str | None] = mapped_column(Text)
