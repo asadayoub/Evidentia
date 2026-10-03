@@ -1,7 +1,7 @@
 # Project Plan: Evidentia
 
 > **Project ID**: `GPNKKMYX2EHA0GZ82WDJASXKGX` | **Profile**: `web-app`
-> **Compiled**: 2026-10-03T11:45:37.993Z by Skyhook Dynamic Plan Compiler
+> **Compiled**: 2026-10-03T11:55:35.103Z by Skyhook Dynamic Plan Compiler
 
 ## Executive Summary
 
@@ -11,14 +11,14 @@ An open-source, self-hostable platform that converts documents into inspectable,
 
 | Metric | Current Value | Notes |
 |:-------|:--------------|:------|
-| **Weekly Velocity** | **81.8 pts/wk** | Derived from 14-day rolling events |
-| **Average Cycle Time** | **1.5 hours** | Average in-progress to done duration |
-| **Backlog Work Remaining** | **124 pts** (37 stories) | Unfinished scope |
-| **Expected Completion (P50)** | 📅 **2026-10-13** | Standard velocity projection (1.5 wks) |
-| **Conservative Completion (P90)** | 📅 **2026-10-17** | Risk-adjusted delivery date (2 wks) |
+| **Weekly Velocity** | **93.1 pts/wk** | Derived from 14-day rolling events |
+| **Average Cycle Time** | **1.9 hours** | Average in-progress to done duration |
+| **Backlog Work Remaining** | **121 pts** (36 stories) | Unfinished scope |
+| **Expected Completion (P50)** | 📅 **2026-10-12** | Standard velocity projection (1.3 wks) |
+| **Conservative Completion (P90)** | 📅 **2026-10-16** | Risk-adjusted delivery date (1.8 wks) |
 
 > [!WARNING]
-> **Scope Creep Alert**: Net backlog growth (+205 pts) exceeds recent completion rate. Delivery target may shift.
+> **Scope Creep Alert**: Net backlog growth (+202 pts) exceeds recent completion rate. Delivery target may shift.
 
 ## 1. Visual Delivery Roadmap & Timeline
 
@@ -46,7 +46,7 @@ gantt
     Evaluate difficult source qualities : s_1VED17WSNE77N7VVCZTXC2NAT5, 2026-10-01, 5d
 
     section Versioned schemas normalization and extraction providers
-    Build versioned schema lifecycle :active, s_4PJTJVE73D2MN7GT64T48S05HT, 2026-10-03, 5d
+    Build versioned schema lifecycle :done, s_4PJTJVE73D2MN7GT64T48S05HT, 2026-10-03, 2026-10-03
     Build hosted and local extraction provider interface : s_BYNGTQS6SX4FB7HQ46D9FKTJR2, 2026-10-01, 5d
     Build reprocessing and comparison workflow : s_8PKADXET1MA10TAY9F6VBDYYAD, 2026-10-01, 5d
     Implement contextual schema resolution and composition : s_STORY_002, after s_4PJTJVE73D2MN7GT64T48S05HT, 2d
@@ -168,10 +168,10 @@ gantt
 |:-------|:------------------|:---------|:--------|:-------------|:-----|:-------|
 | **REQ-001** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-002** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-003** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress) | `SchemaArtifactKind`<br/>`PublishedArtifactReference`<br/>`ArtifactBindings` | — | 🟢 Implemented |
+| **REQ-003** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `SchemaInterchangeEnvelope`<br/>`export_schema`<br/>`import_schema` | — | 🟢 Implemented |
 | **REQ-004** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-005** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress) | — | — | 🟡 In-Progress |
-| **REQ-006** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress) | — | — | 🟡 In-Progress |
+| **REQ-005** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | — | 🔴 Untraced |
+| **REQ-006** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | — | 🔴 Untraced |
 | **REQ-007** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-008** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-009** | Untitled | `functional` | — | — | — | 🔴 Untraced |
@@ -180,18 +180,18 @@ gantt
 | **REQ-012** | Untitled | `functional` | STORY-007 (done)<br/>STORY-012 (cancelled)<br/>STORY-013 (backlog)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `main`<br/>`App`<br/>`sdk_version` | — | 🟢 Implemented |
 | **REQ-013** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-014** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-014 (backlog)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `WorkerRuntimeSettings`<br/>`WorkerSettings`<br/>`load_worker_settings` | — | 🟢 Implemented |
-| **REQ-015** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress) | — | — | 🟡 In-Progress |
-| **REQ-016** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress) | `FieldSelector`<br/>`FieldAlias`<br/>`FieldMapping` | — | 🟢 Implemented |
-| **REQ-017** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress) | — | — | 🟡 In-Progress |
+| **REQ-015** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | — | 🔴 Untraced |
+| **REQ-016** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `FieldSelector`<br/>`FieldAlias`<br/>`FieldMapping` | — | 🟢 Implemented |
+| **REQ-017** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | — | 🔴 Untraced |
 | **REQ-018** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **NFR-001** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress) | — | — | 🟡 In-Progress |
+| **NFR-001** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `PublicationProvenance` | — | 🟢 Implemented |
 | **NFR-002** | Untitled | `functional` | STORY-010 (cancelled)<br/>STORY-011 (cancelled)<br/>STORY-014 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
 | **NFR-003** | Untitled | `functional` | STORY-014 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
 | **NFR-004** | Untitled | `functional` | STORY-007 (done)<br/>STORY-009 (in-review)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `RuntimeEnvironment`<br/>`DatabaseSettings`<br/>`StorageSettings` | — | 🟢 Implemented |
 | **NFR-005** | Untitled | `functional` | STORY-013 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
 | **NFR-006** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-012 (cancelled)<br/>STORY-014 (backlog)<br/>STORY-016 (backlog) | `LoggingSettings`<br/>`HealthReport`<br/>`as_dict` | — | 🟢 Implemented |
 | **NFR-007** | Untitled | `functional` | STORY-010 (cancelled) | — | — | 🔴 Untraced |
-| **NFR-008** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress)<br/>STORY-007 (done)<br/>STORY-008 (done)<br/>STORY-010 (cancelled)<br/>STORY-012 (cancelled)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `test_real_contexts_are_importable_and_policy_compliant`<br/>`test_framework_import_from_domain_is_rejected`<br/>`test_private_cross_context_import_is_rejected` | — | 🟢 Implemented |
+| **NFR-008** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-007 (done)<br/>STORY-008 (done)<br/>STORY-010 (cancelled)<br/>STORY-012 (cancelled)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `test_real_contexts_are_importable_and_policy_compliant`<br/>`test_framework_import_from_domain_is_rejected`<br/>`test_private_cross_context_import_is_rejected` | — | 🟢 Implemented |
 | **NFR-009** | Untitled | `functional` | STORY-015 (backlog) | — | — | 🔴 Untraced |
 
 

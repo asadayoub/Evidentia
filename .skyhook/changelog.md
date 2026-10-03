@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+- Story 4PJTJVE73D2MN7GT64T48S05HT: in-review to done
+- Task TASK-006: in-review to done
 - Task TASK-006: in-progress to in-review
 - Task TASK-006: ready to in-progress
 - Task TASK-005: in-review to done
