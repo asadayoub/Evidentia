@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-03T07:18:17.285Z"
+  updatedAt: "2026-10-03T07:29:02.543Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -2352,7 +2352,7 @@ tasks:
     parentType: story
     parentId: 4PJTJVE73D2MN7GT64T48S05HT
     type: feature
-    status: in-review
+    status: done
     priority: critical
     storyPoints: 3
     estimatedMinutes: 240
@@ -2393,19 +2393,20 @@ tasks:
         createdAt: "2026-10-03T07:02:12.471Z"
         completedAt: "2026-10-03T07:18:08.209Z"
     createdAt: "2026-10-03T07:02:12.471Z"
-    updatedAt: "2026-10-03T07:18:20.258Z"
+    updatedAt: "2026-10-03T07:20:19.874Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
     startedAt: "2026-10-03T07:06:22.169Z"
+    completedAt: "2026-10-03T07:20:19.874Z"
   - id: TASK-003
     title: "Pass 2: Model schema definitions as immutable versioned aggregates"
     description: "Purpose: model fields, nested structures, tables, reusable modules, evidence expectations, and separately versioned validation, presentation, localization, and extraction-hint references. Contribution: creates the document-neutral schema aggregate that can describe varied documents while keeping provider and UI concerns outside canonical data shape."
     parentType: story
     parentId: 4PJTJVE73D2MN7GT64T48S05HT
     type: feature
-    status: ready
+    status: in-review
     priority: critical
     storyPoints: 5
     estimatedMinutes: 360
@@ -2423,26 +2424,36 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Model stable machine field keys, paths, cardinality, requiredness, and typed constraints
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:50.782Z"
+        completedAt: "2026-10-03T07:28:46.905Z"
       - id: SUB-002
         title: Support recursive objects, arrays, and line-item tables without document-specific classes
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:50.782Z"
+        completedAt: "2026-10-03T07:28:40.091Z"
       - id: SUB-003
         title: Model reusable schema modules and immutable published schema snapshots
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:50.782Z"
+        completedAt: "2026-10-03T07:28:43.966Z"
       - id: SUB-004
         title: Link validation, display, localization, evidence, and extraction artifacts by explicit identifier and version
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:50.782Z"
+        completedAt: "2026-10-03T07:28:50.180Z"
       - id: SUB-005
         title: Reject duplicate paths, invalid nesting, and references to missing or mutable artifacts
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:50.782Z"
+        completedAt: "2026-10-03T07:28:53.346Z"
     createdAt: "2026-10-03T07:02:50.782Z"
-    updatedAt: "2026-10-03T07:02:50.782Z"
+    updatedAt: "2026-10-03T07:29:05.743Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-03T07:20:36.458Z"
   - id: TASK-004
     title: "Pass 3: Implement deterministic schema composition and conflict reporting"
     description: "Purpose: resolve an ordered set of published modules into one reproducible schema and reject ambiguous composition. Contribution: enables tenant-, jurisdiction-, workflow-, and destination-specific schemas while ensuring the same versioned inputs always produce the same field graph and diagnostics."

@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-003: in-progress to in-review
+- Task TASK-003: ready to in-progress
+- Task TASK-002: in-review to done
 - Task TASK-002: in-progress to in-review
 - Task TASK-002: ready to in-progress
 - Added task: Pass 5: Define canonical interchange, migration, and reprocessing contracts (TASK-006) under story 4PJTJVE73D2MN7GT64T48S05HT
