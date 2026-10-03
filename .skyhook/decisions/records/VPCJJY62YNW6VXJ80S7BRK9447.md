@@ -34,22 +34,16 @@ This decision was made based on:
 ## Architecture Diagram
 
 ```mermaid
-sequenceDiagram
-    autonumber
-    actor User as 👤 User Client
-    participant App as 🖥️ Application Gateway
-    participant Auth as 🔐 Auth Provider / JWT
-    participant Resource as 📦 Protected API / DB
-
-    User->>App: 1. Login Request (Credentials / OAuth)
-    App->>Auth: 2. Validate & Issue Credentials
-    Auth-->>App: 3. Return Signed Token / Session
-    App-->>User: 4. Set Secure Cookie / Token
-    User->>App: 5. Request Protected Route + Token
-    App->>Auth: 6. Verify Signature & Claims
-    Auth-->>App: 7. Token Validated
-    App->>Resource: 8. Execute Authorized Action
-    Resource-->>User: 9. Secure Response Data
+flowchart LR
+    Modules[Published immutable schema modules] --> Resolver[Deterministic context resolver]
+    Context[Versioned governed context] --> Resolver
+    Resolver --> Resolved[Resolved published schema]
+    Resolved --> Run[Extraction run]
+    Resolved --> Revision[Record revision]
+    Candidate[Unmapped provider candidate] --> Draft[Draft schema version]
+    Draft --> Test[Representative-document validation]
+    Test --> Published[Published immutable version]
+    Published --> Modules
 ```
 
 ## Architecture Mutation (Before vs After)
@@ -58,37 +52,33 @@ sequenceDiagram
 flowchart LR
     %% Architectural Mutation Visual Diff: Before vs After
 
-    subgraph SubgraphBefore["⏮️ Legacy Session Auth"]
+    subgraph SubgraphBefore["⏮️ Static or Uncontrolled Fields"]
         direction TB
-        b_comp_client["Client Browser"]
-        b_comp_old_auth["Stateful Session Store / Cookies"]
-        b_comp_client --> b_comp_old_auth
-        b_comp_api["Backend API Service"]
-        b_comp_old_auth --> b_comp_api
+        b_comp_fixed["Document-specific columns"]
+        b_comp_runtime["Arbitrary runtime fields"]
+        b_comp_unstable["Unstable validation and history"]
+        b_comp_fixed --> b_comp_unstable
+        b_comp_runtime --> b_comp_unstable
     end
 
-    subgraph SubgraphAfter["⏭️ Decoupled Modern Auth Flow"]
+    subgraph SubgraphAfter["⏭️ Governed Dynamic Schemas"]
         direction TB
-        a_comp_client["Client Browser"]
-        a_comp_new_auth["JWT Bearer Authentication"]
-        a_comp_client --> a_comp_new_auth
-        a_comp_api["Backend API (Stateless Validation)"]
-        a_comp_new_auth --> a_comp_api
+        a_comp_modules["Immutable typed modules"]
+        a_comp_resolver["Deterministic composition"]
+        a_comp_record["Version-bound record"]
+        a_comp_modules --> a_comp_resolver
+        a_comp_resolver --> a_comp_record
     end
 
-    b_comp_client -.->|"Evolution / Refactor"| a_comp_client
+    b_comp_unstable -.->|"Govern and version"| a_comp_modules
 
     %% Visual Diff Color Palettes
     classDef diffRemoved fill:#4c0519,stroke:#f43f5e,stroke-width:2px,color:#ffe4e6,stroke-dasharray: 4 4;
     classDef diffAdded fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#ecfdf5;
     classDef diffModified fill:#78350f,stroke:#f59e0b,stroke-width:2px,color:#fef3c7;
     classDef diffUnchanged fill:#1e293b,stroke:#475569,stroke-width:1px,color:#f1f5f9;
-    class b_comp_client diffUnchanged;
-    class b_comp_old_auth diffRemoved;
-    class b_comp_api diffUnchanged;
-    class a_comp_client diffModified;
-    class a_comp_new_auth diffAdded;
-    class a_comp_api diffModified;
+    class b_comp_fixed,b_comp_runtime,b_comp_unstable diffRemoved;
+    class a_comp_modules,a_comp_resolver,a_comp_record diffAdded;
 ```
 
 ## Governing Standards
@@ -104,33 +94,36 @@ flowchart LR
 ## Consequences
 
 ### Positive
-- Improves system modularity and maintainability
-- Enables independent scaling of components
+- Supports document-, tenant-, jurisdiction-, workflow-, and destination-specific fields without hard-coded record columns.
+- Keeps historical records reproducible by retaining immutable schema and context versions.
+- Allows controlled discovery of new fields without admitting unreviewed provider output into authoritative records.
 
 ### Negative
-- Increased operational complexity
-- Network latency between services
+- Schema publication, compatibility, composition, and migration require explicit governance.
+- Administrators must manage versions and resolve module conflicts rather than editing published schemas in place.
 
 ### Neutral / Risks
-- Requires robust observability and monitoring
-- Distributed tracing and debugging complexity
+- Poorly designed module boundaries could create excessive variants or ambiguous resolution.
+- Import/export and canonical value rules must remain compatible across API, SDK, authorization, and persistence layers.
 
 ## Alternatives Considered
 
 | Alternative | Description | Pros | Cons |
 |-------------|-------------|------|------|
-| Alternative | No description | (Add pros) | (Add cons) |
-| Alternative | No description | (Add pros) | (Add cons) |
-| Alternative | No description | (Add pros) | (Add cons) |
-| Alternative | No description | (Add pros) | (Add cons) |
-| NextAuth.js | Full-featured auth for Next.js | Built-in providers; Type-safe; Secure defaults | Next.js only; Learning curve |
-| Clerk | Managed auth service | Drop-in; MFA built-in; Admin dashboard | Cost; Vendor lock-in |
-| Supabase Auth | Open-source auth with Postgres | Integrated with DB; Open source | Self-host complexity |
-| Custom JWT | Roll your own with jsonwebtoken | Full control; No deps | Security risk; Maintenance burden |
+| Static fields per document type | Add domain columns whenever a document changes | Simple queries for one fixed format | Cannot support variable documents without schema and migration proliferation |
+| Arbitrary runtime JSON fields | Accept any provider-produced key directly into records | Maximum short-term flexibility | Breaks validation, authorization, mappings, UI behavior, and historical meaning |
+| One monolithic schema per tenant | Publish complete standalone schemas without reusable modules | Straightforward resolution | Duplicates common definitions and makes coordinated evolution difficult |
+| Immutable composable schema modules | Resolve governed modules into a retained published schema | Extensible, reusable, deterministic, and historically reproducible | Requires conflict rules, compatibility analysis, and publication governance |
 
 ## Related Requirements
 
-No directly related requirements documented.
+- **REQ-003**: Immutable, versioned, schema-defined dynamic records
+- **REQ-015**: Extensibility beyond the initial invoice benchmark
+- **REQ-016**: Deterministic contextual schema composition
+- **REQ-017**: Governed schema discovery and evolution
+- **NFR-001**: Immutable or explicitly superseded traceability
+- **NFR-008**: Versioned public contracts and stored state
+- **CON-003**: Canonical monetary and arbitrary-precision representations
 
 ## Related Decisions
 
@@ -144,20 +137,20 @@ No directly related requirements documented.
 
 ### Suggested Implementation Steps
 
-1. Create module/service boundaries
-2. Define interfaces/contracts
-3. Implement communication layer
-4. Add observability (logging, metrics, tracing)
-5. Update deployment configuration
+1. Define schema identity, version, lifecycle, field, constraint, and composition domain contracts.
+2. Keep data definitions separate from validation, presentation, and extraction hints while linking each artifact by version.
+3. Enforce publication immutability and explicit compatibility classification.
+4. Define deterministic import/export, composition, migration, and reprocessing semantics.
+5. Add representative nested, table, precision, conflict, and historical-reproduction tests before persistence adapters.
 
 
 ## Validation Criteria
 
-- [ ] Decision reviewed by team
-- [ ] Alternatives documented and evaluated
-- [ ] Consequences understood and accepted
-- [ ] Related requirements linked
-- [ ] Implementation plan created
+- [x] Product owner approved dynamic, schema-defined fields
+- [x] Published schemas and modules are immutable and versioned
+- [x] Arbitrary provider output is excluded from authoritative records until governed
+- [x] Alternatives, consequences, and related requirements are documented
+- [ ] Remaining schema lifecycle and composition details approved before implementation
 
 
 ---

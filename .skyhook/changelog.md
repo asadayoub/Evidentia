@@ -1,6 +1,23 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-001: ready to backlog
+- Task M4DDMT8R1JZ1ZN0MXJBQ5BTWAJ: in-review to done
+- Task M4DDMT8R1JZ1ZN0MXJBQ5BTWAJ: in-progress to in-review
+- Task M4DDMT8R1JZ1ZN0MXJBQ5BTWAJ: backlog to in-progress
+- Task XBM1A9G9QASGFZN646J27J0PZK: in-review to done
+- Task XBM1A9G9QASGFZN646J27J0PZK: in-progress to in-review
+- Task XBM1A9G9QASGFZN646J27J0PZK: backlog to in-progress
+- Task VK91GGAY4ZF479Y492W6BW17Q9: in-review to done
+- Task VK91GGAY4ZF479Y492W6BW17Q9: in-progress to in-review
+- Task VK91GGAY4ZF479Y492W6BW17Q9: backlog to in-progress
+- Task 6Q6NJ2B20NAPY0N9J3TV8N79YW: in-review to done
+- Task 6Q6NJ2B20NAPY0N9J3TV8N79YW: in-progress to in-review
+- Task 6Q6NJ2B20NAPY0N9J3TV8N79YW: backlog to in-progress
+- Task FV595298S33682ZG245328MQZP: in-review to done
+- Task FV595298S33682ZG245328MQZP: in-progress to in-review
+- Task FV595298S33682ZG245328MQZP: ready to in-progress
+- Added task: Run deferred Docker and Compose acceptance verification (TASK-001) under story STORY-009
 - Recorded decision: Require explicit PostgreSQL runtime selection before persistence work (HKSQBTGX2CZT36GCS8D3ZTM2PA)
 - Story STORY-009: in-progress to in-review
 - Story STORY-009: ready to in-progress

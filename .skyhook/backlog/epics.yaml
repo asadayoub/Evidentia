@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-02T18:46:17.941Z"
+  updatedAt: "2026-10-03T06:53:13.477Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -349,7 +349,14 @@ stories:
     status: backlog
     storyPoints: null
     dependsOn: []
-    standards: []
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+    relatedRequirements:
+      - REQ-003
+      - NFR-001
+      - NFR-008
+      - CON-003
     createdAt: "2026-10-01T16:37:07.244Z"
     updatedAt: "2026-10-01T16:37:07.244Z"
   - id: BYNGTQS6SX4FB7HQ46D9FKTJR2
@@ -1025,6 +1032,8 @@ stories:
       type: agent
       identifier: Codex
       name: Codex
+    childTasks:
+      - TASK-001
   - id: STORY-010
     title: Build module-owned migrations and tenant-safe persistence primitives
     description: Implements NFR-002, NFR-007, NFR-008, CON-003, and CON-005. This establishes shared persistence mechanics but does not create a shared business-domain model.
@@ -1387,7 +1396,7 @@ tasks:
     description: Introduces validated development, test, and production settings with fail-closed production secret handling.
     type: task
     storyId: STORY-009
-    status: ready
+    status: done
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.8 }"
     standards:
@@ -1401,13 +1410,19 @@ tasks:
       contribution: Gives every service one predictable and testable configuration contract.
       outOfScope: External secret-manager adapters.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T06:52:23.897Z"
+    startedAt: "2026-10-03T06:52:17.580Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    completedAt: "2026-10-03T06:52:23.897Z"
   - id: 6Q6NJ2B20NAPY0N9J3TV8N79YW
     title: "Pass 009.2: Add structured startup logging and health semantics"
     description: Adds non-secret startup metadata plus distinct liveness and dependency-readiness behavior for API and worker processes.
     type: task
     storyId: STORY-009
-    status: backlog
+    status: done
     priority: 100
     estimate: "{ value: 4, unit: hours, confidence: 0.8 }"
     standards:
@@ -1421,13 +1436,19 @@ tasks:
       contribution: Makes local orchestration and future operations diagnose service state correctly.
       outOfScope: Full telemetry backend and dashboards.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T06:52:33.682Z"
+    startedAt: "2026-10-03T06:52:26.908Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    completedAt: "2026-10-03T06:52:33.682Z"
   - id: VK91GGAY4ZF479Y492W6BW17Q9
     title: "Pass 009.3: Build reproducible service containers"
     description: Creates pinned development container definitions for API, worker, and web services with secure runtime defaults.
     type: task
     storyId: STORY-009
-    status: backlog
+    status: done
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.7 }"
     standards:
@@ -1442,13 +1463,19 @@ tasks:
       contribution: Makes service execution reproducible across contributor machines and CI.
       outOfScope: Production deployment manifests.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T06:52:45.041Z"
+    startedAt: "2026-10-03T06:52:37.687Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    completedAt: "2026-10-03T06:52:45.041Z"
   - id: XBM1A9G9QASGFZN646J27J0PZK
     title: "Pass 009.4: Compose PostgreSQL and local object storage"
     description: Provides the supported local runtime containing PostgreSQL 18, application services, and provider-neutral local object storage.
     type: task
     storyId: STORY-009
-    status: backlog
+    status: done
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
     standards:
@@ -1463,13 +1490,19 @@ tasks:
       contribution: Supplies the infrastructure baseline required by persistence and ingestion work.
       outOfScope: Cloud object-storage configuration and database schema migrations.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T06:52:55.317Z"
+    startedAt: "2026-10-03T06:52:48.527Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    completedAt: "2026-10-03T06:52:55.317Z"
   - id: M4DDMT8R1JZ1ZN0MXJBQ5BTWAJ
     title: "Pass 009.5: Secure and document local runtime operations"
     description: Adds safe environment examples and one-command start and verification workflows for a fresh checkout.
     type: task
     storyId: STORY-009
-    status: backlog
+    status: done
     priority: 100
     estimate: "{ value: 3, unit: hours, confidence: 0.85 }"
     standards:
@@ -1484,7 +1517,13 @@ tasks:
       contribution: Lets contributors reproduce and validate the supported development environment safely.
       outOfScope: Production operations runbooks.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T06:53:04.304Z"
+    startedAt: "2026-10-03T06:52:58.242Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    completedAt: "2026-10-03T06:53:04.304Z"
   - id: YJFG8ES4230YKCM9TSSFRTPGFV
     title: "Pass 010.1: Establish async database runtime"
     description: Adds SQLAlchemy 2 async and psycopg 3 connection, session, transaction, and tenant execution-context primitives.
@@ -2244,6 +2283,62 @@ tasks:
       outOfScope: General availability release and product performance claims.
     createdAt: "2026-10-02T17:30:08.000Z"
     updatedAt: "2026-10-02T17:30:08.000Z"
+  - id: TASK-001
+    title: Run deferred Docker and Compose acceptance verification
+    description: On a supported Docker-capable development or CI host, build the pinned API, worker, and web images, start the complete Compose topology from a clean state, verify health/readiness and named-volume behavior, and capture any corrections before STORY-009 is closed. This task is deliberately deferred because Docker is not required for current domain-only development.
+    parentType: story
+    parentId: STORY-009
+    type: test
+    status: backlog
+    priority: high
+    storyPoints: 2
+    estimatedMinutes: 90
+    targetFiles:
+      - infra/containers/backend.Dockerfile
+      - infra/containers/web.Dockerfile
+      - infra/containers/nginx.conf
+      - infra/compose/compose.yaml
+      - infra/compose/compose.dev.yaml
+      - ci/container-smoke.sh
+      - ci/local-runtime-check.sh
+      - scripts/local-up.sh
+      - docs/operations/local-runtime.md
+    standards:
+      - STD-ARCH-004
+      - STD-DEV-001
+    dependsOn:
+      - M4DDMT8R1JZ1ZN0MXJBQ5BTWAJ
+    subtasks:
+      - id: SUB-001
+        title: Select and start a supported Docker-compatible runtime
+        completed: false
+        createdAt: "2026-10-03T06:52:02.442Z"
+      - id: SUB-002
+        title: Run API, worker, and web image smoke builds
+        completed: false
+        createdAt: "2026-10-03T06:52:02.442Z"
+      - id: SUB-003
+        title: Start the Compose stack from a clean non-destructive state
+        completed: false
+        createdAt: "2026-10-03T06:52:02.442Z"
+      - id: SUB-004
+        title: Verify PostgreSQL, API, worker, web, networking, and artifact-volume behavior
+        completed: false
+        createdAt: "2026-10-03T06:52:02.442Z"
+      - id: SUB-005
+        title: Record diagnostics and correct any container-only failures
+        completed: false
+        createdAt: "2026-10-03T06:52:02.442Z"
+      - id: SUB-006
+        title: Attach verification evidence and close STORY-009
+        completed: false
+        createdAt: "2026-10-03T06:52:02.442Z"
+    createdAt: "2026-10-03T06:52:02.442Z"
+    updatedAt: "2026-10-03T06:53:13.477Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
 prioritization:
   method: wsjf
   criteria: {}
