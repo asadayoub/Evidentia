@@ -9,11 +9,25 @@ application-port contracts.
 @skyhook-story 4PJTJVE73D2MN7GT64T48S05HT
 """
 
+from evidentia.modules.schemas.application.publish_schema import (
+    ArtifactKey,
+    PublicationProvenance,
+    SchemaDraft,
+    SchemaPublication,
+    publish_schema,
+)
 from evidentia.modules.schemas.application.resolve_schema import resolve_schema
 from evidentia.modules.schemas.domain.artifact_links import (
     ArtifactBindings,
     PublishedArtifactReference,
     SchemaArtifactKind,
+)
+from evidentia.modules.schemas.domain.compatibility import (
+    CompatibilityLevel,
+    CompatibilityReport,
+    SchemaChange,
+    SchemaChangeCode,
+    compare_schema_versions,
 )
 from evidentia.modules.schemas.domain.composition import (
     CompositionConflict,
@@ -78,10 +92,13 @@ from evidentia.modules.schemas.domain.modules import (
 __all__ = (
     "ArrayType",
     "ArtifactBindings",
+    "ArtifactKey",
     "ArtifactReferenceType",
     "ArtifactReferenceValue",
     "BooleanType",
     "Cardinality",
+    "CompatibilityLevel",
+    "CompatibilityReport",
     "CompositionConflict",
     "CompositionConflictCode",
     "CompositionDirective",
@@ -106,6 +123,7 @@ __all__ = (
     "MoneyType",
     "MoneyValue",
     "ObjectType",
+    "PublicationProvenance",
     "PublishedArtifactReference",
     "PublishedSchemaModule",
     "PublishedSchemaVersion",
@@ -115,16 +133,22 @@ __all__ = (
     "ResolvedSchema",
     "ResolvedSchemaIdentity",
     "SchemaArtifactKind",
+    "SchemaChange",
+    "SchemaChangeCode",
+    "SchemaDraft",
     "SchemaId",
     "SchemaLifecycleState",
     "SchemaModuleId",
     "SchemaModuleReference",
+    "SchemaPublication",
     "SchemaVersion",
     "StringType",
     "TableType",
     "ValueDefinition",
     "allowed_schema_transitions",
+    "compare_schema_versions",
     "ensure_schema_transition",
     "ensure_unique_root_fields",
+    "publish_schema",
     "resolve_schema",
 )

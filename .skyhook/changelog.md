@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-005: in-progress to in-review
+- Task TASK-005: ready to in-progress
+- Task TASK-004: in-review to done
 - Task BC3ZF3K4AR4ZNW7CV1P87NHJD2: backlog to cancelled
 - Task 0SDFG842JNTB1BS8G595CKF0E0: backlog to cancelled
 - Task Z905R4Q96N5Q7T69HRPP101SNA: backlog to cancelled
