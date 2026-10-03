@@ -1,7 +1,7 @@
 # Project Plan: Evidentia
 
 > **Project ID**: `GPNKKMYX2EHA0GZ82WDJASXKGX` | **Profile**: `web-app`
-> **Compiled**: 2026-10-03T17:33:12.875Z by Skyhook Dynamic Plan Compiler
+> **Compiled**: 2026-10-03T17:50:12.544Z by Skyhook Dynamic Plan Compiler
 
 ## Executive Summary
 
@@ -11,7 +11,7 @@ An open-source, self-hostable platform that converts documents into inspectable,
 
 | Metric | Current Value | Notes |
 |:-------|:--------------|:------|
-| **Weekly Velocity** | **82.4 pts/wk** | Derived from 14-day rolling events |
+| **Weekly Velocity** | **81.9 pts/wk** | Derived from 14-day rolling events |
 | **Average Cycle Time** | **1.9 hours** | Average in-progress to done duration |
 | **Backlog Work Remaining** | **121 pts** (36 stories) | Unfinished scope |
 | **Expected Completion (P50)** | 📅 **2026-10-14** | Standard velocity projection (1.5 wks) |
@@ -184,7 +184,7 @@ gantt
 | **REQ-016** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `FieldSelector`<br/>`FieldAlias`<br/>`FieldMapping` | — | 🟢 Implemented |
 | **REQ-017** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | — | 🔴 Untraced |
 | **REQ-018** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **NFR-001** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `PublicationProvenance` | — | 🟢 Implemented |
+| **NFR-001** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `PublicationProvenance`<br/>`StoredSchemaIntegrityError` | — | 🟢 Implemented |
 | **NFR-002** | Untitled | `functional` | STORY-010 (cancelled)<br/>STORY-011 (cancelled)<br/>STORY-014 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
 | **NFR-003** | Untitled | `functional` | STORY-014 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
 | **NFR-004** | Untitled | `functional` | STORY-007 (done)<br/>STORY-009 (in-review)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `RuntimeEnvironment`<br/>`DatabaseSettings`<br/>`StorageSettings` | — | 🟢 Implemented |

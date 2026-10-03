@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-03T17:48:13.860Z"
+  updatedAt: "2026-10-03T17:50:03.788Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -3659,7 +3659,7 @@ tasks:
     parentType: story
     parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
     type: feature
-    status: in-review
+    status: done
     priority: critical
     storyPoints: 5
     estimatedMinutes: 360
@@ -3700,25 +3700,20 @@ tasks:
         createdAt: "2026-10-03T16:55:17.428Z"
         completedAt: "2026-10-03T17:48:05.921Z"
     createdAt: "2026-10-03T16:55:17.428Z"
-    updatedAt: "2026-10-03T17:48:13.860Z"
+    updatedAt: "2026-10-03T17:49:55.443Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
-    lease:
-      agentId: Codex
-      leasedAt: "2026-10-03T17:35:46.572Z"
-      expiresAt: "2026-10-03T19:35:46.572Z"
-      durationMinutes: 120
-      heartbeatAt: "2026-10-03T17:35:46.572Z"
     startedAt: "2026-10-03T17:35:55.981Z"
+    completedAt: "2026-10-03T17:49:55.443Z"
   - id: TASK-012
     title: Prove schema durability, immutability, and tenant isolation
     description: "Purpose: verify the native PostgreSQL implementation through restart-safe integration behavior. Contribution: establishes trustworthy persistence evidence before API and UI work consume it."
     parentType: story
     parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
     type: test
-    status: backlog
+    status: ready
     priority: critical
     storyPoints: 3
     estimatedMinutes: 240
@@ -3753,7 +3748,7 @@ tasks:
         completed: false
         createdAt: "2026-10-03T16:55:21.251Z"
     createdAt: "2026-10-03T16:55:21.251Z"
-    updatedAt: "2026-10-03T16:55:42.709Z"
+    updatedAt: "2026-10-03T17:50:03.788Z"
     assignee:
       type: agent
       identifier: Codex

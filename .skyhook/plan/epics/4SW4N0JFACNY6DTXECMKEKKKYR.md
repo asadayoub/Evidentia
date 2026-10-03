@@ -1,7 +1,7 @@
 # Epic Plan: 4SW4N0JFACNY6DTXECMKEKKKYR — Parsing OCR and document classification
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-03T17:33:13.036Z
+> **Generated**: 2026-10-03T17:50:12.647Z
 
 ---
 

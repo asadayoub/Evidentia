@@ -1,7 +1,7 @@
 # Epic Plan: 78QQ2PHQ2E1QHQV03FFBCXYRQD — Evidence-backed Extraction and Review
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-03T17:33:13.081Z
+> **Generated**: 2026-10-03T17:50:12.685Z
 
 ---
 
