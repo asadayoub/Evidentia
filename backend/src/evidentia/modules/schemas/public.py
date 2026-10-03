@@ -9,10 +9,24 @@ application-port contracts.
 @skyhook-story 4PJTJVE73D2MN7GT64T48S05HT
 """
 
+from evidentia.modules.schemas.application.resolve_schema import resolve_schema
 from evidentia.modules.schemas.domain.artifact_links import (
     ArtifactBindings,
     PublishedArtifactReference,
     SchemaArtifactKind,
+)
+from evidentia.modules.schemas.domain.composition import (
+    CompositionConflict,
+    CompositionConflictCode,
+    CompositionDirective,
+    CompositionResult,
+    FieldAlias,
+    FieldMapping,
+    FieldOrigin,
+    FieldReplacement,
+    FieldSelector,
+    ResolvedSchema,
+    ResolvedSchemaIdentity,
 )
 from evidentia.modules.schemas.domain.definitions import (
     Cardinality,
@@ -68,14 +82,23 @@ __all__ = (
     "ArtifactReferenceValue",
     "BooleanType",
     "Cardinality",
+    "CompositionConflict",
+    "CompositionConflictCode",
+    "CompositionDirective",
+    "CompositionResult",
     "DateTimeType",
     "DateType",
     "DecimalType",
     "EnumType",
     "ExtensionType",
+    "FieldAlias",
     "FieldDefinition",
     "FieldKey",
+    "FieldMapping",
+    "FieldOrigin",
     "FieldPath",
+    "FieldReplacement",
+    "FieldSelector",
     "FieldType",
     "FieldTypeKind",
     "IdentifierType",
@@ -89,6 +112,8 @@ __all__ = (
     "ReferenceType",
     "ReferenceValue",
     "ReleaseLabel",
+    "ResolvedSchema",
+    "ResolvedSchemaIdentity",
     "SchemaArtifactKind",
     "SchemaId",
     "SchemaLifecycleState",
@@ -101,4 +126,5 @@ __all__ = (
     "allowed_schema_transitions",
     "ensure_schema_transition",
     "ensure_unique_root_fields",
+    "resolve_schema",
 )
