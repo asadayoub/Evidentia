@@ -1,7 +1,7 @@
 # Project Plan: Evidentia
 
 > **Project ID**: `GPNKKMYX2EHA0GZ82WDJASXKGX` | **Profile**: `web-app`
-> **Compiled**: 2026-10-03T17:11:29.427Z by Skyhook Dynamic Plan Compiler
+> **Compiled**: 2026-10-03T17:33:12.875Z by Skyhook Dynamic Plan Compiler
 
 ## Executive Summary
 
@@ -11,7 +11,7 @@ An open-source, self-hostable platform that converts documents into inspectable,
 
 | Metric | Current Value | Notes |
 |:-------|:--------------|:------|
-| **Weekly Velocity** | **83 pts/wk** | Derived from 14-day rolling events |
+| **Weekly Velocity** | **82.4 pts/wk** | Derived from 14-day rolling events |
 | **Average Cycle Time** | **1.9 hours** | Average in-progress to done duration |
 | **Backlog Work Remaining** | **121 pts** (36 stories) | Unfinished scope |
 | **Expected Completion (P50)** | 📅 **2026-10-14** | Standard velocity projection (1.5 wks) |
@@ -168,7 +168,7 @@ gantt
 |:-------|:------------------|:---------|:--------|:-------------|:-----|:-------|
 | **REQ-001** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-002** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-003** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `SchemaInterchangeEnvelope`<br/>`export_schema`<br/>`import_schema` | — | 🟢 Implemented |
+| **REQ-003** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `upgrade`<br/>`downgrade`<br/>`SchemaInterchangeEnvelope` | — | 🟢 Implemented |
 | **REQ-004** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-005** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | — | 🔴 Untraced |
 | **REQ-006** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | — | 🔴 Untraced |

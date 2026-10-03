@@ -1,7 +1,7 @@
 # Epic Plan: G2T8V1PT0VBT62KQZX322TK77E — Source evidence validation and exception handling
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-03T17:11:29.534Z
+> **Generated**: 2026-10-03T17:33:13.041Z
 
 ---
 

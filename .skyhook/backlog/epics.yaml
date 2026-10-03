@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-03T17:32:28.377Z"
+  updatedAt: "2026-10-03T17:33:05.426Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -3605,7 +3605,7 @@ tasks:
     parentType: story
     parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
     type: feature
-    status: in-review
+    status: done
     priority: critical
     storyPoints: 5
     estimatedMinutes: 360
@@ -3646,25 +3646,20 @@ tasks:
         createdAt: "2026-10-03T16:55:12.285Z"
         completedAt: "2026-10-03T17:32:20.847Z"
     createdAt: "2026-10-03T16:55:12.285Z"
-    updatedAt: "2026-10-03T17:32:28.377Z"
+    updatedAt: "2026-10-03T17:32:54.534Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
-    lease:
-      agentId: Codex
-      leasedAt: "2026-10-03T17:15:48.631Z"
-      expiresAt: "2026-10-03T19:15:48.631Z"
-      durationMinutes: 120
-      heartbeatAt: "2026-10-03T17:15:48.631Z"
     startedAt: "2026-10-03T17:15:58.278Z"
+    completedAt: "2026-10-03T17:32:54.534Z"
   - id: TASK-011
     title: Implement tenant-scoped schema repositories
     description: "Purpose: provide application ports and PostgreSQL adapters for draft editing and immutable publication retrieval. Contribution: the future Schema Workbench can use durable schemas without depending on SQL details."
     parentType: story
     parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
     type: feature
-    status: backlog
+    status: ready
     priority: critical
     storyPoints: 5
     estimatedMinutes: 360
@@ -3700,7 +3695,7 @@ tasks:
         completed: false
         createdAt: "2026-10-03T16:55:17.428Z"
     createdAt: "2026-10-03T16:55:17.428Z"
-    updatedAt: "2026-10-03T16:55:39.327Z"
+    updatedAt: "2026-10-03T17:33:05.426Z"
     assignee:
       type: agent
       identifier: Codex
