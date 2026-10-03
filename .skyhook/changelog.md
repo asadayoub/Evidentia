@@ -1,6 +1,12 @@
 # Changelog
 
 ## [Unreleased]
+- Added task: Pass 5: Define canonical interchange, migration, and reprocessing contracts (TASK-006) under story 4PJTJVE73D2MN7GT64T48S05HT
+- Added task: Pass 4: Govern publication and schema compatibility (TASK-005) under story 4PJTJVE73D2MN7GT64T48S05HT
+- Added task: Pass 3: Implement deterministic schema composition and conflict reporting (TASK-004) under story 4PJTJVE73D2MN7GT64T48S05HT
+- Added task: Pass 2: Model schema definitions as immutable versioned aggregates (TASK-003) under story 4PJTJVE73D2MN7GT64T48S05HT
+- Added task: Pass 1: Define schema identity, lifecycle, and core field types (TASK-002) under story 4PJTJVE73D2MN7GT64T48S05HT
+- Recorded decision: Define the dynamic schema lifecycle, type system, and compatibility contract (X5BHHCAWFJ2SZKPBCP5ECENB97)
 - Task TASK-001: ready to backlog
 - Task M4DDMT8R1JZ1ZN0MXJBQ5BTWAJ: in-review to done
 - Task M4DDMT8R1JZ1ZN0MXJBQ5BTWAJ: in-progress to in-review
