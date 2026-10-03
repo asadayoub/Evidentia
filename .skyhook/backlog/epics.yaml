@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-03T17:11:22.708Z"
+  updatedAt: "2026-10-03T17:32:28.377Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -3605,7 +3605,7 @@ tasks:
     parentType: story
     parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
     type: feature
-    status: ready
+    status: in-review
     priority: critical
     storyPoints: 5
     estimatedMinutes: 360
@@ -3622,30 +3622,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Design schema-owned tables and tenant-scoped keys
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:12.285Z"
+        completedAt: "2026-10-03T17:32:12.476Z"
       - id: SUB-002
         title: Create the first schema-module migration with reversible upgrade and downgrade behavior
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:12.285Z"
+        completedAt: "2026-10-03T17:32:09.594Z"
       - id: SUB-003
         title: Store immutable published snapshots, digests, artifact references, and publication provenance
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:12.285Z"
+        completedAt: "2026-10-03T17:32:15.374Z"
       - id: SUB-004
         title: Represent mutable drafts separately from immutable versions
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:12.285Z"
+        completedAt: "2026-10-03T17:32:18.237Z"
       - id: SUB-005
         title: Add migration structure and ownership tests
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:12.285Z"
+        completedAt: "2026-10-03T17:32:20.847Z"
     createdAt: "2026-10-03T16:55:12.285Z"
-    updatedAt: "2026-10-03T17:11:22.708Z"
+    updatedAt: "2026-10-03T17:32:28.377Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
+    lease:
+      agentId: Codex
+      leasedAt: "2026-10-03T17:15:48.631Z"
+      expiresAt: "2026-10-03T19:15:48.631Z"
+      durationMinutes: 120
+      heartbeatAt: "2026-10-03T17:15:48.631Z"
+    startedAt: "2026-10-03T17:15:58.278Z"
   - id: TASK-011
     title: Implement tenant-scoped schema repositories
     description: "Purpose: provide application ports and PostgreSQL adapters for draft editing and immutable publication retrieval. Contribution: the future Schema Workbench can use durable schemas without depending on SQL details."

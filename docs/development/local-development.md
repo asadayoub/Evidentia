@@ -28,6 +28,22 @@ make native-db-verify
 
 Initialization is idempotent: it creates missing local objects, retains an existing database, and aligns the dedicated development role password with the private `.env`. It does not run application migrations.
 
+Apply all module-owned migrations after initialization:
+
+```sh
+make db-upgrade
+```
+
+During unreleased migration development, verify reversibility with `make db-downgrade` followed by `make db-upgrade`. Once a migration has shipped, its file is append-only and corrections use a new forward migration.
+
+PostgreSQL integration tests are deliberately opt-in and use the configured dedicated database:
+
+```sh
+uv run pytest --postgres backend/tests/integration
+```
+
+Each test must roll back its own data. The migration itself remains applied after the suite.
+
 Stop the database when desired:
 
 ```sh

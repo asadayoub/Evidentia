@@ -41,6 +41,9 @@ mypy_path = ["backend/src", "sdks/python/src"]
 addopts = "--strict-config --strict-markers -q"
 pythonpath = ["."]
 testpaths = ["backend/tests", "sdks/python/tests", "tests/architecture"]
+markers = [
+  "postgres: requires the explicitly enabled native PostgreSQL integration database",
+]
 
 [tool.importlinter]
 root_packages = ["evidentia"]

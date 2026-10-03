@@ -1,4 +1,7 @@
-.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generated-check container-smoke local-init native-db-init native-db-verify local-up local-verify local-down check
+.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generated-check container-smoke local-init native-db-init native-db-verify db-upgrade db-downgrade local-up local-verify local-down check
+
+UV_CACHE_DIR ?= $(CURDIR)/.uv-cache
+export UV_CACHE_DIR
 
 bootstrap:
 	./ci/bootstrap.sh
@@ -39,6 +42,12 @@ native-db-verify:
 
 native-db-init:
 	uv run python tools/check_native_postgres.py --bootstrap
+
+db-upgrade:
+	uv run alembic -c backend/alembic.ini upgrade heads
+
+db-downgrade:
+	uv run alembic -c backend/alembic.ini downgrade base
 
 local-up:
 	./scripts/local-up.sh
