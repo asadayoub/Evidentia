@@ -27,7 +27,7 @@ When a choice could materially change implementation, create a decision-gate tas
 
 ## Current horizon
 
-The active implementation story is `4PJTJVE73D2MN7GT64T48S05HT` — **Build versioned schema lifecycle**.
+The completed enabling story is `4PJTJVE73D2MN7GT64T48S05HT` — **Build versioned schema lifecycle**.
 
 | Pass | Feature | Contribution |
 | --- | --- | --- |
@@ -37,6 +37,16 @@ The active implementation story is `4PJTJVE73D2MN7GT64T48S05HT` — **Build vers
 | `TASK-005` | Publication and compatibility governance | Protects immutable history and explains schema evolution. |
 | `TASK-006` | Canonical interchange and migration planning | Makes schemas portable without rewriting historical records. |
 
-The immediately upcoming story is `0VJ9SHA39TA291D8QXB0TQS3HQ` — **Persist governed schemas for interactive use**. Its only current task is `TASK-007`, a decision gate for the supported local PostgreSQL workflow. Database implementation tasks must not be created until that decision is approved.
+The active story is `0VJ9SHA39TA291D8QXB0TQS3HQ` — **Persist governed schemas for interactive use**.
+
+| Pass | Feature | Contribution |
+| --- | --- | --- |
+| `TASK-007` | Native-versus-container runtime decision | Selects native PostgreSQL 16.x now and defers the optional hybrid profile. |
+| `TASK-009` | Native PostgreSQL configuration and readiness | Establishes the secure local connection contract before migrations. |
+| `TASK-010` | Module-owned schema persistence and migrations | Persists drafts and immutable publications without domain coupling. |
+| `TASK-011` | Tenant-scoped schema repositories | Gives application workflows durable, isolated schema access. |
+| `TASK-012` | Durability, immutability, and isolation evidence | Proves the persistence behavior before API and UI consumption. |
+
+Only `TASK-009` is ready. The later passes remain in backlog until their declared predecessor is complete. `TASK-008` belongs to the production deployment story and remains deferred until the product development phase is nearing completion.
 
 The earlier detailed passes under cancelled `STORY-010` through `STORY-016` are retained as cancelled history. Relevant work will be decomposed again in the context of the product story that consumes it.

@@ -1,7 +1,7 @@
 # Project Plan: Evidentia
 
 > **Project ID**: `GPNKKMYX2EHA0GZ82WDJASXKGX` | **Profile**: `web-app`
-> **Compiled**: 2026-10-03T11:55:35.103Z by Skyhook Dynamic Plan Compiler
+> **Compiled**: 2026-10-03T16:57:40.814Z by Skyhook Dynamic Plan Compiler
 
 ## Executive Summary
 
@@ -11,11 +11,11 @@ An open-source, self-hostable platform that converts documents into inspectable,
 
 | Metric | Current Value | Notes |
 |:-------|:--------------|:------|
-| **Weekly Velocity** | **93.1 pts/wk** | Derived from 14-day rolling events |
+| **Weekly Velocity** | **83.4 pts/wk** | Derived from 14-day rolling events |
 | **Average Cycle Time** | **1.9 hours** | Average in-progress to done duration |
 | **Backlog Work Remaining** | **121 pts** (36 stories) | Unfinished scope |
-| **Expected Completion (P50)** | 📅 **2026-10-12** | Standard velocity projection (1.3 wks) |
-| **Conservative Completion (P90)** | 📅 **2026-10-16** | Risk-adjusted delivery date (1.8 wks) |
+| **Expected Completion (P50)** | 📅 **2026-10-14** | Standard velocity projection (1.5 wks) |
+| **Conservative Completion (P90)** | 📅 **2026-10-17** | Risk-adjusted delivery date (2 wks) |
 
 > [!WARNING]
 > **Scope Creep Alert**: Net backlog growth (+202 pts) exceeds recent completion rate. Delivery target may shift.
@@ -112,7 +112,7 @@ gantt
     Prove the tenant-aware API-worker-web walking skeleton :crit, s_STORY_016, after s_STORY_009, 8d
 
     section Interactive Schema Workbench
-    Persist governed schemas for interactive use : s_0VJ9SHA39TA291D8QXB0TQS3HQ, 2026-10-03, 5d
+    Persist governed schemas for interactive use :active, s_0VJ9SHA39TA291D8QXB0TQS3HQ, 2026-10-03, 5d
     Establish the minimum trusted operator and tenant context : s_N1ZNPJWFZYPV0MVB8FP137GRJP, 2026-10-03, 5d
     Expose the governed schema lifecycle through a versioned API : s_X51S43NTMRW5ASYSKJBF7FW845, 2026-10-03, 5d
     Build the accessible Schema Workbench : s_H98W5WTJBWT8EY0Q10P3KPCEEB, 2026-10-03, 5d
@@ -217,6 +217,7 @@ gantt
 - **HKSQBTGX2CZT36GCS8D3ZTM2PA**: Require explicit PostgreSQL runtime selection before persistence work (Status: `accepted`, Category: `database`)
 - **X5BHHCAWFJ2SZKPBCP5ECENB97**: Define the dynamic schema lifecycle, type system, and compatibility contract (Status: `accepted`, Category: `architecture`)
 - **GC27J7X510394MDYVWSK5M14C2**: Plan delivery through interaction-first vertical slices (Status: `accepted`, Category: `architecture`)
+- **SW33NV9PVTRT60GMH1497PZD62**: Use native PostgreSQL now and add a hybrid Docker profile before release (Status: `accepted`, Category: `database`)
 
 ## 4. Declared Tech Stack
 
@@ -225,7 +226,6 @@ gantt
 - **TypeScript** (`Language`)
 - **React** (`Frontend Framework`)
 - **Vite** (`Frontend Build Tool`)
-- **PostgreSQL** (`Database`)
 - **REST with OpenAPI** (`API`)
 - **Docker Compose** (`Deployment`)
 - **Local filesystem storage adapter** (`Document Storage`)
@@ -255,6 +255,7 @@ gantt
 - **openapi-typescript and openapi-fetch** (`SDK Generation`)
 - **openapi-python-client** (`SDK Generation`)
 - **oasdiff** (`API Contract Testing`)
+- **PostgreSQL** (`Database`)
 
 ## 5. Granular Scoped Plans
 

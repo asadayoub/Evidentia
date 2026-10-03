@@ -1,7 +1,7 @@
 # Epic Plan: MNJPP3JA9GHKAMKNAT0H3DSVR2 — Public API SDKs and extension ecosystem
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-03T11:45:38.119Z
+> **Generated**: 2026-10-03T16:57:40.928Z
 
 ---
 

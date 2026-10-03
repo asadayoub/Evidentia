@@ -1,6 +1,19 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-007: in-review to done
+- Task TASK-007: in-progress to in-review
+- Task TASK-012: ready to backlog
+- Task TASK-011: ready to backlog
+- Task TASK-010: ready to backlog
+- Added task: Prove schema durability, immutability, and tenant isolation (TASK-012) under story 0VJ9SHA39TA291D8QXB0TQS3HQ
+- Added task: Implement tenant-scoped schema repositories (TASK-011) under story 0VJ9SHA39TA291D8QXB0TQS3HQ
+- Added task: Define module-owned schema persistence and migrations (TASK-010) under story 0VJ9SHA39TA291D8QXB0TQS3HQ
+- Added task: Configure and verify the native PostgreSQL development connection (TASK-009) under story 0VJ9SHA39TA291D8QXB0TQS3HQ
+- Task TASK-008: ready to backlog
+- Added task: Add and verify the optional Docker PostgreSQL development profile (TASK-008) under story ECMWWJT024W5QXBQ5G6C1YMHQQ
+- Recorded decision: Use native PostgreSQL during product development and add a hybrid Docker profile before release (SW33NV9PVTRT60GMH1497PZD62)
+- Task TASK-007: ready to in-progress
 - Story 4PJTJVE73D2MN7GT64T48S05HT: in-review to done
 - Task TASK-006: in-review to done
 - Task TASK-006: in-progress to in-review

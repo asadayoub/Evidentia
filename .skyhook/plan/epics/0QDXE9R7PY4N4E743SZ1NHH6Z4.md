@@ -1,7 +1,7 @@
 # Epic Plan: 0QDXE9R7PY4N4E743SZ1NHH6Z4 — Versioned schemas normalization and extraction providers
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-03T11:45:38.097Z
+> **Generated**: 2026-10-03T16:57:40.914Z
 
 ---
 
@@ -13,7 +13,7 @@ Support configurable document structures and interchangeable hosted or local ext
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **4PJTJVE73D2MN7GT64T48S05HT** | Build versioned schema lifecycle | `in-progress` | critical | — | None |
+| **4PJTJVE73D2MN7GT64T48S05HT** | Build versioned schema lifecycle | `done` | critical | — | None |
 | **BYNGTQS6SX4FB7HQ46D9FKTJR2** | Build hosted and local extraction provider interface | `cancelled` | critical | — | None |
 | **8PKADXET1MA10TAY9F6VBDYYAD** | Build reprocessing and comparison workflow | `cancelled` | high | — | None |
 | **STORY-002** | Implement contextual schema resolution and composition | `cancelled` | critical | 1 pts | 4PJTJVE73D2MN7GT64T48S05HT, C37NZW5X9ASZRS7XHZ7W56MG8V |
@@ -23,7 +23,7 @@ Support configurable document structures and interchangeable hosted or local ext
 
 ```mermaid
 flowchart TD
-    4PJTJVE73D2MN7GT64T48S05HT["Build versioned schema lifecycle (in-progress)"]
+    4PJTJVE73D2MN7GT64T48S05HT["Build versioned schema lifecycle (done)"]
     BYNGTQS6SX4FB7HQ46D9FKTJR2["Build hosted and local extraction provider interface (cancelled)"]
     8PKADXET1MA10TAY9F6VBDYYAD["Build reprocessing and comparison workflow (cancelled)"]
     STORY-002["Implement contextual schema resolution and composition (cancelled)"]

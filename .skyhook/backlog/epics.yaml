@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-03T11:55:31.713Z"
+  updatedAt: "2026-10-03T16:57:36.861Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1566,14 +1566,19 @@ stories:
     acceptanceCriteria:
       - PostgreSQL workflow is approved before implementation; tenant-owned drafts and immutable publications persist.
     priority: high
-    status: backlog
+    status: in-progress
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-03T08:20:53.861Z"
-    updatedAt: "2026-10-03T08:20:53.861Z"
+    updatedAt: "2026-10-03T16:53:46.617Z"
     childTasks:
       - TASK-007
+      - TASK-009
+      - TASK-010
+      - TASK-011
+      - TASK-012
+    startedAt: "2026-10-03T16:53:46.617Z"
   - id: N1ZNPJWFZYPV0MVB8FP137GRJP
     epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
     title: Establish the minimum trusted operator and tenant context
@@ -1951,6 +1956,8 @@ stories:
     standards: []
     createdAt: "2026-10-03T08:21:14.643Z"
     updatedAt: "2026-10-03T08:21:14.643Z"
+    childTasks:
+      - TASK-008
   - id: 4QGB75ND0XME0JVSYJN9K3PMTW
     epicId: 89QP3HS2PDE09EJ9X86P5QRFWM
     title: Maintain evaluation and release evidence
@@ -3445,7 +3452,7 @@ tasks:
     parentType: story
     parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
     type: spike
-    status: ready
+    status: done
     priority: critical
     storyPoints: 1
     estimatedMinutes: 45
@@ -3457,26 +3464,270 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Inventory the installed PostgreSQL and developer constraints without changing them
-        completed: false
+        completed: true
         createdAt: "2026-10-03T08:21:39.033Z"
+        completedAt: "2026-10-03T16:55:46.211Z"
       - id: SUB-002
         title: Compare native, Docker, and hybrid workflows
-        completed: false
+        completed: true
         createdAt: "2026-10-03T08:21:39.033Z"
+        completedAt: "2026-10-03T16:55:50.227Z"
       - id: SUB-003
         title: Ask the user to approve one workflow before database implementation
-        completed: false
+        completed: true
         createdAt: "2026-10-03T08:21:39.033Z"
+        completedAt: "2026-10-03T16:55:53.571Z"
       - id: SUB-004
         title: Record the approved decision in Skyhook
-        completed: false
+        completed: true
         createdAt: "2026-10-03T08:21:39.033Z"
+        completedAt: "2026-10-03T16:55:56.934Z"
       - id: SUB-005
         title: Create implementation tasks only after approval
-        completed: false
+        completed: true
         createdAt: "2026-10-03T08:21:39.033Z"
+        completedAt: "2026-10-03T16:56:01.318Z"
     createdAt: "2026-10-03T08:21:39.033Z"
-    updatedAt: "2026-10-03T08:21:39.033Z"
+    updatedAt: "2026-10-03T16:57:36.861Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-03T16:53:46.617Z"
+    completedAt: "2026-10-03T16:57:36.861Z"
+  - id: TASK-008
+    title: Add and verify the optional Docker PostgreSQL development profile
+    description: "Purpose: convert the native-only development workflow into a documented hybrid near completion of the product development phase. Contribution: contributors and release validation can choose native PostgreSQL or an equivalent Docker Compose PostgreSQL runtime without changing application behavior. Activation condition: the core product journeys and persistence contracts are stable enough to freeze the container configuration."
+    parentType: story
+    parentId: ECMWWJT024W5QXBQ5G6C1YMHQQ
+    type: chore
+    status: backlog
+    priority: medium
+    storyPoints: 3
+    estimatedMinutes: 240
+    targetFiles:
+      - infra/compose/compose.yaml
+      - infra/compose/compose.dev.yaml
+      - docs/development/local-development.md
+      - ci/local-runtime-check.sh
+    standards:
+      - STD-ARCH-001
+      - STD-DEV-001
+    dependsOn: []
+    subtasks:
+      - id: SUB-001
+        title: Confirm the supported PostgreSQL major version and extensions against the completed product
+        completed: false
+        createdAt: "2026-10-03T16:54:29.711Z"
+      - id: SUB-002
+        title: Create a resource-conscious Docker Compose PostgreSQL development profile
+        completed: false
+        createdAt: "2026-10-03T16:54:29.711Z"
+      - id: SUB-003
+        title: Keep native and Docker connection settings behind the same environment contract
+        completed: false
+        createdAt: "2026-10-03T16:54:29.711Z"
+      - id: SUB-004
+        title: Verify migrations and persistence integration tests against both workflows
+        completed: false
+        createdAt: "2026-10-03T16:54:29.711Z"
+      - id: SUB-005
+        title: Document startup, shutdown, data reset, backup, troubleshooting, and minimum resource guidance
+        completed: false
+        createdAt: "2026-10-03T16:54:29.711Z"
+      - id: SUB-006
+        title: Confirm Docker remains optional for ordinary local development
+        completed: false
+        createdAt: "2026-10-03T16:54:29.711Z"
+    createdAt: "2026-10-03T16:54:29.711Z"
+    updatedAt: "2026-10-03T16:55:01.719Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+  - id: TASK-009
+    title: Configure and verify the native PostgreSQL development connection
+    description: "Purpose: establish the approved native PostgreSQL 16 workflow without introducing migrations yet. Contribution: gives later persistence passes one documented, secure, environment-driven connection contract. First diagnose the current Homebrew service error without destructive repair."
+    parentType: story
+    parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
+    type: chore
+    status: ready
+    priority: critical
+    storyPoints: 2
+    estimatedMinutes: 120
+    targetFiles:
+      - backend/src/evidentia/config.py
+      - .env.example
+      - docs/development/local-development.md
+      - ci/local-runtime-check.sh
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-DEV-001
+    dependsOn: []
+    subtasks:
+      - id: SUB-001
+        title: Diagnose the PostgreSQL 16 Homebrew service error without deleting or resetting data
+        completed: false
+        createdAt: "2026-10-03T16:55:06.969Z"
+      - id: SUB-002
+        title: Define development database, role, host, port, and secret-handling expectations
+        completed: false
+        createdAt: "2026-10-03T16:55:06.969Z"
+      - id: SUB-003
+        title: Add environment-driven application settings with safe validation and no committed credentials
+        completed: false
+        createdAt: "2026-10-03T16:55:06.969Z"
+      - id: SUB-004
+        title: Add a non-destructive connectivity/readiness check
+        completed: false
+        createdAt: "2026-10-03T16:55:06.969Z"
+      - id: SUB-005
+        title: Document start, stop, status, and troubleshooting commands for the native workflow
+        completed: false
+        createdAt: "2026-10-03T16:55:06.969Z"
+    createdAt: "2026-10-03T16:55:06.969Z"
+    updatedAt: "2026-10-03T16:55:06.969Z"
+  - id: TASK-010
+    title: Define module-owned schema persistence and migrations
+    description: "Purpose: translate the completed schema lifecycle into module-owned PostgreSQL storage. Contribution: drafts, publications, artifacts, compatibility evidence, and provenance survive restarts without leaking persistence into domain objects."
+    parentType: story
+    parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
+    type: feature
+    status: backlog
+    priority: critical
+    storyPoints: 5
+    estimatedMinutes: 360
+    targetFiles:
+      - backend/src/evidentia/modules/schemas/infrastructure/
+      - backend/migrations/
+      - backend/tests/integration/schemas/
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-DEV-001
+    dependsOn:
+      - TASK-009
+    subtasks:
+      - id: SUB-001
+        title: Design schema-owned tables and tenant-scoped keys
+        completed: false
+        createdAt: "2026-10-03T16:55:12.285Z"
+      - id: SUB-002
+        title: Create the first schema-module migration with reversible upgrade and downgrade behavior
+        completed: false
+        createdAt: "2026-10-03T16:55:12.285Z"
+      - id: SUB-003
+        title: Store immutable published snapshots, digests, artifact references, and publication provenance
+        completed: false
+        createdAt: "2026-10-03T16:55:12.285Z"
+      - id: SUB-004
+        title: Represent mutable drafts separately from immutable versions
+        completed: false
+        createdAt: "2026-10-03T16:55:12.285Z"
+      - id: SUB-005
+        title: Add migration structure and ownership tests
+        completed: false
+        createdAt: "2026-10-03T16:55:12.285Z"
+    createdAt: "2026-10-03T16:55:12.285Z"
+    updatedAt: "2026-10-03T16:55:35.626Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+  - id: TASK-011
+    title: Implement tenant-scoped schema repositories
+    description: "Purpose: provide application ports and PostgreSQL adapters for draft editing and immutable publication retrieval. Contribution: the future Schema Workbench can use durable schemas without depending on SQL details."
+    parentType: story
+    parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
+    type: feature
+    status: backlog
+    priority: critical
+    storyPoints: 5
+    estimatedMinutes: 360
+    targetFiles:
+      - backend/src/evidentia/modules/schemas/application/
+      - backend/src/evidentia/modules/schemas/infrastructure/
+      - backend/tests/integration/schemas/
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-DEV-001
+    dependsOn:
+      - TASK-010
+    subtasks:
+      - id: SUB-001
+        title: Define persistence-independent schema repository ports
+        completed: false
+        createdAt: "2026-10-03T16:55:17.428Z"
+      - id: SUB-002
+        title: Implement tenant-scoped draft create, update, list, and retrieval operations
+        completed: false
+        createdAt: "2026-10-03T16:55:17.428Z"
+      - id: SUB-003
+        title: Implement atomic publication with duplicate-version protection
+        completed: false
+        createdAt: "2026-10-03T16:55:17.428Z"
+      - id: SUB-004
+        title: Load exact immutable snapshots and referenced artifact metadata
+        completed: false
+        createdAt: "2026-10-03T16:55:17.428Z"
+      - id: SUB-005
+        title: Reject cross-tenant identities and optimistic concurrency conflicts
+        completed: false
+        createdAt: "2026-10-03T16:55:17.428Z"
+    createdAt: "2026-10-03T16:55:17.428Z"
+    updatedAt: "2026-10-03T16:55:39.327Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+  - id: TASK-012
+    title: Prove schema durability, immutability, and tenant isolation
+    description: "Purpose: verify the native PostgreSQL implementation through restart-safe integration behavior. Contribution: establishes trustworthy persistence evidence before API and UI work consume it."
+    parentType: story
+    parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
+    type: test
+    status: backlog
+    priority: critical
+    storyPoints: 3
+    estimatedMinutes: 240
+    targetFiles:
+      - backend/tests/integration/schemas/
+      - docs/development/local-development.md
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-DEV-001
+    dependsOn:
+      - TASK-011
+    subtasks:
+      - id: SUB-001
+        title: Prove drafts and publications survive a new database session
+        completed: false
+        createdAt: "2026-10-03T16:55:21.251Z"
+      - id: SUB-002
+        title: Prove published content and versions cannot be updated or republished
+        completed: false
+        createdAt: "2026-10-03T16:55:21.251Z"
+      - id: SUB-003
+        title: Prove tenant-scoped reads and writes deny cross-tenant access
+        completed: false
+        createdAt: "2026-10-03T16:55:21.251Z"
+      - id: SUB-004
+        title: Prove artifact digest and provenance round-trip exactly
+        completed: false
+        createdAt: "2026-10-03T16:55:21.251Z"
+      - id: SUB-005
+        title: Document integration-test setup and clean teardown
+        completed: false
+        createdAt: "2026-10-03T16:55:21.251Z"
+    createdAt: "2026-10-03T16:55:21.251Z"
+    updatedAt: "2026-10-03T16:55:42.709Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
 prioritization:
   method: wsjf
   criteria: {}

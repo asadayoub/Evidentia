@@ -11,9 +11,6 @@ technologies:
     category: Frontend Framework
   - name: Vite
     category: Frontend Build Tool
-  - name: PostgreSQL
-    category: Database
-    version: 18.x
   - name: REST with OpenAPI
     category: API
   - name: Docker Compose
@@ -76,5 +73,8 @@ technologies:
     category: SDK Generation
   - name: oasdiff
     category: API Contract Testing
+  - name: PostgreSQL
+    category: Database
+    version: 16.x
 patterns: []
 constraints: []

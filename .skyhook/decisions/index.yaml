@@ -13,7 +13,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 921453b9c9008f41f7669f3def2cd497010c6aaae0e98a7cb848b5a0e371d628
-    updatedAt: "2026-10-03T11:45:32.060Z"
+    updatedAt: "2026-10-03T16:57:32.888Z"
   - id: 74P7E9CAH91FZZ6PNFYNZPJ93T
     title: Use a pluggable approval boundary with optional Delibera integration
     status: accepted
@@ -28,7 +28,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: e337059f0ab84a01e899af492e02fce83d6e92f33e6417223eca177c10a91429
-    updatedAt: "2026-10-03T11:45:32.057Z"
+    updatedAt: "2026-10-03T16:57:32.886Z"
   - id: M71RADRBCJCY0VBD3KEG9FA020
     title: Adopt the Evidentia application and deployment baseline
     status: accepted
@@ -46,7 +46,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 09c745bfec123f1914bf31f8fa23b364db061e2b0403bd3a4da2c06340819a99
-    updatedAt: "2026-10-03T11:45:32.063Z"
+    updatedAt: "2026-10-03T16:57:32.891Z"
   - id: QQAK9DE77WFYENB2474V7XJW8W
     title: Adopt an accessibility-first dense review interface
     status: accepted
@@ -60,7 +60,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: abad484e323df79f89a531d97b1c11e92196e51afd288ce872bdf0caa12d08e0
-    updatedAt: "2026-10-03T11:45:32.065Z"
+    updatedAt: "2026-10-03T16:57:32.893Z"
   - id: 4SWENJ85M4CKNH60Q071BFK2WW
     title: Use a bounded invoice benchmark with extensible document processing
     status: accepted
@@ -78,7 +78,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 6e4ad25e72ade1ae6cbc7abd94d56d1a18fe6ecde6dccf551e1fdbe755c84579
-    updatedAt: "2026-10-03T11:45:32.056Z"
+    updatedAt: "2026-10-03T16:57:32.885Z"
   - id: GNCDV7AB7331S5JN3FXTGB6QZJ
     title: Use schema-driven dynamic records with reproducible context resolution
     status: superseded
@@ -96,7 +96,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 2177c6bd13118e4578ef10b3473f5fd1a84a109e9461960916ef268b493ea068
-    updatedAt: "2026-10-03T11:45:32.062Z"
+    updatedAt: "2026-10-03T16:57:32.890Z"
     supersededBy: "[Govern dynamic schema composition and schema discovery](VPCJJY62YNW6VXJ80S7BRK9447.md)"
   - id: VPCJJY62YNW6VXJ80S7BRK9447
     title: Govern dynamic schema composition and schema discovery
@@ -114,7 +114,7 @@ decisions:
     supersedes: "[Use schema-driven dynamic records with reproducible context resolution](GNCDV7AB7331S5JN3FXTGB6QZJ.md)"
     enforcement: null
     contentHash: 489cab6bd941749de24821f47e1af38a723df0d04eb1112d8d819738a1fdb6c0
-    updatedAt: "2026-10-03T11:45:32.066Z"
+    updatedAt: "2026-10-03T16:57:32.894Z"
   - id: 3XX5TEDNT51SVF6XSXDX6SJCRR
     title: Use uniform logical multi-tenancy across all deployment modes
     status: accepted
@@ -126,7 +126,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: c0b359c19ff65774d81b2a4ba4abb9436c4984cd797bff9ae22f41d50f0aa968
-    updatedAt: "2026-10-03T11:45:32.056Z"
+    updatedAt: "2026-10-03T16:57:32.885Z"
   - id: WZ962PPJQM5XMCCAW75SDYF9AX
     title: Use a modular monolith with separately runnable API and workers
     status: accepted
@@ -147,7 +147,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 34fc64be9f9dafb6b9d0c26e32b8213abfa831a9ed8cabc100fec281fdff495c
-    updatedAt: "2026-10-03T11:45:32.067Z"
+    updatedAt: "2026-10-03T16:57:32.895Z"
   - id: MQNYQK5TQMSTJPFV7RYG5B9Q15
     title: Use module-owned persistence in one PostgreSQL database
     status: accepted
@@ -161,7 +161,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 5e802256492e22012d9a095bce8b2fa1c83a17f6bb931a0f3f73bceeaf4c2079
-    updatedAt: "2026-10-03T11:45:32.064Z"
+    updatedAt: "2026-10-03T16:57:32.891Z"
   - id: RKA75WM1ER5MRE3WGWWN161PVC
     title: Keep realtime delivery replaceable and durable state authoritative
     status: accepted
@@ -178,7 +178,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: b77aad18293f04d2e3e5a00fa2afd55e58cd5c841ee2b563f19441336f8ff26d
-    updatedAt: "2026-10-03T11:45:32.066Z"
+    updatedAt: "2026-10-03T16:57:32.893Z"
   - id: 340E8TW17RVJWGK419D1K59NWK
     title: Define Evidentia bounded contexts and aggregate ownership
     status: accepted
@@ -206,7 +206,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: adfaeef3dae34330ebeb589f6a6b2111e9c2deb03042d29f8e010fe649bfc14e
-    updatedAt: "2026-10-03T11:45:32.055Z"
+    updatedAt: "2026-10-03T16:57:32.884Z"
   - id: QGTPMDGB117NT61PNHNE4BFNK4
     title: Model Evidentia workflows as independent guarded state machines
     status: accepted
@@ -227,7 +227,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 76e633dccef391182cfa7d186647c74ba10c0f173f4a8f47e6bc38acf70d7b38
-    updatedAt: "2026-10-03T11:45:32.065Z"
+    updatedAt: "2026-10-03T16:57:32.892Z"
   - id: 8BXHCC2GBDHS6939MV0GTA4AR3
     title: Use versioned JCS snapshots and SHA-256 for authorization binding
     status: accepted
@@ -247,7 +247,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 649f65f406fdfaddcea9c0e8e72e606b9e47e71beedfdb60c790afb303b622df
-    updatedAt: "2026-10-03T11:45:32.059Z"
+    updatedAt: "2026-10-03T16:57:32.886Z"
   - id: CGT2WV3E3VQDP8EX8B4K8BWMMK
     title: Use one product monorepo for Evidentia
     status: accepted
@@ -266,7 +266,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: c938ce8a4ca49a044c2f1de8762c441a45880c507adc0842315deedeb3ceb250
-    updatedAt: "2026-10-03T11:45:32.061Z"
+    updatedAt: "2026-10-03T16:57:32.889Z"
   - id: 2GQD4NWDSA1Q4J9TQYCW291KR9
     title: Adopt a reproducible contract-first development toolchain
     status: accepted
@@ -279,7 +279,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: e7f6f4618486f669390cdbaf5e98b26138dafff3f4aba140e9ee8dcb962e86bb
-    updatedAt: "2026-10-03T11:45:32.053Z"
+    updatedAt: "2026-10-03T16:57:32.884Z"
   - id: 8VC3FRAN1GRTK2F99NB459BWWJ
     title: Establish the configuration and local runtime baseline while deferring production adapters
     status: accepted
@@ -291,7 +291,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: ff8d7af9bf70c5af073887011395b9664d624df8dd14c2586238917817bc6ca9
-    updatedAt: "2026-10-03T11:45:32.059Z"
+    updatedAt: "2026-10-03T16:57:32.887Z"
   - id: HKSQBTGX2CZT36GCS8D3ZTM2PA
     title: Require explicit PostgreSQL runtime selection before persistence work
     status: accepted
@@ -303,7 +303,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 6eb027b57ceae9f6edbecfcd7763c11c32345b2582528e9b2b9f5486e820e0e6
-    updatedAt: "2026-10-03T11:45:32.063Z"
+    updatedAt: "2026-10-03T16:57:32.891Z"
   - id: X5BHHCAWFJ2SZKPBCP5ECENB97
     title: Define the dynamic schema lifecycle, type system, and compatibility contract
     status: accepted
@@ -315,7 +315,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: a59c575c5b2b92644d859f6377b5771ce31a9e1e3cd42044bbaf075162bb12b7
-    updatedAt: "2026-10-03T11:45:32.068Z"
+    updatedAt: "2026-10-03T16:57:32.896Z"
   - id: GC27J7X510394MDYVWSK5M14C2
     title: Plan delivery through interaction-first vertical slices
     status: accepted
@@ -329,3 +329,16 @@ decisions:
     supersededBy: null
     contentHash: fac5a42400b126786fe03502148d1296494712aea86fe4c6884913e56fdee914
     file: decisions/records/GC27J7X510394MDYVWSK5M14C2.md
+    updatedAt: "2026-10-03T16:57:32.890Z"
+  - id: SW33NV9PVTRT60GMH1497PZD62
+    title: Use native PostgreSQL now and add a hybrid Docker profile before release
+    status: accepted
+    category: database
+    createdAt: "2026-10-03T16:54:15.043Z"
+    standards:
+      - STD-ARCH-001
+      - STD-DEV-001
+    supersedes: []
+    enforcement: null
+    contentHash: 1d59ecb505ac6702b90196ebb188138b05a590f63132a70c62f936257b84cc24
+    updatedAt: "2026-10-03T16:57:32.894Z"
