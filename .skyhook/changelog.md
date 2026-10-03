@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-002: in-progress to in-review
+- Task TASK-002: ready to in-progress
 - Added task: Pass 5: Define canonical interchange, migration, and reprocessing contracts (TASK-006) under story 4PJTJVE73D2MN7GT64T48S05HT
 - Added task: Pass 4: Govern publication and schema compatibility (TASK-005) under story 4PJTJVE73D2MN7GT64T48S05HT
 - Added task: Pass 3: Implement deterministic schema composition and conflict reporting (TASK-004) under story 4PJTJVE73D2MN7GT64T48S05HT
