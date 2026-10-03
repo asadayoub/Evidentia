@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-03T17:10:25.607Z"
+  updatedAt: "2026-10-03T17:11:22.708Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -3551,7 +3551,7 @@ tasks:
     parentType: story
     parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
     type: chore
-    status: in-review
+    status: done
     priority: critical
     storyPoints: 2
     estimatedMinutes: 120
@@ -3592,25 +3592,20 @@ tasks:
         createdAt: "2026-10-03T16:55:06.969Z"
         completedAt: "2026-10-03T17:10:17.815Z"
     createdAt: "2026-10-03T16:55:06.969Z"
-    updatedAt: "2026-10-03T17:10:25.607Z"
-    lease:
-      agentId: Codex
-      leasedAt: "2026-10-03T17:00:17.665Z"
-      expiresAt: "2026-10-03T18:30:17.665Z"
-      durationMinutes: 90
-      heartbeatAt: "2026-10-03T17:00:17.665Z"
+    updatedAt: "2026-10-03T17:11:04.173Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
     startedAt: "2026-10-03T17:00:32.360Z"
+    completedAt: "2026-10-03T17:11:04.173Z"
   - id: TASK-010
     title: Define module-owned schema persistence and migrations
     description: "Purpose: translate the completed schema lifecycle into module-owned PostgreSQL storage. Contribution: drafts, publications, artifacts, compatibility evidence, and provenance survive restarts without leaking persistence into domain objects."
     parentType: story
     parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
     type: feature
-    status: backlog
+    status: ready
     priority: critical
     storyPoints: 5
     estimatedMinutes: 360
@@ -3646,7 +3641,7 @@ tasks:
         completed: false
         createdAt: "2026-10-03T16:55:12.285Z"
     createdAt: "2026-10-03T16:55:12.285Z"
-    updatedAt: "2026-10-03T16:55:35.626Z"
+    updatedAt: "2026-10-03T17:11:22.708Z"
     assignee:
       type: agent
       identifier: Codex

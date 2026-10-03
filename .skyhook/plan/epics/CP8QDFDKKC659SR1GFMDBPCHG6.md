@@ -1,7 +1,7 @@
 # Epic Plan: CP8QDFDKKC659SR1GFMDBPCHG6 — Domain contracts and lifecycle foundations
 
 > **Status**: `done` | **Target Date**: `TBD`
-> **Generated**: 2026-10-03T16:57:40.906Z
+> **Generated**: 2026-10-03T17:11:29.523Z
 
 ---
 
