@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-03T07:29:02.543Z"
+  updatedAt: "2026-10-03T07:44:21.521Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -354,6 +354,11 @@ stories:
       - STD-ARCH-002
     relatedRequirements:
       - REQ-003
+      - REQ-005
+      - REQ-006
+      - REQ-015
+      - REQ-016
+      - REQ-017
       - NFR-001
       - NFR-008
       - CON-003
@@ -2406,7 +2411,7 @@ tasks:
     parentType: story
     parentId: 4PJTJVE73D2MN7GT64T48S05HT
     type: feature
-    status: in-review
+    status: done
     priority: critical
     storyPoints: 5
     estimatedMinutes: 360
@@ -2448,19 +2453,20 @@ tasks:
         createdAt: "2026-10-03T07:02:50.782Z"
         completedAt: "2026-10-03T07:28:53.346Z"
     createdAt: "2026-10-03T07:02:50.782Z"
-    updatedAt: "2026-10-03T07:29:05.743Z"
+    updatedAt: "2026-10-03T07:30:23.547Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
     startedAt: "2026-10-03T07:20:36.458Z"
+    completedAt: "2026-10-03T07:30:23.547Z"
   - id: TASK-004
     title: "Pass 3: Implement deterministic schema composition and conflict reporting"
     description: "Purpose: resolve an ordered set of published modules into one reproducible schema and reject ambiguous composition. Contribution: enables tenant-, jurisdiction-, workflow-, and destination-specific schemas while ensuring the same versioned inputs always produce the same field graph and diagnostics."
     parentType: story
     parentId: 4PJTJVE73D2MN7GT64T48S05HT
     type: feature
-    status: ready
+    status: in-review
     priority: critical
     storyPoints: 5
     estimatedMinutes: 360
@@ -2477,26 +2483,36 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Define deterministic module ordering and a canonical resolved-schema identity
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:53.587Z"
+        completedAt: "2026-10-03T07:43:53.561Z"
       - id: SUB-002
         title: Compose compatible nested fields and tables from immutable published modules
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:53.587Z"
+        completedAt: "2026-10-03T07:43:56.565Z"
       - id: SUB-003
         title: Fail on duplicate paths and incompatible types instead of applying silent precedence
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:53.587Z"
+        completedAt: "2026-10-03T07:44:04.293Z"
       - id: SUB-004
         title: Support explicit governed aliases, mappings, and replacement declarations
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:53.587Z"
+        completedAt: "2026-10-03T07:44:08.072Z"
       - id: SUB-005
         title: Return stable, explainable conflict diagnostics and prove resolution determinism
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:53.587Z"
+        completedAt: "2026-10-03T07:44:10.996Z"
     createdAt: "2026-10-03T07:02:53.587Z"
-    updatedAt: "2026-10-03T07:02:53.587Z"
+    updatedAt: "2026-10-03T07:44:24.429Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-03T07:30:38.642Z"
   - id: TASK-005
     title: "Pass 4: Govern publication and schema compatibility"
     description: "Purpose: validate draft schemas before publication and classify evolution as additive-compatible, behavior-changing, or breaking. Contribution: protects historical reproducibility and gives administrators actionable reasons when a schema cannot be published or safely adopted."

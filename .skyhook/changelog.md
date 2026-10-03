@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-004: in-progress to in-review
+- Task TASK-004: ready to in-progress
+- Task TASK-003: in-review to done
 - Task TASK-003: in-progress to in-review
 - Task TASK-003: ready to in-progress
 - Task TASK-002: in-review to done
