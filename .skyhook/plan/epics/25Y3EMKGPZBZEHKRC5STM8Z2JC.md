@@ -1,7 +1,7 @@
 # Epic Plan: 25Y3EMKGPZBZEHKRC5STM8Z2JC — Evaluation release evidence and open-source operations
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-02T03:13:10.726Z
+> **Generated**: 2026-10-03T11:45:38.128Z
 
 ---
 
@@ -13,19 +13,19 @@ Prove quality, portability, and maintainability with reproducible evidence and i
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **JY8T325XB4VZ2F6DZRPYY7XEHD** | Build permission-cleared evaluation program | `backlog` | critical | — | None |
-| **99JY71R6GRKG8SXDWD92357XNV** | Create deployment backup and upgrade profiles | `backlog` | high | — | None |
-| **7EGC5PWY8MQB5BKQKTR05DWBPQ** | Publish release and contributor evidence | `backlog` | high | — | None |
-| **STORY-001** | Establish the first invoice benchmark and extension conformance suite | `backlog` | critical | 1 pts | C37NZW5X9ASZRS7XHZ7W56MG8V, 4PJTJVE73D2MN7GT64T48S05HT, XPNG59AKNVHXYMPRFWR71DSE0C |
+| **JY8T325XB4VZ2F6DZRPYY7XEHD** | Build permission-cleared evaluation program | `cancelled` | critical | — | None |
+| **99JY71R6GRKG8SXDWD92357XNV** | Create deployment backup and upgrade profiles | `cancelled` | high | — | None |
+| **7EGC5PWY8MQB5BKQKTR05DWBPQ** | Publish release and contributor evidence | `cancelled` | high | — | None |
+| **STORY-001** | Establish the first invoice benchmark and extension conformance suite | `cancelled` | critical | 1 pts | C37NZW5X9ASZRS7XHZ7W56MG8V, 4PJTJVE73D2MN7GT64T48S05HT, XPNG59AKNVHXYMPRFWR71DSE0C |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
-    JY8T325XB4VZ2F6DZRPYY7XEHD["Build permission-cleared evaluation program (backlog)"]
-    99JY71R6GRKG8SXDWD92357XNV["Create deployment backup and upgrade profiles (backlog)"]
-    7EGC5PWY8MQB5BKQKTR05DWBPQ["Publish release and contributor evidence (backlog)"]
-    STORY-001["Establish the first invoice benchmark and extension conformance suite (backlog)"]
+    JY8T325XB4VZ2F6DZRPYY7XEHD["Build permission-cleared evaluation program (cancelled)"]
+    99JY71R6GRKG8SXDWD92357XNV["Create deployment backup and upgrade profiles (cancelled)"]
+    7EGC5PWY8MQB5BKQKTR05DWBPQ["Publish release and contributor evidence (cancelled)"]
+    STORY-001["Establish the first invoice benchmark and extension conformance suite (cancelled)"]
     C37NZW5X9ASZRS7XHZ7W56MG8V --> STORY-001
     4PJTJVE73D2MN7GT64T48S05HT --> STORY-001
     XPNG59AKNVHXYMPRFWR71DSE0C --> STORY-001

@@ -1,7 +1,7 @@
 # Epic Plan: CG7VFRWAF177CMZK333E19YND1 — Executable platform foundation
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-02T03:13:10.727Z
+> **Generated**: 2026-10-03T11:45:38.131Z
 
 ---
 
@@ -14,11 +14,11 @@ Produce a locally runnable, tested, tenant-aware API, worker, and web walking sk
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
 | **STORY-007** | Bootstrap the governed monorepo and locked toolchains | `done` | critical | 5 pts | None |
-| **STORY-008** | Create bounded-context package skeletons and executable boundary tests | `ready` | critical | 5 pts | STORY-007 |
-| **STORY-009** | Establish secure configuration and the local Compose runtime | `ready` | critical | 5 pts | STORY-007 |
-| **STORY-010** | Build module-owned migrations and tenant-safe persistence primitives | `backlog` | critical | 8 pts | STORY-008, STORY-009 |
-| **STORY-011** | Implement trusted identity, tenant context, and authorization hooks | `backlog` | critical | 8 pts | STORY-010 |
-| **STORY-012** | Establish versioned API, errors, correlation, and OpenAPI generation | `backlog` | critical | 5 pts | STORY-008, STORY-011 |
+| **STORY-008** | Create bounded-context package skeletons and executable boundary tests | `done` | critical | 5 pts | STORY-007 |
+| **STORY-009** | Establish secure configuration and the local Compose runtime | `in-review` | critical | 5 pts | STORY-007 |
+| **STORY-010** | Build module-owned migrations and tenant-safe persistence primitives | `cancelled` | critical | 8 pts | STORY-008, STORY-009 |
+| **STORY-011** | Implement trusted identity, tenant context, and authorization hooks | `cancelled` | critical | 8 pts | STORY-010 |
+| **STORY-012** | Establish versioned API, errors, correlation, and OpenAPI generation | `cancelled` | critical | 5 pts | STORY-008, STORY-011 |
 | **STORY-013** | Build the accessible application shell and generated-client boundary | `backlog` | high | 5 pts | STORY-007, STORY-012 |
 | **STORY-014** | Create the worker composition root and durable work port | `backlog` | critical | 5 pts | STORY-008, STORY-010, STORY-011 |
 | **STORY-015** | Implement provider-neutral continuous quality and supply-chain gates | `backlog` | critical | 8 pts | STORY-008, STORY-009, STORY-010, STORY-012, STORY-013, STORY-014 |
@@ -29,16 +29,16 @@ Produce a locally runnable, tested, tenant-aware API, worker, and web walking sk
 ```mermaid
 flowchart TD
     STORY-007["Bootstrap the governed monorepo and locked toolchains (done)"]
-    STORY-008["Create bounded-context package skeletons and executable boundary tests (ready)"]
+    STORY-008["Create bounded-context package skeletons and executable boundary tests (done)"]
     STORY-007 --> STORY-008
-    STORY-009["Establish secure configuration and the local Compose runtime (ready)"]
+    STORY-009["Establish secure configuration and the local Compose runtime (in-review)"]
     STORY-007 --> STORY-009
-    STORY-010["Build module-owned migrations and tenant-safe persistence primitives (backlog)"]
+    STORY-010["Build module-owned migrations and tenant-safe persistence primitives (cancelled)"]
     STORY-008 --> STORY-010
     STORY-009 --> STORY-010
-    STORY-011["Implement trusted identity, tenant context, and authorization hooks (backlog)"]
+    STORY-011["Implement trusted identity, tenant context, and authorization hooks (cancelled)"]
     STORY-010 --> STORY-011
-    STORY-012["Establish versioned API, errors, correlation, and OpenAPI generation (backlog)"]
+    STORY-012["Establish versioned API, errors, correlation, and OpenAPI generation (cancelled)"]
     STORY-008 --> STORY-012
     STORY-011 --> STORY-012
     STORY-013["Build the accessible application shell and generated-client boundary (backlog)"]

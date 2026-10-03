@@ -1,7 +1,7 @@
 # Epic Plan: DGKPHK7KW42128GM4XAZMKN7WF — Identity tenant security and privacy controls
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-02T03:13:10.725Z
+> **Generated**: 2026-10-03T11:45:38.122Z
 
 ---
 
@@ -13,17 +13,17 @@ Protect documents and records across users, clients, workers, and integrations.
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **J53MR4BTE1N2XJHRYXHV4Z87JG** | Implement tenant and action authorization model | `backlog` | critical | — | None |
-| **36P0MN74XTPQ943H6EVXGDX1WE** | Secure untrusted document processing | `backlog` | critical | — | None |
-| **00B1KJ2YM4P1PBKNQTM3AWSPSP** | Implement retention privacy and audit controls | `backlog` | high | — | None |
+| **J53MR4BTE1N2XJHRYXHV4Z87JG** | Implement tenant and action authorization model | `cancelled` | critical | — | None |
+| **36P0MN74XTPQ943H6EVXGDX1WE** | Secure untrusted document processing | `cancelled` | critical | — | None |
+| **00B1KJ2YM4P1PBKNQTM3AWSPSP** | Implement retention privacy and audit controls | `cancelled` | high | — | None |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
-    J53MR4BTE1N2XJHRYXHV4Z87JG["Implement tenant and action authorization model (backlog)"]
-    36P0MN74XTPQ943H6EVXGDX1WE["Secure untrusted document processing (backlog)"]
-    00B1KJ2YM4P1PBKNQTM3AWSPSP["Implement retention privacy and audit controls (backlog)"]
+    J53MR4BTE1N2XJHRYXHV4Z87JG["Implement tenant and action authorization model (cancelled)"]
+    36P0MN74XTPQ943H6EVXGDX1WE["Secure untrusted document processing (cancelled)"]
+    00B1KJ2YM4P1PBKNQTM3AWSPSP["Implement retention privacy and audit controls (cancelled)"]
 ```
 
 ## 4. Execution Guidance for AI Agents & Engineers

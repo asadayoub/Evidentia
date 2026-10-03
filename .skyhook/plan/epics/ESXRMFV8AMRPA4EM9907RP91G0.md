@@ -1,7 +1,7 @@
 # Epic Plan: ESXRMFV8AMRPA4EM9907RP91G0 — Document ingestion and durable storage
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-02T03:13:10.714Z
+> **Generated**: 2026-10-03T11:45:38.091Z
 
 ---
 
@@ -13,17 +13,17 @@ Receive, identify, preserve, secure, and queue documents from all supported inge
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **KMC5EK26PXNT868PT6W97RX06A** | Implement document and artifact storage adapters | `backlog` | critical | — | None |
-| **D86X3Q727TBSXDQX5NRNNZEB63** | Implement interactive and asynchronous ingestion | `backlog` | critical | — | None |
-| **HFVVS2GASHC8W7HEMCW9VMP0TB** | Add batch and connector ingestion channels | `backlog` | high | — | None |
+| **KMC5EK26PXNT868PT6W97RX06A** | Implement document and artifact storage adapters | `cancelled` | critical | — | None |
+| **D86X3Q727TBSXDQX5NRNNZEB63** | Implement interactive and asynchronous ingestion | `cancelled` | critical | — | None |
+| **HFVVS2GASHC8W7HEMCW9VMP0TB** | Add batch and connector ingestion channels | `cancelled` | high | — | None |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
-    KMC5EK26PXNT868PT6W97RX06A["Implement document and artifact storage adapters (backlog)"]
-    D86X3Q727TBSXDQX5NRNNZEB63["Implement interactive and asynchronous ingestion (backlog)"]
-    HFVVS2GASHC8W7HEMCW9VMP0TB["Add batch and connector ingestion channels (backlog)"]
+    KMC5EK26PXNT868PT6W97RX06A["Implement document and artifact storage adapters (cancelled)"]
+    D86X3Q727TBSXDQX5NRNNZEB63["Implement interactive and asynchronous ingestion (cancelled)"]
+    HFVVS2GASHC8W7HEMCW9VMP0TB["Add batch and connector ingestion channels (cancelled)"]
 ```
 
 ## 4. Execution Guidance for AI Agents & Engineers

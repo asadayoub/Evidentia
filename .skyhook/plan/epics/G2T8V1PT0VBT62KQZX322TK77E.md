@@ -1,7 +1,7 @@
 # Epic Plan: G2T8V1PT0VBT62KQZX322TK77E — Source evidence validation and exception handling
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-02T03:13:10.718Z
+> **Generated**: 2026-10-03T11:45:38.100Z
 
 ---
 
@@ -13,17 +13,17 @@ Make every important value inspectable and every validation outcome explainable.
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **XPNG59AKNVHXYMPRFWR71DSE0C** | Model field and table evidence | `backlog` | critical | — | None |
-| **06SRF2HBM8APTGA5RP2D9XS3JP** | Implement versioned validation engine | `backlog` | critical | — | None |
-| **WJN4QJFCJQ98V9Q35KDDVW0HGN** | Build prioritized exception queues | `backlog` | high | — | None |
+| **XPNG59AKNVHXYMPRFWR71DSE0C** | Model field and table evidence | `cancelled` | critical | — | None |
+| **06SRF2HBM8APTGA5RP2D9XS3JP** | Implement versioned validation engine | `cancelled` | critical | — | None |
+| **WJN4QJFCJQ98V9Q35KDDVW0HGN** | Build prioritized exception queues | `cancelled` | high | — | None |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
-    XPNG59AKNVHXYMPRFWR71DSE0C["Model field and table evidence (backlog)"]
-    06SRF2HBM8APTGA5RP2D9XS3JP["Implement versioned validation engine (backlog)"]
-    WJN4QJFCJQ98V9Q35KDDVW0HGN["Build prioritized exception queues (backlog)"]
+    XPNG59AKNVHXYMPRFWR71DSE0C["Model field and table evidence (cancelled)"]
+    06SRF2HBM8APTGA5RP2D9XS3JP["Implement versioned validation engine (cancelled)"]
+    WJN4QJFCJQ98V9Q35KDDVW0HGN["Build prioritized exception queues (cancelled)"]
 ```
 
 ## 4. Execution Guidance for AI Agents & Engineers

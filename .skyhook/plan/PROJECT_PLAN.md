@@ -1,7 +1,7 @@
 # Project Plan: Evidentia
 
 > **Project ID**: `GPNKKMYX2EHA0GZ82WDJASXKGX` | **Profile**: `web-app`
-> **Compiled**: 2026-10-02T18:15:52.246Z by Skyhook Dynamic Plan Compiler
+> **Compiled**: 2026-10-03T11:45:37.993Z by Skyhook Dynamic Plan Compiler
 
 ## Executive Summary
 
@@ -11,14 +11,14 @@ An open-source, self-hostable platform that converts documents into inspectable,
 
 | Metric | Current Value | Notes |
 |:-------|:--------------|:------|
-| **Weekly Velocity** | **105 pts/wk** | Derived from 14-day rolling events |
+| **Weekly Velocity** | **81.8 pts/wk** | Derived from 14-day rolling events |
 | **Average Cycle Time** | **1.5 hours** | Average in-progress to done duration |
-| **Backlog Work Remaining** | **161 pts** (48 stories) | Unfinished scope |
+| **Backlog Work Remaining** | **124 pts** (37 stories) | Unfinished scope |
 | **Expected Completion (P50)** | 📅 **2026-10-13** | Standard velocity projection (1.5 wks) |
-| **Conservative Completion (P90)** | 📅 **2026-10-16** | Risk-adjusted delivery date (2 wks) |
+| **Conservative Completion (P90)** | 📅 **2026-10-17** | Risk-adjusted delivery date (2 wks) |
 
 > [!WARNING]
-> **Scope Creep Alert**: Net backlog growth (+112 pts) exceeds recent completion rate. Delivery target may shift.
+> **Scope Creep Alert**: Net backlog growth (+205 pts) exceeds recent completion rate. Delivery target may shift.
 
 ## 1. Visual Delivery Roadmap & Timeline
 
@@ -46,7 +46,7 @@ gantt
     Evaluate difficult source qualities : s_1VED17WSNE77N7VVCZTXC2NAT5, 2026-10-01, 5d
 
     section Versioned schemas normalization and extraction providers
-    Build versioned schema lifecycle : s_4PJTJVE73D2MN7GT64T48S05HT, 2026-10-01, 5d
+    Build versioned schema lifecycle :active, s_4PJTJVE73D2MN7GT64T48S05HT, 2026-10-03, 5d
     Build hosted and local extraction provider interface : s_BYNGTQS6SX4FB7HQ46D9FKTJR2, 2026-10-01, 5d
     Build reprocessing and comparison workflow : s_8PKADXET1MA10TAY9F6VBDYYAD, 2026-10-01, 5d
     Implement contextual schema resolution and composition : s_STORY_002, after s_4PJTJVE73D2MN7GT64T48S05HT, 2d
@@ -111,6 +111,49 @@ gantt
     Implement provider-neutral continuous quality and supply-chain gates :crit, s_STORY_015, after s_STORY_008, 12d
     Prove the tenant-aware API-worker-web walking skeleton :crit, s_STORY_016, after s_STORY_009, 8d
 
+    section Interactive Schema Workbench
+    Persist governed schemas for interactive use : s_0VJ9SHA39TA291D8QXB0TQS3HQ, 2026-10-03, 5d
+    Establish the minimum trusted operator and tenant context : s_N1ZNPJWFZYPV0MVB8FP137GRJP, 2026-10-03, 5d
+    Expose the governed schema lifecycle through a versioned API : s_X51S43NTMRW5ASYSKJBF7FW845, 2026-10-03, 5d
+    Build the accessible Schema Workbench : s_H98W5WTJBWT8EY0Q10P3KPCEEB, 2026-10-03, 5d
+    Prove the draft-to-published Schema Workbench journey : s_265YM4FNANJAH2J338BKAWFXDM, 2026-10-03, 5d
+
+    section Document Intake and Source Viewer
+    Upload and preserve an original document : s_XRSZ0A5WZEQB0PQYD34PYR8EW3, 2026-10-03, 5d
+    Parse native document text and page structure : s_J2ZHMCR2DNQSHD1VZY7CECT2HT, 2026-10-03, 5d
+    Activate OCR for scanned documents when needed : s_9M4MDW7FN1SGECW2X23WF01501, 2026-10-03, 5d
+    Build the document intake and source viewer : s_AN2RM9JX2PBR6J1NQ1KSHBYHSQ, 2026-10-03, 5d
+
+    section Evidence-backed Extraction and Review
+    Resolve the applicable schema from document context : s_SHF26TB4C43PC4KD2W3PRZ3R78, 2026-10-03, 5d
+    Extract a candidate record through a provider-neutral port : s_WN341EKS97VGCX76ZFR0KHX96Y, 2026-10-03, 5d
+    Attach source evidence to every extracted value : s_QM5MGN4VTK1J9CWEXMC50RM00G, 2026-10-03, 5d
+    Run versioned validation with explainable findings : s_YKQFD89QJYH87GQSMKCVQ104AK, 2026-10-03, 5d
+    Review and correct a dynamic evidence-linked record : s_MAQPX7K4Z5MD3BNT93YFJBRZR5, 2026-10-03, 5d
+    Submit an immutable reviewed record revision : s_ZSHX48Q9AHPEBJCDM0DAD8ED2H, 2026-10-03, 5d
+
+    section Approval and Authorized Delivery
+    Define revision-bound approval semantics : s_ACCCV50MZW87EEEPS6Y1HXGNAZ, 2026-10-03, 5d
+    Approve a submitted revision locally : s_7GZK6H8HR3XKPQ94Q89N85WH0Q, 2026-10-03, 5d
+    Configure versioned destination mappings : s_1A43QS6QGZ4YWH5FG25XZWYEH2, 2026-10-03, 5d
+    Deliver only the exact authorized revision : s_CDSSWKJ0X91XHKD7X3Q8XHXKE5, 2026-10-03, 5d
+    Add optional Delibera approval integration when selected : s_R26DFKYKFWHH981YK1QJEM18WN, 2026-10-03, 5d
+
+    section Collaboration and Operational Scale
+    Coordinate assignments, comments, and concurrent review : s_2BJ99DB0QWS3FE3J0F50N6EPW4, 2026-10-03, 5d
+    Choose and add realtime transport when collaboration requires it : s_AV6YSSGTH46ET6J9NN0DDK7E6B, 2026-10-03, 5d
+    Introduce durable background work when workloads require it : s_C29D8MCQWYGWY6FFSP4YW7MNX7, 2026-10-03, 5d
+    Add outbox, inbox, and reconciliation at the first external reliability boundary : s_3F1QK0FAD4X03Q4CB5XKDC1BJH, 2026-10-03, 5d
+    Add batch, connector, bundle, and matching workflows when demanded : s_44E3PFDX5EVQE4FRTAN1A5RMGC, 2026-10-03, 5d
+    Build an operational recovery and observability workspace : s_PEE73AVQEAC75HKDMA3FA1S4YJ, 2026-10-03, 5d
+
+    section Production, Ecosystem, and Release Evidence
+    Harden identity, tenancy, privacy, and audit for production : s_M7ZMYQSYB6G0W2T5M7TYCCZNHH, 2026-10-03, 5d
+    Publish stable public APIs and SDKs after contracts mature : s_5KENKXMX9EZDJ75R0JHJQ2KSSJ, 2026-10-03, 5d
+    Publish extension contracts for providers and adapters : s_7D8Q1STZ5VEWBSAR6W87P4DH1W, 2026-10-03, 5d
+    Create deployment, backup, restore, and upgrade profiles : s_ECMWWJT024W5QXBQ5G6C1YMHQQ, 2026-10-03, 5d
+    Maintain evaluation and release evidence : s_4QGB75ND0XME0JVSYJN9K3PMTW, 2026-10-03, 5d
+
 ```
 
 > [!IMPORTANT]
@@ -125,30 +168,30 @@ gantt
 |:-------|:------------------|:---------|:--------|:-------------|:-----|:-------|
 | **REQ-001** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-002** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-003** | Untitled | `functional` | — | — | — | 🔴 Untraced |
+| **REQ-003** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress) | `SchemaArtifactKind`<br/>`PublishedArtifactReference`<br/>`ArtifactBindings` | — | 🟢 Implemented |
 | **REQ-004** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-005** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-006** | Untitled | `functional` | — | — | — | 🔴 Untraced |
+| **REQ-005** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress) | — | — | 🟡 In-Progress |
+| **REQ-006** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress) | — | — | 🟡 In-Progress |
 | **REQ-007** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-008** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-009** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-010** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-011** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-012** | Untitled | `functional` | STORY-007 (done)<br/>STORY-012 (backlog)<br/>STORY-013 (backlog)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `create_app`<br/>`main`<br/>`App` | — | 🟢 Implemented |
+| **REQ-012** | Untitled | `functional` | STORY-007 (done)<br/>STORY-012 (cancelled)<br/>STORY-013 (backlog)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `main`<br/>`App`<br/>`sdk_version` | — | 🟢 Implemented |
 | **REQ-013** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-014** | Untitled | `functional` | STORY-009 (ready)<br/>STORY-014 (backlog)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `worker_probe`<br/>`main` | — | 🟢 Implemented |
-| **REQ-015** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-016** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-017** | Untitled | `functional` | — | — | — | 🔴 Untraced |
+| **REQ-014** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-014 (backlog)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `WorkerRuntimeSettings`<br/>`WorkerSettings`<br/>`load_worker_settings` | — | 🟢 Implemented |
+| **REQ-015** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress) | — | — | 🟡 In-Progress |
+| **REQ-016** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress) | `FieldSelector`<br/>`FieldAlias`<br/>`FieldMapping` | — | 🟢 Implemented |
+| **REQ-017** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress) | — | — | 🟡 In-Progress |
 | **REQ-018** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **NFR-001** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **NFR-002** | Untitled | `functional` | STORY-010 (backlog)<br/>STORY-011 (backlog)<br/>STORY-014 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
+| **NFR-001** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress) | — | — | 🟡 In-Progress |
+| **NFR-002** | Untitled | `functional` | STORY-010 (cancelled)<br/>STORY-011 (cancelled)<br/>STORY-014 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
 | **NFR-003** | Untitled | `functional` | STORY-014 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
-| **NFR-004** | Untitled | `functional` | STORY-007 (done)<br/>STORY-009 (ready)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | — | — | ⚪ Ready |
+| **NFR-004** | Untitled | `functional` | STORY-007 (done)<br/>STORY-009 (in-review)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `RuntimeEnvironment`<br/>`DatabaseSettings`<br/>`StorageSettings` | — | 🟢 Implemented |
 | **NFR-005** | Untitled | `functional` | STORY-013 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
-| **NFR-006** | Untitled | `functional` | STORY-009 (ready)<br/>STORY-012 (backlog)<br/>STORY-014 (backlog)<br/>STORY-016 (backlog) | — | — | ⚪ Ready |
-| **NFR-007** | Untitled | `functional` | STORY-010 (backlog) | — | — | 🔴 Untraced |
-| **NFR-008** | Untitled | `functional` | STORY-007 (done)<br/>STORY-008 (done)<br/>STORY-010 (backlog)<br/>STORY-012 (backlog)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `test_real_contexts_are_importable_and_policy_compliant`<br/>`test_framework_import_from_domain_is_rejected`<br/>`test_private_cross_context_import_is_rejected` | — | 🟢 Implemented |
+| **NFR-006** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-012 (cancelled)<br/>STORY-014 (backlog)<br/>STORY-016 (backlog) | `LoggingSettings`<br/>`HealthReport`<br/>`as_dict` | — | 🟢 Implemented |
+| **NFR-007** | Untitled | `functional` | STORY-010 (cancelled) | — | — | 🔴 Untraced |
+| **NFR-008** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (in-progress)<br/>STORY-007 (done)<br/>STORY-008 (done)<br/>STORY-010 (cancelled)<br/>STORY-012 (cancelled)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `test_real_contexts_are_importable_and_policy_compliant`<br/>`test_framework_import_from_domain_is_rejected`<br/>`test_private_cross_context_import_is_rejected` | — | 🟢 Implemented |
 | **NFR-009** | Untitled | `functional` | STORY-015 (backlog) | — | — | 🔴 Untraced |
 
 
@@ -171,6 +214,9 @@ gantt
 - **CGT2WV3E3VQDP8EX8B4K8BWMMK**: Use one product monorepo for Evidentia (Status: `accepted`, Category: `architecture`)
 - **2GQD4NWDSA1Q4J9TQYCW291KR9**: Adopt a reproducible contract-first development toolchain (Status: `accepted`, Category: `technology`)
 - **8VC3FRAN1GRTK2F99NB459BWWJ**: Establish the configuration and local runtime baseline while deferring production adapters (Status: `accepted`, Category: `architecture`)
+- **HKSQBTGX2CZT36GCS8D3ZTM2PA**: Require explicit PostgreSQL runtime selection before persistence work (Status: `accepted`, Category: `database`)
+- **X5BHHCAWFJ2SZKPBCP5ECENB97**: Define the dynamic schema lifecycle, type system, and compatibility contract (Status: `accepted`, Category: `architecture`)
+- **GC27J7X510394MDYVWSK5M14C2**: Plan delivery through interaction-first vertical slices (Status: `accepted`, Category: `architecture`)
 
 ## 4. Declared Tech Stack
 
@@ -222,7 +268,7 @@ To inspect deep-dive necessity, user stories, and execution checklists for indiv
 
 | Wave | Parallel Execution Stories | Prerequisite |
 |:-----|:---------------------------|:-------------|
-| Wave 1 | 3JVEA7J60SSVDTK16VMMW1R6CY, HYFDZB6CJS5YV2KZ216C77VD3H, HKDJB0N3JTKZ2RRFRP5PT70PF9, KMC5EK26PXNT868PT6W97RX06A, D86X3Q727TBSXDQX5NRNNZEB63, HFVVS2GASHC8W7HEMCW9VMP0TB, C37NZW5X9ASZRS7XHZ7W56MG8V, RXAZEMKJVJNN58W029T397M3QN, 1VED17WSNE77N7VVCZTXC2NAT5, 4PJTJVE73D2MN7GT64T48S05HT, BYNGTQS6SX4FB7HQ46D9FKTJR2, 8PKADXET1MA10TAY9F6VBDYYAD, XPNG59AKNVHXYMPRFWR71DSE0C, 06SRF2HBM8APTGA5RP2D9XS3JP, WJN4QJFCJQ98V9Q35KDDVW0HGN, ASQKQ6YH4S8G6SDQ6XN7BHYM8E, 3J2M9KAE9H8THGD2AR9DSKXYTC, B1B7G0DXYE4JSEGFSC2NT8MFD1, Q2840JNY2G50TCZHWY7MWRBKHT, NWMGM72BETT2BVW6DPW6APQCGR, 0P37MDJCQKH1STANM151Q81NHH, FK5B70RZFH4QSTW7Y02R1D3E1N, XRS5S2GBBCPV9Q9CCN2DXBJ2G3, 0C4PR416ZZ5WCA73DMBZFK87CY, GAAPXNG7SK2X48CW2GDDG7MJ06, KYSVD7PWKX5ZAZW4FN67NXA26E, 5DGKC77RV9C2GWTKWK49788S1B, 75J1CS4ZFVG3RSXH2GDF7W82ME, 89ZWE45CMH2MKH116P992C3BDS, NGSBE5Q1QVXJG649C8FQ7JM41Y, J53MR4BTE1N2XJHRYXHV4Z87JG, 36P0MN74XTPQ943H6EVXGDX1WE, 00B1KJ2YM4P1PBKNQTM3AWSPSP, DC2ZQWDS83EVZ95JRJERYN90RP, BNPAYSRAD7TJQ56MBQRP1BAHJQ, WKW6R599VZYZS7J7V8MXGDXWZX, JY8T325XB4VZ2F6DZRPYY7XEHD, 99JY71R6GRKG8SXDWD92357XNV, 7EGC5PWY8MQB5BKQKTR05DWBPQ, STORY-005, STORY-006, STORY-007 | None (Start Immediately) |
+| Wave 1 | 3JVEA7J60SSVDTK16VMMW1R6CY, HYFDZB6CJS5YV2KZ216C77VD3H, HKDJB0N3JTKZ2RRFRP5PT70PF9, KMC5EK26PXNT868PT6W97RX06A, D86X3Q727TBSXDQX5NRNNZEB63, HFVVS2GASHC8W7HEMCW9VMP0TB, C37NZW5X9ASZRS7XHZ7W56MG8V, RXAZEMKJVJNN58W029T397M3QN, 1VED17WSNE77N7VVCZTXC2NAT5, 4PJTJVE73D2MN7GT64T48S05HT, BYNGTQS6SX4FB7HQ46D9FKTJR2, 8PKADXET1MA10TAY9F6VBDYYAD, XPNG59AKNVHXYMPRFWR71DSE0C, 06SRF2HBM8APTGA5RP2D9XS3JP, WJN4QJFCJQ98V9Q35KDDVW0HGN, ASQKQ6YH4S8G6SDQ6XN7BHYM8E, 3J2M9KAE9H8THGD2AR9DSKXYTC, B1B7G0DXYE4JSEGFSC2NT8MFD1, Q2840JNY2G50TCZHWY7MWRBKHT, NWMGM72BETT2BVW6DPW6APQCGR, 0P37MDJCQKH1STANM151Q81NHH, FK5B70RZFH4QSTW7Y02R1D3E1N, XRS5S2GBBCPV9Q9CCN2DXBJ2G3, 0C4PR416ZZ5WCA73DMBZFK87CY, GAAPXNG7SK2X48CW2GDDG7MJ06, KYSVD7PWKX5ZAZW4FN67NXA26E, 5DGKC77RV9C2GWTKWK49788S1B, 75J1CS4ZFVG3RSXH2GDF7W82ME, 89ZWE45CMH2MKH116P992C3BDS, NGSBE5Q1QVXJG649C8FQ7JM41Y, J53MR4BTE1N2XJHRYXHV4Z87JG, 36P0MN74XTPQ943H6EVXGDX1WE, 00B1KJ2YM4P1PBKNQTM3AWSPSP, DC2ZQWDS83EVZ95JRJERYN90RP, BNPAYSRAD7TJQ56MBQRP1BAHJQ, WKW6R599VZYZS7J7V8MXGDXWZX, JY8T325XB4VZ2F6DZRPYY7XEHD, 99JY71R6GRKG8SXDWD92357XNV, 7EGC5PWY8MQB5BKQKTR05DWBPQ, STORY-005, STORY-006, STORY-007, 0VJ9SHA39TA291D8QXB0TQS3HQ, N1ZNPJWFZYPV0MVB8FP137GRJP, X51S43NTMRW5ASYSKJBF7FW845, H98W5WTJBWT8EY0Q10P3KPCEEB, 265YM4FNANJAH2J338BKAWFXDM, XRSZ0A5WZEQB0PQYD34PYR8EW3, J2ZHMCR2DNQSHD1VZY7CECT2HT, 9M4MDW7FN1SGECW2X23WF01501, AN2RM9JX2PBR6J1NQ1KSHBYHSQ, SHF26TB4C43PC4KD2W3PRZ3R78, WN341EKS97VGCX76ZFR0KHX96Y, QM5MGN4VTK1J9CWEXMC50RM00G, YKQFD89QJYH87GQSMKCVQ104AK, MAQPX7K4Z5MD3BNT93YFJBRZR5, ZSHX48Q9AHPEBJCDM0DAD8ED2H, ACCCV50MZW87EEEPS6Y1HXGNAZ, 7GZK6H8HR3XKPQ94Q89N85WH0Q, 1A43QS6QGZ4YWH5FG25XZWYEH2, CDSSWKJ0X91XHKD7X3Q8XHXKE5, R26DFKYKFWHH981YK1QJEM18WN, 2BJ99DB0QWS3FE3J0F50N6EPW4, AV6YSSGTH46ET6J9NN0DDK7E6B, C29D8MCQWYGWY6FFSP4YW7MNX7, 3F1QK0FAD4X03Q4CB5XKDC1BJH, 44E3PFDX5EVQE4FRTAN1A5RMGC, PEE73AVQEAC75HKDMA3FA1S4YJ, M7ZMYQSYB6G0W2T5M7TYCCZNHH, 5KENKXMX9EZDJ75R0JHJQ2KSSJ, 7D8Q1STZ5VEWBSAR6W87P4DH1W, ECMWWJT024W5QXBQ5G6C1YMHQQ, 4QGB75ND0XME0JVSYJN9K3PMTW | None (Start Immediately) |
 | Wave 2 | STORY-002, STORY-001, STORY-004, STORY-008, STORY-009 | Wave 1 Completion |
 | Wave 3 | STORY-003, STORY-010 | Wave 2 Completion |
 | Wave 4 | STORY-011 | Wave 3 Completion |

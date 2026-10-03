@@ -1,7 +1,7 @@
 # Epic Plan: 4SW4N0JFACNY6DTXECMKEKKKYR — Parsing OCR and document classification
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-02T03:13:10.715Z
+> **Generated**: 2026-10-03T11:45:38.094Z
 
 ---
 
@@ -13,17 +13,17 @@ Produce reliable source representations with page, layout, table, and classifica
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **C37NZW5X9ASZRS7XHZ7W56MG8V** | Define parser and OCR adapter contracts | `backlog` | critical | — | None |
-| **RXAZEMKJVJNN58W029T397M3QN** | Implement document classification and correction | `backlog` | critical | — | None |
-| **1VED17WSNE77N7VVCZTXC2NAT5** | Evaluate difficult source qualities | `backlog` | high | — | None |
+| **C37NZW5X9ASZRS7XHZ7W56MG8V** | Define parser and OCR adapter contracts | `cancelled` | critical | — | None |
+| **RXAZEMKJVJNN58W029T397M3QN** | Implement document classification and correction | `cancelled` | critical | — | None |
+| **1VED17WSNE77N7VVCZTXC2NAT5** | Evaluate difficult source qualities | `cancelled` | high | — | None |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
-    C37NZW5X9ASZRS7XHZ7W56MG8V["Define parser and OCR adapter contracts (backlog)"]
-    RXAZEMKJVJNN58W029T397M3QN["Implement document classification and correction (backlog)"]
-    1VED17WSNE77N7VVCZTXC2NAT5["Evaluate difficult source qualities (backlog)"]
+    C37NZW5X9ASZRS7XHZ7W56MG8V["Define parser and OCR adapter contracts (cancelled)"]
+    RXAZEMKJVJNN58W029T397M3QN["Implement document classification and correction (cancelled)"]
+    1VED17WSNE77N7VVCZTXC2NAT5["Evaluate difficult source qualities (cancelled)"]
 ```
 
 ## 4. Execution Guidance for AI Agents & Engineers

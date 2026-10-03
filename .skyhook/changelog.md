@@ -1,6 +1,91 @@
 # Changelog
 
 ## [Unreleased]
+- Task BC3ZF3K4AR4ZNW7CV1P87NHJD2: backlog to cancelled
+- Task 0SDFG842JNTB1BS8G595CKF0E0: backlog to cancelled
+- Task Z905R4Q96N5Q7T69HRPP101SNA: backlog to cancelled
+- Task E3CTNQKVW6HREV84JBYH10D625: backlog to cancelled
+- Task 6RMGBHG0CQ25Q4ZG08HFX1DRX4: backlog to cancelled
+- Task RNKXVD2RV7TXHAQKZDSFCDH6EW: backlog to cancelled
+- Task C55W6NV4W420XTMBHB5RK2MQXY: backlog to cancelled
+- Task DZV8X4BAZ3XQXXEVZ80ABCS0VS: backlog to cancelled
+- Task G64RKEWH5C4DFGN53NFMYSA1XB: backlog to cancelled
+- Task BYFMPYZA71E5H65HA3GCP3RM97: backlog to cancelled
+- Task MKMZQ1Z3WR8YMR3XEEAKQF47CH: backlog to cancelled
+- Task G415QTQM57QT5BVB8HXCD9QSWG: backlog to cancelled
+- Task 00NQ03THY3ECYEWHC8FQHEZ9FX: backlog to cancelled
+- Task MZ0QNT1YHKY49ETEG90SF13W6A: backlog to cancelled
+- Task P8J3196REQF7M8DXVH698M97TQ: backlog to cancelled
+- Task 0WTGARHRNTRC7N7WYVZYHV1JAQ: backlog to cancelled
+- Task 0203XS0XEJA6WAXJE453SDXKEY: backlog to cancelled
+- Task YVR9J8NZ0KKC702GD8KBNKNX9R: backlog to cancelled
+- Task QB1HWDBRYHG9A8XMW8NWGSZSHA: backlog to cancelled
+- Task FDDXY2CJ89633714J3JQXFGTC4: backlog to cancelled
+- Task H1415C2QNPYT3ASVCKZT2VR71P: backlog to cancelled
+- Task 553PG6YBGDPXN7XT6V2J95T3X2: backlog to cancelled
+- Task YF7GZD3TZ318QGG2V5AAZ3R28N: backlog to cancelled
+- Task NTHQRKDGX4V7TTAVYS8BEE00JM: backlog to cancelled
+- Task WEZARFV69Q3ZW23FJCJ9PGP36C: backlog to cancelled
+- Task RNCKN65TQF82EC2C9S2M69DPFW: backlog to cancelled
+- Task 58T1AD5JEJSBBMP5EAFVYYN0DX: backlog to cancelled
+- Task APZA7WW1DE272JH9EZKHH5AQ83: backlog to cancelled
+- Task J140S2TCZ5M9FNDMWSAH0F7YKT: backlog to cancelled
+- Task 4JNVFG5S5T9VHM46DFB396TJDJ: backlog to cancelled
+- Task TQYHB4XBMDACH1KDSYQGZQJNA1: backlog to cancelled
+- Task FF1VNW6C6T7MVC6MQ2C4RAHXN5: backlog to cancelled
+- Task 1ZK15F4E4G2SZQMM470PM7P2YD: backlog to cancelled
+- Task WBG3FHGC0HGN7CEF17XZMVDHEC: backlog to cancelled
+- Task WCSV13692MDV23NE5YAGGHWAYD: backlog to cancelled
+- Task YJFG8ES4230YKCM9TSSFRTPGFV: backlog to cancelled
+- Story STORY-012: backlog to cancelled
+- Story STORY-011: backlog to cancelled
+- Story STORY-010: backlog to cancelled
+- Story STORY-004: backlog to cancelled
+- Story STORY-003: backlog to cancelled
+- Story STORY-002: backlog to cancelled
+- Story STORY-001: backlog to cancelled
+- Story 7EGC5PWY8MQB5BKQKTR05DWBPQ: backlog to cancelled
+- Story 99JY71R6GRKG8SXDWD92357XNV: backlog to cancelled
+- Story JY8T325XB4VZ2F6DZRPYY7XEHD: backlog to cancelled
+- Story WKW6R599VZYZS7J7V8MXGDXWZX: backlog to cancelled
+- Story BNPAYSRAD7TJQ56MBQRP1BAHJQ: backlog to cancelled
+- Story DC2ZQWDS83EVZ95JRJERYN90RP: backlog to cancelled
+- Story 00B1KJ2YM4P1PBKNQTM3AWSPSP: backlog to cancelled
+- Story 36P0MN74XTPQ943H6EVXGDX1WE: backlog to cancelled
+- Story J53MR4BTE1N2XJHRYXHV4Z87JG: backlog to cancelled
+- Story NGSBE5Q1QVXJG649C8FQ7JM41Y: backlog to cancelled
+- Story 89ZWE45CMH2MKH116P992C3BDS: backlog to cancelled
+- Story 75J1CS4ZFVG3RSXH2GDF7W82ME: backlog to cancelled
+- Story 5DGKC77RV9C2GWTKWK49788S1B: backlog to cancelled
+- Story KYSVD7PWKX5ZAZW4FN67NXA26E: backlog to cancelled
+- Story GAAPXNG7SK2X48CW2GDDG7MJ06: backlog to cancelled
+- Story 0C4PR416ZZ5WCA73DMBZFK87CY: backlog to cancelled
+- Story XRS5S2GBBCPV9Q9CCN2DXBJ2G3: backlog to cancelled
+- Story FK5B70RZFH4QSTW7Y02R1D3E1N: backlog to cancelled
+- Story 0P37MDJCQKH1STANM151Q81NHH: backlog to cancelled
+- Story NWMGM72BETT2BVW6DPW6APQCGR: backlog to cancelled
+- Story Q2840JNY2G50TCZHWY7MWRBKHT: backlog to cancelled
+- Story B1B7G0DXYE4JSEGFSC2NT8MFD1: backlog to cancelled
+- Story 3J2M9KAE9H8THGD2AR9DSKXYTC: backlog to cancelled
+- Story ASQKQ6YH4S8G6SDQ6XN7BHYM8E: backlog to cancelled
+- Story WJN4QJFCJQ98V9Q35KDDVW0HGN: backlog to cancelled
+- Story 06SRF2HBM8APTGA5RP2D9XS3JP: backlog to cancelled
+- Story XPNG59AKNVHXYMPRFWR71DSE0C: backlog to cancelled
+- Story 8PKADXET1MA10TAY9F6VBDYYAD: backlog to cancelled
+- Story BYNGTQS6SX4FB7HQ46D9FKTJR2: backlog to cancelled
+- Story 1VED17WSNE77N7VVCZTXC2NAT5: backlog to cancelled
+- Story RXAZEMKJVJNN58W029T397M3QN: backlog to cancelled
+- Story C37NZW5X9ASZRS7XHZ7W56MG8V: backlog to cancelled
+- Story HFVVS2GASHC8W7HEMCW9VMP0TB: backlog to cancelled
+- Story D86X3Q727TBSXDQX5NRNNZEB63: backlog to cancelled
+- Story KMC5EK26PXNT868PT6W97RX06A: backlog to cancelled
+- Added task: Decision gate: choose the supported local PostgreSQL workflow (TASK-007) under story 0VJ9SHA39TA291D8QXB0TQS3HQ
+- Added feature: Production, Ecosystem, and Release Evidence (89QP3HS2PDE09EJ9X86P5QRFWM) with 5 stories
+- Added feature: Collaboration and Operational Scale (MGTBBJH7794WRYSFBFE6ZYWXCV) with 6 stories
+- Added feature: Approval and Authorized Delivery (NNEY4EH15NKW1PZK4G75T8CJ99) with 5 stories
+- Added feature: Evidence-backed Extraction and Review (78QQ2PHQ2E1QHQV03FFBCXYRQD) with 6 stories
+- Added feature: Document Intake and Source Viewer (JA6EY894YZ69F5JN40GG143M2S) with 4 stories
+- Added feature: Interactive Schema Workbench (37GEDS1AHPKD75TVFA4TGN1VD4) with 5 stories
 - Task TASK-004: in-progress to in-review
 - Task TASK-004: ready to in-progress
 - Task TASK-003: in-review to done

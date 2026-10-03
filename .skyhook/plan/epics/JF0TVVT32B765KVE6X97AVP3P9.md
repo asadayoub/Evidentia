@@ -1,7 +1,7 @@
 # Epic Plan: JF0TVVT32B765KVE6X97AVP3P9 — Bundles matching batches and advanced document capabilities
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-02T03:13:10.723Z
+> **Generated**: 2026-10-03T11:45:38.116Z
 
 ---
 
@@ -13,17 +13,17 @@ Support complex operational workloads across related documents, languages, and l
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **GAAPXNG7SK2X48CW2GDDG7MJ06** | Implement document bundles and relationships | `backlog` | high | — | None |
-| **KYSVD7PWKX5ZAZW4FN67NXA26E** | Implement cross-document matching | `backlog` | high | — | None |
-| **5DGKC77RV9C2GWTKWK49788S1B** | Expand tables languages and batch operations | `backlog` | medium | — | None |
+| **GAAPXNG7SK2X48CW2GDDG7MJ06** | Implement document bundles and relationships | `cancelled` | high | — | None |
+| **KYSVD7PWKX5ZAZW4FN67NXA26E** | Implement cross-document matching | `cancelled` | high | — | None |
+| **5DGKC77RV9C2GWTKWK49788S1B** | Expand tables languages and batch operations | `cancelled` | medium | — | None |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
-    GAAPXNG7SK2X48CW2GDDG7MJ06["Implement document bundles and relationships (backlog)"]
-    KYSVD7PWKX5ZAZW4FN67NXA26E["Implement cross-document matching (backlog)"]
-    5DGKC77RV9C2GWTKWK49788S1B["Expand tables languages and batch operations (backlog)"]
+    GAAPXNG7SK2X48CW2GDDG7MJ06["Implement document bundles and relationships (cancelled)"]
+    KYSVD7PWKX5ZAZW4FN67NXA26E["Implement cross-document matching (cancelled)"]
+    5DGKC77RV9C2GWTKWK49788S1B["Expand tables languages and batch operations (cancelled)"]
 ```
 
 ## 4. Execution Guidance for AI Agents & Engineers

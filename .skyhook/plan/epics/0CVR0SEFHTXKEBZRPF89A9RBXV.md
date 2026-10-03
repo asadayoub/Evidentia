@@ -1,7 +1,7 @@
 # Epic Plan: 0CVR0SEFHTXKEBZRPF89A9RBXV — Collaborative review corrections and revisions
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-02T03:13:10.719Z
+> **Generated**: 2026-10-03T11:45:38.106Z
 
 ---
 
@@ -13,19 +13,19 @@ Provide an efficient, accessible workspace for evidence-led correction and contr
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **ASQKQ6YH4S8G6SDQ6XN7BHYM8E** | Build document-and-record review workspace | `backlog` | critical | — | None |
-| **3J2M9KAE9H8THGD2AR9DSKXYTC** | Implement collaboration and conflict handling | `backlog` | high | — | None |
-| **B1B7G0DXYE4JSEGFSC2NT8MFD1** | Implement immutable submission and supersession | `backlog` | critical | — | None |
-| **STORY-004** | Evaluate and implement the realtime subscription port | `backlog` | medium | 1 pts | ASQKQ6YH4S8G6SDQ6XN7BHYM8E, BNPAYSRAD7TJQ56MBQRP1BAHJQ |
+| **ASQKQ6YH4S8G6SDQ6XN7BHYM8E** | Build document-and-record review workspace | `cancelled` | critical | — | None |
+| **3J2M9KAE9H8THGD2AR9DSKXYTC** | Implement collaboration and conflict handling | `cancelled` | high | — | None |
+| **B1B7G0DXYE4JSEGFSC2NT8MFD1** | Implement immutable submission and supersession | `cancelled` | critical | — | None |
+| **STORY-004** | Evaluate and implement the realtime subscription port | `cancelled` | medium | 1 pts | ASQKQ6YH4S8G6SDQ6XN7BHYM8E, BNPAYSRAD7TJQ56MBQRP1BAHJQ |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
-    ASQKQ6YH4S8G6SDQ6XN7BHYM8E["Build document-and-record review workspace (backlog)"]
-    3J2M9KAE9H8THGD2AR9DSKXYTC["Implement collaboration and conflict handling (backlog)"]
-    B1B7G0DXYE4JSEGFSC2NT8MFD1["Implement immutable submission and supersession (backlog)"]
-    STORY-004["Evaluate and implement the realtime subscription port (backlog)"]
+    ASQKQ6YH4S8G6SDQ6XN7BHYM8E["Build document-and-record review workspace (cancelled)"]
+    3J2M9KAE9H8THGD2AR9DSKXYTC["Implement collaboration and conflict handling (cancelled)"]
+    B1B7G0DXYE4JSEGFSC2NT8MFD1["Implement immutable submission and supersession (cancelled)"]
+    STORY-004["Evaluate and implement the realtime subscription port (cancelled)"]
     ASQKQ6YH4S8G6SDQ6XN7BHYM8E --> STORY-004
     BNPAYSRAD7TJQ56MBQRP1BAHJQ --> STORY-004
 ```

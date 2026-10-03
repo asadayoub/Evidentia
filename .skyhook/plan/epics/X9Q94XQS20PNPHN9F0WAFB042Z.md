@@ -1,7 +1,7 @@
 # Epic Plan: X9Q94XQS20PNPHN9F0WAFB042Z — Durable jobs observability and operational recovery
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-02T03:13:10.726Z
+> **Generated**: 2026-10-03T11:45:38.125Z
 
 ---
 
@@ -13,17 +13,17 @@ Make asynchronous processing and integrations diagnosable and recoverable under 
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **DC2ZQWDS83EVZ95JRJERYN90RP** | Select and implement durable job execution | `backlog` | critical | — | None |
-| **BNPAYSRAD7TJQ56MBQRP1BAHJQ** | Implement outbox inbox and reconciliation patterns | `backlog` | critical | — | None |
-| **WKW6R599VZYZS7J7V8MXGDXWZX** | Build observability and recovery console | `backlog` | high | — | None |
+| **DC2ZQWDS83EVZ95JRJERYN90RP** | Select and implement durable job execution | `cancelled` | critical | — | None |
+| **BNPAYSRAD7TJQ56MBQRP1BAHJQ** | Implement outbox inbox and reconciliation patterns | `cancelled` | critical | — | None |
+| **WKW6R599VZYZS7J7V8MXGDXWZX** | Build observability and recovery console | `cancelled` | high | — | None |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
-    DC2ZQWDS83EVZ95JRJERYN90RP["Select and implement durable job execution (backlog)"]
-    BNPAYSRAD7TJQ56MBQRP1BAHJQ["Implement outbox inbox and reconciliation patterns (backlog)"]
-    WKW6R599VZYZS7J7V8MXGDXWZX["Build observability and recovery console (backlog)"]
+    DC2ZQWDS83EVZ95JRJERYN90RP["Select and implement durable job execution (cancelled)"]
+    BNPAYSRAD7TJQ56MBQRP1BAHJQ["Implement outbox inbox and reconciliation patterns (cancelled)"]
+    WKW6R599VZYZS7J7V8MXGDXWZX["Build observability and recovery console (cancelled)"]
 ```
 
 ## 4. Execution Guidance for AI Agents & Engineers

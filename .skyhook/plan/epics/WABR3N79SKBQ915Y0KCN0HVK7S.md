@@ -1,7 +1,7 @@
 # Epic Plan: WABR3N79SKBQ915Y0KCN0HVK7S — Authorization framework and optional Delibera integration
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-02T03:13:10.720Z
+> **Generated**: 2026-10-03T11:45:38.109Z
 
 ---
 
@@ -13,17 +13,17 @@ Bind authorization to exact revisions while preserving independent Evidentia ope
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **Q2840JNY2G50TCZHWY7MWRBKHT** | Define ApprovalAdapter and authorization semantics | `backlog` | critical | — | None |
-| **NWMGM72BETT2BVW6DPW6APQCGR** | Implement secure local manual approval | `backlog` | critical | — | None |
-| **0P37MDJCQKH1STANM151Q81NHH** | Implement optional Delibera adapter | `backlog` | high | — | None |
+| **Q2840JNY2G50TCZHWY7MWRBKHT** | Define ApprovalAdapter and authorization semantics | `cancelled` | critical | — | None |
+| **NWMGM72BETT2BVW6DPW6APQCGR** | Implement secure local manual approval | `cancelled` | critical | — | None |
+| **0P37MDJCQKH1STANM151Q81NHH** | Implement optional Delibera adapter | `cancelled` | high | — | None |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
-    Q2840JNY2G50TCZHWY7MWRBKHT["Define ApprovalAdapter and authorization semantics (backlog)"]
-    NWMGM72BETT2BVW6DPW6APQCGR["Implement secure local manual approval (backlog)"]
-    0P37MDJCQKH1STANM151Q81NHH["Implement optional Delibera adapter (backlog)"]
+    Q2840JNY2G50TCZHWY7MWRBKHT["Define ApprovalAdapter and authorization semantics (cancelled)"]
+    NWMGM72BETT2BVW6DPW6APQCGR["Implement secure local manual approval (cancelled)"]
+    0P37MDJCQKH1STANM151Q81NHH["Implement optional Delibera adapter (cancelled)"]
 ```
 
 ## 4. Execution Guidance for AI Agents & Engineers

@@ -1,7 +1,7 @@
 # Epic Plan: EFY7ZB4SPHCZ2ENT9CC2JE72RH — Authorized delivery and destination integrations
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-02T03:13:10.722Z
+> **Generated**: 2026-10-03T11:45:38.112Z
 
 ---
 
@@ -13,17 +13,17 @@ Deliver the authorized revision safely and independently of approval status.
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **FK5B70RZFH4QSTW7Y02R1D3E1N** | Define DestinationAdapter and mapping versions | `backlog` | critical | — | None |
-| **XRS5S2GBBCPV9Q9CCN2DXBJ2G3** | Implement idempotent delivery orchestration | `backlog` | critical | — | None |
-| **0C4PR416ZZ5WCA73DMBZFK87CY** | Build delivery administration and recovery | `backlog` | high | — | None |
+| **FK5B70RZFH4QSTW7Y02R1D3E1N** | Define DestinationAdapter and mapping versions | `cancelled` | critical | — | None |
+| **XRS5S2GBBCPV9Q9CCN2DXBJ2G3** | Implement idempotent delivery orchestration | `cancelled` | critical | — | None |
+| **0C4PR416ZZ5WCA73DMBZFK87CY** | Build delivery administration and recovery | `cancelled` | high | — | None |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
-    FK5B70RZFH4QSTW7Y02R1D3E1N["Define DestinationAdapter and mapping versions (backlog)"]
-    XRS5S2GBBCPV9Q9CCN2DXBJ2G3["Implement idempotent delivery orchestration (backlog)"]
-    0C4PR416ZZ5WCA73DMBZFK87CY["Build delivery administration and recovery (backlog)"]
+    FK5B70RZFH4QSTW7Y02R1D3E1N["Define DestinationAdapter and mapping versions (cancelled)"]
+    XRS5S2GBBCPV9Q9CCN2DXBJ2G3["Implement idempotent delivery orchestration (cancelled)"]
+    0C4PR416ZZ5WCA73DMBZFK87CY["Build delivery administration and recovery (cancelled)"]
 ```
 
 ## 4. Execution Guidance for AI Agents & Engineers

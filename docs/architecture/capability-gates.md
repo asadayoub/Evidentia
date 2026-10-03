@@ -1,145 +1,118 @@
-# Evidentia Capability Gates
+# Evidentia interaction-first delivery roadmap
 
 Status: Accepted  
-Governing ADR: `9M0TE8Z5N6VWW459X5N1P7EG95`
+Governing ADRs: `9M0TE8Z5N6VWW459X5N1P7EG95`, `GC27J7X510394MDYVWSK5M14C2`
 
-## Purpose
+## Planning rule
 
-Evidentia is planned as the complete product from the outset, but implementation proceeds through capability gates. A gate is not a reduced product promise or throwaway prototype. It is an independently verifiable layer of the final architecture that enables the next layer without weakening traceability, tenant isolation, durability, extensibility, or operability.
+Evidentia keeps its complete product scope, but implementation proceeds through usable product checkpoints. Each checkpoint is a production-shaped vertical slice, not a proof of concept or throwaway prototype.
 
-Stories may be developed in parallel when their declared dependencies permit it. A later gate cannot be declared complete while an earlier gate's exit criteria are failing.
+Detailed tasks and subtasks exist only for the active story and the immediately upcoming story. Later capabilities stay visible as stories with activation conditions. Persistence, OCR, queues, realtime, cloud adapters, enterprise identity, Delibera, and other infrastructure are introduced when a user-facing capability first needs them.
 
-## Gate 0 — Executable platform foundation
+## Checkpoint 1 — Interactive Schema Workbench
 
-Outcome: a reproducible, tenant-aware API, worker, web application, PostgreSQL runtime, public-contract workflow, and quality pipeline exist before business workflows accumulate.
+Skyhook epic: `37GEDS1AHPKD75TVFA4TGN1VD4`
 
-Skyhook epic: `CG7VFRWAF177CMZK333E19YND1`
+Outcome: an administrator can sign in and create, validate, compare, publish, and compose dynamic document schemas through the browser.
 
 Ordered stories:
 
-1. `STORY-007` — bootstrap the governed monorepo and locked toolchains;
-2. `STORY-008` — create bounded-context package skeletons and boundary tests;
-3. `STORY-009` — establish secure configuration and the local Compose runtime;
-4. `STORY-010` — build module-owned migrations and tenant-safe persistence primitives;
-5. `STORY-011` — implement trusted identity, tenant context, and authorization hooks;
-6. `STORY-012` — establish API, error, correlation, and OpenAPI conventions;
-7. `STORY-013` — build the accessible application shell and generated-client boundary;
-8. `STORY-014` — create the worker composition root and durable-work port;
-9. `STORY-015` — implement provider-neutral continuous-quality and supply-chain gates;
-10. `STORY-016` — prove the API-worker-web walking skeleton.
+1. `4PJTJVE73D2MN7GT64T48S05HT` — complete the reusable schema lifecycle domain;
+2. persist governed schemas for interactive use;
+3. establish the minimum trusted operator and tenant context;
+4. expose the governed schema lifecycle through a versioned API;
+5. build the accessible Schema Workbench;
+6. prove the complete draft-to-published journey.
 
-Exit criteria:
+Activation notes:
 
-- a fresh checkout can reproduce dependencies, migrations, generated contracts, SDKs, and builds;
-- the local Compose profile starts healthy API, worker, web, PostgreSQL, and local-storage components;
-- authentication establishes trusted tenant context for API and worker execution;
-- automated tests demonstrate denial of cross-tenant access;
-- module-boundary, type, lint, test, OpenAPI-compatibility, generated-file, and security gates pass;
-- the browser shell communicates only through the supported generated client;
-- the runbook clearly distinguishes enabled capabilities from later product gates.
+- the PostgreSQL workflow is a user-approved decision gate before migrations or integration work;
+- enterprise OIDC is not required for the local checkpoint;
+- no worker, queue, OCR service, object-store service, or realtime transport is required.
 
-## Gate 1 — Trusted ingestion and source representation
+## Checkpoint 2 — Document Intake and Source Viewer
 
-Outcome: Evidentia can safely receive supported document inputs, preserve originals, schedule durable work, and produce inspectable source representations without trusting document content.
+Skyhook epic: `JA6EY894YZ69F5JN40GG143M2S`
 
-Primary stories:
+Outcome: a user can upload a document, preserve the original, follow processing, and inspect its page and text representation.
 
-- `KMC5EK26PXNT868PT6W97RX06A` — document and artifact storage adapters;
-- `D86X3Q727TBSXDQX5NRNNZEB63` — interactive and asynchronous ingestion;
-- `C37NZW5X9ASZRS7XHZ7W56MG8V` — parser and OCR adapter contracts;
-- `DC2ZQWDS83EVZ95JRJERYN90RP` — durable job execution;
-- `BNPAYSRAD7TJQ56MBQRP1BAHJQ` — outbox, inbox, and reconciliation;
-- `36P0MN74XTPQ943H6EVXGDX1WE` — secure untrusted-document processing.
+Stories cover original upload, native parsing, conditional OCR, and the source-viewer checkpoint.
 
-Exit criteria include original-byte integrity, deduplication, tenant-safe storage keys, limit enforcement, malware/active-content boundaries, durable retry and cancellation, native/scanned source representations, and recovery after interrupted work.
+Activation notes:
 
-## Gate 2 — Dynamic extraction, schemas, and evidence
+- local storage is the first adapter; cloud object storage waits for a deployment need;
+- native-text parsing comes first;
+- OCR activates only when representative scanned documents enter the supported corpus;
+- durable background jobs activate only when measured duration, throughput, retry, or recovery needs exceed the synchronous/local path.
 
-Outcome: versioned schemas are resolved or composed deterministically, interchangeable providers produce candidate values, and every material value can retain structured evidence and provenance.
+## Checkpoint 3 — Evidence-backed Extraction and Review
 
-Primary stories:
+Skyhook epic: `78QQ2PHQ2E1QHQV03FFBCXYRQD`
 
-- `4PJTJVE73D2MN7GT64T48S05HT` — versioned schema lifecycle;
-- `STORY-002` — contextual schema resolution and composition;
-- `RXAZEMKJVJNN58W029T397M3QN` — classification and correction;
-- `BYNGTQS6SX4FB7HQ46D9FKTJR2` — hosted and local extraction-provider interface;
-- `XPNG59AKNVHXYMPRFWR71DSE0C` — field and table evidence;
-- `8PKADXET1MA10TAY9F6VBDYYAD` — reprocessing and comparison;
-- `STORY-003` — governed schema discovery and evolution.
+Outcome: Evidentia resolves a governed schema, creates an evidence-linked candidate record, explains validation findings, supports correction, and submits an immutable revision.
 
-Exit criteria include immutable published schema versions, exact decimal handling, persisted resolution context, raw and normalized provider outputs, unmapped candidates, evidence locators, provider-independent conformance fixtures, and reproducible reprocessing comparisons.
+Stories cover schema resolution, extraction, evidence, validation, review, and immutable submission.
 
-## Gate 3 — Validation and collaborative review
+Activation notes:
 
-Outcome: users can understand findings, correct records without silent overwrites, collaborate efficiently, and submit immutable record revisions.
+- extraction stays behind a provider-neutral port;
+- fields, groups, and tables are rendered from schema metadata rather than document-specific code;
+- automatic schema discovery waits for enough real corrections and examples to evaluate it responsibly.
 
-Primary stories:
+## Checkpoint 4 — Approval and Authorized Delivery
 
-- `06SRF2HBM8APTGA5RP2D9XS3JP` — versioned validation engine;
-- `ASQKQ6YH4S8G6SDQ6XN7BHYM8E` — document-and-record review workspace;
-- `3J2M9KAE9H8THGD2AR9DSKXYTC` — collaboration and conflict handling;
-- `B1B7G0DXYE4JSEGFSC2NT8MFD1` — immutable submission and supersession;
-- `WJN4QJFCJQ98V9Q35KDDVW0HGN` — prioritized exception queues.
+Skyhook epic: `NNEY4EH15NKW1PZK4G75T8CJ99`
 
-Exit criteria include explainable blocking/advisory findings, accessible keyboard-oriented editing, correction provenance, optimistic conflict detection, assignments/comments, immutable submission, and complete supersession history.
+Outcome: an exact submitted revision can be approved and delivered through a versioned destination mapping with idempotency and audit evidence.
 
-## Gate 4 — Revision-bound authorization and recoverable delivery
+Stories cover approval semantics, local approval, mappings, authorized delivery, and optional Delibera.
 
-Outcome: an exact submitted revision can be authorized locally and delivered through a versioned adapter with idempotency, retries, and reconciliation.
+Activation notes:
 
-Primary stories:
+- secure local approval is the default independent path;
+- Delibera is an optional `ApprovalAdapter` activated only after the generic contract works and an integration scope is approved;
+- outbox/inbox infrastructure is introduced only if an external reliability boundary creates a concrete dual-write or ambiguous-outcome risk.
 
-- `Q2840JNY2G50TCZHWY7MWRBKHT` — ApprovalAdapter semantics;
-- `NWMGM72BETT2BVW6DPW6APQCGR` — secure local/manual approval;
-- `FK5B70RZFH4QSTW7Y02R1D3E1N` — DestinationAdapter and mappings;
-- `XRS5S2GBBCPV9Q9CCN2DXBJ2G3` — idempotent delivery orchestration;
-- `0C4PR416ZZ5WCA73DMBZFK87CY` — delivery administration and recovery.
+## Checkpoint 5 — Collaboration and Operational Scale
 
-Exit criteria include retained RFC 8785 canonical payloads, versioned SHA-256 digests, authorization bound to revision and destination scope, explicit revocation/supersession behavior, no delivery without authorization, ambiguous-outcome reconciliation, and independently tracked delivery state.
+Skyhook epic: `MGTBBJH7794WRYSFBFE6ZYWXCV`
 
-## Gate 5 — Operational scale and extension ecosystem
+Outcome: Evidentia can support multiple operators, larger workloads, richer document relationships, and safe operational recovery.
 
-Outcome: Evidentia supports production workload shapes and stable extension points without changing the core lifecycle.
+Stories cover collaboration, conditional realtime, conditional jobs and reconciliation, advanced workflows, and operations.
 
-Primary stories:
+Activation notes:
 
-- `HFVVS2GASHC8W7HEMCW9VMP0TB` — batch and connector ingestion;
-- `GAAPXNG7SK2X48CW2GDDG7MJ06` — document bundles and relationships;
-- `KYSVD7PWKX5ZAZW4FN67NXA26E` — cross-document matching;
-- `5DGKC77RV9C2GWTKWK49788S1B` — tables, languages, and batch operations;
-- `75J1CS4ZFVG3RSXH2GDF7W82ME` — public REST and OpenAPI contracts;
-- `89ZWE45CMH2MKH116P992C3BDS` — supported SDKs;
-- `NGSBE5Q1QVXJG649C8FQ7JM41Y` — adapter development interfaces;
-- `STORY-004` — replaceable realtime subscription port;
-- `0P37MDJCQKH1STANM151Q81NHH` — optional Delibera adapter.
+- realtime transport is chosen only when concurrent collaboration needs it; Firebase and sockets are compared then;
+- durable queues are chosen only from measured workload and reliability requirements;
+- batch, connectors, bundles, and matching require named use cases and representative data;
+- an operations workspace follows real deployed recovery needs.
 
-Delibera remains optional. Gate 5 is complete without Delibera when the generic approval conformance suite passes; the Delibera adapter has its own compatibility evidence when included.
+## Checkpoint 6 — Production, Ecosystem, and Release Evidence
 
-## Gate 6 — Production evidence, privacy, and lifecycle operations
+Skyhook epic: `89QP3HS2PDE09EJ9X86P5QRFWM`
 
-Outcome: supported releases have measured quality, observable operations, recovery procedures, configurable retention, and trustworthy public evidence.
+Outcome: supported deployments have appropriate identity, privacy, recovery, extension, evaluation, and release evidence.
 
-Primary stories:
+Stories cover production security, public contracts, extension contracts, deployment lifecycle, and release evidence.
 
-- `JY8T325XB4VZ2F6DZRPYY7XEHD` — permission-cleared evaluation program;
-- `STORY-001` — first invoice benchmark and extension conformance suite;
-- `1VED17WSNE77N7VVCZTXC2NAT5` — difficult-source evaluation;
-- `WKW6R599VZYZS7J7V8MXGDXWZX` — observability and recovery console;
-- `00B1KJ2YM4P1PBKNQTM3AWSPSP` — retention, privacy, and audit controls;
-- `99JY71R6GRKG8SXDWD92357XNV` — deployment, backup, and upgrade profiles;
-- `7EGC5PWY8MQB5BKQKTR05DWBPQ` — release and contributor evidence.
+Activation notes:
 
-Exit criteria include held-out benchmark results by document class and language, bounded quality claims, provider comparisons, audit-safe retention/deletion, metrics and correlation, backup/restore rehearsal, migration and upgrade rehearsal, published limitations, and contributor-ready verification.
+- enterprise identity and privacy controls start from a selected deployment and threat model;
+- public APIs, SDKs, and adapter contracts are published after product contracts prove stable;
+- deployment packaging is separate from the local developer workflow;
+- evaluation claims use permission-cleared representative data and disclose limitations.
 
-## Readiness rules
+## Readiness and decomposition rules
 
-A story moves from `backlog` to `ready` only when:
+A story moves to `ready` only when its dependencies and unresolved decisions are settled, its acceptance criteria describe an observable outcome, and it is small enough to review coherently.
 
-- its dependencies are complete or explicitly represented by testable contracts;
-- requirement and standard links are present;
-- acceptance criteria describe observable outcomes rather than implementation activity alone;
-- security, tenant, migration, compatibility, and recovery implications are addressed where applicable;
-- unresolved choices cannot materially change the task's implementation;
-- the story is small enough to review as one coherent change, otherwise it is decomposed before implementation.
+Before implementation:
 
-Only the earliest dependency-free story needed for active work should be leased. Parallel leases are appropriate when stories are genuinely independent and their integration contract already exists.
+1. verify the governing requirements, standards, ADRs, and module boundaries;
+2. decompose only the active story and its immediate successor into reviewable tasks;
+3. state each task's feature, purpose, contribution, evidence, and out-of-scope boundary;
+4. make dependencies acyclic and mark only the first executable task `ready`;
+5. lease the work in Skyhook and ask the user for implementation approval.
+
+Superseded capability-first stories and their premature implementation passes remain in Skyhook as cancelled history; they are not deleted and do not represent abandoned scope.

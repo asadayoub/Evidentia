@@ -1,7 +1,7 @@
 # Epic Plan: 0QDXE9R7PY4N4E743SZ1NHH6Z4 — Versioned schemas normalization and extraction providers
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-02T03:13:10.717Z
+> **Generated**: 2026-10-03T11:45:38.097Z
 
 ---
 
@@ -13,23 +13,23 @@ Support configurable document structures and interchangeable hosted or local ext
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **4PJTJVE73D2MN7GT64T48S05HT** | Build versioned schema lifecycle | `backlog` | critical | — | None |
-| **BYNGTQS6SX4FB7HQ46D9FKTJR2** | Build hosted and local extraction provider interface | `backlog` | critical | — | None |
-| **8PKADXET1MA10TAY9F6VBDYYAD** | Build reprocessing and comparison workflow | `backlog` | high | — | None |
-| **STORY-002** | Implement contextual schema resolution and composition | `backlog` | critical | 1 pts | 4PJTJVE73D2MN7GT64T48S05HT, C37NZW5X9ASZRS7XHZ7W56MG8V |
-| **STORY-003** | Build governed schema discovery and evolution workflow | `backlog` | high | 1 pts | 4PJTJVE73D2MN7GT64T48S05HT, STORY-002 |
+| **4PJTJVE73D2MN7GT64T48S05HT** | Build versioned schema lifecycle | `in-progress` | critical | — | None |
+| **BYNGTQS6SX4FB7HQ46D9FKTJR2** | Build hosted and local extraction provider interface | `cancelled` | critical | — | None |
+| **8PKADXET1MA10TAY9F6VBDYYAD** | Build reprocessing and comparison workflow | `cancelled` | high | — | None |
+| **STORY-002** | Implement contextual schema resolution and composition | `cancelled` | critical | 1 pts | 4PJTJVE73D2MN7GT64T48S05HT, C37NZW5X9ASZRS7XHZ7W56MG8V |
+| **STORY-003** | Build governed schema discovery and evolution workflow | `cancelled` | high | 1 pts | 4PJTJVE73D2MN7GT64T48S05HT, STORY-002 |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
-    4PJTJVE73D2MN7GT64T48S05HT["Build versioned schema lifecycle (backlog)"]
-    BYNGTQS6SX4FB7HQ46D9FKTJR2["Build hosted and local extraction provider interface (backlog)"]
-    8PKADXET1MA10TAY9F6VBDYYAD["Build reprocessing and comparison workflow (backlog)"]
-    STORY-002["Implement contextual schema resolution and composition (backlog)"]
+    4PJTJVE73D2MN7GT64T48S05HT["Build versioned schema lifecycle (in-progress)"]
+    BYNGTQS6SX4FB7HQ46D9FKTJR2["Build hosted and local extraction provider interface (cancelled)"]
+    8PKADXET1MA10TAY9F6VBDYYAD["Build reprocessing and comparison workflow (cancelled)"]
+    STORY-002["Implement contextual schema resolution and composition (cancelled)"]
     4PJTJVE73D2MN7GT64T48S05HT --> STORY-002
     C37NZW5X9ASZRS7XHZ7W56MG8V --> STORY-002
-    STORY-003["Build governed schema discovery and evolution workflow (backlog)"]
+    STORY-003["Build governed schema discovery and evolution workflow (cancelled)"]
     4PJTJVE73D2MN7GT64T48S05HT --> STORY-003
     STORY-002 --> STORY-003
 ```

@@ -1,7 +1,7 @@
 # Epic Plan: MNJPP3JA9GHKAMKNAT0H3DSVR2 — Public API SDKs and extension ecosystem
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-02T03:13:10.724Z
+> **Generated**: 2026-10-03T11:45:38.119Z
 
 ---
 
@@ -13,17 +13,17 @@ Make every core workflow integrable through stable contracts and supported exten
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **75J1CS4ZFVG3RSXH2GDF7W82ME** | Publish versioned REST and OpenAPI contracts | `backlog` | critical | — | None |
-| **89ZWE45CMH2MKH116P992C3BDS** | Publish Python and JavaScript SDKs | `backlog` | high | — | None |
-| **NGSBE5Q1QVXJG649C8FQ7JM41Y** | Publish adapter development interfaces | `backlog` | high | — | None |
+| **75J1CS4ZFVG3RSXH2GDF7W82ME** | Publish versioned REST and OpenAPI contracts | `cancelled` | critical | — | None |
+| **89ZWE45CMH2MKH116P992C3BDS** | Publish Python and JavaScript SDKs | `cancelled` | high | — | None |
+| **NGSBE5Q1QVXJG649C8FQ7JM41Y** | Publish adapter development interfaces | `cancelled` | high | — | None |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
-    75J1CS4ZFVG3RSXH2GDF7W82ME["Publish versioned REST and OpenAPI contracts (backlog)"]
-    89ZWE45CMH2MKH116P992C3BDS["Publish Python and JavaScript SDKs (backlog)"]
-    NGSBE5Q1QVXJG649C8FQ7JM41Y["Publish adapter development interfaces (backlog)"]
+    75J1CS4ZFVG3RSXH2GDF7W82ME["Publish versioned REST and OpenAPI contracts (cancelled)"]
+    89ZWE45CMH2MKH116P992C3BDS["Publish Python and JavaScript SDKs (cancelled)"]
+    NGSBE5Q1QVXJG649C8FQ7JM41Y["Publish adapter development interfaces (cancelled)"]
 ```
 
 ## 4. Execution Guidance for AI Agents & Engineers

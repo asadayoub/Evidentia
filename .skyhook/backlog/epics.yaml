@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-03T07:44:21.521Z"
+  updatedAt: "2026-10-03T11:45:12.268Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -183,6 +183,97 @@ epics:
     status: backlog
     createdAt: "2026-10-01T17:33:33.234Z"
     updatedAt: "2026-10-01T17:33:33.234Z"
+  - id: 37GEDS1AHPKD75TVFA4TGN1VD4
+    title: Interactive Schema Workbench
+    description: First user-visible production-shaped checkpoint; adds only the persistence, identity, API, client, and UI required by schema governance.
+    goal: Let an administrator govern dynamic schemas through a real browser workflow.
+    successMetrics: []
+    childStories:
+      - 0VJ9SHA39TA291D8QXB0TQS3HQ
+      - N1ZNPJWFZYPV0MVB8FP137GRJP
+      - X51S43NTMRW5ASYSKJBF7FW845
+      - H98W5WTJBWT8EY0Q10P3KPCEEB
+      - 265YM4FNANJAH2J338BKAWFXDM
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-03T08:20:53.861Z"
+    updatedAt: "2026-10-03T08:20:53.861Z"
+  - id: JA6EY894YZ69F5JN40GG143M2S
+    title: Document Intake and Source Viewer
+    description: Native text and local adapters first; OCR, cloud storage, and durable jobs activate only when required.
+    goal: Let a user upload, preserve, process, and inspect a document.
+    successMetrics: []
+    childStories:
+      - XRSZ0A5WZEQB0PQYD34PYR8EW3
+      - J2ZHMCR2DNQSHD1VZY7CECT2HT
+      - 9M4MDW7FN1SGECW2X23WF01501
+      - AN2RM9JX2PBR6J1NQ1KSHBYHSQ
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-03T08:20:57.690Z"
+    updatedAt: "2026-10-03T08:20:57.690Z"
+  - id: 78QQ2PHQ2E1QHQV03FFBCXYRQD
+    title: Evidence-backed Extraction and Review
+    description: Core Evidentia value loop using governed schemas and provider-neutral extraction.
+    goal: Turn a document into an evidence-linked record a reviewer can correct and submit.
+    successMetrics: []
+    childStories:
+      - SHF26TB4C43PC4KD2W3PRZ3R78
+      - WN341EKS97VGCX76ZFR0KHX96Y
+      - QM5MGN4VTK1J9CWEXMC50RM00G
+      - YKQFD89QJYH87GQSMKCVQ104AK
+      - MAQPX7K4Z5MD3BNT93YFJBRZR5
+      - ZSHX48Q9AHPEBJCDM0DAD8ED2H
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-03T08:21:02.302Z"
+    updatedAt: "2026-10-03T08:21:02.302Z"
+  - id: NNEY4EH15NKW1PZK4G75T8CJ99
+    title: Approval and Authorized Delivery
+    description: Local approval first; Delibera remains an optional adapter.
+    goal: Approve and deliver only an exact immutable revision.
+    successMetrics: []
+    childStories:
+      - ACCCV50MZW87EEEPS6Y1HXGNAZ
+      - 7GZK6H8HR3XKPQ94Q89N85WH0Q
+      - 1A43QS6QGZ4YWH5FG25XZWYEH2
+      - CDSSWKJ0X91XHKD7X3Q8XHXKE5
+      - R26DFKYKFWHH981YK1QJEM18WN
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-03T08:21:06.258Z"
+    updatedAt: "2026-10-03T08:21:06.258Z"
+  - id: MGTBBJH7794WRYSFBFE6ZYWXCV
+    title: Collaboration and Operational Scale
+    description: Realtime, queues, batch, and recovery activate from measured needs.
+    goal: Support teams, larger workloads, and safe recovery when usage requires them.
+    successMetrics: []
+    childStories:
+      - 2BJ99DB0QWS3FE3J0F50N6EPW4
+      - AV6YSSGTH46ET6J9NN0DDK7E6B
+      - C29D8MCQWYGWY6FFSP4YW7MNX7
+      - 3F1QK0FAD4X03Q4CB5XKDC1BJH
+      - 44E3PFDX5EVQE4FRTAN1A5RMGC
+      - PEE73AVQEAC75HKDMA3FA1S4YJ
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-03T08:21:09.936Z"
+    updatedAt: "2026-10-03T08:21:09.936Z"
+  - id: 89QP3HS2PDE09EJ9X86P5QRFWM
+    title: Production, Ecosystem, and Release Evidence
+    description: Production and public surfaces follow selected deployment needs and stabilized contracts.
+    goal: Harden stable capabilities for deployment, integration, evaluation, and release.
+    successMetrics: []
+    childStories:
+      - M7ZMYQSYB6G0W2T5M7TYCCZNHH
+      - 5KENKXMX9EZDJ75R0JHJQ2KSSJ
+      - 7D8Q1STZ5VEWBSAR6W87P4DH1W
+      - ECMWWJT024W5QXBQ5G6C1YMHQQ
+      - 4QGB75ND0XME0JVSYJN9K3PMTW
+    targetDate: null
+    status: backlog
+    createdAt: "2026-10-03T08:21:14.643Z"
+    updatedAt: "2026-10-03T08:21:14.643Z"
 stories:
   - id: 3JVEA7J60SSVDTK16VMMW1R6CY
     epicId: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -256,12 +347,16 @@ stories:
       - Checksums and metadata are preserved
       - Tenant and retention controls apply to every artifact
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:01.689Z"
-    updatedAt: "2026-10-01T16:37:01.689Z"
+    updatedAt: "2026-10-03T08:22:06.443Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: D86X3Q727TBSXDQX5NRNNZEB63
     epicId: ESXRMFV8AMRPA4EM9907RP91G0
     title: Implement interactive and asynchronous ingestion
@@ -271,12 +366,16 @@ stories:
       - Limits and file signatures are enforced
       - Duplicate signals are recorded
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:01.689Z"
-    updatedAt: "2026-10-01T16:37:01.689Z"
+    updatedAt: "2026-10-03T08:22:11.621Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: HFVVS2GASHC8W7HEMCW9VMP0TB
     epicId: ESXRMFV8AMRPA4EM9907RP91G0
     title: Add batch and connector ingestion channels
@@ -286,12 +385,16 @@ stories:
       - Every source retains identity and correlation
       - Failures are recoverable and visible
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:01.689Z"
-    updatedAt: "2026-10-01T16:37:01.689Z"
+    updatedAt: "2026-10-03T08:22:15.752Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: C37NZW5X9ASZRS7XHZ7W56MG8V
     epicId: 4SW4N0JFACNY6DTXECMKEKKKYR
     title: Define parser and OCR adapter contracts
@@ -301,12 +404,16 @@ stories:
       - Mixed and image-only documents are supported by contract
       - Resource and trust boundaries are specified
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:04.398Z"
-    updatedAt: "2026-10-01T16:37:04.398Z"
+    updatedAt: "2026-10-03T08:22:20.826Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: RXAZEMKJVJNN58W029T397M3QN
     epicId: 4SW4N0JFACNY6DTXECMKEKKKYR
     title: Implement document classification and correction
@@ -316,12 +423,16 @@ stories:
       - Human correction is recorded
       - Reclassification creates traceable processing history
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:04.398Z"
-    updatedAt: "2026-10-01T16:37:04.398Z"
+    updatedAt: "2026-10-03T08:22:27.349Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 1VED17WSNE77N7VVCZTXC2NAT5
     epicId: 4SW4N0JFACNY6DTXECMKEKKKYR
     title: Evaluate difficult source qualities
@@ -331,12 +442,16 @@ stories:
       - Parser and OCR results are compared
       - Known limitations and evidence quality are reported
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:04.398Z"
-    updatedAt: "2026-10-01T16:37:04.398Z"
+    updatedAt: "2026-10-03T08:22:30.986Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 4PJTJVE73D2MN7GT64T48S05HT
     epicId: 0QDXE9R7PY4N4E743SZ1NHH6Z4
     title: Build versioned schema lifecycle
@@ -380,12 +495,16 @@ stories:
       - Runs record model, prompt, parser, attempts, usage, and errors
       - Document instructions cannot invoke tools or credentials
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:07.244Z"
-    updatedAt: "2026-10-01T16:37:07.244Z"
+    updatedAt: "2026-10-03T08:22:35.868Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 8PKADXET1MA10TAY9F6VBDYYAD
     epicId: 0QDXE9R7PY4N4E743SZ1NHH6Z4
     title: Build reprocessing and comparison workflow
@@ -395,12 +514,16 @@ stories:
       - Differences can be reviewed before adoption
       - Submitted and approved history remains immutable
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:07.244Z"
-    updatedAt: "2026-10-01T16:37:07.244Z"
+    updatedAt: "2026-10-03T08:22:40.063Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: XPNG59AKNVHXYMPRFWR71DSE0C
     epicId: G2T8V1PT0VBT62KQZX322TK77E
     title: Model field and table evidence
@@ -410,12 +533,16 @@ stories:
       - Unsupported model quotations are not marked verified
       - Value origins are visually and structurally distinct
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:10.618Z"
-    updatedAt: "2026-10-01T16:37:10.618Z"
+    updatedAt: "2026-10-03T08:22:45.859Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 06SRF2HBM8APTGA5RP2D9XS3JP
     epicId: G2T8V1PT0VBT62KQZX322TK77E
     title: Implement versioned validation engine
@@ -425,12 +552,16 @@ stories:
       - Findings identify severity, fields, explanation, and support
       - Overrides require actor, reason, authority, and revision
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:10.621Z"
-    updatedAt: "2026-10-01T16:37:10.621Z"
+    updatedAt: "2026-10-03T08:22:50.315Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: WJN4QJFCJQ98V9Q35KDDVW0HGN
     epicId: G2T8V1PT0VBT62KQZX322TK77E
     title: Build prioritized exception queues
@@ -440,12 +571,16 @@ stories:
       - Priority signals remain explainable
       - Bulk assignment and saved filters are supported
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:10.621Z"
-    updatedAt: "2026-10-01T16:37:10.621Z"
+    updatedAt: "2026-10-03T08:22:55.648Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: ASQKQ6YH4S8G6SDQ6XN7BHYM8E
     epicId: 0CVR0SEFHTXKEBZRPF89A9RBXV
     title: Build document-and-record review workspace
@@ -455,12 +590,16 @@ stories:
       - Original, current, origin, findings, and history are visible
       - Tables support row and cell review
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:13.874Z"
-    updatedAt: "2026-10-01T16:37:13.874Z"
+    updatedAt: "2026-10-03T08:22:59.135Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 3J2M9KAE9H8THGD2AR9DSKXYTC
     epicId: 0CVR0SEFHTXKEBZRPF89A9RBXV
     title: Implement collaboration and conflict handling
@@ -470,12 +609,16 @@ stories:
       - Revision checks prevent silent overwrites
       - Conflicts can be understood and resolved
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:13.874Z"
-    updatedAt: "2026-10-01T16:37:13.874Z"
+    updatedAt: "2026-10-03T08:23:03.041Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: B1B7G0DXYE4JSEGFSC2NT8MFD1
     epicId: 0CVR0SEFHTXKEBZRPF89A9RBXV
     title: Implement immutable submission and supersession
@@ -485,12 +628,16 @@ stories:
       - Material changes require a new revision and request
       - Previous revisions and decisions remain linked history
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:13.875Z"
-    updatedAt: "2026-10-01T16:37:13.875Z"
+    updatedAt: "2026-10-03T08:23:08.187Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: Q2840JNY2G50TCZHWY7MWRBKHT
     epicId: WABR3N79SKBQ915Y0KCN0HVK7S
     title: Define ApprovalAdapter and authorization semantics
@@ -500,12 +647,16 @@ stories:
       - Tenant, revision, hash, policy, and destination scope are verified
       - No failure path assumes approval
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:17.038Z"
-    updatedAt: "2026-10-01T16:37:17.038Z"
+    updatedAt: "2026-10-03T08:23:11.981Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: NWMGM72BETT2BVW6DPW6APQCGR
     epicId: WABR3N79SKBQ915Y0KCN0HVK7S
     title: Implement secure local manual approval
@@ -515,12 +666,16 @@ stories:
       - Approve, reject, request-changes, cancel, expire, and revoke are recorded
       - Concurrent terminal decisions resolve consistently
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:17.038Z"
-    updatedAt: "2026-10-01T16:37:17.038Z"
+    updatedAt: "2026-10-03T08:23:16.350Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 0P37MDJCQKH1STANM151Q81NHH
     epicId: WABR3N79SKBQ915Y0KCN0HVK7S
     title: Implement optional Delibera adapter
@@ -530,12 +685,16 @@ stories:
       - Outbox, inbox, idempotency, signatures, ordering, and polling reconciliation are covered
       - Integration failure remains waiting and never silently falls back
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:17.038Z"
-    updatedAt: "2026-10-01T16:37:17.038Z"
+    updatedAt: "2026-10-03T08:23:21.002Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: FK5B70RZFH4QSTW7Y02R1D3E1N
     epicId: EFY7ZB4SPHCZ2ENT9CC2JE72RH
     title: Define DestinationAdapter and mapping versions
@@ -545,12 +704,16 @@ stories:
       - Authorization scope is rechecked before execution
       - Downloads, webhooks, databases, and accounting connectors fit one contract
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:19.990Z"
-    updatedAt: "2026-10-01T16:37:19.990Z"
+    updatedAt: "2026-10-03T08:23:25.456Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: XRS5S2GBBCPV9Q9CCN2DXBJ2G3
     epicId: EFY7ZB4SPHCZ2ENT9CC2JE72RH
     title: Implement idempotent delivery orchestration
@@ -560,12 +723,16 @@ stories:
       - Ambiguous outcomes enter reconciliation
       - Approval remains distinct from delivery failure
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:19.991Z"
-    updatedAt: "2026-10-01T16:37:19.991Z"
+    updatedAt: "2026-10-03T08:23:29.120Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 0C4PR416ZZ5WCA73DMBZFK87CY
     epicId: EFY7ZB4SPHCZ2ENT9CC2JE72RH
     title: Build delivery administration and recovery
@@ -575,12 +742,16 @@ stories:
       - Safe retries preserve authorized scope
       - Revocation timing and completed-delivery handling are explicit
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:19.991Z"
-    updatedAt: "2026-10-01T16:37:19.991Z"
+    updatedAt: "2026-10-03T08:23:33.842Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: GAAPXNG7SK2X48CW2GDDG7MJ06
     epicId: JF0TVVT32B765KVE6X97AVP3P9
     title: Implement document bundles and relationships
@@ -590,12 +761,16 @@ stories:
       - Documents retain independent lifecycles
       - Combined workflow state is understandable
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:22.830Z"
-    updatedAt: "2026-10-01T16:37:22.830Z"
+    updatedAt: "2026-10-03T08:23:37.940Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: KYSVD7PWKX5ZAZW4FN67NXA26E
     epicId: JF0TVVT32B765KVE6X97AVP3P9
     title: Implement cross-document matching
@@ -605,12 +780,16 @@ stories:
       - Ambiguous matches require confirmation
       - Quantity, price, currency, and receipt discrepancies are explainable
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:22.831Z"
-    updatedAt: "2026-10-01T16:37:22.831Z"
+    updatedAt: "2026-10-03T08:23:43.485Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 5DGKC77RV9C2GWTKWK49788S1B
     epicId: JF0TVVT32B765KVE6X97AVP3P9
     title: Expand tables languages and batch operations
@@ -620,12 +799,16 @@ stories:
       - Batch assignment and bulk actions preserve permissions and audit
       - Results are reported by language and document class
     priority: medium
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:22.831Z"
-    updatedAt: "2026-10-01T16:37:22.831Z"
+    updatedAt: "2026-10-03T08:23:47.350Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 75J1CS4ZFVG3RSXH2GDF7W82ME
     epicId: MNJPP3JA9GHKAMKNAT0H3DSVR2
     title: Publish versioned REST and OpenAPI contracts
@@ -635,12 +818,16 @@ stories:
       - Conflict semantics are documented
       - Contracts cover documents, schemas, revisions, submissions, events, and deliveries
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:25.751Z"
-    updatedAt: "2026-10-01T16:37:25.751Z"
+    updatedAt: "2026-10-03T08:23:51.891Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 89ZWE45CMH2MKH116P992C3BDS
     epicId: MNJPP3JA9GHKAMKNAT0H3DSVR2
     title: Publish Python and JavaScript SDKs
@@ -650,12 +837,16 @@ stories:
       - Retry and idempotency guidance is included
       - Independent examples run against documented releases
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:25.751Z"
-    updatedAt: "2026-10-01T16:37:25.751Z"
+    updatedAt: "2026-10-03T08:23:57.172Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: NGSBE5Q1QVXJG649C8FQ7JM41Y
     epicId: MNJPP3JA9GHKAMKNAT0H3DSVR2
     title: Publish adapter development interfaces
@@ -665,12 +856,16 @@ stories:
       - Compatibility policy is versioned
       - Reference adapters and conformance tests exist
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:25.751Z"
-    updatedAt: "2026-10-01T16:37:25.751Z"
+    updatedAt: "2026-10-03T08:24:02.154Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: J53MR4BTE1N2XJHRYXHV4Z87JG
     epicId: DGKPHK7KW42128GM4XAZMKN7WF
     title: Implement tenant and action authorization model
@@ -680,12 +875,16 @@ stories:
       - Cross-tenant tests cover APIs and jobs
       - External reviewer mappings are explicit
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:28.784Z"
-    updatedAt: "2026-10-01T16:37:28.784Z"
+    updatedAt: "2026-10-03T08:24:06.202Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 36P0MN74XTPQ943H6EVXGDX1WE
     epicId: DGKPHK7KW42128GM4XAZMKN7WF
     title: Secure untrusted document processing
@@ -695,12 +894,16 @@ stories:
       - Active content is disabled
       - Security failures are auditable
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:28.785Z"
-    updatedAt: "2026-10-01T16:37:28.785Z"
+    updatedAt: "2026-10-03T08:24:10.540Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 00B1KJ2YM4P1PBKNQTM3AWSPSP
     epicId: DGKPHK7KW42128GM4XAZMKN7WF
     title: Implement retention privacy and audit controls
@@ -710,12 +913,16 @@ stories:
       - Logs redact sensitive content
       - Tombstones and audit preservation are explicit
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:28.786Z"
-    updatedAt: "2026-10-01T16:37:28.786Z"
+    updatedAt: "2026-10-03T08:24:14.233Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: DC2ZQWDS83EVZ95JRJERYN90RP
     epicId: X9Q94XQS20PNPHN9F0WAFB042Z
     title: Select and implement durable job execution
@@ -725,12 +932,16 @@ stories:
       - Worker choice is recorded by ADR
       - Operation identities prevent duplicate effects
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:32.184Z"
-    updatedAt: "2026-10-01T16:37:32.184Z"
+    updatedAt: "2026-10-03T08:24:18.310Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: BNPAYSRAD7TJQ56MBQRP1BAHJQ
     epicId: X9Q94XQS20PNPHN9F0WAFB042Z
     title: Implement outbox inbox and reconciliation patterns
@@ -740,12 +951,16 @@ stories:
       - Inbound events are durably deduplicated
       - Authoritative reconciliation prevents state regression
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:32.186Z"
-    updatedAt: "2026-10-01T16:37:32.186Z"
+    updatedAt: "2026-10-03T08:24:22.460Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: WKW6R599VZYZS7J7V8MXGDXWZX
     epicId: X9Q94XQS20PNPHN9F0WAFB042Z
     title: Build observability and recovery console
@@ -755,12 +970,16 @@ stories:
       - Correlation spans the full lifecycle
       - Retry, cancel, reconcile, and reprocess controls are permissioned
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:32.186Z"
-    updatedAt: "2026-10-01T16:37:32.186Z"
+    updatedAt: "2026-10-03T08:24:27.722Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: JY8T325XB4VZ2F6DZRPYY7XEHD
     epicId: 25Y3EMKGPZBZEHKRC5STM8Z2JC
     title: Build permission-cleared evaluation program
@@ -770,12 +989,16 @@ stories:
       - Tuning and held-out sets are separated
       - Accuracy, invention, evidence, correction effort, latency, and cost are measured
     priority: critical
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:36.148Z"
-    updatedAt: "2026-10-01T16:37:36.148Z"
+    updatedAt: "2026-10-03T08:24:31.568Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 99JY71R6GRKG8SXDWD92357XNV
     epicId: 25Y3EMKGPZBZEHKRC5STM8Z2JC
     title: Create deployment backup and upgrade profiles
@@ -785,12 +1008,16 @@ stories:
       - Backup and restore include objects and database references
       - Migrations and compatible upgrades are tested
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:36.148Z"
-    updatedAt: "2026-10-01T16:37:36.148Z"
+    updatedAt: "2026-10-03T08:24:35.809Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 7EGC5PWY8MQB5BKQKTR05DWBPQ
     epicId: 25Y3EMKGPZBZEHKRC5STM8Z2JC
     title: Publish release and contributor evidence
@@ -800,17 +1027,21 @@ stories:
       - Release benchmarks include scope and configuration
       - License and extension compatibility policy are recorded
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-01T16:37:36.149Z"
-    updatedAt: "2026-10-01T16:37:36.149Z"
+    updatedAt: "2026-10-03T08:24:40.985Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: STORY-001
     title: Establish the first invoice benchmark and extension conformance suite
     description: Implements REQ-015 by defining a representative English supplier-invoice corpus for native PDF, scanned PDF, PNG, and JPEG while testing that shared processing contracts remain language- and document-class-neutral.
     epicId: 25Y3EMKGPZBZEHKRC5STM8Z2JC
-    status: backlog
+    status: cancelled
     storyPoints: 1
     priority: critical
     standards: []
@@ -826,12 +1057,16 @@ stories:
       - 4PJTJVE73D2MN7GT64T48S05HT
       - XPNG59AKNVHXYMPRFWR71DSE0C
     createdAt: "2026-10-01T16:45:47.491Z"
-    updatedAt: "2026-10-01T16:45:47.491Z"
+    updatedAt: "2026-10-03T08:24:44.915Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: STORY-002
     title: Implement contextual schema resolution and composition
     description: Implements REQ-016 and the schema-driven record ADR. Resolve dynamic record structures from document classification and governed operating context without embedding document-specific fields in core models.
     epicId: 0QDXE9R7PY4N4E743SZ1NHH6Z4
-    status: backlog
+    status: cancelled
     storyPoints: 1
     priority: critical
     standards: []
@@ -846,12 +1081,16 @@ stories:
       - 4PJTJVE73D2MN7GT64T48S05HT
       - C37NZW5X9ASZRS7XHZ7W56MG8V
     createdAt: "2026-10-01T16:48:07.988Z"
-    updatedAt: "2026-10-01T16:48:07.988Z"
+    updatedAt: "2026-10-03T08:24:49.682Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: STORY-003
     title: Build governed schema discovery and evolution workflow
     description: Implements REQ-017 by turning unfamiliar fields and structures into reviewable schema suggestions rather than silently changing authoritative records.
     epicId: 0QDXE9R7PY4N4E743SZ1NHH6Z4
-    status: backlog
+    status: cancelled
     storyPoints: 1
     priority: high
     standards: []
@@ -867,12 +1106,16 @@ stories:
       - 4PJTJVE73D2MN7GT64T48S05HT
       - STORY-002
     createdAt: "2026-10-01T16:50:46.326Z"
-    updatedAt: "2026-10-01T16:50:46.326Z"
+    updatedAt: "2026-10-03T08:24:55.333Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: STORY-004
     title: Evaluate and implement the realtime subscription port
     description: Implements REQ-018. Establish transport-neutral realtime contracts, then compare self-hosted WebSockets, Server-Sent Events, and an optional managed adapter such as Firebase before selecting defaults.
     epicId: 0CVR0SEFHTXKEBZRPF89A9RBXV
-    status: backlog
+    status: cancelled
     storyPoints: 1
     priority: medium
     standards: []
@@ -888,7 +1131,11 @@ stories:
       - ASQKQ6YH4S8G6SDQ6XN7BHYM8E
       - BNPAYSRAD7TJQ56MBQRP1BAHJQ
     createdAt: "2026-10-01T17:01:13.325Z"
-    updatedAt: "2026-10-01T17:01:13.325Z"
+    updatedAt: "2026-10-03T08:25:00.559Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: STORY-005
     title: Define the Evidentia monorepo structure
     description: Define the repository layout for the Python backend, independently runnable API and worker entry points, React frontend, generated SDKs, versioned contracts, tests, evaluation fixtures, infrastructure, and documentation while keeping Delibera in a separate repository.
@@ -1050,7 +1297,7 @@ stories:
     title: Build module-owned migrations and tenant-safe persistence primitives
     description: Implements NFR-002, NFR-007, NFR-008, CON-003, and CON-005. This establishes shared persistence mechanics but does not create a shared business-domain model.
     epicId: CG7VFRWAF177CMZK333E19YND1
-    status: backlog
+    status: cancelled
     storyPoints: 8
     priority: critical
     standards:
@@ -1081,12 +1328,16 @@ stories:
       - 1ZK15F4E4G2SZQMM470PM7P2YD
       - FF1VNW6C6T7MVC6MQ2C4RAHXN5
     createdAt: "2026-10-01T17:35:40.572Z"
-    updatedAt: "2026-10-01T17:35:40.572Z"
+    updatedAt: "2026-10-03T08:25:04.943Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: STORY-011
     title: Implement trusted identity, tenant context, and authorization hooks
     description: Implements NFR-002, CON-004, and CON-005. Provide local authentication for standalone operation and an OIDC adapter boundary without making an external identity provider mandatory.
     epicId: CG7VFRWAF177CMZK333E19YND1
-    status: backlog
+    status: cancelled
     storyPoints: 8
     priority: critical
     standards:
@@ -1113,12 +1364,16 @@ stories:
       - APZA7WW1DE272JH9EZKHH5AQ83
       - 58T1AD5JEJSBBMP5EAFVYYN0DX
     createdAt: "2026-10-01T17:35:44.989Z"
-    updatedAt: "2026-10-01T17:35:44.989Z"
+    updatedAt: "2026-10-03T08:25:09.291Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: STORY-012
     title: Establish versioned API, errors, correlation, and OpenAPI generation
     description: Implements REQ-012, NFR-006, and NFR-008. HTTP routes remain thin adapters to application ports.
     epicId: CG7VFRWAF177CMZK333E19YND1
-    status: backlog
+    status: cancelled
     storyPoints: 5
     priority: critical
     standards:
@@ -1146,7 +1401,11 @@ stories:
       - YF7GZD3TZ318QGG2V5AAZ3R28N
       - 553PG6YBGDPXN7XT6V2J95T3X2
     createdAt: "2026-10-01T17:35:48.164Z"
-    updatedAt: "2026-10-01T17:35:48.164Z"
+    updatedAt: "2026-10-03T08:25:17.613Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: STORY-013
     title: Build the accessible application shell and generated-client boundary
     description: Implements REQ-012 and NFR-005. This story establishes reusable interaction infrastructure without hard-coding invoice-specific fields.
@@ -1295,6 +1554,411 @@ stories:
       - BC3ZF3K4AR4ZNW7CV1P87NHJD2
     createdAt: "2026-10-01T17:36:02.289Z"
     updatedAt: "2026-10-01T17:36:02.289Z"
+  - id: 0VJ9SHA39TA291D8QXB0TQS3HQ
+    epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
+    title: Persist governed schemas for interactive use
+    userStory: As an administrator, I need schema versions to survive restarts.
+    acceptanceCriteria:
+      - PostgreSQL workflow is approved before implementation; tenant-owned drafts and immutable publications persist.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:20:53.861Z"
+    updatedAt: "2026-10-03T08:20:53.861Z"
+    childTasks:
+      - TASK-007
+  - id: N1ZNPJWFZYPV0MVB8FP137GRJP
+    epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
+    title: Establish the minimum trusted operator and tenant context
+    userStory: As a local operator, I need attributable tenant-isolated access.
+    acceptanceCriteria:
+      - Local identity establishes trusted actor and tenant context; enterprise OIDC remains deferred.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:20:53.861Z"
+    updatedAt: "2026-10-03T08:20:53.861Z"
+  - id: X51S43NTMRW5ASYSKJBF7FW845
+    epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
+    title: Expose the governed schema lifecycle through a versioned API
+    userStory: As a web client, I need stable schema commands and queries.
+    acceptanceCriteria:
+      - API supports lifecycle operations with safe errors, OpenAPI, and a generated client.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:20:53.861Z"
+    updatedAt: "2026-10-03T08:20:53.861Z"
+  - id: H98W5WTJBWT8EY0Q10P3KPCEEB
+    epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
+    title: Build the accessible Schema Workbench
+    userStory: As an administrator, I want to manage dynamic schemas in the browser.
+    acceptanceCriteria:
+      - UI renders fields, groups, and tables from schema metadata and meets primary accessibility needs.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:20:53.861Z"
+    updatedAt: "2026-10-03T08:20:53.861Z"
+  - id: 265YM4FNANJAH2J338BKAWFXDM
+    epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
+    title: Prove the draft-to-published Schema Workbench journey
+    userStory: As a product owner, I want a real interaction checkpoint.
+    acceptanceCriteria:
+      - A user can create, validate, compare, publish, and compose a schema end to end.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:20:53.861Z"
+    updatedAt: "2026-10-03T08:20:53.861Z"
+  - id: XRSZ0A5WZEQB0PQYD34PYR8EW3
+    epicId: JA6EY894YZ69F5JN40GG143M2S
+    title: Upload and preserve an original document
+    userStory: As an operator, I want every upload preserved as the traceability root.
+    acceptanceCriteria:
+      - Original bytes, integrity metadata, tenant scope, and safe input limits are enforced.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:20:57.690Z"
+    updatedAt: "2026-10-03T08:20:57.690Z"
+  - id: J2ZHMCR2DNQSHD1VZY7CECT2HT
+    epicId: JA6EY894YZ69F5JN40GG143M2S
+    title: Parse native document text and page structure
+    userStory: As an operator, I want inspectable pages and text.
+    acceptanceCriteria:
+      - Native documents produce versioned page and text artifacts with visible failures.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:20:57.690Z"
+    updatedAt: "2026-10-03T08:20:57.690Z"
+  - id: 9M4MDW7FN1SGECW2X23WF01501
+    epicId: JA6EY894YZ69F5JN40GG143M2S
+    title: Activate OCR for scanned documents when needed
+    userStory: As an operator of scanned sources, I need OCR evidence.
+    acceptanceCriteria:
+      - OCR activates only with representative scanned inputs and retained geometry, confidence, and engine version.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:20:57.690Z"
+    updatedAt: "2026-10-03T08:20:57.690Z"
+  - id: AN2RM9JX2PBR6J1NQ1KSHBYHSQ
+    epicId: JA6EY894YZ69F5JN40GG143M2S
+    title: Build the document intake and source viewer
+    userStory: As an operator, I want to upload and inspect a source in one workspace.
+    acceptanceCriteria:
+      - The browser shows upload and processing state plus accessible page and text inspection.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:20:57.690Z"
+    updatedAt: "2026-10-03T08:20:57.690Z"
+  - id: SHF26TB4C43PC4KD2W3PRZ3R78
+    epicId: 78QQ2PHQ2E1QHQV03FFBCXYRQD
+    title: Resolve the applicable schema from document context
+    userStory: As an operator, I need an explainable schema selection.
+    acceptanceCriteria:
+      - Resolution is deterministic and ambiguity is visible.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:02.302Z"
+    updatedAt: "2026-10-03T08:21:02.302Z"
+  - id: WN341EKS97VGCX76ZFR0KHX96Y
+    epicId: 78QQ2PHQ2E1QHQV03FFBCXYRQD
+    title: Extract a candidate record through a provider-neutral port
+    userStory: As an operator, I want structured candidate data.
+    acceptanceCriteria:
+      - Extraction targets the dynamic schema and records provider provenance.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:02.303Z"
+    updatedAt: "2026-10-03T08:21:02.303Z"
+  - id: QM5MGN4VTK1J9CWEXMC50RM00G
+    epicId: 78QQ2PHQ2E1QHQV03FFBCXYRQD
+    title: Attach source evidence to every extracted value
+    userStory: As a reviewer, I need each value linked to its source.
+    acceptanceCriteria:
+      - Scalar and table evidence retain page locations and lineage.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:02.303Z"
+    updatedAt: "2026-10-03T08:21:02.303Z"
+  - id: YKQFD89QJYH87GQSMKCVQ104AK
+    epicId: 78QQ2PHQ2E1QHQV03FFBCXYRQD
+    title: Run versioned validation with explainable findings
+    userStory: As a reviewer, I need actionable findings.
+    acceptanceCriteria:
+      - Findings record rule versions, severity, paths, explanations, and evidence.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:02.303Z"
+    updatedAt: "2026-10-03T08:21:02.303Z"
+  - id: MAQPX7K4Z5MD3BNT93YFJBRZR5
+    epicId: 78QQ2PHQ2E1QHQV03FFBCXYRQD
+    title: Review and correct a dynamic evidence-linked record
+    userStory: As a reviewer, I want source and record side by side.
+    acceptanceCriteria:
+      - The workspace is schema-driven and corrections are attributable.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:02.303Z"
+    updatedAt: "2026-10-03T08:21:02.303Z"
+  - id: ZSHX48Q9AHPEBJCDM0DAD8ED2H
+    epicId: 78QQ2PHQ2E1QHQV03FFBCXYRQD
+    title: Submit an immutable reviewed record revision
+    userStory: As a reviewer, I want a stable downstream snapshot.
+    acceptanceCriteria:
+      - Submission freezes canonical content, evidence, schema versions, and validation state.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:02.303Z"
+    updatedAt: "2026-10-03T08:21:02.303Z"
+  - id: ACCCV50MZW87EEEPS6Y1HXGNAZ
+    epicId: NNEY4EH15NKW1PZK4G75T8CJ99
+    title: Define revision-bound approval semantics
+    userStory: As an approver, I need decisions bound to exact content.
+    acceptanceCriteria:
+      - Approval lifecycle references an immutable revision and digest.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:06.258Z"
+    updatedAt: "2026-10-03T08:21:06.258Z"
+  - id: 7GZK6H8HR3XKPQ94Q89N85WH0Q
+    epicId: NNEY4EH15NKW1PZK4G75T8CJ99
+    title: Approve a submitted revision locally
+    userStory: As an authorized approver, I want standalone approval.
+    acceptanceCriteria:
+      - Local decisions are authorized, idempotent, and auditable.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:06.259Z"
+    updatedAt: "2026-10-03T08:21:06.259Z"
+  - id: 1A43QS6QGZ4YWH5FG25XZWYEH2
+    epicId: NNEY4EH15NKW1PZK4G75T8CJ99
+    title: Configure versioned destination mappings
+    userStory: As an administrator, I need governed outbound transforms.
+    acceptanceCriteria:
+      - Mappings are versioned, previewable, and validated.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:06.260Z"
+    updatedAt: "2026-10-03T08:21:06.260Z"
+  - id: CDSSWKJ0X91XHKD7X3Q8XHXKE5
+    epicId: NNEY4EH15NKW1PZK4G75T8CJ99
+    title: Deliver only the exact authorized revision
+    userStory: As an operator, I need safe idempotent delivery.
+    acceptanceCriteria:
+      - Delivery verifies authorization and records every attempt.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:06.260Z"
+    updatedAt: "2026-10-03T08:21:06.260Z"
+  - id: R26DFKYKFWHH981YK1QJEM18WN
+    epicId: NNEY4EH15NKW1PZK4G75T8CJ99
+    title: Add optional Delibera approval integration when selected
+    userStory: As a Delibera user, I want optional external approval.
+    acceptanceCriteria:
+      - Integration activates only after generic approval works and never becomes mandatory.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:06.260Z"
+    updatedAt: "2026-10-03T08:21:06.260Z"
+  - id: 2BJ99DB0QWS3FE3J0F50N6EPW4
+    epicId: MGTBBJH7794WRYSFBFE6ZYWXCV
+    title: Coordinate assignments, comments, and concurrent review
+    userStory: As a team, we need visible ownership and discussion.
+    acceptanceCriteria:
+      - Assignments, comments, and conflict detection preserve attributable history.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:09.936Z"
+    updatedAt: "2026-10-03T08:21:09.936Z"
+  - id: AV6YSSGTH46ET6J9NN0DDK7E6B
+    epicId: MGTBBJH7794WRYSFBFE6ZYWXCV
+    title: Choose and add realtime transport when collaboration requires it
+    userStory: As concurrent reviewers, we need timely updates when polling is insufficient.
+    acceptanceCriteria:
+      - Firebase and sockets are compared at activation; durable state remains authoritative.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:09.936Z"
+    updatedAt: "2026-10-03T08:21:09.936Z"
+  - id: C29D8MCQWYGWY6FFSP4YW7MNX7
+    epicId: MGTBBJH7794WRYSFBFE6ZYWXCV
+    title: Introduce durable background work when workloads require it
+    userStory: As an operator, I need reliable long-running processing.
+    acceptanceCriteria:
+      - Activation is justified by measured duration, throughput, retry, or recovery needs.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:09.936Z"
+    updatedAt: "2026-10-03T08:21:09.936Z"
+  - id: 3F1QK0FAD4X03Q4CB5XKDC1BJH
+    epicId: MGTBBJH7794WRYSFBFE6ZYWXCV
+    title: Add outbox, inbox, and reconciliation at the first external reliability boundary
+    userStory: As an operator, I need ambiguous outcomes recoverable.
+    acceptanceCriteria:
+      - Patterns activate for a concrete dual-write or external consistency boundary.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:09.937Z"
+    updatedAt: "2026-10-03T08:21:09.937Z"
+  - id: 44E3PFDX5EVQE4FRTAN1A5RMGC
+    epicId: MGTBBJH7794WRYSFBFE6ZYWXCV
+    title: Add batch, connector, bundle, and matching workflows when demanded
+    userStory: As a high-volume operator, I need multi-document workflows.
+    acceptanceCriteria:
+      - Each capability requires a named use case and representative data.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:09.937Z"
+    updatedAt: "2026-10-03T08:21:09.937Z"
+  - id: PEE73AVQEAC75HKDMA3FA1S4YJ
+    epicId: MGTBBJH7794WRYSFBFE6ZYWXCV
+    title: Build an operational recovery and observability workspace
+    userStory: As an operator, I need safe diagnosis and recovery.
+    acceptanceCriteria:
+      - Correlated signals and audited idempotent recovery actions cover real journeys.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:09.937Z"
+    updatedAt: "2026-10-03T08:21:09.937Z"
+  - id: M7ZMYQSYB6G0W2T5M7TYCCZNHH
+    epicId: 89QP3HS2PDE09EJ9X86P5QRFWM
+    title: Harden identity, tenancy, privacy, and audit for production
+    userStory: As an administrator, I need deployment-grade controls.
+    acceptanceCriteria:
+      - Activation begins from a selected deployment and threat model.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:14.643Z"
+    updatedAt: "2026-10-03T08:21:14.643Z"
+  - id: 5KENKXMX9EZDJ75R0JHJQ2KSSJ
+    epicId: 89QP3HS2PDE09EJ9X86P5QRFWM
+    title: Publish stable public APIs and SDKs after contracts mature
+    userStory: As an integrator, I need supported automation contracts.
+    acceptanceCriteria:
+      - Only stable capabilities enter versioned public APIs and generated SDKs.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:14.643Z"
+    updatedAt: "2026-10-03T08:21:14.643Z"
+  - id: 7D8Q1STZ5VEWBSAR6W87P4DH1W
+    epicId: 89QP3HS2PDE09EJ9X86P5QRFWM
+    title: Publish extension contracts for providers and adapters
+    userStory: As an extension author, I need conformance-tested seams.
+    acceptanceCriteria:
+      - A seam is published after concrete implementations prove it.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:14.643Z"
+    updatedAt: "2026-10-03T08:21:14.643Z"
+  - id: ECMWWJT024W5QXBQ5G6C1YMHQQ
+    epicId: 89QP3HS2PDE09EJ9X86P5QRFWM
+    title: Create deployment, backup, restore, and upgrade profiles
+    userStory: As an operator, I need safe lifecycle procedures.
+    acceptanceCriteria:
+      - Profiles document topology, recovery drills, upgrades, and rollback.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:14.643Z"
+    updatedAt: "2026-10-03T08:21:14.643Z"
+  - id: 4QGB75ND0XME0JVSYJN9K3PMTW
+    epicId: 89QP3HS2PDE09EJ9X86P5QRFWM
+    title: Maintain evaluation and release evidence
+    userStory: As a maintainer, I need trustworthy quality claims.
+    acceptanceCriteria:
+      - Releases use permission-cleared data, segmented metrics, provenance, and limitations.
+    priority: high
+    status: backlog
+    storyPoints: null
+    dependsOn: []
+    standards: []
+    createdAt: "2026-10-03T08:21:14.643Z"
+    updatedAt: "2026-10-03T08:21:14.643Z"
 tasks:
   - id: MH5NTGAWXFX9RS65Z1CAST13X8
     title: "Pass 008.1: Declare bounded-context package map"
@@ -1541,7 +2205,7 @@ tasks:
     description: Adds SQLAlchemy 2 async and psycopg 3 connection, session, transaction, and tenant execution-context primitives.
     type: task
     storyId: STORY-010
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
     standards:
@@ -1555,13 +2219,17 @@ tasks:
       contribution: Provides safe database mechanics without creating a shared business model.
       outOfScope: Domain repositories and tables beyond foundation primitives.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:42:08.066Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: WCSV13692MDV23NE5YAGGHWAYD
     title: "Pass 010.2: Create access-owned tenant primitives"
     description: Establishes the minimal tenant registry and audit-safe identifiers owned exclusively by the access context.
     type: task
     storyId: STORY-010
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 4, unit: hours, confidence: 0.75 }"
     standards:
@@ -1576,13 +2244,17 @@ tasks:
       contribution: Establishes safe tenant references while preserving bounded-context ownership.
       outOfScope: Membership, authentication, and authorization behavior.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:42:13.114Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: WBG3FHGC0HGN7CEF17XZMVDHEC
     title: "Pass 010.3: Implement module-owned migration orchestration"
     description: Adds Alembic migration locations per module with deterministic ordering and one operational command.
     type: task
     storyId: STORY-010
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 6, unit: hours, confidence: 0.7 }"
     standards:
@@ -1598,13 +2270,17 @@ tasks:
       contribution: Allows contexts to evolve storage independently without losing operational consistency.
       outOfScope: Product-domain migrations not yet required.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:42:18.213Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 1ZK15F4E4G2SZQMM470PM7P2YD
     title: "Pass 010.4: Enforce tenant-scoped repository access"
     description: Adds repository helpers that require trusted tenant context and reject absent or conflicting scope.
     type: task
     storyId: STORY-010
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.7 }"
     standards:
@@ -1619,13 +2295,17 @@ tasks:
       contribution: Makes tenant isolation the default persistence behavior rather than caller convention.
       outOfScope: HTTP identity derivation and user permissions.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:42:23.363Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: FF1VNW6C6T7MVC6MQ2C4RAHXN5
     title: "Pass 010.5: Prove isolation and migration safety"
     description: Adds disposable PostgreSQL integration tests, schema drift checks, and migration operational documentation.
     type: task
     storyId: STORY-010
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 6, unit: hours, confidence: 0.7 }"
     standards:
@@ -1640,13 +2320,17 @@ tasks:
       contribution: Supplies evidence that the persistence foundation protects tenant boundaries and evolves predictably.
       outOfScope: Production backup automation.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:42:29.639Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: TQYHB4XBMDACH1KDSYQGZQJNA1
     title: "Pass 011.1: Define principal and membership contracts"
     description: Defines the internal principal, tenant membership, action, resource, and trusted execution-context contracts shared by authentication adapters.
     type: task
     storyId: STORY-011
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 4, unit: hours, confidence: 0.8 }"
     standards:
@@ -1660,13 +2344,17 @@ tasks:
       contribution: Gives local and external identity providers one security model.
       outOfScope: Credential verification implementations.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:42:36.027Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 4JNVFG5S5T9VHM46DFB396TJDJ
     title: "Pass 011.2: Implement secure local authentication"
     description: Adds standalone authentication with secure password hashing, bootstrap administration, invalidation, and rate-limit hooks.
     type: task
     storyId: STORY-011
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 7, unit: hours, confidence: 0.65 }"
     standards:
@@ -1681,13 +2369,17 @@ tasks:
       contribution: Keeps Evidentia deployable without requiring an external identity service.
       outOfScope: User-facing account management UI.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:42:41.862Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: J140S2TCZ5M9FNDMWSAH0F7YKT
     title: "Pass 011.3: Implement the OIDC validation adapter"
     description: Adds a provider-neutral OIDC adapter that maps verified external claims into the internal principal contract.
     type: task
     storyId: STORY-011
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 6, unit: hours, confidence: 0.65 }"
     standards:
@@ -1703,13 +2395,17 @@ tasks:
       contribution: Enables enterprise identity integration without coupling the core to one provider.
       outOfScope: Provider-specific provisioning or administration.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:42:47.280Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: APZA7WW1DE272JH9EZKHH5AQ83
     title: "Pass 011.4: Derive trusted request and worker context"
     description: Builds tenant and actor context only from authenticated membership or trusted system execution data.
     type: task
     storyId: STORY-011
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.7 }"
     standards:
@@ -1725,13 +2421,17 @@ tasks:
       contribution: Connects identity to tenant-safe application and persistence operations.
       outOfScope: Fine-grained product permissions.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:42:54.312Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 58T1AD5JEJSBBMP5EAFVYYN0DX
     title: "Pass 011.5: Add authorization hooks and adversarial tests"
     description: Implements deny-by-default authorization evaluation and security tests for common identity and tenant attacks.
     type: task
     storyId: STORY-011
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 6, unit: hours, confidence: 0.7 }"
     standards:
@@ -1746,13 +2446,17 @@ tasks:
       contribution: Creates the secure enforcement seam used by every protected feature.
       outOfScope: Delibera approval decisions and feature-specific policies.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:42:58.612Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: RNCKN65TQF82EC2C9S2M69DPFW
     title: "Pass 012.1: Define the versioned HTTP contract conventions"
     description: Establishes API versioning, stable errors, pagination, limits, idempotency, and operation naming conventions.
     type: task
     storyId: STORY-012
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 4, unit: hours, confidence: 0.8 }"
     standards:
@@ -1766,13 +2470,17 @@ tasks:
       contribution: Gives all future endpoints a predictable, evolvable external interface.
       outOfScope: Document workflow endpoints.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:43:05.537Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: WEZARFV69Q3ZW23FJCJ9PGP36C
     title: "Pass 012.2: Implement correlation and safe error middleware"
     description: Adds correlation propagation and non-leaking error mappings for authentication, tenant, authorization, validation, conflict, rate, and unexpected failures.
     type: task
     storyId: STORY-012
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
     standards:
@@ -1787,13 +2495,17 @@ tasks:
       contribution: Makes failures diagnosable to operators and stable for clients without leaking internals.
       outOfScope: Distributed tracing exporter selection.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:43:10.430Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: NTHQRKDGX4V7TTAVYS8BEE00JM
     title: "Pass 012.3: Add governed operation metadata"
     description: Ensures each route declares stable identity, context ownership, response models, authorization meaning, and idempotency behavior.
     type: task
     storyId: STORY-012
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 4, unit: hours, confidence: 0.8 }"
     standards:
@@ -1808,13 +2520,17 @@ tasks:
       contribution: Keeps OpenAPI, client generation, and security expectations complete as routes grow.
       outOfScope: Business-specific endpoint implementations.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:43:15.594Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: YF7GZD3TZ318QGG2V5AAZ3R28N
     title: "Pass 012.4: Export and validate deterministic OpenAPI"
     description: Produces a reproducible OpenAPI 3.1 contract and validates it without external services.
     type: task
     storyId: STORY-012
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
     standards:
@@ -1829,13 +2545,17 @@ tasks:
       contribution: Makes the API specification an auditable build artifact and compatibility gate.
       outOfScope: Public API release publishing.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:43:19.499Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 553PG6YBGDPXN7XT6V2J95T3X2
     title: "Pass 012.5: Generate and smoke-test supported SDK clients"
     description: Generates pinned Python and TypeScript clients from OpenAPI and proves they build and type-check reproducibly.
     type: task
     storyId: STORY-012
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 6, unit: hours, confidence: 0.7 }"
     standards:
@@ -1850,13 +2570,17 @@ tasks:
       contribution: Establishes the only supported backend-call boundary for the frontend and external consumers.
       outOfScope: Package-registry publication.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:43:23.873Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: H1415C2QNPYT3ASVCKZT2VR71P
     title: "Pass 013.1: Establish design tokens and accessible primitives"
     description: Adds Tailwind and Radix foundations with semantic theme tokens and baseline accessibility behavior.
     type: task
     storyId: STORY-013
-    status: backlog
+    status: cancelled
     priority: 75
     estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
     standards:
@@ -1870,13 +2594,17 @@ tasks:
       contribution: Gives future interfaces consistent semantics without hard-coding document-specific fields.
       outOfScope: Full component library and branded visual design.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:43:27.611Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: FDDXY2CJ89633714J3JQXFGTC4
     title: "Pass 013.2: Build routed application shell"
     description: Creates the primary layout, routing, navigation, error boundaries, and standard loading and empty-state infrastructure.
     type: task
     storyId: STORY-013
-    status: backlog
+    status: cancelled
     priority: 75
     estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
     standards:
@@ -1891,13 +2619,17 @@ tasks:
       contribution: Provides the reusable navigation and state frame for every product workspace.
       outOfScope: Document review and administration screens.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:43:31.969Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: QB1HWDBRYHG9A8XMW8NWGSZSHA
     title: "Pass 013.3: Add generated-client application boundary"
     description: Integrates only the supported generated TypeScript client with centralized auth, correlation, and error handling.
     type: task
     storyId: STORY-013
-    status: backlog
+    status: cancelled
     priority: 75
     estimate: "{ value: 5, unit: hours, confidence: 0.7 }"
     standards:
@@ -1912,13 +2644,17 @@ tasks:
       contribution: Keeps frontend/backend compatibility generated, typed, and centrally secured.
       outOfScope: Offline synchronization and realtime transport.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:43:36.085Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: YVR9J8NZ0KKC702GD8KBNKNX9R
     title: "Pass 013.4: Present trusted principal and tenant context"
     description: Displays the authenticated principal and active tenant while preventing arbitrary untrusted tenant selection.
     type: task
     storyId: STORY-013
-    status: backlog
+    status: cancelled
     priority: 75
     estimate: "{ value: 4, unit: hours, confidence: 0.75 }"
     standards:
@@ -1933,13 +2669,17 @@ tasks:
       contribution: Makes security context visible and safe in every future user workflow.
       outOfScope: Tenant administration and invitations.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:43:40.868Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 0203XS0XEJA6WAXJE453SDXKEY
     title: "Pass 013.5: Verify shell accessibility and states"
     description: Adds automated and interaction tests for navigation, focus, contrast assumptions, reduced motion, and standard application states.
     type: task
     storyId: STORY-013
-    status: backlog
+    status: cancelled
     priority: 75
     estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
     standards:
@@ -1954,13 +2694,17 @@ tasks:
       contribution: Prevents accessibility and state-handling regressions before product screens multiply.
       outOfScope: Full browser journey suite.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:43:45.426Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 0WTGARHRNTRC7N7WYVZYHV1JAQ
     title: "Pass 014.1: Define durable work envelope and scheduling port"
     description: Establishes versioned work messages and the provider-neutral application port used to schedule durable operations.
     type: task
     storyId: STORY-014
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.8 }"
     standards:
@@ -1974,13 +2718,17 @@ tasks:
       contribution: Decouples application use cases from the eventual production queue engine.
       outOfScope: Choosing or deploying the production durable-job product.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:43:49.275Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: P8J3196REQF7M8DXVH698M97TQ
     title: "Pass 014.2: Build independent worker composition lifecycle"
     description: Makes the worker start, report health, restore dependencies, and shut down independently from the API process.
     type: task
     storyId: STORY-014
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
     standards:
@@ -1996,13 +2744,17 @@ tasks:
       contribution: Creates the process boundary for asynchronous ingestion and processing workloads.
       outOfScope: Production autoscaling and orchestration.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:43:54.722Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: MZ0QNT1YHKY49ETEG90SF13W6A
     title: "Pass 014.3: Implement versioned dispatch registry"
     description: Routes known work types to handlers while rejecting unknown types, payload versions, or untrusted tenant context.
     type: task
     storyId: STORY-014
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
     standards:
@@ -2017,13 +2769,17 @@ tasks:
       contribution: Makes asynchronous execution version-aware, tenant-safe, and diagnosable.
       outOfScope: Business-specific job handlers.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:43:59.650Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 00NQ03THY3ECYEWHC8FQHEZ9FX
     title: "Pass 014.4: Add deterministic in-process work adapter"
     description: Supplies a non-production scheduler/executor adapter for fast unit and integration testing of asynchronous application behavior.
     type: task
     storyId: STORY-014
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 4, unit: hours, confidence: 0.8 }"
     standards:
@@ -2039,13 +2795,17 @@ tasks:
       contribution: Lets domain/application features test async workflows before production engine selection.
       outOfScope: Persistence guarantees across process crashes.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:44:06.281Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: G415QTQM57QT5BVB8HXCD9QSWG
     title: "Pass 014.5: Prove work-port behavior with contract tests"
     description: Adds adapter-neutral contract tests for retries, cancellation, idempotency handoff, version rejection, and context restoration.
     type: task
     storyId: STORY-014
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.8 }"
     standards:
@@ -2060,13 +2820,17 @@ tasks:
       contribution: Protects application semantics when the production job engine is introduced or replaced.
       outOfScope: Throughput and chaos benchmarks.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:44:13.124Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: MKMZQ1Z3WR8YMR3XEEAKQF47CH
     title: "Pass 015.1: Consolidate provider-neutral quality orchestration"
     description: Makes frozen install, formatting, linting, typing, unit, architecture, Skyhook, traceability, and generated-file checks one composable command set.
     type: task
     storyId: STORY-015
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.8 }"
     standards:
@@ -2080,13 +2844,17 @@ tasks:
       contribution: Creates one trustworthy definition of code quality for contributors and automation.
       outOfScope: CI vendor workflow files.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:44:19.035Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: BYFMPYZA71E5H65HA3GCP3RM97
     title: "Pass 015.2: Separate contract, integration, and journey jobs"
     description: Adds composable jobs for OpenAPI compatibility, SDK regeneration, PostgreSQL integration tests, and selected Playwright journeys.
     type: task
     storyId: STORY-015
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 6, unit: hours, confidence: 0.7 }"
     standards:
@@ -2101,13 +2869,17 @@ tasks:
       contribution: Supports fast feedback plus deeper compatibility and system evidence.
       outOfScope: Broad end-to-end product workflow coverage.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:44:24.134Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: G64RKEWH5C4DFGN53NFMYSA1XB
     title: "Pass 015.3: Add supply-chain and secret security gates"
     description: Adds secret, dependency, license-policy, and container vulnerability scanning with governed severity and exception handling.
     type: task
     storyId: STORY-015
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 6, unit: hours, confidence: 0.65 }"
     standards:
@@ -2122,13 +2894,17 @@ tasks:
       contribution: Detects leaked secrets and risky dependencies before release artifacts are trusted.
       outOfScope: Runtime intrusion detection.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:44:29.037Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: DZV8X4BAZ3XQXXEVZ80ABCS0VS
     title: "Pass 015.4: Prove reproducible production artifacts"
     description: Builds API, worker, and web production artifacts and verifies their startup and health behavior.
     type: task
     storyId: STORY-015
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 6, unit: hours, confidence: 0.7 }"
     standards:
@@ -2144,13 +2920,17 @@ tasks:
       contribution: Ensures tested source becomes deployable, observable application artifacts.
       outOfScope: Registry publishing and environment deployment.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:44:35.145Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: C55W6NV4W420XTMBHB5RK2MQXY
     title: "Pass 015.5: Document CI adapter and cache rules"
     description: Defines how any CI provider invokes the repository commands with safe parallelism and correctness-independent caching.
     type: task
     storyId: STORY-015
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 4, unit: hours, confidence: 0.8 }"
     standards:
@@ -2165,13 +2945,17 @@ tasks:
       contribution: Allows GitHub or another provider to orchestrate validation without owning its logic.
       outOfScope: Selecting or configuring the final hosted CI provider.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:44:40.442Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: RNKXVD2RV7TXHAQKZDSFCDH6EW
     title: "Pass 016.1: Prove clean local bootstrap and migrations"
     description: Verifies a fresh checkout can start the supported stack, become ready, and apply all migrations using documented commands.
     type: task
     storyId: STORY-016
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
     standards:
@@ -2185,13 +2969,17 @@ tasks:
       contribution: Demonstrates that the foundation is reproducible outside an already-configured developer machine.
       outOfScope: Production installation profiles.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:44:45.866Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 6RMGBHG0CQ25Q4ZG08HFX1DRX4
     title: "Pass 016.2: Add tenant-scoped diagnostic API resource"
     description: Implements a neutral persisted diagnostic resource exposed through the versioned API to exercise identity, authorization, and tenant-safe storage.
     type: task
     storyId: STORY-016
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 6, unit: hours, confidence: 0.7 }"
     standards:
@@ -2207,13 +2995,17 @@ tasks:
       contribution: Proves the core request-to-database security path without pretending to implement document workflow.
       outOfScope: Document ingestion or review behavior.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:44:52.524Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: E3CTNQKVW6HREV84JBYH10D625
     title: "Pass 016.3: Connect the web shell through generated client"
     description: Adds an authenticated tenant-aware diagnostic screen using only the generated TypeScript client.
     type: task
     storyId: STORY-016
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
     standards:
@@ -2228,13 +3020,17 @@ tasks:
       contribution: Proves the browser-to-API contract, authentication, and UX foundations work together.
       outOfScope: Production document screens and visual polish.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:44:57.745Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: Z905R4Q96N5Q7T69HRPP101SNA
     title: "Pass 016.4: Schedule and execute diagnostic work"
     description: Connects the diagnostic use case to the durable-work port and proves the worker restores tenant and correlation context.
     type: task
     storyId: STORY-016
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.7 }"
     standards:
@@ -2250,13 +3046,17 @@ tasks:
       contribution: Proves synchronous and asynchronous platform paths share trusted context.
       outOfScope: Production durable queue guarantees.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:45:02.975Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 0SDFG842JNTB1BS8G595CKF0E0
     title: "Pass 016.5: Prove cross-tenant isolation across all seams"
     description: Adds adversarial tests showing one tenant cannot access another tenant's diagnostic data through API, repository, cache, storage key, or worker context.
     type: task
     storyId: STORY-016
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 7, unit: hours, confidence: 0.65 }"
     standards:
@@ -2273,13 +3073,17 @@ tasks:
       contribution: Supplies the Gate 0 security evidence required before real document data is introduced.
       outOfScope: Formal penetration testing and certification.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:45:07.635Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: BC3ZF3K4AR4ZNW7CV1P87NHJD2
     title: "Pass 016.6: Publish Gate 0 evidence and capability runbook"
     description: Runs every Gate 0 check and documents supported capabilities, known non-capabilities, troubleshooting, and the next enabled product stories.
     type: task
     storyId: STORY-016
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.8 }"
     standards:
@@ -2294,7 +3098,11 @@ tasks:
       contribution: Converts the foundation into a verified platform baseline ready for document capabilities.
       outOfScope: General availability release and product performance claims.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-03T11:45:12.268Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: TASK-001
     title: Run deferred Docker and Compose acceptance verification
     description: On a supported Docker-capable development or CI host, build the pinned API, worker, and web images, start the complete Compose topology from a clean state, verify health/readiness and named-volume behavior, and capture any corrections before STORY-009 is closed. This task is deliberately deferred because Docker is not required for current domain-only development.
@@ -2603,6 +3411,44 @@ tasks:
         createdAt: "2026-10-03T07:02:59.862Z"
     createdAt: "2026-10-03T07:02:59.862Z"
     updatedAt: "2026-10-03T07:02:59.862Z"
+  - id: TASK-007
+    title: "Decision gate: choose the supported local PostgreSQL workflow"
+    description: "Purpose: choose native PostgreSQL, Docker PostgreSQL, or a documented hybrid with the user before migrations or database integration. Contribution: prevents persistence work from assuming an unapproved runtime. This task makes no database changes."
+    parentType: story
+    parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
+    type: spike
+    status: ready
+    priority: critical
+    storyPoints: 1
+    estimatedMinutes: 45
+    targetFiles: []
+    standards:
+      - STD-ARCH-001
+      - STD-DEV-001
+    dependsOn: []
+    subtasks:
+      - id: SUB-001
+        title: Inventory the installed PostgreSQL and developer constraints without changing them
+        completed: false
+        createdAt: "2026-10-03T08:21:39.033Z"
+      - id: SUB-002
+        title: Compare native, Docker, and hybrid workflows
+        completed: false
+        createdAt: "2026-10-03T08:21:39.033Z"
+      - id: SUB-003
+        title: Ask the user to approve one workflow before database implementation
+        completed: false
+        createdAt: "2026-10-03T08:21:39.033Z"
+      - id: SUB-004
+        title: Record the approved decision in Skyhook
+        completed: false
+        createdAt: "2026-10-03T08:21:39.033Z"
+      - id: SUB-005
+        title: Create implementation tasks only after approval
+        completed: false
+        createdAt: "2026-10-03T08:21:39.033Z"
+    createdAt: "2026-10-03T08:21:39.033Z"
+    updatedAt: "2026-10-03T08:21:39.033Z"
 prioritization:
   method: wsjf
   criteria: {}

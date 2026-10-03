@@ -1,46 +1,42 @@
-# Evidentia implementation-pass convention
+# Evidentia just-in-time implementation-pass convention
 
-Skyhook stories remain the governed, leasable delivery units. Each executable story is decomposed into ordered Skyhook `task` records before implementation begins. A task represents one reviewable coding pass with a single primary feature outcome.
+Skyhook stories are governed delivery outcomes. Tasks and subtasks are reviewable implementation passes created only when a story is active or immediately upcoming.
 
-## Required task fields
+## Task content
 
-Every implementation pass records:
+Every implementation task states:
 
-- **Purpose** in `description`: why the pass exists.
-- **Feature** in `metadata.feature`: the concrete capability introduced in this pass.
-- **Contribution** in `metadata.contribution`: how that capability advances Evidentia.
-- **Scope and evidence** in `technicalNotes`: deliverables and verification expected before the pass is complete.
-- **Out of scope** in `metadata.outOfScope`: an explicit guard against accidental expansion.
-- **Dependencies** in `dependencies`: earlier passes whose evidence is required first.
-- **Estimate and confidence** in `estimate`: a planning aid, not a deadline.
+- the concrete feature delivered in this pass;
+- why the feature is needed now;
+- how it contributes to the current user-visible checkpoint;
+- the files or boundaries expected to change;
+- the tests or other evidence required for completion;
+- what remains explicitly out of scope;
+- dependencies on accepted decisions or earlier evidence.
 
-Production symbols introduced by a pass still require the story or requirement traceability annotations mandated by `AGENTS.md`. Story acceptance criteria remain the final completion gate; finishing every child task does not bypass story-level review, policy, standards, drift, traceability, or quality checks.
+Exported production symbols retain the story or requirement annotations required by `AGENTS.md`. Completing child tasks does not bypass story acceptance criteria, policy checks, standards, drift checks, traceability, review, or a focused commit.
 
-## Decomposition timing
+## Decomposition horizon
 
-The complete product remains planned through requirements, epics, stories, dependencies, standards, and ADRs. Detailed implementation passes are added when a story enters the current or next executable wave. This avoids pretending that low-level implementation details are stable before their prerequisite contracts exist.
+The full product is planned through requirements, ADRs, epics, stories, dependencies, acceptance criteria, and activation conditions. Detailed tasks are limited to:
 
-Before a story moves to `ready`:
+1. the currently active story; and
+2. the immediately upcoming story when its decisions are stable.
 
-1. Confirm its prerequisite stories and accepted ADRs.
-2. Add small task records following this convention.
-3. Link every task ID from the story's `tasks` field.
-4. Make task dependencies acyclic and evidence-based.
-5. Mark only immediately executable first passes as `ready`.
-6. Recompile the Skyhook plan and verify backlog references.
+When a choice could materially change implementation, create a decision-gate task rather than speculative coding passes. After the user approves the decision, record it in Skyhook and create the implementation tasks.
 
-## Executable platform foundation
+## Current horizon
 
-| Story | Passes | Delivered sequence |
-| --- | ---: | --- |
-| STORY-008 | 5 | context map → package skeletons → import contracts → negative/cycle tests → quality integration |
-| STORY-009 | 5 | typed settings → logging/health → service containers → Compose infrastructure → secure runbook |
-| STORY-010 | 5 | async DB runtime → tenant primitives → migrations → scoped repositories → isolation evidence |
-| STORY-011 | 5 | identity contracts → local auth and OIDC → trusted context → authorization/security tests |
-| STORY-012 | 5 | API conventions → safe middleware → operation metadata → OpenAPI → generated SDKs |
-| STORY-013 | 5 | accessible primitives → routed shell → generated client → tenant UX → conformance tests |
-| STORY-014 | 5 | work envelope/port → worker lifecycle → dispatch → test adapter → contract tests |
-| STORY-015 | 5 | quality orchestration → layered jobs → supply-chain gates → artifact proof → CI contract |
-| STORY-016 | 6 | clean bootstrap → diagnostic API → web slice → worker flow → isolation proof → Gate 0 evidence |
+The active implementation story is `4PJTJVE73D2MN7GT64T48S05HT` — **Build versioned schema lifecycle**.
 
-The next executable passes are **008.1 — Declare bounded-context package map** and **009.1 — Implement typed environment configuration**. Story-level leasing remains authoritative; task status documents progress within the leased story.
+| Pass | Feature | Contribution |
+| --- | --- | --- |
+| `TASK-002` | Schema identity, lifecycle, and core field types | Establishes the document-neutral schema vocabulary. |
+| `TASK-003` | Immutable versioned schema aggregates | Represents dynamic fields, groups, tables, and governed artifact references. |
+| `TASK-004` | Deterministic schema composition | Enables explainable reusable modules without silent conflicts. |
+| `TASK-005` | Publication and compatibility governance | Protects immutable history and explains schema evolution. |
+| `TASK-006` | Canonical interchange and migration planning | Makes schemas portable without rewriting historical records. |
+
+The immediately upcoming story is `0VJ9SHA39TA291D8QXB0TQS3HQ` — **Persist governed schemas for interactive use**. Its only current task is `TASK-007`, a decision gate for the supported local PostgreSQL workflow. Database implementation tasks must not be created until that decision is approved.
+
+The earlier detailed passes under cancelled `STORY-010` through `STORY-016` are retained as cancelled history. Relevant work will be decomposed again in the context of the product story that consumes it.
