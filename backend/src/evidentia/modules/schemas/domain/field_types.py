@@ -326,6 +326,8 @@ class EnumType:
     kind: FieldTypeKind = field(default=FieldTypeKind.ENUM, init=False)
 
     def __post_init__(self) -> None:
+        if not isinstance(self.values, tuple):
+            raise ValueError("enum values must be retained in an immutable tuple")
         if not self.values:
             raise ValueError("enum type must declare at least one value")
         if len(set(self.values)) != len(self.values):

@@ -134,6 +134,8 @@ class FieldPath:
     segments: tuple[FieldKey, ...]
 
     def __post_init__(self) -> None:
+        if not isinstance(self.segments, tuple):
+            raise ValueError("field path segments must be retained in an immutable tuple")
         if not self.segments:
             raise ValueError("field path must contain at least one segment")
         if not all(isinstance(segment, FieldKey) for segment in self.segments):

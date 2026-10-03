@@ -9,6 +9,18 @@ application-port contracts.
 @skyhook-story 4PJTJVE73D2MN7GT64T48S05HT
 """
 
+from evidentia.modules.schemas.domain.artifact_links import (
+    ArtifactBindings,
+    PublishedArtifactReference,
+    SchemaArtifactKind,
+)
+from evidentia.modules.schemas.domain.definitions import (
+    Cardinality,
+    FieldDefinition,
+    FieldType,
+    ValueDefinition,
+    ensure_unique_root_fields,
+)
 from evidentia.modules.schemas.domain.field_types import (
     ArrayType,
     ArtifactReferenceType,
@@ -43,34 +55,50 @@ from evidentia.modules.schemas.domain.lifecycle import (
     allowed_schema_transitions,
     ensure_schema_transition,
 )
+from evidentia.modules.schemas.domain.modules import (
+    PublishedSchemaModule,
+    PublishedSchemaVersion,
+    SchemaModuleReference,
+)
 
 __all__ = (
     "ArrayType",
+    "ArtifactBindings",
     "ArtifactReferenceType",
     "ArtifactReferenceValue",
     "BooleanType",
+    "Cardinality",
     "DateTimeType",
     "DateType",
     "DecimalType",
     "EnumType",
     "ExtensionType",
+    "FieldDefinition",
     "FieldKey",
     "FieldPath",
+    "FieldType",
     "FieldTypeKind",
     "IdentifierType",
     "IntegerType",
     "MoneyType",
     "MoneyValue",
     "ObjectType",
+    "PublishedArtifactReference",
+    "PublishedSchemaModule",
+    "PublishedSchemaVersion",
     "ReferenceType",
     "ReferenceValue",
     "ReleaseLabel",
+    "SchemaArtifactKind",
     "SchemaId",
     "SchemaLifecycleState",
     "SchemaModuleId",
+    "SchemaModuleReference",
     "SchemaVersion",
     "StringType",
     "TableType",
+    "ValueDefinition",
     "allowed_schema_transitions",
     "ensure_schema_transition",
+    "ensure_unique_root_fields",
 )
