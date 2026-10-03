@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-03T11:51:08.785Z"
+  updatedAt: "2026-10-03T11:54:56.596Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -3328,7 +3328,7 @@ tasks:
     parentType: story
     parentId: 4PJTJVE73D2MN7GT64T48S05HT
     type: feature
-    status: in-review
+    status: done
     priority: critical
     storyPoints: 5
     estimatedMinutes: 360
@@ -3371,25 +3371,20 @@ tasks:
         createdAt: "2026-10-03T07:02:56.324Z"
         completedAt: "2026-10-03T11:51:03.912Z"
     createdAt: "2026-10-03T07:02:56.324Z"
-    updatedAt: "2026-10-03T11:51:08.785Z"
-    lease:
-      agentId: Codex
-      leasedAt: "2026-10-03T11:48:47.968Z"
-      expiresAt: "2026-10-03T13:18:47.968Z"
-      durationMinutes: 90
-      heartbeatAt: "2026-10-03T11:48:47.968Z"
+    updatedAt: "2026-10-03T11:51:31.090Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
     startedAt: "2026-10-03T11:48:58.231Z"
+    completedAt: "2026-10-03T11:51:31.090Z"
   - id: TASK-006
     title: "Pass 5: Define canonical interchange, migration, and reprocessing contracts"
     description: "Purpose: provide deterministic import/export and pure migration/reprocessing plans without adding persistence. Contribution: makes schemas portable, preserves precision and localization metadata, and guarantees that adopting a new schema creates a new proposed record revision rather than rewriting history."
     parentType: story
     parentId: 4PJTJVE73D2MN7GT64T48S05HT
     type: feature
-    status: ready
+    status: in-review
     priority: high
     storyPoints: 5
     estimatedMinutes: 360
@@ -3408,26 +3403,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Define a versioned canonical schema interchange envelope
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:59.862Z"
+        completedAt: "2026-10-03T11:54:40.463Z"
       - id: SUB-002
         title: Round-trip nested fields, tables, decimal and money constraints, references, and localized metadata
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:59.862Z"
+        completedAt: "2026-10-03T11:54:43.079Z"
       - id: SUB-003
         title: Reject unknown core types while preserving recognized versioned extension declarations
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:59.862Z"
+        completedAt: "2026-10-03T11:54:46.130Z"
       - id: SUB-004
         title: Produce explicit migration and reprocessing plans that target new proposed record revisions
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:59.862Z"
+        completedAt: "2026-10-03T11:54:48.864Z"
       - id: SUB-005
         title: Document extension points, compatibility semantics, and the no-historical-overwrite invariant
-        completed: false
+        completed: true
         createdAt: "2026-10-03T07:02:59.862Z"
+        completedAt: "2026-10-03T11:54:52.757Z"
     createdAt: "2026-10-03T07:02:59.862Z"
-    updatedAt: "2026-10-03T07:02:59.862Z"
+    updatedAt: "2026-10-03T11:54:56.596Z"
+    lease:
+      agentId: Codex
+      leasedAt: "2026-10-03T11:51:37.547Z"
+      expiresAt: "2026-10-03T13:21:37.547Z"
+      durationMinutes: 90
+      heartbeatAt: "2026-10-03T11:51:37.547Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-03T11:51:45.758Z"
   - id: TASK-007
     title: "Decision gate: choose the supported local PostgreSQL workflow"
     description: "Purpose: choose native PostgreSQL, Docker PostgreSQL, or a documented hybrid with the user before migrations or database integration. Contribution: prevents persistence work from assuming an unapproved runtime. This task makes no database changes."

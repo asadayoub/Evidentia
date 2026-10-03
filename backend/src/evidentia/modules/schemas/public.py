@@ -9,6 +9,19 @@ application-port contracts.
 @skyhook-story 4PJTJVE73D2MN7GT64T48S05HT
 """
 
+from evidentia.modules.schemas.application.interchange import (
+    INTERCHANGE_FORMAT,
+    INTERCHANGE_VERSION,
+    SchemaInterchangeEnvelope,
+    export_schema,
+    import_schema,
+)
+from evidentia.modules.schemas.application.migration import (
+    ProposedRevisionPlan,
+    RevisionPlanKind,
+    plan_reprocessing,
+    plan_schema_migration,
+)
 from evidentia.modules.schemas.application.publish_schema import (
     ArtifactKey,
     PublicationProvenance,
@@ -90,6 +103,8 @@ from evidentia.modules.schemas.domain.modules import (
 )
 
 __all__ = (
+    "INTERCHANGE_FORMAT",
+    "INTERCHANGE_VERSION",
     "ArrayType",
     "ArtifactBindings",
     "ArtifactKey",
@@ -123,6 +138,7 @@ __all__ = (
     "MoneyType",
     "MoneyValue",
     "ObjectType",
+    "ProposedRevisionPlan",
     "PublicationProvenance",
     "PublishedArtifactReference",
     "PublishedSchemaModule",
@@ -132,11 +148,13 @@ __all__ = (
     "ReleaseLabel",
     "ResolvedSchema",
     "ResolvedSchemaIdentity",
+    "RevisionPlanKind",
     "SchemaArtifactKind",
     "SchemaChange",
     "SchemaChangeCode",
     "SchemaDraft",
     "SchemaId",
+    "SchemaInterchangeEnvelope",
     "SchemaLifecycleState",
     "SchemaModuleId",
     "SchemaModuleReference",
@@ -149,6 +167,10 @@ __all__ = (
     "compare_schema_versions",
     "ensure_schema_transition",
     "ensure_unique_root_fields",
+    "export_schema",
+    "import_schema",
+    "plan_reprocessing",
+    "plan_schema_migration",
     "publish_schema",
     "resolve_schema",
 )
