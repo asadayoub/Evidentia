@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-016: in-review to done
+- Task TASK-016: in-progress to in-review
+- Task TASK-016: ready to in-progress
 - Task TASK-015: in-review to done
 - Task TASK-015: in-progress to in-review
 - Task TASK-015: ready to in-progress

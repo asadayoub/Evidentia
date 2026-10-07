@@ -76,5 +76,8 @@ technologies:
   - name: PostgreSQL
     category: Database
     version: 16.x
+  - name: argon2-cffi
+    category: Identity Security
+    version: 25.x
 patterns: []
 constraints: []

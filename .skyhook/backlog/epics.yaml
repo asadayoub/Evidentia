@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T09:55:10.280Z"
+  updatedAt: "2026-10-07T10:06:40.674Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -3975,7 +3975,7 @@ tasks:
     parentType: story
     parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
     type: feature
-    status: ready
+    status: done
     priority: critical
     storyPoints: 3
     estimatedMinutes: 240
@@ -3997,26 +3997,37 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Implement an explicit bootstrap application command and CLI entrypoint
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:12.375Z"
+        completedAt: "2026-10-07T10:06:23.642Z"
       - id: SUB-002
         title: Create the first tenant, operator, membership, and administrator capability grants atomically
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:12.375Z"
+        completedAt: "2026-10-07T10:06:27.599Z"
       - id: SUB-003
         title: Hash the bootstrap password with Argon2id before persistence
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:12.375Z"
+        completedAt: "2026-10-07T10:06:25.757Z"
       - id: SUB-004
         title: Make repeated identical bootstrap safe and reject conflicting existing identity
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:12.375Z"
+        completedAt: "2026-10-07T10:06:30.334Z"
       - id: SUB-005
         title: Add make identity-init and document first-run, recovery, and rotation behavior
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:12.375Z"
+        completedAt: "2026-10-07T10:06:32.085Z"
     createdAt: "2026-10-07T09:19:12.375Z"
-    updatedAt: "2026-10-07T09:19:12.375Z"
+    updatedAt: "2026-10-07T10:06:40.674Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-07T09:57:46.366Z"
+    completedAt: "2026-10-07T10:06:40.674Z"
   - id: TASK-017
     title: Implement local authentication and revocable session lifecycle
     description: "Purpose: authenticate local operators and manage secure browser sessions independently of FastAPI and future identity providers. Contribution: supplies reusable login, verification, rotation, expiry, and logout behavior with no plaintext passwords or session tokens at rest."
