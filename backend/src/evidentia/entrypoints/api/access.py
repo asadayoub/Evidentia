@@ -7,6 +7,7 @@
 
 from __future__ import annotations
 
+import hashlib
 from datetime import UTC, datetime
 from typing import Annotated, Any
 
@@ -54,6 +55,7 @@ from evidentia.modules.access.public import (
     TenantId,
     TenantStatus,
 )
+from evidentia.runtime import emit_security_event
 
 _ERROR_RESPONSES: dict[int | str, dict[str, Any]] = {
     400: {"model": ErrorResponse, "description": "Invalid request"},
@@ -198,6 +200,26 @@ def _map_access_denial(error: AccessDeniedError) -> ApiError:
     return ApiError(403, "access_denied", "The request is not authorized.")
 
 
+def _login_fingerprint(value: str) -> str:
+    return hashlib.sha256(value.strip().casefold().encode()).hexdigest()
+
+
+def _event(
+    runtime: AccessApiRuntime,
+    request: Request,
+    event: str,
+    **attributes: object,
+) -> None:
+    emit_security_event(
+        event,
+        service="api",
+        environment=runtime.settings.environment,
+        version=runtime.settings.version,
+        correlation_id=request.state.correlation_id,
+        attributes=attributes,
+    )
+
+
 async def _available_tenants(
     database_session: AsyncSession,
     operator_id: OperatorId,
@@ -236,11 +258,19 @@ def create_access_router(runtime: AccessApiRuntime) -> APIRouter:
         status_code=status.HTTP_201_CREATED,
         responses=_ERROR_RESPONSES,
     )
-    async def login(payload: LoginRequest, response: Response) -> SessionResponse:
+    async def login(payload: LoginRequest, request: Request, response: Response) -> SessionResponse:
         now = datetime.now(UTC)
         try:
             identifier = LoginIdentifier(payload.login_identifier)
         except ValueError as error:
+            _event(
+                runtime,
+                request,
+                "access.login.denied",
+                outcome="denied",
+                reason="invalid_credentials",
+                login_identifier_sha256=_login_fingerprint(payload.login_identifier),
+            )
             raise ApiError(401, "authentication_failed", "The credentials are invalid.") from error
         async with runtime.sessions.begin() as database_session:
             try:
@@ -257,6 +287,15 @@ def create_access_router(runtime: AccessApiRuntime) -> APIRouter:
                     now=now,
                 )
             except AuthenticationDeniedError as error:
+                _event(
+                    runtime,
+                    request,
+                    "access.login.denied",
+                    outcome="denied",
+                    reason="invalid_credentials",
+                    login_identifier_sha256=_login_fingerprint(identifier.value),
+                    retry_after_seconds=error.retry_after_seconds,
+                )
                 status_code = 429 if error.retry_after_seconds else 401
                 headers = (
                     {"Retry-After": str(error.retry_after_seconds)}
@@ -286,6 +325,19 @@ def create_access_router(runtime: AccessApiRuntime) -> APIRouter:
                 ) from error
 
         set_session_cookies(response, issued.token, runtime.settings.session)
+        _event(
+            runtime,
+            request,
+            "access.login.succeeded",
+            outcome="success",
+            operator_id=identity.operator_id.value,
+            tenant_id=(
+                None
+                if issued.session.active_tenant_id is None
+                else issued.session.active_tenant_id.value
+            ),
+            session_id=issued.session.session_id.value,
+        )
         return SessionResponse(
             operator_id=identity.operator_id.value,
             active_tenant_id=(
@@ -311,10 +363,35 @@ def create_access_router(runtime: AccessApiRuntime) -> APIRouter:
         csrf_header: Annotated[str | None, Header(alias=CSRF_HEADER_NAME)] = None,
     ) -> None:
         token = session_token(request, runtime.settings.session)
-        require_csrf(request, token, csrf_header)
+        try:
+            require_csrf(request, token, csrf_header)
+        except ApiError:
+            _event(
+                runtime,
+                request,
+                "access.logout.denied",
+                outcome="denied",
+                reason="csrf_rejected",
+            )
+            raise
         async with runtime.sessions.begin() as database_session:
-            await runtime.manage_sessions(database_session).logout(token, now=datetime.now(UTC))
+            revoked = await runtime.manage_sessions(database_session).logout(
+                token, now=datetime.now(UTC)
+            )
         clear_session_cookies(response, runtime.settings.session)
+        _event(
+            runtime,
+            request,
+            "access.logout.succeeded",
+            outcome="success",
+            operator_id=None if revoked is None else revoked.operator_id.value,
+            tenant_id=(
+                None
+                if revoked is None or revoked.active_tenant_id is None
+                else revoked.active_tenant_id.value
+            ),
+            session_id=None if revoked is None else revoked.session_id.value,
+        )
 
     @router.get(
         "/context",
@@ -336,6 +413,13 @@ def create_access_router(runtime: AccessApiRuntime) -> APIRouter:
                     now=datetime.now(UTC),
                 )
             except AccessDeniedError as error:
+                _event(
+                    runtime,
+                    request,
+                    "access.context.denied",
+                    outcome="denied",
+                    reason=error.reason.value,
+                )
                 raise _map_access_denial(error) from error
         context = resolved.context
         return CurrentContextResponse(
@@ -367,7 +451,17 @@ def create_access_router(runtime: AccessApiRuntime) -> APIRouter:
         csrf_header: Annotated[str | None, Header(alias=CSRF_HEADER_NAME)] = None,
     ) -> SessionResponse:
         token = session_token(request, runtime.settings.session)
-        require_csrf(request, token, csrf_header)
+        try:
+            require_csrf(request, token, csrf_header)
+        except ApiError:
+            _event(
+                runtime,
+                request,
+                "access.tenant_selection.denied",
+                outcome="denied",
+                reason="csrf_rejected",
+            )
+            raise
         tenant_id = _tenant_id(payload.tenant_id)
         async with runtime.sessions.begin() as database_session:
             manager = runtime.manage_sessions(database_session)
@@ -382,8 +476,26 @@ def create_access_router(runtime: AccessApiRuntime) -> APIRouter:
                     issued.session.operator_id,
                 )
             except SessionDeniedError as error:
+                _event(
+                    runtime,
+                    request,
+                    "access.tenant_selection.denied",
+                    outcome="denied",
+                    reason=error.reason.value,
+                    requested_tenant_id=tenant_id.value,
+                )
                 raise _map_session_denial(error) from error
         set_session_cookies(response, issued.token, runtime.settings.session)
+        _event(
+            runtime,
+            request,
+            "access.tenant_selection.succeeded",
+            outcome="success",
+            rotated=True,
+            operator_id=issued.session.operator_id.value,
+            tenant_id=tenant_id.value,
+            session_id=issued.session.session_id.value,
+        )
         return SessionResponse(
             operator_id=issued.session.operator_id.value,
             active_tenant_id=tenant_id.value,

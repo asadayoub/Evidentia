@@ -37,6 +37,17 @@ from evidentia.modules.access.public import (
     LoginIdentifier,
     TenantSlug,
 )
+from evidentia.runtime import configure_service_logging, emit_security_event
+
+
+def _bootstrap_event(settings: ApiSettings, event: str, **attributes: object) -> None:
+    emit_security_event(
+        event,
+        service="api",
+        environment=settings.environment,
+        version=settings.version,
+        attributes=attributes,
+    )
 
 
 async def bootstrap_configured_identity(settings: ApiSettings) -> IdentityBootstrapResult:
@@ -47,6 +58,12 @@ async def bootstrap_configured_identity(settings: ApiSettings) -> IdentityBootst
     """
     configured_password = settings.identity.bootstrap_password
     if configured_password is None:
+        _bootstrap_event(
+            settings,
+            "identity.bootstrap.denied",
+            outcome="denied",
+            reason="configuration_missing",
+        )
         raise IdentityBootstrapError(
             "bootstrap password is missing; set "
             "EVIDENTIA_IDENTITY__BOOTSTRAP_PASSWORD to a unique 16+ character secret"
@@ -54,16 +71,16 @@ async def bootstrap_configured_identity(settings: ApiSettings) -> IdentityBootst
     engine = create_access_engine(settings.database, purpose="identity-bootstrap")
     sessions = create_access_session_factory(engine)
     try:
-        async with sessions.begin() as session:
-            service = BootstrapFirstIdentity(
-                PostgresOperatorRepository(session),
-                PostgresTenantRepository(session),
-                PostgresMembershipRepository(session),
-                PostgresCredentialRepository(session),
-                Argon2idPasswordHasher(),
-            )
-            try:
-                return await service.execute(
+        try:
+            async with sessions.begin() as session:
+                service = BootstrapFirstIdentity(
+                    PostgresOperatorRepository(session),
+                    PostgresTenantRepository(session),
+                    PostgresMembershipRepository(session),
+                    PostgresCredentialRepository(session),
+                    Argon2idPasswordHasher(),
+                )
+                result = await service.execute(
                     IdentityBootstrapRequest(
                         LoginIdentifier(settings.identity.bootstrap_login_identifier),
                         settings.identity.bootstrap_display_name,
@@ -72,10 +89,34 @@ async def bootstrap_configured_identity(settings: ApiSettings) -> IdentityBootst
                         AuthenticationSecret(configured_password.get_secret_value()),
                     )
                 )
-            except IntegrityError as error:
-                raise IdentityBootstrapConflictError(
-                    "bootstrap identity conflicts with access state created concurrently"
-                ) from error
+        except IntegrityError as error:
+            _bootstrap_event(
+                settings,
+                "identity.bootstrap.denied",
+                outcome="denied",
+                reason="concurrent_conflict",
+            )
+            raise IdentityBootstrapConflictError(
+                "bootstrap identity conflicts with access state created concurrently"
+            ) from error
+        except IdentityBootstrapError:
+            _bootstrap_event(
+                settings,
+                "identity.bootstrap.denied",
+                outcome="denied",
+                reason="state_conflict",
+            )
+            raise
+        _bootstrap_event(
+            settings,
+            "identity.bootstrap.succeeded",
+            outcome="success",
+            bootstrap_created=result.created,
+            operator_id=result.operator_id.value,
+            tenant_id=result.tenant_id.value,
+            membership_id=result.membership_id.value,
+        )
+        return result
     finally:
         await engine.dispose()
 
@@ -99,6 +140,12 @@ def main(argv: Sequence[str] | None = None) -> None:
     arguments = parser.parse_args(argv)
     try:
         settings = load_api_settings(arguments.env_file)
+        configure_service_logging(
+            settings.logging,
+            service=settings.service,
+            environment=settings.environment,
+            version=settings.version,
+        )
         result = asyncio.run(bootstrap_configured_identity(settings))
     except ValidationError:
         print(

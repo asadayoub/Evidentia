@@ -6,9 +6,11 @@
 @skyhook-story STORY-009
 """
 
+import argparse
 import logging
-from collections.abc import AsyncIterator, Awaitable, Callable, Mapping
+from collections.abc import AsyncIterator, Awaitable, Callable, Mapping, Sequence
 from contextlib import asynccontextmanager
+from pathlib import Path
 from typing import Final
 
 import uvicorn
@@ -23,7 +25,12 @@ from evidentia.config.settings import ApiSettings, load_api_settings
 from evidentia.entrypoints.api.access import AccessApiRuntime, create_access_router
 from evidentia.entrypoints.api.errors import ApiError, ErrorResponse
 from evidentia.entrypoints.api.security import CORRELATION_HEADER_NAME, correlation_id
-from evidentia.runtime import configure_service_logging, liveness_report, readiness_report
+from evidentia.runtime import (
+    configure_service_logging,
+    emit_security_event,
+    liveness_report,
+    readiness_report,
+)
 
 APP_TITLE: Final = "Evidentia API"
 _ReadinessCheck = Callable[[], Awaitable[None]]
@@ -74,12 +81,21 @@ def create_app(
     async def _browser_security(request: Request, call_next: RequestResponseEndpoint) -> Response:
         request.state.correlation_id = correlation_id(request)
         origin = request.headers.get("origin")
+        request_origin = str(request.base_url).rstrip("/")
         response: Response
         if (
             request.method not in {"GET", "HEAD", "OPTIONS"}
             and origin is not None
-            and origin not in resolved_settings.api.allowed_origins
+            and origin not in {*resolved_settings.api.allowed_origins, request_origin}
         ):
+            emit_security_event(
+                "access.origin.denied",
+                service="api",
+                environment=resolved_settings.environment,
+                version=resolved_settings.version,
+                correlation_id=request.state.correlation_id,
+                attributes={"outcome": "denied", "origin": origin},
+            )
             response = JSONResponse(
                 status_code=403,
                 content=ErrorResponse(
@@ -198,7 +214,7 @@ def create_app(
 app = create_app()
 
 
-def main() -> None:
+def main(argv: Sequence[str] | None = None) -> None:
     """Run the API server from validated runtime settings.
 
     @skyhook-implements REQ-012
@@ -206,8 +222,17 @@ def main() -> None:
     @skyhook-implements NFR-006
     @skyhook-story STORY-007
     @skyhook-story STORY-009
+    @skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
     """
-    settings = load_api_settings()
+    parser = argparse.ArgumentParser(prog="evidentia-api")
+    parser.add_argument(
+        "--env-file",
+        type=Path,
+        default=None,
+        help="optional validated environment file",
+    )
+    arguments = parser.parse_args(argv)
+    settings = load_api_settings(arguments.env_file)
     logger = configure_service_logging(
         settings.logging,
         service=settings.service,
@@ -216,7 +241,7 @@ def main() -> None:
     )
     logger.info("starting API service")
     uvicorn.run(
-        "evidentia.entrypoints.api.main:app",
+        create_app(settings),
         host=settings.api.host,
         port=settings.api.port,
         reload=settings.api.reload,

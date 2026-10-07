@@ -9,22 +9,40 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 from dataclasses import dataclass
+from datetime import UTC, datetime, timedelta
 from http.cookies import SimpleCookie
 from typing import Any
 
 import pytest
 from backend.tests.integration.support import DisposablePostgresDatabase
 from fastapi import FastAPI
+from sqlalchemy import select, update
 
 from evidentia.config.settings import ApiSettings, IdentitySettings, SessionSettings
 from evidentia.entrypoints.api import create_app
 from evidentia.entrypoints.cli.identity import bootstrap_configured_identity
+from evidentia.modules.access.infrastructure.persistence import (
+    AccessSessionRecord,
+    LocalPasswordCredentialRecord,
+)
+from evidentia.modules.access.infrastructure.tokens import SecureSessionTokenProvider
+from evidentia.modules.access.public import OpaqueSessionToken, TenantId
 
 pytestmark = pytest.mark.postgres
 
 _PASSWORD = "a-unique-api-password"
 _ORIGIN = "http://localhost:3000"
+
+
+class _SecurityEventCapture(logging.Handler):
+    def __init__(self) -> None:
+        super().__init__()
+        self.records: list[logging.LogRecord] = []
+
+    def emit(self, record: logging.LogRecord) -> None:
+        self.records.append(record)
 
 
 @dataclass(frozen=True, slots=True)
@@ -128,9 +146,20 @@ async def _exercise_access_api(database: DisposablePostgresDatabase) -> None:
             cookie_name="evidentia_auth",
         ),
     )
-    bootstrap = await bootstrap_configured_identity(settings)
-    app = create_app(settings)
+    security_logger = logging.getLogger("evidentia.api.security")
+    original_handlers = security_logger.handlers[:]
+    original_level = security_logger.level
+    original_propagate = security_logger.propagate
+    capture = _SecurityEventCapture()
+    security_logger.handlers = [capture]
+    security_logger.setLevel(logging.INFO)
+    security_logger.propagate = False
+    app: FastAPI | None = None
+    response_bodies: list[bytes] = []
+    raw_tokens: list[str] = []
     try:
+        bootstrap = await bootstrap_configured_identity(settings)
+        app = create_app(settings)
         rejected_origin = await _request(
             app,
             "POST",
@@ -140,6 +169,7 @@ async def _exercise_access_api(database: DisposablePostgresDatabase) -> None:
         )
         assert rejected_origin.status == 403
         assert rejected_origin.json()["code"] == "origin_rejected"
+        response_bodies.append(rejected_origin.body)
 
         login = await _request(
             app,
@@ -161,7 +191,9 @@ async def _exercise_access_api(database: DisposablePostgresDatabase) -> None:
         assert all("SameSite=lax" in item for item in set_cookie)
 
         cookies = _cookies(login)
+        raw_tokens.append(cookies["evidentia_auth"])
         cookie_header = _cookie_header(cookies)
+        response_bodies.append(login.body)
         context = await _request(
             app,
             "GET",
@@ -178,6 +210,36 @@ async def _exercise_access_api(database: DisposablePostgresDatabase) -> None:
         assert context.json()["tenant_id"] == bootstrap.tenant_id.value
         assert context.json()["correlation_id"] == "context-request"
         assert "schemas.publish" in context.json()["capabilities"]
+        response_bodies.append(context.body)
+
+        await app.state.access_runtime.close()
+        app = create_app(settings)
+        after_restart = await _request(
+            app,
+            "GET",
+            "/api/v1/access/context",
+            headers={"cookie": cookie_header, "x-correlation-id": "restart-request"},
+        )
+        assert after_restart.status == 200
+        assert after_restart.json()["session_id"] == context.json()["session_id"]
+        response_bodies.append(after_restart.body)
+
+        unavailable_tenant = TenantId.new()
+        cross_tenant = await _request(
+            app,
+            "PUT",
+            "/api/v1/access/session/tenant",
+            body={"tenant_id": unavailable_tenant.value},
+            headers={
+                "origin": _ORIGIN,
+                "cookie": cookie_header,
+                "x-csrf-token": cookies["evidentia_csrf"],
+                "x-correlation-id": "cross-tenant-request",
+            },
+        )
+        assert cross_tenant.status == 403
+        assert cross_tenant.json()["code"] == "tenant_not_available"
+        response_bodies.append(cross_tenant.body)
 
         missing_csrf = await _request(
             app,
@@ -188,6 +250,7 @@ async def _exercise_access_api(database: DisposablePostgresDatabase) -> None:
         )
         assert missing_csrf.status == 403
         assert missing_csrf.json()["code"] == "csrf_rejected"
+        response_bodies.append(missing_csrf.body)
 
         selected = await _request(
             app,
@@ -203,6 +266,8 @@ async def _exercise_access_api(database: DisposablePostgresDatabase) -> None:
         assert selected.status == 200
         rotated_cookies = _cookies(selected)
         assert rotated_cookies["evidentia_auth"] != cookies["evidentia_auth"]
+        raw_tokens.append(rotated_cookies["evidentia_auth"])
+        response_bodies.append(selected.body)
 
         reused = await _request(
             app,
@@ -212,6 +277,43 @@ async def _exercise_access_api(database: DisposablePostgresDatabase) -> None:
         )
         assert reused.status == 401
         assert reused.json()["code"] == "session_invalid"
+        response_bodies.append(reused.body)
+
+        expiring_login = await _request(
+            app,
+            "POST",
+            "/api/v1/access/sessions",
+            body={"login_identifier": "owner@example.com", "password": _PASSWORD},
+            headers={"origin": _ORIGIN, "x-correlation-id": "expiry-login"},
+        )
+        assert expiring_login.status == 201
+        expiring_cookies = _cookies(expiring_login)
+        expiring_raw_token = expiring_cookies["evidentia_auth"]
+        raw_tokens.append(expiring_raw_token)
+        digest = SecureSessionTokenProvider().digest(OpaqueSessionToken(expiring_raw_token))
+        expired_now = datetime.now(UTC)
+        async with app.state.access_runtime.engine.begin() as connection:
+            await connection.execute(
+                update(AccessSessionRecord)
+                .where(AccessSessionRecord.token_sha256 == digest.value)
+                .values(
+                    authenticated_at=expired_now - timedelta(minutes=20),
+                    last_seen_at=expired_now - timedelta(minutes=16),
+                    expires_at=expired_now - timedelta(minutes=15),
+                )
+            )
+        expired = await _request(
+            app,
+            "GET",
+            "/api/v1/access/context",
+            headers={
+                "cookie": _cookie_header(expiring_cookies),
+                "x-correlation-id": "expired-request",
+            },
+        )
+        assert expired.status == 401
+        assert expired.json()["code"] == "session_invalid"
+        response_bodies.extend((expiring_login.body, expired.body))
 
         logout = await _request(
             app,
@@ -225,8 +327,85 @@ async def _exercise_access_api(database: DisposablePostgresDatabase) -> None:
         )
         assert logout.status == 204
         assert all("Max-Age=0" in item for item in logout.headers_for("set-cookie"))
-    finally:
+        response_bodies.append(logout.body)
+
         await app.state.access_runtime.close()
+        app = create_app(settings)
+        after_logout_restart = await _request(
+            app,
+            "GET",
+            "/api/v1/access/context",
+            headers={"cookie": _cookie_header(rotated_cookies)},
+        )
+        assert after_logout_restart.status == 401
+        response_bodies.append(after_logout_restart.body)
+
+        bad_password = "deliberately-wrong-password"
+        denied_login = await _request(
+            app,
+            "POST",
+            "/api/v1/access/sessions",
+            body={"login_identifier": "owner@example.com", "password": bad_password},
+            headers={"origin": _ORIGIN, "x-correlation-id": "denied-login"},
+        )
+        assert denied_login.status in {401, 429}
+        assert denied_login.json()["code"] == "authentication_failed"
+        response_bodies.append(denied_login.body)
+
+        async with app.state.access_runtime.engine.connect() as connection:
+            persisted_tokens = (
+                await connection.execute(select(AccessSessionRecord.token_sha256))
+            ).scalars()
+            password_hashes = (
+                await connection.execute(select(LocalPasswordCredentialRecord.password_hash))
+            ).scalars()
+            persisted_token_values = tuple(str(value) for value in persisted_tokens)
+            password_hash_values = tuple(str(value) for value in password_hashes)
+
+        assert persisted_token_values
+        assert all(len(value) == 64 for value in persisted_token_values)
+        serialized_responses = b"".join(response_bodies).decode(errors="replace")
+        serialized_events = json.dumps(
+            [record.__dict__ for record in capture.records],
+            default=str,
+            sort_keys=True,
+        )
+        for secret in (_PASSWORD, bad_password, *raw_tokens):
+            assert secret not in serialized_responses
+            assert secret not in serialized_events
+            assert all(secret not in value for value in persisted_token_values)
+            assert all(secret not in value for value in password_hash_values)
+
+        event_names = {str(record.__dict__.get("security_event")) for record in capture.records}
+        assert {
+            "identity.bootstrap.succeeded",
+            "access.origin.denied",
+            "access.login.succeeded",
+            "access.login.denied",
+            "access.tenant_selection.denied",
+            "access.tenant_selection.succeeded",
+            "access.context.denied",
+            "access.logout.succeeded",
+        } <= event_names
+        attributed = [
+            record
+            for record in capture.records
+            if record.__dict__.get("security_event")
+            in {
+                "access.login.succeeded",
+                "access.tenant_selection.succeeded",
+                "access.logout.succeeded",
+            }
+        ]
+        assert attributed
+        assert all(record.__dict__.get("operator_id") for record in attributed)
+        assert all(record.__dict__.get("session_id") for record in attributed)
+    finally:
+        if app is not None:
+            await app.state.access_runtime.close()
+        security_logger.handlers = original_handlers
+        security_logger.setLevel(original_level)
+        security_logger.propagate = original_propagate
 
 
 def test_browser_session_and_trusted_context_api(

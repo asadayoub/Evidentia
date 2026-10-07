@@ -240,15 +240,16 @@ class ManageSessions:
             raise SessionDeniedError(SessionDenialReason.ROTATION_CONFLICT)
         return successor
 
-    async def logout(self, token: OpaqueSessionToken, *, now: datetime) -> None:
-        """Idempotently revoke a token and any successor revealed by reuse."""
+    async def logout(self, token: OpaqueSessionToken, *, now: datetime) -> AccessSession | None:
+        """Idempotently revoke a token and return its non-secret session snapshot."""
         _require_utc(now)
         session = await self._sessions.get_by_digest(self._tokens.digest(token))
         if session is None:
-            return
+            return None
         if session.replaced_by_session_id is not None:
             await self._revoke_successors(session.replaced_by_session_id, now=now)
         await self._sessions.revoke_if_active(session.session_id, revoked_at=now)
+        return session
 
     async def _active_operator(
         self,

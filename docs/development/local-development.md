@@ -75,6 +75,62 @@ uv run pytest --postgres --postgres-admin-user=postgres backend/tests/integratio
 
 The harness refuses to drop names outside the `evidentia_test_<16 hex characters>` namespace and verifies that teardown completed. Docker/Testcontainers will provide the equivalent disposable server path when the deferred hybrid profile is implemented.
 
+## Run and inspect the access API
+
+After PostgreSQL is ready, migrations are current, and `make identity-init` has
+created or validated the configured administrator, start the native API:
+
+```sh
+make native-db-verify
+make db-upgrade
+make identity-init
+make native-api
+```
+
+`native-api` loads the ignored `.env` through the same validated Pydantic settings
+used by the application. It does not source the file in the shell or print any
+credential. The default API address is `http://127.0.0.1:8000`.
+
+Open `http://127.0.0.1:8000/docs` and use the access operations in this order:
+
+1. Run `POST /api/v1/access/sessions` using the configured bootstrap login and
+   password. The browser stores the opaque session in an HttpOnly cookie; the
+   response body never contains it.
+2. Run `GET /api/v1/access/context`. It returns the current operator, tenant,
+   membership, capabilities, session identifier, and correlation identifier.
+3. To test tenant rotation, copy the non-HttpOnly `evidentia_csrf` cookie value
+   from the browser's developer-tools cookie view into the operation's
+   `X-CSRF-Token` header, then run `PUT /api/v1/access/session/tenant` with an
+   available tenant ID returned by login. The bearer cookie rotates and the old
+   token becomes invalid immediately.
+4. Supply the current CSRF value to `DELETE /api/v1/access/session`. A later
+   context request returns the sanitized `session_invalid` response.
+
+For a restart-durability check, log in, stop `make native-api` with Ctrl-C, start
+it again, and request the current context in the same browser. The database-backed
+session remains valid until idle/absolute expiry or explicit revocation. Logout
+remains revoked across another restart.
+
+Local HTTP permits `COOKIE_SECURE=false`. Production configuration fails closed
+unless secure cookies are enabled. Credentialed CORS accepts only explicitly
+configured origins, and cookie-authenticated mutations require both a trusted
+origin and the session-bound CSRF proof.
+
+Bootstrap, origin rejection, login, context denial, tenant selection/rotation,
+and logout emit structured `security_event` records. Successful lifecycle events
+carry the applicable operator, tenant, session, and correlation identifiers;
+denials carry stable reason codes. Login attempts use a one-way identifier
+fingerprint instead of logging the supplied login name. Passwords, raw session
+tokens, credential material, and authorization values are never event fields and
+remain covered by the logging formatter's defensive redaction.
+
+The full automated equivalent uses uniquely named disposable databases and does
+not alter the ordinary `evidentia` database:
+
+```sh
+make postgres-test
+```
+
 Stop the database when desired:
 
 ```sh
@@ -91,7 +147,7 @@ Local bootstrap identity uses `EVIDENTIA_IDENTITY__BOOTSTRAP_LOGIN_IDENTIFIER`, 
 
 Opaque browser sessions use `EVIDENTIA_SESSION__SECRET`, `IDLE_TIMEOUT_SECONDS`, `ABSOLUTE_TIMEOUT_SECONDS`, `COOKIE_NAME`, `COOKIE_SECURE`, and `COOKIE_SAMESITE`. The defaults are a 30-minute idle timeout and a 12-hour absolute lifetime. Local HTTP development permits `COOKIE_SECURE=false`; production fails closed unless a secret of at least 32 characters is supplied and secure cookies are enabled.
 
-The committed `.env.example` contains placeholders only. Deployment environments must inject database, bootstrap, and session secrets through their secret manager rather than copying local values. Rotate the session secret through a controlled deployment; rotation invalidates existing sessions once session issuance is implemented.
+The committed `.env.example` contains placeholders only. Deployment environments must inject database, bootstrap, and session secrets through their secret manager rather than copying local values. Session termination uses the persisted revocation workflow; never attempt to rotate credentials by editing database rows manually.
 
 After successful provisioning, remove the bootstrap password from the runtime environment
 or rotate it to a separately protected recovery value. Ordinary API and worker startup do
