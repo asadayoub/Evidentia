@@ -4029,8 +4029,12 @@ tasks:
         title: Add unit and PostgreSQL integration tests for successful and adversarial session flows
         completed: false
         createdAt: "2026-10-07T09:19:24.300Z"
+      - id: SUB-006
+        title: Throttle failed authentication attempts with bounded backoff and generic responses without enabling permanent lockout denial-of-service
+        completed: false
+        createdAt: "2026-10-07T09:21:35.774Z"
     createdAt: "2026-10-07T09:19:24.300Z"
-    updatedAt: "2026-10-07T09:19:24.300Z"
+    updatedAt: "2026-10-07T09:21:35.774Z"
   - id: TASK-018
     title: Resolve trusted tenant context and enforce capability checks
     description: "Purpose: turn a valid session into a verified operator-and-tenant context that downstream application services can trust. Contribution: prevents confused-deputy and cross-tenant access by deriving active tenant and capabilities from current persisted membership instead of request headers or client claims."
@@ -4123,8 +4127,12 @@ tasks:
         title: Expose deterministic OpenAPI contracts and update generated-client boundaries
         completed: false
         createdAt: "2026-10-07T09:19:48.579Z"
+      - id: SUB-006
+        title: Enforce CSRF and trusted-origin protection for cookie-authenticated mutations with restrictive credentialed CORS and security headers
+        completed: false
+        createdAt: "2026-10-07T09:21:39.791Z"
     createdAt: "2026-10-07T09:19:48.579Z"
-    updatedAt: "2026-10-07T09:19:48.579Z"
+    updatedAt: "2026-10-07T09:21:39.791Z"
   - id: TASK-020
     title: Prove the local operator and tenant-context journey
     description: "Purpose: verify the complete first-user path against native PostgreSQL and the running API rather than isolated units alone. Contribution: establishes trustworthy evidence that bootstrap, login, cookie sessions, tenant selection, logout, restart durability, and cross-tenant denial work together before schema APIs depend on them."
@@ -4170,8 +4178,12 @@ tasks:
         title: Document exact native PostgreSQL setup and interactive OpenAPI verification steps
         completed: false
         createdAt: "2026-10-07T09:20:02.249Z"
+      - id: SUB-006
+        title: Prove security-relevant bootstrap, login, tenant-selection, denial, rotation, and logout events are attributable without secret leakage
+        completed: false
+        createdAt: "2026-10-07T09:21:43.313Z"
     createdAt: "2026-10-07T09:20:02.249Z"
-    updatedAt: "2026-10-07T09:20:02.249Z"
+    updatedAt: "2026-10-07T09:21:43.313Z"
 prioritization:
   method: wsjf
   criteria: {}
