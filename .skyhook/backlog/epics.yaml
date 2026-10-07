@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T10:22:14.785Z"
+  updatedAt: "2026-10-07T10:29:10.506Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -4098,7 +4098,7 @@ tasks:
     parentType: story
     parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
     type: feature
-    status: ready
+    status: done
     priority: critical
     storyPoints: 3
     estimatedMinutes: 300
@@ -4119,26 +4119,37 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Resolve active tenant only from current operator memberships
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:37.079Z"
+        completedAt: "2026-10-07T10:28:47.072Z"
       - id: SUB-002
         title: Evaluate named capabilities through the access public application boundary
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:37.079Z"
+        completedAt: "2026-10-07T10:28:49.233Z"
       - id: SUB-003
         title: Reject disabled operators, tenants, memberships, and stale capability state
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:37.079Z"
+        completedAt: "2026-10-07T10:28:51.467Z"
       - id: SUB-004
         title: Carry session, operator, tenant, capability, and correlation identifiers without framework types
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:37.079Z"
+        completedAt: "2026-10-07T10:28:53.260Z"
       - id: SUB-005
         title: Prove cross-tenant and insufficient-capability requests fail closed
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:37.079Z"
+        completedAt: "2026-10-07T10:28:56.316Z"
     createdAt: "2026-10-07T09:19:37.079Z"
-    updatedAt: "2026-10-07T09:19:37.079Z"
+    updatedAt: "2026-10-07T10:29:10.506Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-07T10:24:01.550Z"
+    completedAt: "2026-10-07T10:29:10.506Z"
   - id: TASK-019
     title: Expose secure local session and current-context API operations
     description: "Purpose: provide the first real operator interaction through versioned HTTP operations while keeping authentication logic out of routes. Contribution: allows login, logout, current-operator inspection, and authorized tenant selection through OpenAPI and establishes the trusted dependency used by later schema endpoints."
