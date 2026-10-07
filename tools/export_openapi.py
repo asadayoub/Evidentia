@@ -11,6 +11,7 @@ import argparse
 import asyncio
 import json
 import subprocess
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -20,6 +21,7 @@ from evidentia.entrypoints.api import create_app
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 OPENAPI_PATH = REPOSITORY_ROOT / "contracts/openapi/evidentia.openapi.json"
 TYPESCRIPT_OPERATIONS_PATH = REPOSITORY_ROOT / "sdks/typescript/src/generated/access-operations.ts"
+TYPESCRIPT_SCHEMA_PATH = REPOSITORY_ROOT / "sdks/typescript/src/generated/evidentia.ts"
 PYTHON_OPERATIONS_PATH = (
     REPOSITORY_ROOT / "sdks/python/src/evidentia_sdk/generated/access_operations.py"
 )
@@ -100,6 +102,48 @@ def _outputs() -> dict[Path, str]:
     }
 
 
+def _generate_typescript_schema(*, check: bool) -> None:
+    """Generate or verify strict TypeScript types from the checked API contract.
+
+    @skyhook-implements REQ-012
+    @skyhook-implements NFR-008
+    @skyhook-story STORY-017
+    """
+    with tempfile.TemporaryDirectory(prefix="evidentia-openapi-") as directory:
+        generated_path = Path(directory) / "evidentia.ts"
+        subprocess.run(
+            [
+                "pnpm",
+                "--filter",
+                "@evidentia/typescript-sdk",
+                "exec",
+                "openapi-typescript",
+                str(OPENAPI_PATH),
+                "--output",
+                str(generated_path),
+                "--alphabetize",
+                "--export-type",
+            ],
+            cwd=REPOSITORY_ROOT,
+            check=True,
+        )
+        formatted = subprocess.run(
+            ["pnpm", "exec", "prettier", "--parser", "typescript"],
+            cwd=REPOSITORY_ROOT,
+            input=generated_path.read_text(),
+            capture_output=True,
+            check=True,
+            text=True,
+        ).stdout
+    if check:
+        if not TYPESCRIPT_SCHEMA_PATH.exists() or TYPESCRIPT_SCHEMA_PATH.read_text() != formatted:
+            relative_path = TYPESCRIPT_SCHEMA_PATH.relative_to(REPOSITORY_ROOT)
+            raise SystemExit(f"generated API artifacts are stale: {relative_path}")
+        return
+    TYPESCRIPT_SCHEMA_PATH.parent.mkdir(parents=True, exist_ok=True)
+    TYPESCRIPT_SCHEMA_PATH.write_text(formatted)
+
+
 def _main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true")
@@ -115,6 +159,7 @@ def _main() -> None:
     if stale:
         joined = ", ".join(str(path) for path in stale)
         raise SystemExit(f"generated API artifacts are stale: {joined}")
+    _generate_typescript_schema(check=arguments.check)
 
 
 if __name__ == "__main__":

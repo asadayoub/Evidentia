@@ -12,3 +12,24 @@ export {
   accessOperationIds,
   type AccessOperationId,
 } from "./generated/access-operations.js";
+
+export {
+  createAccessClient,
+  createEvidentiaClient,
+  EvidentiaApiError,
+  type AccessClient,
+  type AccessRequestOptions,
+  type CookieReader,
+  type CurrentContext,
+  type EvidentiaClient,
+  type EvidentiaClientOptions,
+  type LoginRequest,
+  type SessionResponse,
+  type TenantSummary,
+} from "./client.js";
+
+export type {
+  components as EvidentiaComponents,
+  operations as EvidentiaOperations,
+  paths as EvidentiaPaths,
+} from "./generated/evidentia.js";
