@@ -1,10 +1,82 @@
-"""Public surface for trusted identity, tenant, membership, and permission operations.
-
-The surface is intentionally empty until STORY-010 and STORY-011 introduce its
-first governed contracts.
+"""Public identity, tenant, membership, session, and trusted-context contracts.
 
 @skyhook-implements NFR-008
 @skyhook-story STORY-008
+@skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
 """
 
-__all__: tuple[str, ...] = ()
+from evidentia.modules.access.application.context import (
+    AccessDenialReason,
+    AccessDeniedError,
+    TrustedRequestContext,
+    build_trusted_context,
+)
+from evidentia.modules.access.application.ports import (
+    AuthenticatedIdentity,
+    AuthenticationSecret,
+    IdentityProvider,
+    MembershipRepository,
+    OpaqueSessionToken,
+    OperatorRepository,
+    SessionRepository,
+    SessionTokenProvider,
+    TenantRepository,
+)
+from evidentia.modules.access.domain.identity import (
+    Capability,
+    CredentialId,
+    IdentityProviderKey,
+    LoginIdentifier,
+    MembershipId,
+    OperatorId,
+    ProviderSubject,
+    SessionId,
+    SessionTokenDigest,
+    TenantId,
+    TenantSlug,
+)
+from evidentia.modules.access.domain.models import (
+    AccessSession,
+    CredentialIdentity,
+    Membership,
+    MembershipStatus,
+    Operator,
+    OperatorStatus,
+    Tenant,
+    TenantStatus,
+)
+
+__all__ = (
+    "AccessDenialReason",
+    "AccessDeniedError",
+    "AccessSession",
+    "AuthenticatedIdentity",
+    "AuthenticationSecret",
+    "Capability",
+    "CredentialId",
+    "CredentialIdentity",
+    "IdentityProvider",
+    "IdentityProviderKey",
+    "LoginIdentifier",
+    "Membership",
+    "MembershipId",
+    "MembershipRepository",
+    "MembershipStatus",
+    "OpaqueSessionToken",
+    "Operator",
+    "OperatorId",
+    "OperatorRepository",
+    "OperatorStatus",
+    "ProviderSubject",
+    "SessionId",
+    "SessionRepository",
+    "SessionTokenDigest",
+    "SessionTokenProvider",
+    "Tenant",
+    "TenantId",
+    "TenantRepository",
+    "TenantSlug",
+    "TenantStatus",
+    "TrustedRequestContext",
+    "build_trusted_context",
+)
