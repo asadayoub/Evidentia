@@ -48,6 +48,6 @@ make local-init
 make local-up
 ```
 
-`local-init` generates an ignored, owner-readable environment with a random local database password. `local-up` builds the supported PostgreSQL, API, worker, and web composition and verifies readiness. See [`docs/operations/local-runtime.md`](docs/operations/local-runtime.md) for verification, shutdown, reset, and troubleshooting guidance.
+`local-init` generates an ignored, owner-readable environment with independent random database, identity-bootstrap, and session secrets. Existing environments can add newly required keys without replacing values through `make local-env-upgrade`. `local-up` builds the supported PostgreSQL, API, worker, and web composition and verifies readiness. See [`docs/operations/local-runtime.md`](docs/operations/local-runtime.md) for verification, shutdown, reset, and troubleshooting guidance.
 
 Architecture and governance are documented under [`docs/architecture`](docs/architecture) and `.skyhook/`.

@@ -1,4 +1,4 @@
-.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generated-check container-smoke local-init native-db-init native-db-verify db-upgrade db-downgrade postgres-test local-up local-verify local-down check
+.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generated-check container-smoke local-init local-env-upgrade native-db-init native-db-verify db-upgrade db-downgrade postgres-test local-up local-verify local-down check
 
 UV_CACHE_DIR ?= $(CURDIR)/.uv-cache
 export UV_CACHE_DIR
@@ -36,6 +36,9 @@ container-smoke:
 
 local-init:
 	./scripts/generate-local-env.sh
+
+local-env-upgrade:
+	./scripts/upgrade-local-env.sh
 
 native-db-verify:
 	uv run python tools/check_native_postgres.py

@@ -12,6 +12,16 @@ make local-init
 
 The generator refuses to overwrite an existing `.env`. If the file predates the native workflow, preserve any values you need, move it aside, and run `make local-init` again. Never commit `.env`.
 
+Existing environments can receive newly required settings without replacing their database password or any other configured value:
+
+```sh
+make local-env-upgrade
+```
+
+The upgrade is atomic, refuses symlink targets, adds only missing keys, restores owner-only `0600` permissions, and is safe to repeat. It generates a random local bootstrap password and a separate 256-bit session secret without printing either value.
+
+Fresh and upgraded local environments define the initial identity as `admin@localhost` in the `local` tenant. These are configuration defaults, not automatically created accounts. The later explicit `make identity-init` task will consume them once to create the first tenant and administrator; ordinary API startup will never create or replace that identity.
+
 Start and inspect Homebrew PostgreSQL:
 
 ```sh
@@ -61,6 +71,14 @@ brew services stop postgresql@16
 ## Connection contract
 
 The application reads `EVIDENTIA_DATABASE__HOST`, `PORT`, `NAME`, `USER`, `PASSWORD`, `CONNECT_TIMEOUT_SECONDS`, `SSLMODE`, and `APPLICATION_NAME`. Local defaults use `127.0.0.1:5432`, database `evidentia`, role `evidentia`, and `sslmode=prefer`. Secrets are generated into the owner-readable ignored `.env` and are never printed by the readiness command.
+
+## Identity and session configuration
+
+Local bootstrap identity uses `EVIDENTIA_IDENTITY__BOOTSTRAP_LOGIN_IDENTIFIER`, `BOOTSTRAP_DISPLAY_NAME`, `BOOTSTRAP_TENANT_SLUG`, `BOOTSTRAP_TENANT_NAME`, and `BOOTSTRAP_PASSWORD`. The password is optional for ordinary process startup but will be required by the explicit identity bootstrap command. If configured, it must contain at least 16 characters and cannot be a recognized placeholder.
+
+Opaque browser sessions use `EVIDENTIA_SESSION__SECRET`, `IDLE_TIMEOUT_SECONDS`, `ABSOLUTE_TIMEOUT_SECONDS`, `COOKIE_NAME`, `COOKIE_SECURE`, and `COOKIE_SAMESITE`. The defaults are a 30-minute idle timeout and a 12-hour absolute lifetime. Local HTTP development permits `COOKIE_SECURE=false`; production fails closed unless a secret of at least 32 characters is supplied and secure cookies are enabled.
+
+The committed `.env.example` contains placeholders only. Deployment environments must inject database, bootstrap, and session secrets through their secret manager rather than copying local values. Rotate the session secret through a controlled deployment; rotation invalidates existing sessions once session issuance is implemented. Remove or rotate the bootstrap password after initial provisioning according to the installation runbook that will accompany `make identity-init`.
 
 ## Troubleshooting
 
