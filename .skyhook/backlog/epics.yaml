@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T09:44:05.830Z"
+  updatedAt: "2026-10-07T09:55:10.280Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -3917,7 +3917,7 @@ tasks:
     parentType: story
     parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
     type: feature
-    status: ready
+    status: done
     priority: critical
     storyPoints: 5
     estimatedMinutes: 420
@@ -3938,26 +3938,37 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Design access-owned tables, tenant-scoped keys, uniqueness rules, and indexes
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:59.814Z"
+        completedAt: "2026-10-07T09:54:54.193Z"
       - id: SUB-002
         title: Create a reversible Alembic migration without cross-context foreign keys
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:59.814Z"
+        completedAt: "2026-10-07T09:54:58.336Z"
       - id: SUB-003
         title: Implement repository adapters for operators, tenants, memberships, capabilities, credentials, and sessions
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:59.814Z"
+        completedAt: "2026-10-07T09:54:56.329Z"
       - id: SUB-004
         title: Store Argon2id password hashes and only SHA-256 digests of opaque session tokens
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:59.814Z"
+        completedAt: "2026-10-07T09:55:00.335Z"
       - id: SUB-005
         title: Prove migration reversibility, tenant isolation, expiry, revocation, and persistence across sessions
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:59.814Z"
+        completedAt: "2026-10-07T09:55:02.132Z"
     createdAt: "2026-10-07T09:18:59.814Z"
-    updatedAt: "2026-10-07T09:18:59.814Z"
+    updatedAt: "2026-10-07T09:55:10.280Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-07T09:47:40.965Z"
+    completedAt: "2026-10-07T09:55:10.280Z"
   - id: TASK-016
     title: Bootstrap the first tenant and administrator explicitly
     description: "Purpose: give a new self-hosted installation a safe, repeatable way to create its first trusted operator and tenant. Contribution: enables initial access without startup-time backdoors, default passwords, or manual SQL, while remaining idempotent and automatable."
