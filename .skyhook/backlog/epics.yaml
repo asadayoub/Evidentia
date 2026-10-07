@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T15:05:34.273Z"
+  updatedAt: "2026-10-07T15:06:53.050Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1591,12 +1591,12 @@ stories:
     acceptanceCriteria:
       - Local identity establishes trusted actor and tenant context; enterprise OIDC remains deferred.
     priority: high
-    status: in-review
+    status: done
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-03T08:20:53.861Z"
-    updatedAt: "2026-10-07T15:05:34.273Z"
+    updatedAt: "2026-10-07T15:06:53.050Z"
     childTasks:
       - TASK-013
       - TASK-014
@@ -1611,6 +1611,7 @@ stories:
       identifier: Codex
       name: Codex
     startedAt: "2026-10-07T09:26:26.342Z"
+    completedAt: "2026-10-07T15:06:53.050Z"
   - id: X51S43NTMRW5ASYSKJBF7FW845
     epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
     title: Expose the governed schema lifecycle through a versioned API

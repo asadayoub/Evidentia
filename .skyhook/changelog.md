@@ -1,6 +1,7 @@
 # Changelog
 
 ## [Unreleased]
+- Story N1ZNPJWFZYPV0MVB8FP137GRJP: in-review to done
 - Task TASK-020: in-review to done
 - Task TASK-020: in-progress to in-review
 - Task TASK-020: ready to in-progress
