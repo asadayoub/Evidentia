@@ -1,23 +1,359 @@
-import { sdkVersion } from "@evidentia/typescript-sdk";
+import {
+  EvidentiaApiError,
+  type AccessClient,
+  type CurrentContext,
+} from "@evidentia/typescript-sdk";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQueryClient,
+} from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+import {
+  BrowserRouter,
+  Link,
+  MemoryRouter,
+  Navigate,
+  NavLink,
+  Outlet,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router";
 
-/**
- * Render the bootstrap application shell.
- *
+import { browserAccessClient } from "./api";
+import {
+  AccessStatus,
+  hasCapability,
+  LoginPage,
+  ProtectedRoute,
+  TenantSelectionPage,
+  useLogout,
+  useTrustedContext,
+} from "./auth";
+
+interface NavigationItem {
+  readonly label: string;
+  readonly to: string;
+  readonly capability?: string;
+  readonly end?: boolean;
+}
+
+const NAVIGATION: readonly NavigationItem[] = [
+  { label: "Overview", to: "/app", end: true },
+  { label: "Schemas", to: "/app/schemas", capability: "schemas.read" },
+];
+
+/** Injectable application boundary used by tests and alternative hosts.
  * @skyhook-implements REQ-012
- * @skyhook-story STORY-007
+ * @skyhook-story STORY-017
  */
-export function App() {
+export interface AppProps {
+  readonly access?: AccessClient;
+  readonly initialEntries?: readonly string[];
+}
+
+function Navigation({ context }: { readonly context: CurrentContext }) {
   return (
-    <main className="shell">
-      <section aria-labelledby="evidentia-title" className="panel">
-        <p className="eyebrow">Governed foundation</p>
-        <h1 id="evidentia-title">Evidentia</h1>
+    <ul className="navigation-list">
+      {NAVIGATION.filter(
+        (item) =>
+          item.capability === undefined ||
+          hasCapability(context, item.capability),
+      ).map((item) => (
+        <li key={item.to}>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "navigation-link navigation-link-active"
+                : "navigation-link"
+            }
+            to={item.to}
+            {...(item.end === undefined ? {} : { end: item.end })}
+          >
+            {item.label}
+          </NavLink>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function SessionInvalidRedirect() {
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  const location = useLocation();
+
+  useEffect(() => {
+    queryClient.removeQueries({ queryKey: ["access"] });
+    void navigate("/login", {
+      replace: true,
+      state: { from: `${location.pathname}${location.search}` },
+    });
+  }, [location.pathname, location.search, navigate, queryClient]);
+
+  return (
+    <AccessStatus
+      message="Your session has ended. Returning you to secure sign in."
+      title="Session expired"
+    />
+  );
+}
+
+function ApplicationShell({ access }: { readonly access: AccessClient }) {
+  const context = useTrustedContext(access);
+  const logout = useLogout(access);
+
+  if (context.isPending) {
+    return (
+      <AccessStatus
+        message="Loading your trusted operator and workspace context."
+        title="Preparing your workspace"
+      />
+    );
+  }
+  if (context.error !== null) {
+    if (
+      context.error instanceof EvidentiaApiError &&
+      context.error.status === 401
+    ) {
+      return <SessionInvalidRedirect />;
+    }
+    if (
+      context.error instanceof EvidentiaApiError &&
+      context.error.status === 403
+    ) {
+      return (
+        <AccessStatus
+          message="Your account does not have permission to open this workspace. Ask an administrator to review your membership."
+          title="Access unavailable"
+        />
+      );
+    }
+    return (
+      <AccessStatus
+        action={() => void context.refetch()}
+        message={
+          context.error instanceof EvidentiaApiError
+            ? context.error.message
+            : "The trusted workspace context could not be loaded."
+        }
+        title="Workspace unavailable"
+      />
+    );
+  }
+
+  return (
+    <div className="application-frame">
+      <header className="topbar">
+        <Link className="brand brand-compact" to="/app">
+          <span className="brand-mark" aria-hidden="true">
+            E
+          </span>
+          <span>Evidentia</span>
+        </Link>
+        <div className="topbar-context">
+          <div className="context-copy">
+            <span className="context-tenant">{context.data.tenant_name}</span>
+            <span className="context-operator">
+              {context.data.display_name}
+            </span>
+          </div>
+          <button
+            className="button button-quiet"
+            disabled={logout.isPending}
+            onClick={() => logout.mutate()}
+            type="button"
+          >
+            {logout.isPending ? "Signing out…" : "Sign out"}
+          </button>
+        </div>
+      </header>
+
+      <aside className="sidebar">
+        <nav aria-label="Primary navigation">
+          <p className="navigation-label">Workspace</p>
+          <Navigation context={context.data} />
+        </nav>
+        <div className="sidebar-footnote">
+          <span className="status-dot" aria-hidden="true" />
+          Secure tenant context
+        </div>
+      </aside>
+
+      <details className="mobile-navigation">
+        <summary>Workspace navigation</summary>
+        <nav aria-label="Mobile primary navigation">
+          <Navigation context={context.data} />
+        </nav>
+      </details>
+
+      <main className="application-content" id="main-content">
+        {logout.error === null ? null : (
+          <p className="error-banner" role="alert">
+            Sign out could not be completed. Your session remains active; please
+            try again.
+          </p>
+        )}
+        <Outlet context={context.data} />
+      </main>
+    </div>
+  );
+}
+
+function Dashboard() {
+  return (
+    <div className="content-stack">
+      <header className="page-header">
+        <p className="eyebrow">Operational workspace</p>
+        <h1>Overview</h1>
         <p>
-          The API, worker, web application, and SDK workspaces are ready for
-          capability implementation.
+          Your authenticated Evidentia shell is ready. Product capabilities will
+          appear here as their governed workflows become available.
         </p>
-        <p className="version">TypeScript SDK {sdkVersion()}</p>
+      </header>
+      <section aria-labelledby="foundation-title" className="feature-panel">
+        <div>
+          <p className="panel-kicker">Foundation online</p>
+          <h2 id="foundation-title">Trusted access is active</h2>
+        </div>
+        <p>
+          The browser restored a server-owned session and loaded its tenant and
+          capability context through the generated API client.
+        </p>
+      </section>
+      <section aria-labelledby="next-capabilities-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Product roadmap</p>
+            <h2 id="next-capabilities-title">Capability areas</h2>
+          </div>
+          <span className="badge">Extensible shell</span>
+        </div>
+        <div className="capability-grid">
+          <article className="capability-card">
+            <span className="capability-index">01</span>
+            <h3>Schema workbench</h3>
+            <p>
+              Define and evolve document structures without fixed product
+              fields.
+            </p>
+          </article>
+          <article className="capability-card capability-card-muted">
+            <span className="capability-index">02</span>
+            <h3>Document intake</h3>
+            <p>
+              Receive, preserve, and inspect source documents in a trusted flow.
+            </p>
+          </article>
+          <article className="capability-card capability-card-muted">
+            <span className="capability-index">03</span>
+            <h3>Review operations</h3>
+            <p>
+              Validate evidence, collaborate, and preserve attributable
+              revisions.
+            </p>
+          </article>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function SchemasPlaceholder() {
+  return (
+    <div className="content-stack">
+      <header className="page-header">
+        <p className="eyebrow">Governed structures</p>
+        <h1>Schemas</h1>
+        <p>
+          The schema workbench will use this capability-aware route in its
+          upcoming implementation story.
+        </p>
+      </header>
+      <section className="empty-state" role="status">
+        <h2>No schema workspace yet</h2>
+        <p>
+          The authenticated route is established; schema lifecycle interactions
+          are intentionally scheduled next.
+        </p>
+      </section>
+    </div>
+  );
+}
+
+function NotFound() {
+  return (
+    <main className="centered-page">
+      <section className="status-card">
+        <p className="eyebrow">Page not found</p>
+        <h1>This route is not available.</h1>
+        <p>Return to the authenticated Evidentia workspace.</p>
+        <Link className="button button-primary" to="/app">
+          Open overview
+        </Link>
       </section>
     </main>
   );
+}
+
+function ApplicationRoutes({ access }: { readonly access: AccessClient }) {
+  return (
+    <Routes>
+      <Route path="/" element={<Navigate replace to="/app" />} />
+      <Route path="/login" element={<LoginPage access={access} />} />
+      <Route
+        path="/select-tenant"
+        element={<TenantSelectionPage access={access} />}
+      />
+      <Route
+        path="/app"
+        element={
+          <ProtectedRoute access={access}>
+            <ApplicationShell access={access} />
+          </ProtectedRoute>
+        }
+      >
+        <Route index element={<Dashboard />} />
+        <Route path="schemas" element={<SchemasPlaceholder />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+}
+
+/** Render the routed, authenticated Evidentia browser application.
+ * @skyhook-implements REQ-012
+ * @skyhook-implements NFR-002
+ * @skyhook-implements NFR-005
+ * @skyhook-story STORY-017
+ */
+export function App({
+  access = browserAccessClient,
+  initialEntries,
+}: AppProps) {
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          mutations: { retry: false },
+          queries: { refetchOnWindowFocus: false },
+        },
+      }),
+  );
+  const application = (
+    <QueryClientProvider client={queryClient}>
+      <ApplicationRoutes access={access} />
+    </QueryClientProvider>
+  );
+
+  if (initialEntries !== undefined) {
+    return (
+      <MemoryRouter initialEntries={[...initialEntries]}>
+        {application}
+      </MemoryRouter>
+    );
+  }
+  return <BrowserRouter>{application}</BrowserRouter>;
 }

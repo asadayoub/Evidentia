@@ -15,6 +15,7 @@ def test_access_operations_are_generated_from_the_checked_contract() -> None:
     """
     assert ACCESS_OPERATION_IDS == (
         "access_get_current_context",
+        "access_get_session",
         "access_login_local",
         "access_logout",
         "access_select_tenant",

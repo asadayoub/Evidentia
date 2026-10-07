@@ -39,6 +39,7 @@ def test_openapi_exposes_versioned_access_contract_and_cookie_security() -> None
     }
 
     assert {
+        "access_get_session",
         "access_login_local",
         "access_logout",
         "access_get_current_context",

@@ -7,6 +7,7 @@
 from __future__ import annotations
 
 import importlib
+import re
 import subprocess
 from pathlib import Path
 
@@ -14,6 +15,7 @@ from tools.check_architecture import check_architecture
 
 _PROJECT_ROOT = Path(__file__).parents[2]
 _SOURCE_ROOT = _PROJECT_ROOT / "backend" / "src"
+_FRONTEND_ROOT = _PROJECT_ROOT / "frontend" / "src"
 _CONTEXTS = (
     "access",
     "documents",
@@ -72,6 +74,25 @@ def test_real_contexts_are_importable_and_policy_compliant() -> None:
     for context in _CONTEXTS:
         imported = importlib.import_module(f"evidentia.modules.{context}.public")
         assert imported.__doc__
+
+
+def test_frontend_uses_the_supported_sdk_boundary() -> None:
+    """Reject ad-hoc HTTP calls and transport construction in feature code.
+
+    @skyhook-implements REQ-012
+    @skyhook-story STORY-017
+    """
+    violations: list[str] = []
+    for file_path in sorted((*_FRONTEND_ROOT.rglob("*.ts"), *_FRONTEND_ROOT.rglob("*.tsx"))):
+        if file_path.name.endswith(".test.tsx") or "test" in file_path.parts:
+            continue
+        source = file_path.read_text(encoding="utf-8")
+        relative = file_path.relative_to(_PROJECT_ROOT)
+        if re.search(r"\bfetch\s*\(", source):
+            violations.append(f"{relative}: ad-hoc fetch call")
+        if file_path.name != "api.ts" and "createEvidentiaClient" in source:
+            violations.append(f"{relative}: transport must be composed in frontend/src/api.ts")
+    assert violations == []
 
 
 def test_framework_import_from_domain_is_rejected(tmp_path: Path) -> None:

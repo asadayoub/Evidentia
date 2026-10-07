@@ -96,6 +96,8 @@ export class EvidentiaApiError extends Error {
  * @skyhook-story STORY-017
  */
 export interface AccessClient {
+  /** Restore non-secret session and tenant-selection state after navigation or reload. */
+  getSession(options?: AccessRequestOptions): Promise<SessionResponse>;
   /** Create a new server-owned session. Repeated calls create distinct sessions. */
   login(
     request: LoginRequest,
@@ -216,6 +218,17 @@ function apiError(error: unknown, response: Response): EvidentiaApiError {
  */
 export function createAccessClient(client: EvidentiaClient): AccessClient {
   return {
+    async getSession(options) {
+      const signal = options?.signal;
+      const result = await client.GET("/api/v1/access/session", {
+        ...(signal === undefined ? {} : { signal }),
+      });
+      if (result.error !== undefined) {
+        throw apiError(result.error, result.response);
+      }
+      return result.data;
+    },
+
     async login(request, options) {
       const signal = options?.signal;
       const result = await client.POST("/api/v1/access/sessions", {

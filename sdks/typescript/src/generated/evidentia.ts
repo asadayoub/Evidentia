@@ -28,7 +28,15 @@ export type paths = {
       path?: never;
       cookie?: never;
     };
-    get?: never;
+    /**
+     * Inspect the current browser session
+     * @description Restore non-secret session and tenant-selection state for the browser.
+     *
+     *     @skyhook-implements REQ-012
+     *     @skyhook-implements NFR-002
+     *     @skyhook-story STORY-017
+     */
+    get: operations["access_get_session"];
     put?: never;
     post?: never;
     /** Revoke the current browser session */
@@ -238,6 +246,71 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["CurrentContextResponse"];
+        };
+      };
+      /** @description Invalid request */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Authentication failed or expired */
+      401: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Request is not authorized */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Tenant context is required */
+      409: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Authentication is temporarily throttled */
+      429: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+    };
+  };
+  access_get_session: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SessionResponse"];
         };
       };
       /** @description Invalid request */

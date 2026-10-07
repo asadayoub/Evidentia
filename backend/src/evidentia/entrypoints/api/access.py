@@ -349,6 +349,47 @@ def create_access_router(runtime: AccessApiRuntime) -> APIRouter:
             available_tenants=available,
         )
 
+    @router.get(
+        "/session",
+        operation_id="access_get_session",
+        summary="Inspect the current browser session",
+        response_model=SessionResponse,
+        responses=_ERROR_RESPONSES,
+        openapi_extra=_SESSION_SECURITY,
+    )
+    async def current_session(request: Request) -> SessionResponse:
+        """Restore non-secret session and tenant-selection state for the browser.
+
+        @skyhook-implements REQ-012
+        @skyhook-implements NFR-002
+        @skyhook-story STORY-017
+        """
+        token = session_token(request, runtime.settings.session)
+        async with runtime.sessions.begin() as database_session:
+            manager = runtime.manage_sessions(database_session)
+            try:
+                validated = await manager.validate(token, now=datetime.now(UTC))
+            except SessionDeniedError as error:
+                _event(
+                    runtime,
+                    request,
+                    "access.session_restore.denied",
+                    outcome="denied",
+                    reason=error.reason.value,
+                )
+                raise _map_session_denial(error) from error
+            available = await _available_tenants(
+                database_session,
+                validated.session.operator_id,
+            )
+        active_tenant_id = validated.session.active_tenant_id
+        return SessionResponse(
+            operator_id=validated.session.operator_id.value,
+            active_tenant_id=(None if active_tenant_id is None else active_tenant_id.value),
+            tenant_selection_required=active_tenant_id is None,
+            available_tenants=available,
+        )
+
     @router.delete(
         "/session",
         operation_id="access_logout",

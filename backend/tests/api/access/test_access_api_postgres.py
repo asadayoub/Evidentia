@@ -194,6 +194,26 @@ async def _exercise_access_api(database: DisposablePostgresDatabase) -> None:
         raw_tokens.append(cookies["evidentia_auth"])
         cookie_header = _cookie_header(cookies)
         response_bodies.append(login.body)
+        restored_session = await _request(
+            app,
+            "GET",
+            "/api/v1/access/session",
+            headers={
+                "cookie": cookie_header,
+                "x-correlation-id": "session-restore-request",
+            },
+        )
+        assert restored_session.status == 200
+        assert restored_session.json()["operator_id"] == bootstrap.operator_id.value
+        assert restored_session.json()["active_tenant_id"] == bootstrap.tenant_id.value
+        assert restored_session.json()["available_tenants"] == [
+            {
+                "tenant_id": bootstrap.tenant_id.value,
+                "slug": "review-team",
+                "display_name": "Review Team",
+            }
+        ]
+        response_bodies.append(restored_session.body)
         context = await _request(
             app,
             "GET",

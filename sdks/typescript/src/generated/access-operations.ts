@@ -5,6 +5,7 @@
  */
 export const accessOperationIds = [
   "access_get_current_context",
+  "access_get_session",
   "access_login_local",
   "access_logout",
   "access_select_tenant",
