@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import asyncio
+import re
 from logging.config import fileConfig
 from pathlib import Path
 
@@ -20,6 +21,7 @@ from evidentia.modules.schemas.infrastructure.database import schema_database_ur
 from evidentia.modules.schemas.infrastructure.persistence import SchemaPersistenceBase
 
 _REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
+_DATABASE_NAME = re.compile(r"^[a-z][a-z0-9_]{0,62}$")
 config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
@@ -29,6 +31,15 @@ target_metadata = SchemaPersistenceBase.metadata
 
 def _database_url() -> URL:
     settings = load_api_settings(_REPOSITORY_ROOT / ".env").database
+    arguments = context.get_x_argument(as_dictionary=True)
+    unknown = set(arguments) - {"database_name"}
+    if unknown:
+        raise ValueError(f"unsupported Alembic -x arguments: {', '.join(sorted(unknown))}")
+    database_name = arguments.get("database_name")
+    if database_name is not None:
+        if _DATABASE_NAME.fullmatch(database_name) is None:
+            raise ValueError("Alembic database_name must be a lower-snake-case identifier")
+        settings = settings.model_copy(update={"name": database_name})
     return schema_database_url(settings, purpose="migration")
 
 

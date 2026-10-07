@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-03T17:50:03.788Z"
+  updatedAt: "2026-10-07T08:53:10.613Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -3713,7 +3713,7 @@ tasks:
     parentType: story
     parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
     type: test
-    status: ready
+    status: in-review
     priority: critical
     storyPoints: 3
     estimatedMinutes: 240
@@ -3729,30 +3729,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Prove drafts and publications survive a new database session
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:21.251Z"
+        completedAt: "2026-10-07T08:52:45.754Z"
       - id: SUB-002
         title: Prove published content and versions cannot be updated or republished
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:21.251Z"
+        completedAt: "2026-10-07T08:52:48.912Z"
       - id: SUB-003
         title: Prove tenant-scoped reads and writes deny cross-tenant access
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:21.251Z"
+        completedAt: "2026-10-07T08:52:52.607Z"
       - id: SUB-004
         title: Prove artifact digest and provenance round-trip exactly
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:21.251Z"
+        completedAt: "2026-10-07T08:52:56.312Z"
       - id: SUB-005
         title: Document integration-test setup and clean teardown
-        completed: false
+        completed: true
         createdAt: "2026-10-03T16:55:21.251Z"
+        completedAt: "2026-10-07T08:53:00.059Z"
     createdAt: "2026-10-03T16:55:21.251Z"
-    updatedAt: "2026-10-03T17:50:03.788Z"
+    updatedAt: "2026-10-07T08:53:10.613Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
+    lease:
+      agentId: Codex
+      leasedAt: "2026-10-03T17:52:16.392Z"
+      expiresAt: "2026-10-03T19:52:16.392Z"
+      durationMinutes: 120
+      heartbeatAt: "2026-10-03T17:52:16.392Z"
+    startedAt: "2026-10-03T17:52:26.314Z"
 prioritization:
   method: wsjf
   criteria: {}

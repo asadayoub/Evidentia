@@ -22,6 +22,11 @@ def pytest_addoption(parser: pytest.Parser) -> None:
         default=False,
         help="run tests that use the configured native PostgreSQL database",
     )
+    parser.addoption(
+        "--postgres-admin-user",
+        default=None,
+        help="local peer-authenticated PostgreSQL role allowed to create disposable databases",
+    )
 
 
 def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item]) -> None:

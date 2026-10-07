@@ -36,13 +36,21 @@ make db-upgrade
 
 During unreleased migration development, verify reversibility with `make db-downgrade` followed by `make db-upgrade`. Once a migration has shipped, its file is append-only and corrections use a new forward migration.
 
-PostgreSQL integration tests are deliberately opt-in and use the configured dedicated database:
+PostgreSQL integration tests are deliberately opt-in:
 
 ```sh
-uv run pytest --postgres backend/tests/integration
+make postgres-test
 ```
 
-Each test must roll back its own data. The migration itself remains applied after the suite.
+Fast repository checks use the configured dedicated database and roll back every write. Durability checks create a uniquely named `evidentia_test_<random>` database, apply all migrations, commit and reload records through fresh connections, then terminate its connections and drop it in guaranteed teardown. The main `evidentia` database is never cleared or recreated.
+
+Disposable database setup defaults to the current operating-system username and requires that local peer-authenticated PostgreSQL role to have `CREATEDB`. Override only the administrative role name when necessary:
+
+```sh
+uv run pytest --postgres --postgres-admin-user=postgres backend/tests/integration
+```
+
+The harness refuses to drop names outside the `evidentia_test_<16 hex characters>` namespace and verifies that teardown completed. Docker/Testcontainers will provide the equivalent disposable server path when the deferred hybrid profile is implemented.
 
 Stop the database when desired:
 
