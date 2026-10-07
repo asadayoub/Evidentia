@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-013: in-review to done
+- Task TASK-013: in-progress to in-review
+- Task TASK-013: ready to in-progress
 - Story N1ZNPJWFZYPV0MVB8FP137GRJP: backlog to ready
 - Added task: Prove the local operator and tenant-context journey (TASK-020) under story N1ZNPJWFZYPV0MVB8FP137GRJP
 - Added task: Expose secure local session and current-context API operations (TASK-019) under story N1ZNPJWFZYPV0MVB8FP137GRJP

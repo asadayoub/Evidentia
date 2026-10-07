@@ -1,7 +1,7 @@
 # Project Plan: Evidentia
 
 > **Project ID**: `GPNKKMYX2EHA0GZ82WDJASXKGX` | **Profile**: `web-app`
-> **Compiled**: 2026-10-07T09:21:50.692Z by Skyhook Dynamic Plan Compiler
+> **Compiled**: 2026-10-07T09:34:40.531Z by Skyhook Dynamic Plan Compiler
 
 ## Executive Summary
 
@@ -11,7 +11,7 @@ An open-source, self-hostable platform that converts documents into inspectable,
 
 | Metric | Current Value | Notes |
 |:-------|:--------------|:------|
-| **Weekly Velocity** | **33.2 pts/wk** | Derived from 14-day rolling events |
+| **Weekly Velocity** | **33.1 pts/wk** | Derived from 14-day rolling events |
 | **Average Cycle Time** | **11.5 hours** | Average in-progress to done duration |
 | **Backlog Work Remaining** | **118 pts** (35 stories) | Unfinished scope |
 | **Expected Completion (P50)** | 📅 **2026-11-01** | Standard velocity projection (3.6 wks) |
@@ -113,7 +113,7 @@ gantt
 
     section Interactive Schema Workbench
     Persist governed schemas for interactive use :done, s_0VJ9SHA39TA291D8QXB0TQS3HQ, 2026-10-03, 2026-10-07
-    Establish the minimum trusted operator and tenant context : s_N1ZNPJWFZYPV0MVB8FP137GRJP, 2026-10-03, 5d
+    Establish the minimum trusted operator and tenant context :active, s_N1ZNPJWFZYPV0MVB8FP137GRJP, 2026-10-07, 5d
     Expose the governed schema lifecycle through a versioned API : s_X51S43NTMRW5ASYSKJBF7FW845, 2026-10-03, 5d
     Build the accessible Schema Workbench : s_H98W5WTJBWT8EY0Q10P3KPCEEB, 2026-10-03, 5d
     Prove the draft-to-published Schema Workbench journey : s_265YM4FNANJAH2J338BKAWFXDM, 2026-10-03, 5d
@@ -191,7 +191,7 @@ gantt
 | **NFR-005** | Untitled | `functional` | STORY-013 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
 | **NFR-006** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-012 (cancelled)<br/>STORY-014 (backlog)<br/>STORY-016 (backlog) | `LoggingSettings`<br/>`HealthReport`<br/>`as_dict` | 8VC3FRAN1GRTK2F99NB459BWWJ | 🟢 Implemented |
 | **NFR-007** | Untitled | `functional` | STORY-010 (cancelled) | — | HKSQBTGX2CZT36GCS8D3ZTM2PA | 🔴 Untraced |
-| **NFR-008** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-007 (done)<br/>STORY-008 (done)<br/>STORY-010 (cancelled)<br/>STORY-012 (cancelled)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `test_real_contexts_are_importable_and_policy_compliant`<br/>`test_framework_import_from_domain_is_rejected`<br/>`test_private_cross_context_import_is_rejected` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
+| **NFR-008** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-007 (done)<br/>STORY-008 (done)<br/>STORY-010 (cancelled)<br/>STORY-012 (cancelled)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `AccessDenialReason`<br/>`AccessDeniedError`<br/>`TrustedRequestContext` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
 | **NFR-009** | Untitled | `functional` | STORY-015 (backlog) | — | — | 🔴 Untraced |
 
 

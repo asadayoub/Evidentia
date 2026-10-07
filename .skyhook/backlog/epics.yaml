@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T09:20:10.974Z"
+  updatedAt: "2026-10-07T09:34:27.763Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1591,12 +1591,12 @@ stories:
     acceptanceCriteria:
       - Local identity establishes trusted actor and tenant context; enterprise OIDC remains deferred.
     priority: high
-    status: ready
+    status: in-progress
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-03T08:20:53.861Z"
-    updatedAt: "2026-10-07T09:20:10.974Z"
+    updatedAt: "2026-10-07T09:26:26.342Z"
     childTasks:
       - TASK-013
       - TASK-014
@@ -1610,6 +1610,7 @@ stories:
       type: agent
       identifier: Codex
       name: Codex
+    startedAt: "2026-10-07T09:26:26.342Z"
   - id: X51S43NTMRW5ASYSKJBF7FW845
     epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
     title: Expose the governed schema lifecycle through a versioned API
@@ -3804,7 +3805,7 @@ tasks:
     parentType: story
     parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
     type: feature
-    status: ready
+    status: done
     priority: critical
     storyPoints: 3
     estimatedMinutes: 240
@@ -3821,26 +3822,37 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Define immutable operator, tenant, membership, capability, credential, and session identities
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:33.082Z"
+        completedAt: "2026-10-07T09:33:43.462Z"
       - id: SUB-002
         title: Define normalized login-identifier and tenant-slug rules without provider coupling
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:33.082Z"
+        completedAt: "2026-10-07T09:33:50.985Z"
       - id: SUB-003
         title: Define trusted request context and authorization-denial contracts
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:33.082Z"
+        completedAt: "2026-10-07T09:33:55.816Z"
       - id: SUB-004
         title: Define identity-provider, session, and repository application ports
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:33.082Z"
+        completedAt: "2026-10-07T09:34:00.022Z"
       - id: SUB-005
         title: Add unit tests for invariants, normalization, capability evaluation, and invalid contexts
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:33.082Z"
+        completedAt: "2026-10-07T09:34:03.942Z"
     createdAt: "2026-10-07T09:18:33.082Z"
-    updatedAt: "2026-10-07T09:18:33.082Z"
+    updatedAt: "2026-10-07T09:34:27.763Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-07T09:26:26.342Z"
+    completedAt: "2026-10-07T09:34:27.763Z"
   - id: TASK-014
     title: Configure secure local identity and bootstrap secrets
     description: "Purpose: establish centrally validated configuration for local credentials, session security, expiry, cookie policy, and bootstrap identity. Contribution: prevents secret sprawl and unsafe defaults while making native local setup reproducible and future deployment secret-manager compatible."
