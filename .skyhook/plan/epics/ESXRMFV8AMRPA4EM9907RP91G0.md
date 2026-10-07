@@ -1,7 +1,7 @@
 # Epic Plan: ESXRMFV8AMRPA4EM9907RP91G0 — Document ingestion and durable storage
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-07T09:44:12.833Z
+> **Generated**: 2026-10-07T15:24:22.458Z
 
 ---
 

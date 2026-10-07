@@ -1,7 +1,7 @@
 # Epic Plan: MGTBBJH7794WRYSFBFE6ZYWXCV — Collaboration and Operational Scale
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-07T09:44:12.893Z
+> **Generated**: 2026-10-07T15:24:22.530Z
 
 ---
 
@@ -13,23 +13,53 @@ Support teams, larger workloads, and safe recovery when usage requires them.
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **2BJ99DB0QWS3FE3J0F50N6EPW4** | Coordinate assignments, comments, and concurrent review | `backlog` | high | — | None |
-| **AV6YSSGTH46ET6J9NN0DDK7E6B** | Choose and add realtime transport when collaboration requires it | `backlog` | high | — | None |
-| **C29D8MCQWYGWY6FFSP4YW7MNX7** | Introduce durable background work when workloads require it | `backlog` | high | — | None |
-| **3F1QK0FAD4X03Q4CB5XKDC1BJH** | Add outbox, inbox, and reconciliation at the first external reliability boundary | `backlog` | high | — | None |
-| **44E3PFDX5EVQE4FRTAN1A5RMGC** | Add batch, connector, bundle, and matching workflows when demanded | `backlog` | high | — | None |
-| **PEE73AVQEAC75HKDMA3FA1S4YJ** | Build an operational recovery and observability workspace | `backlog` | high | — | None |
+| **2BJ99DB0QWS3FE3J0F50N6EPW4** | Coordinate assignments, comments, and concurrent review | `backlog` | high | — | MAQPX7K4Z5MD3BNT93YFJBRZR5 |
+| **AV6YSSGTH46ET6J9NN0DDK7E6B** | Choose and add realtime transport when collaboration requires it | `backlog` | high | — | 2BJ99DB0QWS3FE3J0F50N6EPW4, 3F1QK0FAD4X03Q4CB5XKDC1BJH |
+| **C29D8MCQWYGWY6FFSP4YW7MNX7** | Introduce durable background work when workloads require it | `backlog` | high | — | STORY-022 |
+| **3F1QK0FAD4X03Q4CB5XKDC1BJH** | Add outbox, inbox, and reconciliation at the first external reliability boundary | `backlog` | high | — | C29D8MCQWYGWY6FFSP4YW7MNX7, STORY-027 |
+| **44E3PFDX5EVQE4FRTAN1A5RMGC** | Add batch, connector, bundle, and matching workflows when demanded | `cancelled` | high | — | None |
+| **PEE73AVQEAC75HKDMA3FA1S4YJ** | Build an operational recovery and observability workspace | `backlog` | high | — | C29D8MCQWYGWY6FFSP4YW7MNX7, 3F1QK0FAD4X03Q4CB5XKDC1BJH, STORY-027 |
+| **STORY-029** | Operate prioritized exception queues and saved views | `backlog` | high | 8 pts | YKQFD89QJYH87GQSMKCVQ104AK, MAQPX7K4Z5MD3BNT93YFJBRZR5 |
+| **STORY-030** | Process batch and connector document intake | `backlog` | high | 13 pts | C29D8MCQWYGWY6FFSP4YW7MNX7, XRSZ0A5WZEQB0PQYD34PYR8EW3 |
+| **STORY-031** | Relate document bundles and match cross-document evidence | `backlog` | high | 13 pts | QM5MGN4VTK1J9CWEXMC50RM00G, YKQFD89QJYH87GQSMKCVQ104AK |
+| **STORY-032** | Prove collaborative and recoverable operational work | `backlog` | high | 13 pts | 2BJ99DB0QWS3FE3J0F50N6EPW4, PEE73AVQEAC75HKDMA3FA1S4YJ, STORY-029, STORY-030, STORY-031, C29D8MCQWYGWY6FFSP4YW7MNX7, 3F1QK0FAD4X03Q4CB5XKDC1BJH |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
     2BJ99DB0QWS3FE3J0F50N6EPW4["Coordinate assignments, comments, and concurrent review (backlog)"]
+    MAQPX7K4Z5MD3BNT93YFJBRZR5 --> 2BJ99DB0QWS3FE3J0F50N6EPW4
     AV6YSSGTH46ET6J9NN0DDK7E6B["Choose and add realtime transport when collaboration requires it (backlog)"]
+    2BJ99DB0QWS3FE3J0F50N6EPW4 --> AV6YSSGTH46ET6J9NN0DDK7E6B
+    3F1QK0FAD4X03Q4CB5XKDC1BJH --> AV6YSSGTH46ET6J9NN0DDK7E6B
     C29D8MCQWYGWY6FFSP4YW7MNX7["Introduce durable background work when workloads require it (backlog)"]
+    STORY-022 --> C29D8MCQWYGWY6FFSP4YW7MNX7
     3F1QK0FAD4X03Q4CB5XKDC1BJH["Add outbox, inbox, and reconciliation at the first external reliability boundary (backlog)"]
-    44E3PFDX5EVQE4FRTAN1A5RMGC["Add batch, connector, bundle, and matching workflows when demanded (backlog)"]
+    C29D8MCQWYGWY6FFSP4YW7MNX7 --> 3F1QK0FAD4X03Q4CB5XKDC1BJH
+    STORY-027 --> 3F1QK0FAD4X03Q4CB5XKDC1BJH
+    44E3PFDX5EVQE4FRTAN1A5RMGC["Add batch, connector, bundle, and matching workflows when demanded (cancelled)"]
     PEE73AVQEAC75HKDMA3FA1S4YJ["Build an operational recovery and observability workspace (backlog)"]
+    C29D8MCQWYGWY6FFSP4YW7MNX7 --> PEE73AVQEAC75HKDMA3FA1S4YJ
+    3F1QK0FAD4X03Q4CB5XKDC1BJH --> PEE73AVQEAC75HKDMA3FA1S4YJ
+    STORY-027 --> PEE73AVQEAC75HKDMA3FA1S4YJ
+    STORY-029["Operate prioritized exception queues and saved views (backlog)"]
+    YKQFD89QJYH87GQSMKCVQ104AK --> STORY-029
+    MAQPX7K4Z5MD3BNT93YFJBRZR5 --> STORY-029
+    STORY-030["Process batch and connector document intake (backlog)"]
+    C29D8MCQWYGWY6FFSP4YW7MNX7 --> STORY-030
+    XRSZ0A5WZEQB0PQYD34PYR8EW3 --> STORY-030
+    STORY-031["Relate document bundles and match cross-document evidence (backlog)"]
+    QM5MGN4VTK1J9CWEXMC50RM00G --> STORY-031
+    YKQFD89QJYH87GQSMKCVQ104AK --> STORY-031
+    STORY-032["Prove collaborative and recoverable operational work (backlog)"]
+    2BJ99DB0QWS3FE3J0F50N6EPW4 --> STORY-032
+    PEE73AVQEAC75HKDMA3FA1S4YJ --> STORY-032
+    STORY-029 --> STORY-032
+    STORY-030 --> STORY-032
+    STORY-031 --> STORY-032
+    C29D8MCQWYGWY6FFSP4YW7MNX7 --> STORY-032
+    3F1QK0FAD4X03Q4CB5XKDC1BJH --> STORY-032
 ```
 
 ## 4. Execution Guidance for AI Agents & Engineers

@@ -1,7 +1,7 @@
 # Epic Plan: NNEY4EH15NKW1PZK4G75T8CJ99 — Approval and Authorized Delivery
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-07T09:44:12.891Z
+> **Generated**: 2026-10-07T15:24:22.523Z
 
 ---
 
@@ -13,21 +13,44 @@ Approve and deliver only an exact immutable revision.
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **ACCCV50MZW87EEEPS6Y1HXGNAZ** | Define revision-bound approval semantics | `backlog` | high | — | None |
-| **7GZK6H8HR3XKPQ94Q89N85WH0Q** | Approve a submitted revision locally | `backlog` | high | — | None |
-| **1A43QS6QGZ4YWH5FG25XZWYEH2** | Configure versioned destination mappings | `backlog` | high | — | None |
-| **CDSSWKJ0X91XHKD7X3Q8XHXKE5** | Deliver only the exact authorized revision | `backlog` | high | — | None |
-| **R26DFKYKFWHH981YK1QJEM18WN** | Add optional Delibera approval integration when selected | `backlog` | high | — | None |
+| **ACCCV50MZW87EEEPS6Y1HXGNAZ** | Define revision-bound approval semantics | `backlog` | high | — | ZSHX48Q9AHPEBJCDM0DAD8ED2H |
+| **7GZK6H8HR3XKPQ94Q89N85WH0Q** | Approve a submitted revision locally | `backlog` | high | — | ACCCV50MZW87EEEPS6Y1HXGNAZ |
+| **1A43QS6QGZ4YWH5FG25XZWYEH2** | Configure versioned destination mappings | `backlog` | high | — | ACCCV50MZW87EEEPS6Y1HXGNAZ |
+| **CDSSWKJ0X91XHKD7X3Q8XHXKE5** | Deliver only the exact authorized revision | `backlog` | high | — | 7GZK6H8HR3XKPQ94Q89N85WH0Q, 1A43QS6QGZ4YWH5FG25XZWYEH2 |
+| **R26DFKYKFWHH981YK1QJEM18WN** | Add optional Delibera approval integration when selected | `backlog` | high | — | ACCCV50MZW87EEEPS6Y1HXGNAZ, 7GZK6H8HR3XKPQ94Q89N85WH0Q |
+| **STORY-026** | Administer approval decisions and delivery outcomes | `backlog` | high | 8 pts | 7GZK6H8HR3XKPQ94Q89N85WH0Q, CDSSWKJ0X91XHKD7X3Q8XHXKE5 |
+| **STORY-027** | Reconcile ambiguous and failed delivery outcomes | `backlog` | critical | 8 pts | CDSSWKJ0X91XHKD7X3Q8XHXKE5 |
+| **STORY-028** | Prove the local approval-to-authorized-delivery journey | `backlog` | critical | 13 pts | ACCCV50MZW87EEEPS6Y1HXGNAZ, 7GZK6H8HR3XKPQ94Q89N85WH0Q, 1A43QS6QGZ4YWH5FG25XZWYEH2, CDSSWKJ0X91XHKD7X3Q8XHXKE5, STORY-025, STORY-026, STORY-027 |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
     ACCCV50MZW87EEEPS6Y1HXGNAZ["Define revision-bound approval semantics (backlog)"]
+    ZSHX48Q9AHPEBJCDM0DAD8ED2H --> ACCCV50MZW87EEEPS6Y1HXGNAZ
     7GZK6H8HR3XKPQ94Q89N85WH0Q["Approve a submitted revision locally (backlog)"]
+    ACCCV50MZW87EEEPS6Y1HXGNAZ --> 7GZK6H8HR3XKPQ94Q89N85WH0Q
     1A43QS6QGZ4YWH5FG25XZWYEH2["Configure versioned destination mappings (backlog)"]
+    ACCCV50MZW87EEEPS6Y1HXGNAZ --> 1A43QS6QGZ4YWH5FG25XZWYEH2
     CDSSWKJ0X91XHKD7X3Q8XHXKE5["Deliver only the exact authorized revision (backlog)"]
+    7GZK6H8HR3XKPQ94Q89N85WH0Q --> CDSSWKJ0X91XHKD7X3Q8XHXKE5
+    1A43QS6QGZ4YWH5FG25XZWYEH2 --> CDSSWKJ0X91XHKD7X3Q8XHXKE5
     R26DFKYKFWHH981YK1QJEM18WN["Add optional Delibera approval integration when selected (backlog)"]
+    ACCCV50MZW87EEEPS6Y1HXGNAZ --> R26DFKYKFWHH981YK1QJEM18WN
+    7GZK6H8HR3XKPQ94Q89N85WH0Q --> R26DFKYKFWHH981YK1QJEM18WN
+    STORY-026["Administer approval decisions and delivery outcomes (backlog)"]
+    7GZK6H8HR3XKPQ94Q89N85WH0Q --> STORY-026
+    CDSSWKJ0X91XHKD7X3Q8XHXKE5 --> STORY-026
+    STORY-027["Reconcile ambiguous and failed delivery outcomes (backlog)"]
+    CDSSWKJ0X91XHKD7X3Q8XHXKE5 --> STORY-027
+    STORY-028["Prove the local approval-to-authorized-delivery journey (backlog)"]
+    ACCCV50MZW87EEEPS6Y1HXGNAZ --> STORY-028
+    7GZK6H8HR3XKPQ94Q89N85WH0Q --> STORY-028
+    1A43QS6QGZ4YWH5FG25XZWYEH2 --> STORY-028
+    CDSSWKJ0X91XHKD7X3Q8XHXKE5 --> STORY-028
+    STORY-025 --> STORY-028
+    STORY-026 --> STORY-028
+    STORY-027 --> STORY-028
 ```
 
 ## 4. Execution Guidance for AI Agents & Engineers

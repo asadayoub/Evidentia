@@ -1,7 +1,7 @@
 # Epic Plan: CG7VFRWAF177CMZK333E19YND1 — Executable platform foundation
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-07T09:44:12.878Z
+> **Generated**: 2026-10-07T15:24:22.508Z
 
 ---
 
@@ -19,10 +19,10 @@ Produce a locally runnable, tested, tenant-aware API, worker, and web walking sk
 | **STORY-010** | Build module-owned migrations and tenant-safe persistence primitives | `cancelled` | critical | 8 pts | STORY-008, STORY-009 |
 | **STORY-011** | Implement trusted identity, tenant context, and authorization hooks | `cancelled` | critical | 8 pts | STORY-010 |
 | **STORY-012** | Establish versioned API, errors, correlation, and OpenAPI generation | `cancelled` | critical | 5 pts | STORY-008, STORY-011 |
-| **STORY-013** | Build the accessible application shell and generated-client boundary | `backlog` | high | 5 pts | STORY-007, STORY-012 |
-| **STORY-014** | Create the worker composition root and durable work port | `backlog` | critical | 5 pts | STORY-008, STORY-010, STORY-011 |
-| **STORY-015** | Implement provider-neutral continuous quality and supply-chain gates | `backlog` | critical | 8 pts | STORY-008, STORY-009, STORY-010, STORY-012, STORY-013, STORY-014 |
-| **STORY-016** | Prove the tenant-aware API-worker-web walking skeleton | `backlog` | critical | 5 pts | STORY-009, STORY-011, STORY-012, STORY-013, STORY-014, STORY-015 |
+| **STORY-013** | Build the accessible application shell and generated-client boundary | `cancelled` | high | 5 pts | STORY-007, STORY-012 |
+| **STORY-014** | Create the worker composition root and durable work port | `cancelled` | critical | 5 pts | STORY-008, STORY-010, STORY-011 |
+| **STORY-015** | Implement provider-neutral continuous quality and supply-chain gates | `cancelled` | critical | 8 pts | STORY-008, STORY-009, STORY-010, STORY-012, STORY-013, STORY-014 |
+| **STORY-016** | Prove the tenant-aware API-worker-web walking skeleton | `cancelled` | critical | 5 pts | STORY-009, STORY-011, STORY-012, STORY-013, STORY-014, STORY-015 |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
@@ -41,21 +41,21 @@ flowchart TD
     STORY-012["Establish versioned API, errors, correlation, and OpenAPI generation (cancelled)"]
     STORY-008 --> STORY-012
     STORY-011 --> STORY-012
-    STORY-013["Build the accessible application shell and generated-client boundary (backlog)"]
+    STORY-013["Build the accessible application shell and generated-client boundary (cancelled)"]
     STORY-007 --> STORY-013
     STORY-012 --> STORY-013
-    STORY-014["Create the worker composition root and durable work port (backlog)"]
+    STORY-014["Create the worker composition root and durable work port (cancelled)"]
     STORY-008 --> STORY-014
     STORY-010 --> STORY-014
     STORY-011 --> STORY-014
-    STORY-015["Implement provider-neutral continuous quality and supply-chain gates (backlog)"]
+    STORY-015["Implement provider-neutral continuous quality and supply-chain gates (cancelled)"]
     STORY-008 --> STORY-015
     STORY-009 --> STORY-015
     STORY-010 --> STORY-015
     STORY-012 --> STORY-015
     STORY-013 --> STORY-015
     STORY-014 --> STORY-015
-    STORY-016["Prove the tenant-aware API-worker-web walking skeleton (backlog)"]
+    STORY-016["Prove the tenant-aware API-worker-web walking skeleton (cancelled)"]
     STORY-009 --> STORY-016
     STORY-011 --> STORY-016
     STORY-012 --> STORY-016

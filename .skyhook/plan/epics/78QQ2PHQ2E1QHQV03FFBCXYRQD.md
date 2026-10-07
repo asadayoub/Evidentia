@@ -1,7 +1,7 @@
 # Epic Plan: 78QQ2PHQ2E1QHQV03FFBCXYRQD — Evidence-backed Extraction and Review
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-07T09:44:12.887Z
+> **Generated**: 2026-10-07T15:24:22.520Z
 
 ---
 
@@ -13,23 +13,53 @@ Turn a document into an evidence-linked record a reviewer can correct and submit
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **SHF26TB4C43PC4KD2W3PRZ3R78** | Resolve the applicable schema from document context | `backlog` | high | — | None |
-| **WN341EKS97VGCX76ZFR0KHX96Y** | Extract a candidate record through a provider-neutral port | `backlog` | high | — | None |
-| **QM5MGN4VTK1J9CWEXMC50RM00G** | Attach source evidence to every extracted value | `backlog` | high | — | None |
-| **YKQFD89QJYH87GQSMKCVQ104AK** | Run versioned validation with explainable findings | `backlog` | high | — | None |
-| **MAQPX7K4Z5MD3BNT93YFJBRZR5** | Review and correct a dynamic evidence-linked record | `backlog` | high | — | None |
-| **ZSHX48Q9AHPEBJCDM0DAD8ED2H** | Submit an immutable reviewed record revision | `backlog` | high | — | None |
+| **SHF26TB4C43PC4KD2W3PRZ3R78** | Resolve the applicable schema from document context | `backlog` | high | — | 265YM4FNANJAH2J338BKAWFXDM, STORY-020 |
+| **WN341EKS97VGCX76ZFR0KHX96Y** | Extract a candidate record through a provider-neutral port | `backlog` | high | — | SHF26TB4C43PC4KD2W3PRZ3R78, STORY-022 |
+| **QM5MGN4VTK1J9CWEXMC50RM00G** | Attach source evidence to every extracted value | `backlog` | high | — | WN341EKS97VGCX76ZFR0KHX96Y |
+| **YKQFD89QJYH87GQSMKCVQ104AK** | Run versioned validation with explainable findings | `backlog` | high | — | QM5MGN4VTK1J9CWEXMC50RM00G |
+| **MAQPX7K4Z5MD3BNT93YFJBRZR5** | Review and correct a dynamic evidence-linked record | `backlog` | high | — | STORY-017, QM5MGN4VTK1J9CWEXMC50RM00G, YKQFD89QJYH87GQSMKCVQ104AK |
+| **ZSHX48Q9AHPEBJCDM0DAD8ED2H** | Submit an immutable reviewed record revision | `backlog` | high | — | MAQPX7K4Z5MD3BNT93YFJBRZR5, YKQFD89QJYH87GQSMKCVQ104AK |
+| **STORY-023** | Record extraction attempts and compare reprocessing outcomes | `backlog` | high | 8 pts | WN341EKS97VGCX76ZFR0KHX96Y |
+| **STORY-024** | Promote unmapped candidates through governed schema discovery | `backlog` | high | 8 pts | WN341EKS97VGCX76ZFR0KHX96Y, SHF26TB4C43PC4KD2W3PRZ3R78, X51S43NTMRW5ASYSKJBF7FW845 |
+| **STORY-025** | Prove the source-to-submitted-revision journey | `backlog` | critical | 13 pts | SHF26TB4C43PC4KD2W3PRZ3R78, WN341EKS97VGCX76ZFR0KHX96Y, QM5MGN4VTK1J9CWEXMC50RM00G, YKQFD89QJYH87GQSMKCVQ104AK, MAQPX7K4Z5MD3BNT93YFJBRZR5, ZSHX48Q9AHPEBJCDM0DAD8ED2H, STORY-022, STORY-023, STORY-024 |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
     SHF26TB4C43PC4KD2W3PRZ3R78["Resolve the applicable schema from document context (backlog)"]
+    265YM4FNANJAH2J338BKAWFXDM --> SHF26TB4C43PC4KD2W3PRZ3R78
+    STORY-020 --> SHF26TB4C43PC4KD2W3PRZ3R78
     WN341EKS97VGCX76ZFR0KHX96Y["Extract a candidate record through a provider-neutral port (backlog)"]
+    SHF26TB4C43PC4KD2W3PRZ3R78 --> WN341EKS97VGCX76ZFR0KHX96Y
+    STORY-022 --> WN341EKS97VGCX76ZFR0KHX96Y
     QM5MGN4VTK1J9CWEXMC50RM00G["Attach source evidence to every extracted value (backlog)"]
+    WN341EKS97VGCX76ZFR0KHX96Y --> QM5MGN4VTK1J9CWEXMC50RM00G
     YKQFD89QJYH87GQSMKCVQ104AK["Run versioned validation with explainable findings (backlog)"]
+    QM5MGN4VTK1J9CWEXMC50RM00G --> YKQFD89QJYH87GQSMKCVQ104AK
     MAQPX7K4Z5MD3BNT93YFJBRZR5["Review and correct a dynamic evidence-linked record (backlog)"]
+    STORY-017 --> MAQPX7K4Z5MD3BNT93YFJBRZR5
+    QM5MGN4VTK1J9CWEXMC50RM00G --> MAQPX7K4Z5MD3BNT93YFJBRZR5
+    YKQFD89QJYH87GQSMKCVQ104AK --> MAQPX7K4Z5MD3BNT93YFJBRZR5
     ZSHX48Q9AHPEBJCDM0DAD8ED2H["Submit an immutable reviewed record revision (backlog)"]
+    MAQPX7K4Z5MD3BNT93YFJBRZR5 --> ZSHX48Q9AHPEBJCDM0DAD8ED2H
+    YKQFD89QJYH87GQSMKCVQ104AK --> ZSHX48Q9AHPEBJCDM0DAD8ED2H
+    STORY-023["Record extraction attempts and compare reprocessing outcomes (backlog)"]
+    WN341EKS97VGCX76ZFR0KHX96Y --> STORY-023
+    STORY-024["Promote unmapped candidates through governed schema discovery (backlog)"]
+    WN341EKS97VGCX76ZFR0KHX96Y --> STORY-024
+    SHF26TB4C43PC4KD2W3PRZ3R78 --> STORY-024
+    X51S43NTMRW5ASYSKJBF7FW845 --> STORY-024
+    STORY-025["Prove the source-to-submitted-revision journey (backlog)"]
+    SHF26TB4C43PC4KD2W3PRZ3R78 --> STORY-025
+    WN341EKS97VGCX76ZFR0KHX96Y --> STORY-025
+    QM5MGN4VTK1J9CWEXMC50RM00G --> STORY-025
+    YKQFD89QJYH87GQSMKCVQ104AK --> STORY-025
+    MAQPX7K4Z5MD3BNT93YFJBRZR5 --> STORY-025
+    ZSHX48Q9AHPEBJCDM0DAD8ED2H --> STORY-025
+    STORY-022 --> STORY-025
+    STORY-023 --> STORY-025
+    STORY-024 --> STORY-025
 ```
 
 ## 4. Execution Guidance for AI Agents & Engineers

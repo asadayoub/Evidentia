@@ -1,6 +1,11 @@
 # Changelog
 
 ## [Unreleased]
+- Story 44E3PFDX5EVQE4FRTAN1A5RMGC: backlog to cancelled
+- Story STORY-016: backlog to cancelled
+- Story STORY-015: backlog to cancelled
+- Story STORY-014: backlog to cancelled
+- Story STORY-013: backlog to cancelled
 - Story N1ZNPJWFZYPV0MVB8FP137GRJP: in-review to done
 - Task TASK-020: in-review to done
 - Task TASK-020: in-progress to in-review

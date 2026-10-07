@@ -1,7 +1,7 @@
 # Epic Plan: 89QP3HS2PDE09EJ9X86P5QRFWM — Production, Ecosystem, and Release Evidence
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-07T09:44:12.896Z
+> **Generated**: 2026-10-07T15:24:22.537Z
 
 ---
 
@@ -13,21 +13,55 @@ Harden stable capabilities for deployment, integration, evaluation, and release.
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **M7ZMYQSYB6G0W2T5M7TYCCZNHH** | Harden identity, tenancy, privacy, and audit for production | `backlog` | high | — | None |
-| **5KENKXMX9EZDJ75R0JHJQ2KSSJ** | Publish stable public APIs and SDKs after contracts mature | `backlog` | high | — | None |
-| **7D8Q1STZ5VEWBSAR6W87P4DH1W** | Publish extension contracts for providers and adapters | `backlog` | high | — | None |
+| **M7ZMYQSYB6G0W2T5M7TYCCZNHH** | Harden identity, tenancy, privacy, and audit for production | `backlog` | high | — | STORY-028, STORY-032 |
+| **5KENKXMX9EZDJ75R0JHJQ2KSSJ** | Publish stable public APIs and SDKs after contracts mature | `backlog` | high | — | STORY-025, STORY-028 |
+| **7D8Q1STZ5VEWBSAR6W87P4DH1W** | Publish extension contracts for providers and adapters | `backlog` | high | — | STORY-023, STORY-028 |
 | **ECMWWJT024W5QXBQ5G6C1YMHQQ** | Create deployment, backup, restore, and upgrade profiles | `backlog` | high | — | None |
-| **4QGB75ND0XME0JVSYJN9K3PMTW** | Maintain evaluation and release evidence | `backlog` | high | — | None |
+| **4QGB75ND0XME0JVSYJN9K3PMTW** | Maintain evaluation and release evidence | `backlog` | high | — | STORY-025 |
+| **STORY-033** | Enforce configurable retention deletion and audit preservation | `backlog` | critical | 13 pts | M7ZMYQSYB6G0W2T5M7TYCCZNHH |
+| **STORY-034** | Establish lifecycle telemetry and measured service objectives | `backlog` | high | 8 pts | None |
+| **STORY-035** | Establish the English supplier-invoice benchmark | `backlog` | critical | 13 pts | 4QGB75ND0XME0JVSYJN9K3PMTW |
+| **STORY-036** | Prove backup restore migration and upgrade recovery | `backlog` | critical | 13 pts | ECMWWJT024W5QXBQ5G6C1YMHQQ |
+| **STORY-037** | Prove production and release readiness with bounded claims | `backlog` | critical | 13 pts | M7ZMYQSYB6G0W2T5M7TYCCZNHH, 5KENKXMX9EZDJ75R0JHJQ2KSSJ, 7D8Q1STZ5VEWBSAR6W87P4DH1W, ECMWWJT024W5QXBQ5G6C1YMHQQ, 4QGB75ND0XME0JVSYJN9K3PMTW, STORY-033, STORY-034, STORY-035, STORY-036, 265YM4FNANJAH2J338BKAWFXDM, STORY-022, STORY-025, STORY-028, STORY-032 |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
     M7ZMYQSYB6G0W2T5M7TYCCZNHH["Harden identity, tenancy, privacy, and audit for production (backlog)"]
+    STORY-028 --> M7ZMYQSYB6G0W2T5M7TYCCZNHH
+    STORY-032 --> M7ZMYQSYB6G0W2T5M7TYCCZNHH
     5KENKXMX9EZDJ75R0JHJQ2KSSJ["Publish stable public APIs and SDKs after contracts mature (backlog)"]
+    STORY-025 --> 5KENKXMX9EZDJ75R0JHJQ2KSSJ
+    STORY-028 --> 5KENKXMX9EZDJ75R0JHJQ2KSSJ
     7D8Q1STZ5VEWBSAR6W87P4DH1W["Publish extension contracts for providers and adapters (backlog)"]
+    STORY-023 --> 7D8Q1STZ5VEWBSAR6W87P4DH1W
+    STORY-028 --> 7D8Q1STZ5VEWBSAR6W87P4DH1W
     ECMWWJT024W5QXBQ5G6C1YMHQQ["Create deployment, backup, restore, and upgrade profiles (backlog)"]
     4QGB75ND0XME0JVSYJN9K3PMTW["Maintain evaluation and release evidence (backlog)"]
+    STORY-025 --> 4QGB75ND0XME0JVSYJN9K3PMTW
+    STORY-033["Enforce configurable retention deletion and audit preservation (backlog)"]
+    M7ZMYQSYB6G0W2T5M7TYCCZNHH --> STORY-033
+    STORY-034["Establish lifecycle telemetry and measured service objectives (backlog)"]
+    STORY-035["Establish the English supplier-invoice benchmark (backlog)"]
+    4QGB75ND0XME0JVSYJN9K3PMTW --> STORY-035
+    STORY-036["Prove backup restore migration and upgrade recovery (backlog)"]
+    ECMWWJT024W5QXBQ5G6C1YMHQQ --> STORY-036
+    STORY-037["Prove production and release readiness with bounded claims (backlog)"]
+    M7ZMYQSYB6G0W2T5M7TYCCZNHH --> STORY-037
+    5KENKXMX9EZDJ75R0JHJQ2KSSJ --> STORY-037
+    7D8Q1STZ5VEWBSAR6W87P4DH1W --> STORY-037
+    ECMWWJT024W5QXBQ5G6C1YMHQQ --> STORY-037
+    4QGB75ND0XME0JVSYJN9K3PMTW --> STORY-037
+    STORY-033 --> STORY-037
+    STORY-034 --> STORY-037
+    STORY-035 --> STORY-037
+    STORY-036 --> STORY-037
+    265YM4FNANJAH2J338BKAWFXDM --> STORY-037
+    STORY-022 --> STORY-037
+    STORY-025 --> STORY-037
+    STORY-028 --> STORY-037
+    STORY-032 --> STORY-037
 ```
 
 ## 4. Execution Guidance for AI Agents & Engineers

@@ -1,7 +1,7 @@
 # Project Plan: Evidentia
 
 > **Project ID**: `GPNKKMYX2EHA0GZ82WDJASXKGX` | **Profile**: `web-app`
-> **Compiled**: 2026-10-07T09:44:12.725Z by Skyhook Dynamic Plan Compiler
+> **Compiled**: 2026-10-07T15:24:22.301Z by Skyhook Dynamic Plan Compiler
 
 ## Executive Summary
 
@@ -11,14 +11,14 @@ An open-source, self-hostable platform that converts documents into inspectable,
 
 | Metric | Current Value | Notes |
 |:-------|:--------------|:------|
-| **Weekly Velocity** | **33.1 pts/wk** | Derived from 14-day rolling events |
-| **Average Cycle Time** | **11.5 hours** | Average in-progress to done duration |
-| **Backlog Work Remaining** | **118 pts** (35 stories) | Unfinished scope |
-| **Expected Completion (P50)** | 📅 **2026-11-01** | Standard velocity projection (3.6 wks) |
-| **Conservative Completion (P90)** | 📅 **2026-11-10** | Risk-adjusted delivery date (4.9 wks) |
+| **Weekly Velocity** | **35.3 pts/wk** | Derived from 14-day rolling events |
+| **Average Cycle Time** | **10.9 hours** | Average in-progress to done duration |
+| **Backlog Work Remaining** | **302 pts** (50 stories) | Unfinished scope |
+| **Expected Completion (P50)** | 📅 **2026-12-06** | Standard velocity projection (8.6 wks) |
+| **Conservative Completion (P90)** | 📅 **2026-12-27** | Risk-adjusted delivery date (11.6 wks) |
 
 > [!WARNING]
-> **Scope Creep Alert**: Net backlog growth (+199 pts) exceeds recent completion rate. Delivery target may shift.
+> **Scope Creep Alert**: Net backlog growth (+217 pts) exceeds recent completion rate. Delivery target may shift.
 
 ## 1. Visual Delivery Roadmap & Timeline
 
@@ -100,64 +100,85 @@ gantt
     Establish the first invoice benchmark and extension conformance suite : s_STORY_001, after s_C37NZW5X9ASZRS7XHZ7W56MG8V, 2d
 
     section Executable platform foundation
-    Bootstrap the governed monorepo and locked toolchains :crit, done, s_STORY_007, 2026-10-01, 2026-10-02
-    Create bounded-context package skeletons and executable boundary tests :crit, done, s_STORY_008, 2026-10-02, 2026-10-02
+    Bootstrap the governed monorepo and locked toolchains :done, s_STORY_007, 2026-10-01, 2026-10-02
+    Create bounded-context package skeletons and executable boundary tests :done, s_STORY_008, 2026-10-02, 2026-10-02
     Establish secure configuration and the local Compose runtime : s_STORY_009, after s_STORY_007, 8d
-    Build module-owned migrations and tenant-safe persistence primitives :crit, s_STORY_010, after s_STORY_008, 12d
-    Implement trusted identity, tenant context, and authorization hooks :crit, s_STORY_011, after s_STORY_010, 12d
-    Establish versioned API, errors, correlation, and OpenAPI generation :crit, s_STORY_012, after s_STORY_008, 8d
-    Build the accessible application shell and generated-client boundary :crit, s_STORY_013, after s_STORY_007, 8d
+    Build module-owned migrations and tenant-safe persistence primitives : s_STORY_010, after s_STORY_008, 12d
+    Implement trusted identity, tenant context, and authorization hooks : s_STORY_011, after s_STORY_010, 12d
+    Establish versioned API, errors, correlation, and OpenAPI generation : s_STORY_012, after s_STORY_008, 8d
+    Build the accessible application shell and generated-client boundary : s_STORY_013, after s_STORY_007, 8d
     Create the worker composition root and durable work port : s_STORY_014, after s_STORY_008, 8d
-    Implement provider-neutral continuous quality and supply-chain gates :crit, s_STORY_015, after s_STORY_008, 12d
-    Prove the tenant-aware API-worker-web walking skeleton :crit, s_STORY_016, after s_STORY_009, 8d
+    Implement provider-neutral continuous quality and supply-chain gates : s_STORY_015, after s_STORY_008, 12d
+    Prove the tenant-aware API-worker-web walking skeleton : s_STORY_016, after s_STORY_009, 8d
 
     section Interactive Schema Workbench
     Persist governed schemas for interactive use :done, s_0VJ9SHA39TA291D8QXB0TQS3HQ, 2026-10-03, 2026-10-07
-    Establish the minimum trusted operator and tenant context :active, s_N1ZNPJWFZYPV0MVB8FP137GRJP, 2026-10-07, 5d
-    Expose the governed schema lifecycle through a versioned API : s_X51S43NTMRW5ASYSKJBF7FW845, 2026-10-03, 5d
-    Build the accessible Schema Workbench : s_H98W5WTJBWT8EY0Q10P3KPCEEB, 2026-10-03, 5d
-    Prove the draft-to-published Schema Workbench journey : s_265YM4FNANJAH2J338BKAWFXDM, 2026-10-03, 5d
+    Establish the minimum trusted operator and tenant context :crit, done, s_N1ZNPJWFZYPV0MVB8FP137GRJP, 2026-10-07, 2026-10-07
+    Expose the governed schema lifecycle through a versioned API : s_X51S43NTMRW5ASYSKJBF7FW845, after s_0VJ9SHA39TA291D8QXB0TQS3HQ, 5d
+    Build the accessible Schema Workbench :crit, s_H98W5WTJBWT8EY0Q10P3KPCEEB, after s_STORY_017, 5d
+    Prove the draft-to-published Schema Workbench journey :crit, s_265YM4FNANJAH2J338BKAWFXDM, after s_STORY_017, 5d
+    Establish the authenticated application shell and generated API boundary :crit, s_STORY_017, after s_N1ZNPJWFZYPV0MVB8FP137GRJP, 12d
+    Import export compare and evolve governed schemas :crit, s_STORY_018, after s_X51S43NTMRW5ASYSKJBF7FW845, 12d
 
     section Document Intake and Source Viewer
     Upload and preserve an original document : s_XRSZ0A5WZEQB0PQYD34PYR8EW3, 2026-10-03, 5d
-    Parse native document text and page structure : s_J2ZHMCR2DNQSHD1VZY7CECT2HT, 2026-10-03, 5d
-    Activate OCR for scanned documents when needed : s_9M4MDW7FN1SGECW2X23WF01501, 2026-10-03, 5d
-    Build the document intake and source viewer : s_AN2RM9JX2PBR6J1NQ1KSHBYHSQ, 2026-10-03, 5d
+    Parse native document text and page structure : s_J2ZHMCR2DNQSHD1VZY7CECT2HT, after s_XRSZ0A5WZEQB0PQYD34PYR8EW3, 5d
+    Activate OCR for scanned documents when needed : s_9M4MDW7FN1SGECW2X23WF01501, after s_XRSZ0A5WZEQB0PQYD34PYR8EW3, 5d
+    Build the document intake and source viewer : s_AN2RM9JX2PBR6J1NQ1KSHBYHSQ, after s_STORY_017, 5d
+    Accept programmatic and resumable document intake : s_STORY_019, after s_XRSZ0A5WZEQB0PQYD34PYR8EW3, 12d
+    Classify documents and govern type corrections : s_STORY_020, after s_J2ZHMCR2DNQSHD1VZY7CECT2HT, 12d
+    Confine untrusted document processing and preview : s_STORY_021, after s_XRSZ0A5WZEQB0PQYD34PYR8EW3, 12d
+    Prove the secure document intake and source-understanding journey : s_STORY_022, after s_XRSZ0A5WZEQB0PQYD34PYR8EW3, 12d
 
     section Evidence-backed Extraction and Review
-    Resolve the applicable schema from document context : s_SHF26TB4C43PC4KD2W3PRZ3R78, 2026-10-03, 5d
-    Extract a candidate record through a provider-neutral port : s_WN341EKS97VGCX76ZFR0KHX96Y, 2026-10-03, 5d
-    Attach source evidence to every extracted value : s_QM5MGN4VTK1J9CWEXMC50RM00G, 2026-10-03, 5d
-    Run versioned validation with explainable findings : s_YKQFD89QJYH87GQSMKCVQ104AK, 2026-10-03, 5d
-    Review and correct a dynamic evidence-linked record : s_MAQPX7K4Z5MD3BNT93YFJBRZR5, 2026-10-03, 5d
-    Submit an immutable reviewed record revision : s_ZSHX48Q9AHPEBJCDM0DAD8ED2H, 2026-10-03, 5d
+    Resolve the applicable schema from document context :crit, s_SHF26TB4C43PC4KD2W3PRZ3R78, after s_265YM4FNANJAH2J338BKAWFXDM, 5d
+    Extract a candidate record through a provider-neutral port :crit, s_WN341EKS97VGCX76ZFR0KHX96Y, after s_SHF26TB4C43PC4KD2W3PRZ3R78, 5d
+    Attach source evidence to every extracted value :crit, s_QM5MGN4VTK1J9CWEXMC50RM00G, after s_WN341EKS97VGCX76ZFR0KHX96Y, 5d
+    Run versioned validation with explainable findings :crit, s_YKQFD89QJYH87GQSMKCVQ104AK, after s_QM5MGN4VTK1J9CWEXMC50RM00G, 5d
+    Review and correct a dynamic evidence-linked record :crit, s_MAQPX7K4Z5MD3BNT93YFJBRZR5, after s_STORY_017, 5d
+    Submit an immutable reviewed record revision :crit, s_ZSHX48Q9AHPEBJCDM0DAD8ED2H, after s_MAQPX7K4Z5MD3BNT93YFJBRZR5, 5d
+    Record extraction attempts and compare reprocessing outcomes : s_STORY_023, after s_WN341EKS97VGCX76ZFR0KHX96Y, 12d
+    Promote unmapped candidates through governed schema discovery : s_STORY_024, after s_WN341EKS97VGCX76ZFR0KHX96Y, 12d
+    Prove the source-to-submitted-revision journey : s_STORY_025, after s_SHF26TB4C43PC4KD2W3PRZ3R78, 20d
 
     section Approval and Authorized Delivery
-    Define revision-bound approval semantics : s_ACCCV50MZW87EEEPS6Y1HXGNAZ, 2026-10-03, 5d
-    Approve a submitted revision locally : s_7GZK6H8HR3XKPQ94Q89N85WH0Q, 2026-10-03, 5d
-    Configure versioned destination mappings : s_1A43QS6QGZ4YWH5FG25XZWYEH2, 2026-10-03, 5d
-    Deliver only the exact authorized revision : s_CDSSWKJ0X91XHKD7X3Q8XHXKE5, 2026-10-03, 5d
-    Add optional Delibera approval integration when selected : s_R26DFKYKFWHH981YK1QJEM18WN, 2026-10-03, 5d
+    Define revision-bound approval semantics :crit, s_ACCCV50MZW87EEEPS6Y1HXGNAZ, after s_ZSHX48Q9AHPEBJCDM0DAD8ED2H, 5d
+    Approve a submitted revision locally :crit, s_7GZK6H8HR3XKPQ94Q89N85WH0Q, after s_ACCCV50MZW87EEEPS6Y1HXGNAZ, 5d
+    Configure versioned destination mappings : s_1A43QS6QGZ4YWH5FG25XZWYEH2, after s_ACCCV50MZW87EEEPS6Y1HXGNAZ, 5d
+    Deliver only the exact authorized revision :crit, s_CDSSWKJ0X91XHKD7X3Q8XHXKE5, after s_7GZK6H8HR3XKPQ94Q89N85WH0Q, 5d
+    Add optional Delibera approval integration when selected : s_R26DFKYKFWHH981YK1QJEM18WN, after s_ACCCV50MZW87EEEPS6Y1HXGNAZ, 5d
+    Administer approval decisions and delivery outcomes : s_STORY_026, after s_7GZK6H8HR3XKPQ94Q89N85WH0Q, 12d
+    Reconcile ambiguous and failed delivery outcomes :crit, s_STORY_027, after s_CDSSWKJ0X91XHKD7X3Q8XHXKE5, 12d
+    Prove the local approval-to-authorized-delivery journey : s_STORY_028, after s_ACCCV50MZW87EEEPS6Y1HXGNAZ, 20d
 
     section Collaboration and Operational Scale
-    Coordinate assignments, comments, and concurrent review : s_2BJ99DB0QWS3FE3J0F50N6EPW4, 2026-10-03, 5d
-    Choose and add realtime transport when collaboration requires it : s_AV6YSSGTH46ET6J9NN0DDK7E6B, 2026-10-03, 5d
-    Introduce durable background work when workloads require it : s_C29D8MCQWYGWY6FFSP4YW7MNX7, 2026-10-03, 5d
-    Add outbox, inbox, and reconciliation at the first external reliability boundary : s_3F1QK0FAD4X03Q4CB5XKDC1BJH, 2026-10-03, 5d
+    Coordinate assignments, comments, and concurrent review : s_2BJ99DB0QWS3FE3J0F50N6EPW4, after s_MAQPX7K4Z5MD3BNT93YFJBRZR5, 5d
+    Choose and add realtime transport when collaboration requires it : s_AV6YSSGTH46ET6J9NN0DDK7E6B, after s_2BJ99DB0QWS3FE3J0F50N6EPW4, 5d
+    Introduce durable background work when workloads require it : s_C29D8MCQWYGWY6FFSP4YW7MNX7, after s_STORY_022, 5d
+    Add outbox, inbox, and reconciliation at the first external reliability boundary :crit, s_3F1QK0FAD4X03Q4CB5XKDC1BJH, after s_C29D8MCQWYGWY6FFSP4YW7MNX7, 5d
     Add batch, connector, bundle, and matching workflows when demanded : s_44E3PFDX5EVQE4FRTAN1A5RMGC, 2026-10-03, 5d
-    Build an operational recovery and observability workspace : s_PEE73AVQEAC75HKDMA3FA1S4YJ, 2026-10-03, 5d
+    Build an operational recovery and observability workspace :crit, s_PEE73AVQEAC75HKDMA3FA1S4YJ, after s_C29D8MCQWYGWY6FFSP4YW7MNX7, 5d
+    Operate prioritized exception queues and saved views : s_STORY_029, after s_YKQFD89QJYH87GQSMKCVQ104AK, 12d
+    Process batch and connector document intake : s_STORY_030, after s_C29D8MCQWYGWY6FFSP4YW7MNX7, 20d
+    Relate document bundles and match cross-document evidence : s_STORY_031, after s_QM5MGN4VTK1J9CWEXMC50RM00G, 20d
+    Prove collaborative and recoverable operational work :crit, s_STORY_032, after s_2BJ99DB0QWS3FE3J0F50N6EPW4, 20d
 
     section Production, Ecosystem, and Release Evidence
-    Harden identity, tenancy, privacy, and audit for production : s_M7ZMYQSYB6G0W2T5M7TYCCZNHH, 2026-10-03, 5d
-    Publish stable public APIs and SDKs after contracts mature : s_5KENKXMX9EZDJ75R0JHJQ2KSSJ, 2026-10-03, 5d
-    Publish extension contracts for providers and adapters : s_7D8Q1STZ5VEWBSAR6W87P4DH1W, 2026-10-03, 5d
+    Harden identity, tenancy, privacy, and audit for production :crit, s_M7ZMYQSYB6G0W2T5M7TYCCZNHH, after s_STORY_028, 5d
+    Publish stable public APIs and SDKs after contracts mature : s_5KENKXMX9EZDJ75R0JHJQ2KSSJ, after s_STORY_025, 5d
+    Publish extension contracts for providers and adapters : s_7D8Q1STZ5VEWBSAR6W87P4DH1W, after s_STORY_023, 5d
     Create deployment, backup, restore, and upgrade profiles : s_ECMWWJT024W5QXBQ5G6C1YMHQQ, 2026-10-03, 5d
-    Maintain evaluation and release evidence : s_4QGB75ND0XME0JVSYJN9K3PMTW, 2026-10-03, 5d
+    Maintain evaluation and release evidence : s_4QGB75ND0XME0JVSYJN9K3PMTW, after s_STORY_025, 5d
+    Enforce configurable retention deletion and audit preservation :crit, s_STORY_033, after s_M7ZMYQSYB6G0W2T5M7TYCCZNHH, 20d
+    Establish lifecycle telemetry and measured service objectives : s_STORY_034, 2026-10-07, 12d
+    Establish the English supplier-invoice benchmark : s_STORY_035, after s_4QGB75ND0XME0JVSYJN9K3PMTW, 20d
+    Prove backup restore migration and upgrade recovery : s_STORY_036, after s_ECMWWJT024W5QXBQ5G6C1YMHQQ, 20d
+    Prove production and release readiness with bounded claims :crit, s_STORY_037, after s_M7ZMYQSYB6G0W2T5M7TYCCZNHH, 20d
 
 ```
 
 > [!IMPORTANT]
-> **🔥 Critical Path Sequence**: STORY-007 ➔ STORY-008 ➔ STORY-010 ➔ STORY-011 ➔ STORY-012 ➔ STORY-013 ➔ STORY-015 ➔ STORY-016
+> **🔥 Critical Path Sequence**: N1ZNPJWFZYPV0MVB8FP137GRJP ➔ STORY-017 ➔ H98W5WTJBWT8EY0Q10P3KPCEEB ➔ STORY-018 ➔ 265YM4FNANJAH2J338BKAWFXDM ➔ SHF26TB4C43PC4KD2W3PRZ3R78 ➔ WN341EKS97VGCX76ZFR0KHX96Y ➔ QM5MGN4VTK1J9CWEXMC50RM00G ➔ YKQFD89QJYH87GQSMKCVQ104AK ➔ MAQPX7K4Z5MD3BNT93YFJBRZR5 ➔ ZSHX48Q9AHPEBJCDM0DAD8ED2H ➔ ACCCV50MZW87EEEPS6Y1HXGNAZ ➔ 7GZK6H8HR3XKPQ94Q89N85WH0Q ➔ CDSSWKJ0X91XHKD7X3Q8XHXKE5 ➔ STORY-027 ➔ 3F1QK0FAD4X03Q4CB5XKDC1BJH ➔ PEE73AVQEAC75HKDMA3FA1S4YJ ➔ STORY-032 ➔ M7ZMYQSYB6G0W2T5M7TYCCZNHH ➔ STORY-033 ➔ STORY-037
 > *Delays to stories on this path directly extend project completion date.*
 
 ## 2. Living Traceability Matrix
@@ -166,33 +187,33 @@ gantt
 
 | Req ID | Requirement Title | Category | Stories | Code Symbols | ADRs | Status |
 |:-------|:------------------|:---------|:--------|:-------------|:-----|:-------|
-| **REQ-001** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-002** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-003** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `upgrade`<br/>`downgrade`<br/>`SchemaInterchangeEnvelope` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
-| **REQ-004** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-005** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
-| **REQ-006** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
-| **REQ-007** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-008** | Untitled | `functional` | — | — | — | 🔴 Untraced |
+| **REQ-001** | Untitled | `functional` | STORY-019 (backlog)<br/>STORY-022 (backlog)<br/>STORY-030 (backlog) | — | — | 🔴 Untraced |
+| **REQ-002** | Untitled | `functional` | STORY-020 (backlog)<br/>STORY-022 (backlog) | — | — | 🔴 Untraced |
+| **REQ-003** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-018 (backlog)<br/>STORY-024 (backlog)<br/>STORY-025 (backlog) | `upgrade`<br/>`downgrade`<br/>`SchemaInterchangeEnvelope` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
+| **REQ-004** | Untitled | `functional` | STORY-023 (backlog)<br/>STORY-024 (backlog)<br/>STORY-025 (backlog) | — | — | 🔴 Untraced |
+| **REQ-005** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-025 (backlog) | — | X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
+| **REQ-006** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-025 (backlog)<br/>STORY-029 (backlog)<br/>STORY-031 (backlog) | — | X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
+| **REQ-007** | Untitled | `functional` | STORY-025 (backlog)<br/>STORY-029 (backlog)<br/>STORY-032 (backlog) | — | — | 🔴 Untraced |
+| **REQ-008** | Untitled | `functional` | STORY-026 (backlog)<br/>STORY-028 (backlog) | — | — | 🔴 Untraced |
 | **REQ-009** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-010** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-011** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-012** | Untitled | `functional` | STORY-007 (done)<br/>STORY-012 (cancelled)<br/>STORY-013 (backlog)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `main`<br/>`App`<br/>`sdk_version` | — | 🟢 Implemented |
-| **REQ-013** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-014** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-014 (backlog)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `WorkerRuntimeSettings`<br/>`WorkerSettings`<br/>`load_worker_settings` | 8VC3FRAN1GRTK2F99NB459BWWJ | 🟢 Implemented |
-| **REQ-015** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
-| **REQ-016** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `FieldSelector`<br/>`FieldAlias`<br/>`FieldMapping` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
-| **REQ-017** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
-| **REQ-018** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **NFR-001** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `PublicationProvenance`<br/>`StoredSchemaIntegrityError` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
-| **NFR-002** | Untitled | `functional` | STORY-010 (cancelled)<br/>STORY-011 (cancelled)<br/>STORY-014 (backlog)<br/>STORY-016 (backlog) | — | 8VC3FRAN1GRTK2F99NB459BWWJ | 🔴 Untraced |
-| **NFR-003** | Untitled | `functional` | STORY-014 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
-| **NFR-004** | Untitled | `functional` | STORY-007 (done)<br/>STORY-009 (in-review)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `RuntimeEnvironment`<br/>`DatabaseSettings`<br/>`StorageSettings` | 8VC3FRAN1GRTK2F99NB459BWWJ<br/>HKSQBTGX2CZT36GCS8D3ZTM2PA | 🟢 Implemented |
-| **NFR-005** | Untitled | `functional` | STORY-013 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
-| **NFR-006** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-012 (cancelled)<br/>STORY-014 (backlog)<br/>STORY-016 (backlog) | `LoggingSettings`<br/>`HealthReport`<br/>`as_dict` | 8VC3FRAN1GRTK2F99NB459BWWJ | 🟢 Implemented |
-| **NFR-007** | Untitled | `functional` | STORY-010 (cancelled) | — | HKSQBTGX2CZT36GCS8D3ZTM2PA | 🔴 Untraced |
-| **NFR-008** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-007 (done)<br/>STORY-008 (done)<br/>STORY-010 (cancelled)<br/>STORY-012 (cancelled)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `AccessDenialReason`<br/>`AccessDeniedError`<br/>`TrustedRequestContext` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
-| **NFR-009** | Untitled | `functional` | STORY-015 (backlog) | — | — | 🔴 Untraced |
+| **REQ-010** | Untitled | `functional` | STORY-026 (backlog)<br/>STORY-027 (backlog)<br/>STORY-028 (backlog) | — | — | 🔴 Untraced |
+| **REQ-011** | Untitled | `functional` | STORY-029 (backlog)<br/>STORY-030 (backlog)<br/>STORY-031 (backlog)<br/>STORY-032 (backlog) | — | — | 🔴 Untraced |
+| **REQ-012** | Untitled | `functional` | STORY-007 (done)<br/>STORY-012 (cancelled)<br/>STORY-013 (cancelled)<br/>STORY-015 (cancelled)<br/>STORY-016 (cancelled)<br/>STORY-017 (backlog)<br/>STORY-019 (backlog)<br/>STORY-022 (backlog)<br/>STORY-030 (backlog)<br/>STORY-037 (backlog) | `create_access_router`<br/>`ErrorResponse`<br/>`ApiError` | — | 🟢 Implemented |
+| **REQ-013** | Untitled | `functional` | STORY-023 (backlog)<br/>STORY-035 (backlog)<br/>STORY-037 (backlog) | — | — | 🔴 Untraced |
+| **REQ-014** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-014 (cancelled)<br/>STORY-015 (cancelled)<br/>STORY-016 (cancelled)<br/>STORY-026 (backlog)<br/>STORY-027 (backlog)<br/>STORY-032 (backlog)<br/>STORY-033 (backlog)<br/>STORY-034 (backlog)<br/>STORY-036 (backlog)<br/>STORY-037 (backlog) | `WorkerRuntimeSettings`<br/>`WorkerSettings`<br/>`load_worker_settings` | 8VC3FRAN1GRTK2F99NB459BWWJ | 🟢 Implemented |
+| **REQ-015** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-020 (backlog)<br/>STORY-022 (backlog)<br/>STORY-035 (backlog) | — | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
+| **REQ-016** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-018 (backlog)<br/>STORY-020 (backlog)<br/>STORY-025 (backlog) | `FieldSelector`<br/>`FieldAlias`<br/>`FieldMapping` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
+| **REQ-017** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-018 (backlog)<br/>STORY-024 (backlog) | — | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
+| **REQ-018** | Untitled | `functional` | STORY-032 (backlog) | — | — | 🔴 Untraced |
+| **NFR-001** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-018 (backlog)<br/>STORY-020 (backlog)<br/>STORY-023 (backlog)<br/>STORY-024 (backlog)<br/>STORY-026 (backlog)<br/>STORY-028 (backlog)<br/>STORY-031 (backlog)<br/>STORY-033 (backlog) | `PublicationProvenance`<br/>`StoredSchemaIntegrityError` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
+| **NFR-002** | Untitled | `functional` | STORY-010 (cancelled)<br/>STORY-011 (cancelled)<br/>STORY-014 (cancelled)<br/>STORY-016 (cancelled)<br/>STORY-017 (backlog)<br/>STORY-021 (backlog)<br/>STORY-029 (backlog)<br/>STORY-033 (backlog)<br/>STORY-034 (backlog) | — | 8VC3FRAN1GRTK2F99NB459BWWJ | 🔴 Untraced |
+| **NFR-003** | Untitled | `functional` | STORY-014 (cancelled)<br/>STORY-016 (cancelled)<br/>STORY-019 (backlog)<br/>STORY-023 (backlog)<br/>STORY-027 (backlog)<br/>STORY-028 (backlog)<br/>STORY-030 (backlog)<br/>STORY-032 (backlog) | — | — | 🔴 Untraced |
+| **NFR-004** | Untitled | `functional` | STORY-007 (done)<br/>STORY-009 (in-review)<br/>STORY-015 (cancelled)<br/>STORY-016 (cancelled)<br/>STORY-021 (backlog)<br/>STORY-036 (backlog)<br/>STORY-037 (backlog) | `RuntimeEnvironment`<br/>`DatabaseSettings`<br/>`StorageSettings` | 8VC3FRAN1GRTK2F99NB459BWWJ<br/>HKSQBTGX2CZT36GCS8D3ZTM2PA | 🟢 Implemented |
+| **NFR-005** | Untitled | `functional` | STORY-013 (cancelled)<br/>STORY-016 (cancelled)<br/>STORY-017 (backlog)<br/>STORY-026 (backlog) | — | — | 🔴 Untraced |
+| **NFR-006** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-012 (cancelled)<br/>STORY-014 (cancelled)<br/>STORY-016 (cancelled)<br/>STORY-017 (backlog)<br/>STORY-023 (backlog)<br/>STORY-026 (backlog)<br/>STORY-027 (backlog)<br/>STORY-029 (backlog)<br/>STORY-032 (backlog)<br/>STORY-034 (backlog)<br/>STORY-037 (backlog) | `LoggingSettings`<br/>`correlation_id`<br/>`HealthReport` | 8VC3FRAN1GRTK2F99NB459BWWJ | 🟢 Implemented |
+| **NFR-007** | Untitled | `functional` | STORY-010 (cancelled)<br/>STORY-021 (backlog)<br/>STORY-033 (backlog) | — | HKSQBTGX2CZT36GCS8D3ZTM2PA | 🔴 Untraced |
+| **NFR-008** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-007 (done)<br/>STORY-008 (done)<br/>STORY-010 (cancelled)<br/>STORY-012 (cancelled)<br/>STORY-015 (cancelled)<br/>STORY-016 (cancelled)<br/>STORY-017 (backlog)<br/>STORY-018 (backlog)<br/>STORY-019 (backlog)<br/>STORY-020 (backlog)<br/>STORY-023 (backlog)<br/>STORY-024 (backlog)<br/>STORY-030 (backlog)<br/>STORY-031 (backlog)<br/>STORY-035 (backlog)<br/>STORY-036 (backlog) | `upgrade`<br/>`AccessApiRuntime`<br/>`AuthenticateLocalOperator` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
+| **NFR-009** | Untitled | `functional` | STORY-015 (cancelled)<br/>STORY-035 (backlog)<br/>STORY-036 (backlog)<br/>STORY-037 (backlog) | — | — | 🔴 Untraced |
 
 
 ## 3. Architecture Decisions (ADRs)
@@ -219,6 +240,7 @@ gantt
 - **GC27J7X510394MDYVWSK5M14C2**: Plan delivery through interaction-first vertical slices (Status: `accepted`, Category: `architecture`)
 - **SW33NV9PVTRT60GMH1497PZD62**: Use native PostgreSQL now and add a hybrid Docker profile before release (Status: `accepted`, Category: `database`)
 - **VVWYJKD93R4A9A7B5009H07F73**: Use provider-neutral local identity with opaque server-side sessions (Status: `accepted`, Category: `security`)
+- **TXEQ9J0ARXYKS7CMQ0V1Z9FT5R**: Use replaceable bounded authentication throttling (Status: `accepted`, Category: `security`)
 
 ## 4. Declared Tech Stack
 
@@ -257,6 +279,7 @@ gantt
 - **openapi-python-client** (`SDK Generation`)
 - **oasdiff** (`API Contract Testing`)
 - **PostgreSQL** (`Database`)
+- **argon2-cffi** (`Identity Security`)
 
 ## 5. Granular Scoped Plans
 
@@ -270,14 +293,27 @@ To inspect deep-dive necessity, user stories, and execution checklists for indiv
 
 | Wave | Parallel Execution Stories | Prerequisite |
 |:-----|:---------------------------|:-------------|
-| Wave 1 | 3JVEA7J60SSVDTK16VMMW1R6CY, HYFDZB6CJS5YV2KZ216C77VD3H, HKDJB0N3JTKZ2RRFRP5PT70PF9, KMC5EK26PXNT868PT6W97RX06A, D86X3Q727TBSXDQX5NRNNZEB63, HFVVS2GASHC8W7HEMCW9VMP0TB, C37NZW5X9ASZRS7XHZ7W56MG8V, RXAZEMKJVJNN58W029T397M3QN, 1VED17WSNE77N7VVCZTXC2NAT5, 4PJTJVE73D2MN7GT64T48S05HT, BYNGTQS6SX4FB7HQ46D9FKTJR2, 8PKADXET1MA10TAY9F6VBDYYAD, XPNG59AKNVHXYMPRFWR71DSE0C, 06SRF2HBM8APTGA5RP2D9XS3JP, WJN4QJFCJQ98V9Q35KDDVW0HGN, ASQKQ6YH4S8G6SDQ6XN7BHYM8E, 3J2M9KAE9H8THGD2AR9DSKXYTC, B1B7G0DXYE4JSEGFSC2NT8MFD1, Q2840JNY2G50TCZHWY7MWRBKHT, NWMGM72BETT2BVW6DPW6APQCGR, 0P37MDJCQKH1STANM151Q81NHH, FK5B70RZFH4QSTW7Y02R1D3E1N, XRS5S2GBBCPV9Q9CCN2DXBJ2G3, 0C4PR416ZZ5WCA73DMBZFK87CY, GAAPXNG7SK2X48CW2GDDG7MJ06, KYSVD7PWKX5ZAZW4FN67NXA26E, 5DGKC77RV9C2GWTKWK49788S1B, 75J1CS4ZFVG3RSXH2GDF7W82ME, 89ZWE45CMH2MKH116P992C3BDS, NGSBE5Q1QVXJG649C8FQ7JM41Y, J53MR4BTE1N2XJHRYXHV4Z87JG, 36P0MN74XTPQ943H6EVXGDX1WE, 00B1KJ2YM4P1PBKNQTM3AWSPSP, DC2ZQWDS83EVZ95JRJERYN90RP, BNPAYSRAD7TJQ56MBQRP1BAHJQ, WKW6R599VZYZS7J7V8MXGDXWZX, JY8T325XB4VZ2F6DZRPYY7XEHD, 99JY71R6GRKG8SXDWD92357XNV, 7EGC5PWY8MQB5BKQKTR05DWBPQ, STORY-005, STORY-006, STORY-007, 0VJ9SHA39TA291D8QXB0TQS3HQ, N1ZNPJWFZYPV0MVB8FP137GRJP, X51S43NTMRW5ASYSKJBF7FW845, H98W5WTJBWT8EY0Q10P3KPCEEB, 265YM4FNANJAH2J338BKAWFXDM, XRSZ0A5WZEQB0PQYD34PYR8EW3, J2ZHMCR2DNQSHD1VZY7CECT2HT, 9M4MDW7FN1SGECW2X23WF01501, AN2RM9JX2PBR6J1NQ1KSHBYHSQ, SHF26TB4C43PC4KD2W3PRZ3R78, WN341EKS97VGCX76ZFR0KHX96Y, QM5MGN4VTK1J9CWEXMC50RM00G, YKQFD89QJYH87GQSMKCVQ104AK, MAQPX7K4Z5MD3BNT93YFJBRZR5, ZSHX48Q9AHPEBJCDM0DAD8ED2H, ACCCV50MZW87EEEPS6Y1HXGNAZ, 7GZK6H8HR3XKPQ94Q89N85WH0Q, 1A43QS6QGZ4YWH5FG25XZWYEH2, CDSSWKJ0X91XHKD7X3Q8XHXKE5, R26DFKYKFWHH981YK1QJEM18WN, 2BJ99DB0QWS3FE3J0F50N6EPW4, AV6YSSGTH46ET6J9NN0DDK7E6B, C29D8MCQWYGWY6FFSP4YW7MNX7, 3F1QK0FAD4X03Q4CB5XKDC1BJH, 44E3PFDX5EVQE4FRTAN1A5RMGC, PEE73AVQEAC75HKDMA3FA1S4YJ, M7ZMYQSYB6G0W2T5M7TYCCZNHH, 5KENKXMX9EZDJ75R0JHJQ2KSSJ, 7D8Q1STZ5VEWBSAR6W87P4DH1W, ECMWWJT024W5QXBQ5G6C1YMHQQ, 4QGB75ND0XME0JVSYJN9K3PMTW | None (Start Immediately) |
-| Wave 2 | STORY-002, STORY-001, STORY-004, STORY-008, STORY-009 | Wave 1 Completion |
-| Wave 3 | STORY-003, STORY-010 | Wave 2 Completion |
-| Wave 4 | STORY-011 | Wave 3 Completion |
-| Wave 5 | STORY-012, STORY-014 | Wave 4 Completion |
-| Wave 6 | STORY-013 | Wave 5 Completion |
-| Wave 7 | STORY-015 | Wave 6 Completion |
-| Wave 8 | STORY-016 | Wave 7 Completion |
+| Wave 1 | 3JVEA7J60SSVDTK16VMMW1R6CY, HYFDZB6CJS5YV2KZ216C77VD3H, HKDJB0N3JTKZ2RRFRP5PT70PF9, KMC5EK26PXNT868PT6W97RX06A, D86X3Q727TBSXDQX5NRNNZEB63, HFVVS2GASHC8W7HEMCW9VMP0TB, C37NZW5X9ASZRS7XHZ7W56MG8V, RXAZEMKJVJNN58W029T397M3QN, 1VED17WSNE77N7VVCZTXC2NAT5, 4PJTJVE73D2MN7GT64T48S05HT, BYNGTQS6SX4FB7HQ46D9FKTJR2, 8PKADXET1MA10TAY9F6VBDYYAD, XPNG59AKNVHXYMPRFWR71DSE0C, 06SRF2HBM8APTGA5RP2D9XS3JP, WJN4QJFCJQ98V9Q35KDDVW0HGN, ASQKQ6YH4S8G6SDQ6XN7BHYM8E, 3J2M9KAE9H8THGD2AR9DSKXYTC, B1B7G0DXYE4JSEGFSC2NT8MFD1, Q2840JNY2G50TCZHWY7MWRBKHT, NWMGM72BETT2BVW6DPW6APQCGR, 0P37MDJCQKH1STANM151Q81NHH, FK5B70RZFH4QSTW7Y02R1D3E1N, XRS5S2GBBCPV9Q9CCN2DXBJ2G3, 0C4PR416ZZ5WCA73DMBZFK87CY, GAAPXNG7SK2X48CW2GDDG7MJ06, KYSVD7PWKX5ZAZW4FN67NXA26E, 5DGKC77RV9C2GWTKWK49788S1B, 75J1CS4ZFVG3RSXH2GDF7W82ME, 89ZWE45CMH2MKH116P992C3BDS, NGSBE5Q1QVXJG649C8FQ7JM41Y, J53MR4BTE1N2XJHRYXHV4Z87JG, 36P0MN74XTPQ943H6EVXGDX1WE, 00B1KJ2YM4P1PBKNQTM3AWSPSP, DC2ZQWDS83EVZ95JRJERYN90RP, BNPAYSRAD7TJQ56MBQRP1BAHJQ, WKW6R599VZYZS7J7V8MXGDXWZX, JY8T325XB4VZ2F6DZRPYY7XEHD, 99JY71R6GRKG8SXDWD92357XNV, 7EGC5PWY8MQB5BKQKTR05DWBPQ, STORY-005, STORY-006, STORY-007, 0VJ9SHA39TA291D8QXB0TQS3HQ, N1ZNPJWFZYPV0MVB8FP137GRJP, XRSZ0A5WZEQB0PQYD34PYR8EW3, 44E3PFDX5EVQE4FRTAN1A5RMGC, ECMWWJT024W5QXBQ5G6C1YMHQQ, STORY-034 | None (Start Immediately) |
+| Wave 2 | STORY-002, STORY-001, STORY-004, STORY-008, STORY-009, X51S43NTMRW5ASYSKJBF7FW845, STORY-017, J2ZHMCR2DNQSHD1VZY7CECT2HT, STORY-019, STORY-021, STORY-036 | Wave 1 Completion |
+| Wave 3 | STORY-003, STORY-010, H98W5WTJBWT8EY0Q10P3KPCEEB, 9M4MDW7FN1SGECW2X23WF01501 | Wave 2 Completion |
+| Wave 4 | STORY-011, STORY-018, AN2RM9JX2PBR6J1NQ1KSHBYHSQ, STORY-020 | Wave 3 Completion |
+| Wave 5 | STORY-012, STORY-014, 265YM4FNANJAH2J338BKAWFXDM, STORY-022 | Wave 4 Completion |
+| Wave 6 | STORY-013, SHF26TB4C43PC4KD2W3PRZ3R78, C29D8MCQWYGWY6FFSP4YW7MNX7 | Wave 5 Completion |
+| Wave 7 | STORY-015, WN341EKS97VGCX76ZFR0KHX96Y, STORY-030 | Wave 6 Completion |
+| Wave 8 | STORY-016, QM5MGN4VTK1J9CWEXMC50RM00G, STORY-023, STORY-024 | Wave 7 Completion |
+| Wave 9 | YKQFD89QJYH87GQSMKCVQ104AK | Wave 8 Completion |
+| Wave 10 | MAQPX7K4Z5MD3BNT93YFJBRZR5, STORY-031 | Wave 9 Completion |
+| Wave 11 | ZSHX48Q9AHPEBJCDM0DAD8ED2H, 2BJ99DB0QWS3FE3J0F50N6EPW4, STORY-029 | Wave 10 Completion |
+| Wave 12 | ACCCV50MZW87EEEPS6Y1HXGNAZ, STORY-025 | Wave 11 Completion |
+| Wave 13 | 7GZK6H8HR3XKPQ94Q89N85WH0Q, 1A43QS6QGZ4YWH5FG25XZWYEH2, 4QGB75ND0XME0JVSYJN9K3PMTW | Wave 12 Completion |
+| Wave 14 | R26DFKYKFWHH981YK1QJEM18WN, CDSSWKJ0X91XHKD7X3Q8XHXKE5, STORY-035 | Wave 13 Completion |
+| Wave 15 | STORY-026, STORY-027 | Wave 14 Completion |
+| Wave 16 | 3F1QK0FAD4X03Q4CB5XKDC1BJH, STORY-028 | Wave 15 Completion |
+| Wave 17 | AV6YSSGTH46ET6J9NN0DDK7E6B, PEE73AVQEAC75HKDMA3FA1S4YJ, 5KENKXMX9EZDJ75R0JHJQ2KSSJ, 7D8Q1STZ5VEWBSAR6W87P4DH1W | Wave 16 Completion |
+| Wave 18 | STORY-032 | Wave 17 Completion |
+| Wave 19 | M7ZMYQSYB6G0W2T5M7TYCCZNHH | Wave 18 Completion |
+| Wave 20 | STORY-033 | Wave 19 Completion |
+| Wave 21 | STORY-037 | Wave 20 Completion |
 
 ---
 *Generated by Skyhook Dynamic Project Plan Compiler (v1.7.0).*

@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T15:06:53.050Z"
+  updatedAt: "2026-10-07T15:24:10.474Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1415,7 +1415,7 @@ stories:
     title: Build the accessible application shell and generated-client boundary
     description: Implements REQ-012 and NFR-005. This story establishes reusable interaction infrastructure without hard-coding invoice-specific fields.
     epicId: CG7VFRWAF177CMZK333E19YND1
-    status: backlog
+    status: cancelled
     storyPoints: 5
     priority: high
     standards:
@@ -1441,12 +1441,16 @@ stories:
       - YVR9J8NZ0KKC702GD8KBNKNX9R
       - 0203XS0XEJA6WAXJE453SDXKEY
     createdAt: "2026-10-01T17:35:51.375Z"
-    updatedAt: "2026-10-01T17:35:51.375Z"
+    updatedAt: "2026-10-07T15:19:19.876Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
   - id: STORY-014
     title: Create the worker composition root and durable work port
     description: Implements REQ-014, NFR-002, NFR-003, and NFR-006. This creates the composition and port contract; selection of the production durable-job engine remains governed by story DC2ZQWDS83EVZ95JRJERYN90RP.
     epicId: CG7VFRWAF177CMZK333E19YND1
-    status: backlog
+    status: cancelled
     storyPoints: 5
     priority: critical
     standards:
@@ -1476,12 +1480,16 @@ stories:
       - 00NQ03THY3ECYEWHC8FQHEZ9FX
       - G415QTQM57QT5BVB8HXCD9QSWG
     createdAt: "2026-10-01T17:35:54.534Z"
-    updatedAt: "2026-10-01T17:35:54.534Z"
+    updatedAt: "2026-10-07T15:19:23.312Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
   - id: STORY-015
     title: Implement provider-neutral continuous quality and supply-chain gates
     description: Implements REQ-012, REQ-014, NFR-004, NFR-008, and NFR-009 according to STD-DEV-001.
     epicId: CG7VFRWAF177CMZK333E19YND1
-    status: backlog
+    status: cancelled
     storyPoints: 8
     priority: critical
     standards:
@@ -1514,12 +1522,16 @@ stories:
       - DZV8X4BAZ3XQXXEVZ80ABCS0VS
       - C55W6NV4W420XTMBHB5RK2MQXY
     createdAt: "2026-10-01T17:35:58.548Z"
-    updatedAt: "2026-10-01T17:35:58.548Z"
+    updatedAt: "2026-10-07T15:19:26.072Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
   - id: STORY-016
     title: Prove the tenant-aware API-worker-web walking skeleton
     description: Gate 0 exit story implementing cross-cutting portions of REQ-012, REQ-014, NFR-002, NFR-003, NFR-004, NFR-005, NFR-006, and NFR-008. It uses a neutral diagnostic resource, not a fake document workflow.
     epicId: CG7VFRWAF177CMZK333E19YND1
-    status: backlog
+    status: cancelled
     storyPoints: 5
     priority: critical
     standards:
@@ -1558,7 +1570,11 @@ stories:
       - 0SDFG842JNTB1BS8G595CKF0E0
       - BC3ZF3K4AR4ZNW7CV1P87NHJD2
     createdAt: "2026-10-01T17:36:02.289Z"
-    updatedAt: "2026-10-01T17:36:02.289Z"
+    updatedAt: "2026-10-07T15:19:28.546Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
   - id: 0VJ9SHA39TA291D8QXB0TQS3HQ
     epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
     title: Persist governed schemas for interactive use
@@ -1621,7 +1637,9 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - 0VJ9SHA39TA291D8QXB0TQS3HQ
+      - N1ZNPJWFZYPV0MVB8FP137GRJP
     standards: []
     createdAt: "2026-10-03T08:20:53.861Z"
     updatedAt: "2026-10-03T08:20:53.861Z"
@@ -1634,7 +1652,9 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - STORY-017
+      - X51S43NTMRW5ASYSKJBF7FW845
     standards: []
     createdAt: "2026-10-03T08:20:53.861Z"
     updatedAt: "2026-10-03T08:20:53.861Z"
@@ -1647,7 +1667,11 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - STORY-017
+      - X51S43NTMRW5ASYSKJBF7FW845
+      - H98W5WTJBWT8EY0Q10P3KPCEEB
+      - STORY-018
     standards: []
     createdAt: "2026-10-03T08:20:53.861Z"
     updatedAt: "2026-10-03T08:20:53.861Z"
@@ -1673,7 +1697,8 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - XRSZ0A5WZEQB0PQYD34PYR8EW3
     standards: []
     createdAt: "2026-10-03T08:20:57.690Z"
     updatedAt: "2026-10-03T08:20:57.690Z"
@@ -1686,7 +1711,9 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - XRSZ0A5WZEQB0PQYD34PYR8EW3
+      - J2ZHMCR2DNQSHD1VZY7CECT2HT
     standards: []
     createdAt: "2026-10-03T08:20:57.690Z"
     updatedAt: "2026-10-03T08:20:57.690Z"
@@ -1699,7 +1726,11 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - STORY-017
+      - XRSZ0A5WZEQB0PQYD34PYR8EW3
+      - J2ZHMCR2DNQSHD1VZY7CECT2HT
+      - 9M4MDW7FN1SGECW2X23WF01501
     standards: []
     createdAt: "2026-10-03T08:20:57.690Z"
     updatedAt: "2026-10-03T08:20:57.690Z"
@@ -1712,7 +1743,9 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - 265YM4FNANJAH2J338BKAWFXDM
+      - STORY-020
     standards: []
     createdAt: "2026-10-03T08:21:02.302Z"
     updatedAt: "2026-10-03T08:21:02.302Z"
@@ -1725,7 +1758,9 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - SHF26TB4C43PC4KD2W3PRZ3R78
+      - STORY-022
     standards: []
     createdAt: "2026-10-03T08:21:02.303Z"
     updatedAt: "2026-10-03T08:21:02.303Z"
@@ -1738,7 +1773,8 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - WN341EKS97VGCX76ZFR0KHX96Y
     standards: []
     createdAt: "2026-10-03T08:21:02.303Z"
     updatedAt: "2026-10-03T08:21:02.303Z"
@@ -1751,7 +1787,8 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - QM5MGN4VTK1J9CWEXMC50RM00G
     standards: []
     createdAt: "2026-10-03T08:21:02.303Z"
     updatedAt: "2026-10-03T08:21:02.303Z"
@@ -1764,7 +1801,10 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - STORY-017
+      - QM5MGN4VTK1J9CWEXMC50RM00G
+      - YKQFD89QJYH87GQSMKCVQ104AK
     standards: []
     createdAt: "2026-10-03T08:21:02.303Z"
     updatedAt: "2026-10-03T08:21:02.303Z"
@@ -1777,7 +1817,9 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - MAQPX7K4Z5MD3BNT93YFJBRZR5
+      - YKQFD89QJYH87GQSMKCVQ104AK
     standards: []
     createdAt: "2026-10-03T08:21:02.303Z"
     updatedAt: "2026-10-03T08:21:02.303Z"
@@ -1790,7 +1832,8 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - ZSHX48Q9AHPEBJCDM0DAD8ED2H
     standards: []
     createdAt: "2026-10-03T08:21:06.258Z"
     updatedAt: "2026-10-03T08:21:06.258Z"
@@ -1803,7 +1846,8 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - ACCCV50MZW87EEEPS6Y1HXGNAZ
     standards: []
     createdAt: "2026-10-03T08:21:06.259Z"
     updatedAt: "2026-10-03T08:21:06.259Z"
@@ -1816,7 +1860,8 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - ACCCV50MZW87EEEPS6Y1HXGNAZ
     standards: []
     createdAt: "2026-10-03T08:21:06.260Z"
     updatedAt: "2026-10-03T08:21:06.260Z"
@@ -1829,7 +1874,9 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - 7GZK6H8HR3XKPQ94Q89N85WH0Q
+      - 1A43QS6QGZ4YWH5FG25XZWYEH2
     standards: []
     createdAt: "2026-10-03T08:21:06.260Z"
     updatedAt: "2026-10-03T08:21:06.260Z"
@@ -1842,7 +1889,9 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - ACCCV50MZW87EEEPS6Y1HXGNAZ
+      - 7GZK6H8HR3XKPQ94Q89N85WH0Q
     standards: []
     createdAt: "2026-10-03T08:21:06.260Z"
     updatedAt: "2026-10-03T08:21:06.260Z"
@@ -1855,7 +1904,8 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - MAQPX7K4Z5MD3BNT93YFJBRZR5
     standards: []
     createdAt: "2026-10-03T08:21:09.936Z"
     updatedAt: "2026-10-03T08:21:09.936Z"
@@ -1868,7 +1918,9 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - 2BJ99DB0QWS3FE3J0F50N6EPW4
+      - 3F1QK0FAD4X03Q4CB5XKDC1BJH
     standards: []
     createdAt: "2026-10-03T08:21:09.936Z"
     updatedAt: "2026-10-03T08:21:09.936Z"
@@ -1881,7 +1933,8 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - STORY-022
     standards: []
     createdAt: "2026-10-03T08:21:09.936Z"
     updatedAt: "2026-10-03T08:21:09.936Z"
@@ -1894,7 +1947,9 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - C29D8MCQWYGWY6FFSP4YW7MNX7
+      - STORY-027
     standards: []
     createdAt: "2026-10-03T08:21:09.937Z"
     updatedAt: "2026-10-03T08:21:09.937Z"
@@ -1905,12 +1960,16 @@ stories:
     acceptanceCriteria:
       - Each capability requires a named use case and representative data.
     priority: high
-    status: backlog
+    status: cancelled
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-03T08:21:09.937Z"
-    updatedAt: "2026-10-03T08:21:09.937Z"
+    updatedAt: "2026-10-07T15:24:10.474Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
   - id: PEE73AVQEAC75HKDMA3FA1S4YJ
     epicId: MGTBBJH7794WRYSFBFE6ZYWXCV
     title: Build an operational recovery and observability workspace
@@ -1920,7 +1979,10 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - C29D8MCQWYGWY6FFSP4YW7MNX7
+      - 3F1QK0FAD4X03Q4CB5XKDC1BJH
+      - STORY-027
     standards: []
     createdAt: "2026-10-03T08:21:09.937Z"
     updatedAt: "2026-10-03T08:21:09.937Z"
@@ -1933,7 +1995,9 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - STORY-028
+      - STORY-032
     standards: []
     createdAt: "2026-10-03T08:21:14.643Z"
     updatedAt: "2026-10-03T08:21:14.643Z"
@@ -1946,7 +2010,9 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - STORY-025
+      - STORY-028
     standards: []
     createdAt: "2026-10-03T08:21:14.643Z"
     updatedAt: "2026-10-03T08:21:14.643Z"
@@ -1959,7 +2025,9 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - STORY-023
+      - STORY-028
     standards: []
     createdAt: "2026-10-03T08:21:14.643Z"
     updatedAt: "2026-10-03T08:21:14.643Z"
@@ -1987,10 +2055,614 @@ stories:
     priority: high
     status: backlog
     storyPoints: null
-    dependsOn: []
+    dependsOn:
+      - STORY-025
     standards: []
     createdAt: "2026-10-03T08:21:14.643Z"
     updatedAt: "2026-10-03T08:21:14.643Z"
+  - id: STORY-017
+    title: Establish the authenticated application shell and generated API boundary
+    description: "Requirements: REQ-012, NFR-002, NFR-005, NFR-006, NFR-008, CON-005. Purpose: connect the completed access APIs to the React application and make the generated TypeScript client the only supported browser-to-API boundary."
+    epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
+    status: backlog
+    storyPoints: 8
+    priority: critical
+    standards:
+      - STD-ARCH-004
+      - STD-A11Y-002
+      - STD-A11Y-004
+      - STD-SEC-004
+      - STD-SOFT-003
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-012
+      - NFR-002
+      - NFR-005
+      - NFR-006
+      - NFR-008
+      - CON-005
+    acceptanceCriteria:
+      - The browser supports login, session restoration, tenant selection, logout, and capability-aware navigation through the versioned access API.
+      - Application code uses the generated TypeScript client with centralized credentials, CSRF, correlation, cancellation, and sanitized error handling rather than ad-hoc backend requests.
+      - Keyboard, responsive, loading, empty, forbidden, expired-session, and failure states are verified against the running API.
+    dependsOn:
+      - N1ZNPJWFZYPV0MVB8FP137GRJP
+    createdAt: "2026-10-07T15:20:58.224Z"
+    updatedAt: "2026-10-07T15:20:58.224Z"
+  - id: STORY-018
+    title: Import export compare and evolve governed schemas
+    description: "Requirements: REQ-003, REQ-016, REQ-017, NFR-001, NFR-008. Purpose: complete the administrator-facing schema lifecycle beyond basic draft editing and publication."
+    epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
+    status: backlog
+    storyPoints: 8
+    priority: high
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-ARCH-004
+      - STD-SOFT-003
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-003
+      - REQ-016
+      - REQ-017
+      - NFR-001
+      - NFR-008
+    acceptanceCriteria:
+      - Versioned schema packages can be imported and exported through validated public contracts without trusting persistence representations.
+      - Administrators can compare revisions and understand compatibility, validation, and publication effects before changing active configuration.
+      - Unmapped candidates may seed a draft, but no discovered field becomes authoritative until the governed draft is validated and published.
+    dependsOn:
+      - X51S43NTMRW5ASYSKJBF7FW845
+      - H98W5WTJBWT8EY0Q10P3KPCEEB
+    createdAt: "2026-10-07T15:21:02.506Z"
+    updatedAt: "2026-10-07T15:21:02.506Z"
+  - id: STORY-019
+    title: Accept programmatic and resumable document intake
+    description: "Requirements: REQ-001, REQ-012, NFR-003, NFR-008. Purpose: complement browser upload with a durable automation boundary for larger and retried submissions."
+    epicId: JA6EY894YZ69F5JN40GG143M2S
+    status: backlog
+    storyPoints: 8
+    priority: high
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-SEC-002
+      - STD-SOFT-001
+      - STD-SOFT-003
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-001
+      - REQ-012
+      - NFR-003
+      - NFR-008
+    acceptanceCriteria:
+      - A versioned authenticated API accepts supported document submissions with idempotency, tenant scope, source metadata, and deterministic receipt identifiers.
+      - Interrupted or duplicate submissions resume or converge without creating ambiguous document custody.
+      - OpenAPI, generated SDK operations, limits, errors, and recovery behavior are documented and tested.
+    dependsOn:
+      - XRSZ0A5WZEQB0PQYD34PYR8EW3
+    createdAt: "2026-10-07T15:21:06.813Z"
+    updatedAt: "2026-10-07T15:21:06.813Z"
+  - id: STORY-020
+    title: Classify documents and govern type corrections
+    description: "Requirements: REQ-002, REQ-015, REQ-016, NFR-001, NFR-008. Purpose: make classification an inspectable, correctable, versioned input to schema resolution."
+    epicId: JA6EY894YZ69F5JN40GG143M2S
+    status: backlog
+    storyPoints: 8
+    priority: critical
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-SOFT-003
+      - STD-TEST-001
+    relatedRequirements:
+      - REQ-002
+      - REQ-015
+      - REQ-016
+      - NFR-001
+      - NFR-008
+    acceptanceCriteria:
+      - Classification records the classifier version, candidates, confidence, source artifact versions, and chosen document type.
+      - Authorized corrections preserve prior suggestions and actor, reason, time, and correlation metadata.
+      - Downstream schema resolution consumes only the persisted governed selection and its version.
+    dependsOn:
+      - J2ZHMCR2DNQSHD1VZY7CECT2HT
+      - 9M4MDW7FN1SGECW2X23WF01501
+    createdAt: "2026-10-07T15:21:11.022Z"
+    updatedAt: "2026-10-07T15:21:11.022Z"
+  - id: STORY-021
+    title: Confine untrusted document processing and preview
+    description: "Requirements: CON-004, NFR-002, NFR-004, NFR-007. Purpose: establish the explicit hostile-input boundary for parsers, OCR, previews, metadata, URLs, and provider requests."
+    epicId: JA6EY894YZ69F5JN40GG143M2S
+    status: backlog
+    storyPoints: 8
+    priority: critical
+    standards:
+      - STD-ARCH-001
+      - STD-SEC-003
+      - STD-SEC-004
+      - STD-SOFT-001
+      - STD-TEST-002
+    relatedRequirements:
+      - CON-004
+      - NFR-002
+      - NFR-004
+      - NFR-007
+    acceptanceCriteria:
+      - Uploaded bytes and embedded instructions cannot execute commands, active preview content, arbitrary outbound requests, or credential access.
+      - Parsing and preview adapters operate through constrained interfaces with resource limits and sanitized outputs.
+      - Adversarial fixtures verify archive bombs, malformed files, active content, hostile metadata, and prompt-like document instructions are safely rejected or treated as data.
+    dependsOn:
+      - XRSZ0A5WZEQB0PQYD34PYR8EW3
+    createdAt: "2026-10-07T15:21:14.676Z"
+    updatedAt: "2026-10-07T15:21:14.676Z"
+  - id: STORY-022
+    title: Prove the secure document intake and source-understanding journey
+    description: "Requirements: REQ-001, REQ-002, REQ-012, REQ-015, CON-004. Purpose: provide a real browser and API checkpoint before extraction work begins."
+    epicId: JA6EY894YZ69F5JN40GG143M2S
+    status: backlog
+    storyPoints: 8
+    priority: critical
+    standards:
+      - STD-A11Y-001
+      - STD-A11Y-002
+      - STD-ARCH-002
+      - STD-TEST-001
+      - STD-TEST-002
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-001
+      - REQ-002
+      - REQ-012
+      - REQ-015
+      - CON-004
+    acceptanceCriteria:
+      - A native PDF, scanned PDF, PNG, and JPEG can be received, preserved, processed, classified, and inspected through the application using native PostgreSQL.
+      - Duplicate, oversized, malformed, hostile, cross-tenant, failed parsing, and OCR fallback paths are visibly and safely handled.
+      - Restart, retry, accessibility, traceability, and secret-safe observability evidence is captured in automated and manual verification.
+    dependsOn:
+      - XRSZ0A5WZEQB0PQYD34PYR8EW3
+      - J2ZHMCR2DNQSHD1VZY7CECT2HT
+      - 9M4MDW7FN1SGECW2X23WF01501
+      - AN2RM9JX2PBR6J1NQ1KSHBYHSQ
+      - STORY-019
+      - STORY-020
+      - STORY-021
+    createdAt: "2026-10-07T15:21:17.942Z"
+    updatedAt: "2026-10-07T15:21:17.942Z"
+  - id: STORY-023
+    title: Record extraction attempts and compare reprocessing outcomes
+    description: "Requirements: REQ-004, REQ-013, NFR-001, NFR-003, NFR-006, NFR-008. Purpose: make provider execution measurable, recoverable, and independent from authoritative reviewed revisions."
+    epicId: 78QQ2PHQ2E1QHQV03FFBCXYRQD
+    status: backlog
+    storyPoints: 8
+    priority: high
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-SOFT-001
+      - STD-TEST-001
+    relatedRequirements:
+      - REQ-004
+      - REQ-013
+      - NFR-001
+      - NFR-003
+      - NFR-006
+      - NFR-008
+    acceptanceCriteria:
+      - Each attempt retains provider, model, configuration, prompt/template version, schema/context versions, inputs, outputs, usage, timing, errors, and correlation metadata.
+      - Retries and reprocessing create linked attempts without rewriting prior results or silently replacing reviewed records.
+      - Users can compare value, evidence, validation, cost, latency, and correction-impact differences between attempts.
+    dependsOn:
+      - WN341EKS97VGCX76ZFR0KHX96Y
+    createdAt: "2026-10-07T15:21:20.730Z"
+    updatedAt: "2026-10-07T15:21:20.730Z"
+  - id: STORY-024
+    title: Promote unmapped candidates through governed schema discovery
+    description: "Requirements: REQ-017, REQ-003, REQ-004, NFR-001, NFR-008. Purpose: support changing documents without admitting arbitrary fields into authoritative records."
+    epicId: 78QQ2PHQ2E1QHQV03FFBCXYRQD
+    status: backlog
+    storyPoints: 8
+    priority: high
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-SOFT-003
+      - STD-TEST-001
+    relatedRequirements:
+      - REQ-017
+      - REQ-003
+      - REQ-004
+      - NFR-001
+      - NFR-008
+    acceptanceCriteria:
+      - Unmapped candidates retain proposed type, structure, evidence, frequency, source document classes, and extraction provenance.
+      - Authorized users can group or promote candidates into a draft schema revision with representative examples.
+      - Authoritative extraction and records ignore unapproved fields until the draft passes validation and publication.
+    dependsOn:
+      - WN341EKS97VGCX76ZFR0KHX96Y
+      - SHF26TB4C43PC4KD2W3PRZ3R78
+      - X51S43NTMRW5ASYSKJBF7FW845
+    createdAt: "2026-10-07T15:21:23.455Z"
+    updatedAt: "2026-10-07T15:21:23.455Z"
+  - id: STORY-025
+    title: Prove the source-to-submitted-revision journey
+    description: "Requirements: REQ-003, REQ-004, REQ-005, REQ-006, REQ-007, REQ-016. Purpose: prove Evidentia's central trust proposition through the real application."
+    epicId: 78QQ2PHQ2E1QHQV03FFBCXYRQD
+    status: backlog
+    storyPoints: 13
+    priority: critical
+    standards:
+      - STD-A11Y-002
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-TEST-001
+      - STD-TEST-002
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-003
+      - REQ-004
+      - REQ-005
+      - REQ-006
+      - REQ-007
+      - REQ-016
+    acceptanceCriteria:
+      - A document resolves a published schema, produces a candidate record, links values to source evidence, runs explainable validations, supports corrections, and submits an immutable revision.
+      - Provider failure, missing evidence, blocking findings, concurrent edits, schema mismatch, retries, and restarts preserve consistent inspectable state.
+      - Browser, API, database, audit, accessibility, and traceability evidence demonstrate the complete journey without exposing secrets or cross-tenant data.
+    dependsOn:
+      - SHF26TB4C43PC4KD2W3PRZ3R78
+      - WN341EKS97VGCX76ZFR0KHX96Y
+      - QM5MGN4VTK1J9CWEXMC50RM00G
+      - YKQFD89QJYH87GQSMKCVQ104AK
+      - MAQPX7K4Z5MD3BNT93YFJBRZR5
+      - ZSHX48Q9AHPEBJCDM0DAD8ED2H
+      - STORY-022
+      - STORY-023
+      - STORY-024
+    createdAt: "2026-10-07T15:21:26.470Z"
+    updatedAt: "2026-10-07T15:21:26.470Z"
+  - id: STORY-026
+    title: Administer approval decisions and delivery outcomes
+    description: "Requirements: REQ-008, REQ-010, REQ-014, NFR-001, NFR-005, NFR-006. Purpose: expose safe operational controls and history for approval and delivery."
+    epicId: NNEY4EH15NKW1PZK4G75T8CJ99
+    status: backlog
+    storyPoints: 8
+    priority: high
+    standards:
+      - STD-A11Y-002
+      - STD-A11Y-004
+      - STD-ARCH-002
+      - STD-UX-002
+      - STD-SOFT-001
+    relatedRequirements:
+      - REQ-008
+      - REQ-010
+      - REQ-014
+      - NFR-001
+      - NFR-005
+      - NFR-006
+    acceptanceCriteria:
+      - The application presents revision-bound approval history separately from destination-specific delivery attempts and outcomes.
+      - Authorized users can perform permitted local approval, rejection, cancellation, retry, and recovery actions with explicit consequences.
+      - Keyboard-accessible states explain pending, denied, expired, failed, ambiguous, reconciled, and superseded outcomes.
+    dependsOn:
+      - 7GZK6H8HR3XKPQ94Q89N85WH0Q
+      - CDSSWKJ0X91XHKD7X3Q8XHXKE5
+    createdAt: "2026-10-07T15:21:29.984Z"
+    updatedAt: "2026-10-07T15:21:29.984Z"
+  - id: STORY-027
+    title: Reconcile ambiguous and failed delivery outcomes
+    description: "Requirements: REQ-010, REQ-014, NFR-003, NFR-006. Purpose: make external delivery recoverable when responses are lost, delayed, duplicated, or contradictory."
+    epicId: NNEY4EH15NKW1PZK4G75T8CJ99
+    status: backlog
+    storyPoints: 8
+    priority: critical
+    standards:
+      - STD-ARCH-002
+      - STD-ARCH-003
+      - STD-SOFT-001
+      - STD-TEST-002
+    relatedRequirements:
+      - REQ-010
+      - REQ-014
+      - NFR-003
+      - NFR-006
+    acceptanceCriteria:
+      - Delivery uses stable idempotency identity and preserves every attempt, response, timeout, and reconciliation observation.
+      - Ambiguous outcomes remain explicit until adapter-supported lookup or authorized operator action resolves them.
+      - Retries never rebuild approval scope or deliver a different revision, mapping, tenant, action, or destination.
+    dependsOn:
+      - CDSSWKJ0X91XHKD7X3Q8XHXKE5
+    createdAt: "2026-10-07T15:21:32.890Z"
+    updatedAt: "2026-10-07T15:21:32.890Z"
+  - id: STORY-028
+    title: Prove the local approval-to-authorized-delivery journey
+    description: "Requirements: REQ-008, REQ-010, NFR-001, NFR-003, CON-003. Purpose: demonstrate standalone Evidentia authorization and delivery before optional Delibera integration."
+    epicId: NNEY4EH15NKW1PZK4G75T8CJ99
+    status: backlog
+    storyPoints: 13
+    priority: critical
+    standards:
+      - STD-ARCH-002
+      - STD-ARCH-003
+      - STD-TEST-001
+      - STD-TEST-002
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-008
+      - REQ-010
+      - NFR-001
+      - NFR-003
+      - CON-003
+    acceptanceCriteria:
+      - An immutable submitted revision is approved locally, mapped, delivered idempotently, and displayed with complete audit and correlation history.
+      - Changed content, digest mismatch, wrong tenant, wrong destination, expiry, revocation, supersession, duplicate commands, and lost responses are rejected or reconciled safely.
+      - Cross-language canonicalization fixtures and a real browser/API/PostgreSQL journey verify the exact authorization boundary.
+    dependsOn:
+      - ACCCV50MZW87EEEPS6Y1HXGNAZ
+      - 7GZK6H8HR3XKPQ94Q89N85WH0Q
+      - 1A43QS6QGZ4YWH5FG25XZWYEH2
+      - CDSSWKJ0X91XHKD7X3Q8XHXKE5
+      - STORY-025
+      - STORY-026
+      - STORY-027
+    createdAt: "2026-10-07T15:21:37.269Z"
+    updatedAt: "2026-10-07T15:21:37.269Z"
+  - id: STORY-029
+    title: Operate prioritized exception queues and saved views
+    description: "Requirements: REQ-006, REQ-007, REQ-011, NFR-002, NFR-006. Purpose: turn individual review into manageable operational work without hiding underlying lifecycle states."
+    epicId: MGTBBJH7794WRYSFBFE6ZYWXCV
+    status: backlog
+    storyPoints: 8
+    priority: high
+    standards:
+      - STD-A11Y-002
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-SOFT-003
+    relatedRequirements:
+      - REQ-006
+      - REQ-007
+      - REQ-011
+      - NFR-002
+      - NFR-006
+    acceptanceCriteria:
+      - Queues derive priority and attention reasons from authoritative document, extraction, validation, review, approval, and delivery state.
+      - Tenant-scoped filters, sorting, assignments, and saved views are permission-aware, paginated, and reproducible.
+      - The UI exposes why each item needs attention and does not use one mutable combined status as the system of record.
+    dependsOn:
+      - YKQFD89QJYH87GQSMKCVQ104AK
+      - MAQPX7K4Z5MD3BNT93YFJBRZR5
+    createdAt: "2026-10-07T15:21:40.380Z"
+    updatedAt: "2026-10-07T15:21:40.380Z"
+  - id: STORY-030
+    title: Process batch and connector document intake
+    description: "Requirements: REQ-001, REQ-011, REQ-012, NFR-003, NFR-008. Purpose: scale the same trusted intake lifecycle beyond interactive upload."
+    epicId: MGTBBJH7794WRYSFBFE6ZYWXCV
+    status: backlog
+    storyPoints: 13
+    priority: high
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-SEC-003
+      - STD-TEST-002
+    relatedRequirements:
+      - REQ-001
+      - REQ-011
+      - REQ-012
+      - NFR-003
+      - NFR-008
+    acceptanceCriteria:
+      - Batch and connector submissions produce independently tenant-scoped document receipts and durable item state.
+      - Partial failure, duplicate delivery, retry, cancellation, quotas, and restart recovery do not lose or duplicate custody.
+      - Connector credentials and provider details remain behind versioned adapters and are excluded from routine logs.
+    dependsOn:
+      - C29D8MCQWYGWY6FFSP4YW7MNX7
+      - XRSZ0A5WZEQB0PQYD34PYR8EW3
+    createdAt: "2026-10-07T15:21:43.771Z"
+    updatedAt: "2026-10-07T15:21:43.771Z"
+  - id: STORY-031
+    title: Relate document bundles and match cross-document evidence
+    description: "Requirements: REQ-006, REQ-011, NFR-001, NFR-008. Purpose: support multi-document business contexts while preserving per-document provenance."
+    epicId: MGTBBJH7794WRYSFBFE6ZYWXCV
+    status: backlog
+    storyPoints: 13
+    priority: high
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-SOFT-003
+      - STD-TEST-001
+    relatedRequirements:
+      - REQ-006
+      - REQ-011
+      - NFR-001
+      - NFR-008
+    acceptanceCriteria:
+      - Versioned tenant-scoped relationships group documents without changing original custody or record identity.
+      - Matching rules and candidate links retain version, evidence, confidence, overrides, and validation findings.
+      - Authorized users can confirm, reject, or supersede matches with complete history and cross-tenant references are rejected.
+    dependsOn:
+      - QM5MGN4VTK1J9CWEXMC50RM00G
+      - YKQFD89QJYH87GQSMKCVQ104AK
+    createdAt: "2026-10-07T15:21:46.706Z"
+    updatedAt: "2026-10-07T15:21:46.706Z"
+  - id: STORY-032
+    title: Prove collaborative and recoverable operational work
+    description: "Requirements: REQ-007, REQ-011, REQ-014, REQ-018, NFR-003, NFR-006. Purpose: prove collaboration and scale capabilities only after their activation conditions are met."
+    epicId: MGTBBJH7794WRYSFBFE6ZYWXCV
+    status: backlog
+    storyPoints: 13
+    priority: high
+    standards:
+      - STD-A11Y-002
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-TEST-002
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-007
+      - REQ-011
+      - REQ-014
+      - REQ-018
+      - NFR-003
+      - NFR-006
+    acceptanceCriteria:
+      - Assignments, comments, conflicts, queues, batch work, and operational recovery function across multiple authorized sessions.
+      - Realtime transport, when activated, remains permission-aware and recoverable through authoritative versioned API reads.
+      - Restart, duplicate event, delayed event, concurrent edit, partial batch failure, retry, cancellation, and reconciliation paths are demonstrated.
+    dependsOn:
+      - 2BJ99DB0QWS3FE3J0F50N6EPW4
+      - PEE73AVQEAC75HKDMA3FA1S4YJ
+      - STORY-029
+      - STORY-030
+      - STORY-031
+      - C29D8MCQWYGWY6FFSP4YW7MNX7
+      - 3F1QK0FAD4X03Q4CB5XKDC1BJH
+    createdAt: "2026-10-07T15:21:49.687Z"
+    updatedAt: "2026-10-07T15:21:49.687Z"
+  - id: STORY-033
+    title: Enforce configurable retention deletion and audit preservation
+    description: "Requirements: NFR-007, NFR-001, NFR-002, REQ-014. Purpose: make privacy lifecycle behavior configurable, inspectable, and safe across originals, derivatives, provider data, records, and authorization history."
+    epicId: 89QP3HS2PDE09EJ9X86P5QRFWM
+    status: backlog
+    storyPoints: 13
+    priority: critical
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-SEC-002
+      - STD-TEST-002
+    relatedRequirements:
+      - NFR-007
+      - NFR-001
+      - NFR-002
+      - REQ-014
+    acceptanceCriteria:
+      - Retention policies are versioned and independently configurable by artifact category and tenant within deployment policy limits.
+      - Deletion and legal/audit preservation outcomes are explicit, authorized, idempotent, and recorded without leaking deleted content.
+      - Dry-run, execution, interruption recovery, referential integrity, backup interaction, and policy-change cases are verified.
+    dependsOn:
+      - M7ZMYQSYB6G0W2T5M7TYCCZNHH
+    createdAt: "2026-10-07T15:21:52.650Z"
+    updatedAt: "2026-10-07T15:21:52.650Z"
+  - id: STORY-034
+    title: Establish lifecycle telemetry and measured service objectives
+    description: "Requirements: NFR-006, NFR-002, REQ-014. Purpose: establish measurement before setting production performance targets."
+    epicId: 89QP3HS2PDE09EJ9X86P5QRFWM
+    status: backlog
+    storyPoints: 8
+    priority: high
+    standards:
+      - STD-ARCH-001
+      - STD-SEC-003
+      - STD-SOFT-001
+      - STD-DEV-001
+    relatedRequirements:
+      - NFR-006
+      - NFR-002
+      - REQ-014
+    acceptanceCriteria:
+      - Processing, review, approval, event, delivery, API, worker, storage, and database operations expose correlated structured telemetry.
+      - Sensitive values, credentials, document content, raw tokens, and cross-tenant identifiers are redacted or excluded by policy.
+      - Representative workloads establish documented latency, throughput, error, saturation, queue, and recovery baselines with alert ownership.
+    dependsOn: []
+    createdAt: "2026-10-07T15:21:57.550Z"
+    updatedAt: "2026-10-07T15:21:57.550Z"
+  - id: STORY-035
+    title: Establish the English supplier-invoice benchmark
+    description: "Requirements: REQ-013, REQ-015, NFR-009, NFR-008. Purpose: define permission-cleared representative evaluation evidence for native and scanned invoices."
+    epicId: 89QP3HS2PDE09EJ9X86P5QRFWM
+    status: backlog
+    storyPoints: 13
+    priority: critical
+    standards:
+      - STD-ARCH-004
+      - STD-TEST-001
+      - STD-TEST-002
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-013
+      - REQ-015
+      - NFR-009
+      - NFR-008
+    acceptanceCriteria:
+      - A provenance manifest covers permission-cleared native PDF, scanned PDF, PNG, and JPEG invoice fixtures with held-out partitions.
+      - Metrics cover extraction accuracy, evidence quality, validation, correction effort, latency, cost, failures, and results by source quality.
+      - Benchmark tooling uses versioned schemas, providers, configuration, and evaluation logic and produces reproducible release evidence.
+    dependsOn:
+      - 4QGB75ND0XME0JVSYJN9K3PMTW
+    createdAt: "2026-10-07T15:22:00.288Z"
+    updatedAt: "2026-10-07T15:22:00.288Z"
+  - id: STORY-036
+    title: Prove backup restore migration and upgrade recovery
+    description: "Requirements: REQ-014, NFR-004, NFR-008, NFR-009. Purpose: verify deployment operations against realistic versioned state rather than documentation alone."
+    epicId: 89QP3HS2PDE09EJ9X86P5QRFWM
+    status: backlog
+    storyPoints: 13
+    priority: critical
+    standards:
+      - STD-ARCH-004
+      - STD-SEC-003
+      - STD-TEST-002
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-014
+      - NFR-004
+      - NFR-008
+      - NFR-009
+    acceptanceCriteria:
+      - Document bytes, database state, configuration references, and required integration metadata are backed up and restored with integrity verification.
+      - Forward migration, rollback strategy, interrupted upgrade, schema compatibility, and restored credential handling are documented and rehearsed.
+      - Native deployment is primary during development and the optional Docker hybrid profile is verified at its recorded activation point.
+    dependsOn:
+      - ECMWWJT024W5QXBQ5G6C1YMHQQ
+    createdAt: "2026-10-07T15:22:03.524Z"
+    updatedAt: "2026-10-07T15:22:03.524Z"
+  - id: STORY-037
+    title: Prove production and release readiness with bounded claims
+    description: "Requirements: REQ-012, REQ-013, REQ-014, NFR-004, NFR-006, NFR-009. Purpose: make release acceptance an evidence-based product capability."
+    epicId: 89QP3HS2PDE09EJ9X86P5QRFWM
+    status: backlog
+    storyPoints: 13
+    priority: critical
+    standards:
+      - STD-A11Y-002
+      - STD-ARCH-004
+      - STD-TEST-001
+      - STD-TEST-002
+      - STD-DEV-001
+    relatedRequirements:
+      - REQ-012
+      - REQ-013
+      - REQ-014
+      - NFR-004
+      - NFR-006
+      - NFR-009
+    acceptanceCriteria:
+      - Release evidence identifies supported journeys, document classes, formats, languages, deployment profiles, APIs, adapters, and known limitations.
+      - Security, privacy, accessibility, migration, backup/restore, benchmark, regression, dependency, and recovery gates pass or carry an explicit owned exception.
+      - A clean installation can complete the representative schema, intake, extraction, review, approval, delivery, recovery, and upgrade journeys.
+    dependsOn:
+      - M7ZMYQSYB6G0W2T5M7TYCCZNHH
+      - 5KENKXMX9EZDJ75R0JHJQ2KSSJ
+      - 7D8Q1STZ5VEWBSAR6W87P4DH1W
+      - ECMWWJT024W5QXBQ5G6C1YMHQQ
+      - 4QGB75ND0XME0JVSYJN9K3PMTW
+      - STORY-033
+      - STORY-034
+      - STORY-035
+      - STORY-036
+      - 265YM4FNANJAH2J338BKAWFXDM
+      - STORY-022
+      - STORY-025
+      - STORY-028
+      - STORY-032
+    createdAt: "2026-10-07T15:22:07.303Z"
+    updatedAt: "2026-10-07T15:22:07.303Z"
 tasks:
   - id: MH5NTGAWXFX9RS65Z1CAST13X8
     title: "Pass 008.1: Declare bounded-context package map"

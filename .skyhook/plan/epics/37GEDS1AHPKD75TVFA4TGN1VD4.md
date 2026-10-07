@@ -1,7 +1,7 @@
 # Epic Plan: 37GEDS1AHPKD75TVFA4TGN1VD4 — Interactive Schema Workbench
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-07T09:44:12.881Z
+> **Generated**: 2026-10-07T15:24:22.513Z
 
 ---
 
@@ -14,20 +14,35 @@ Let an administrator govern dynamic schemas through a real browser workflow.
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
 | **0VJ9SHA39TA291D8QXB0TQS3HQ** | Persist governed schemas for interactive use | `done` | high | — | None |
-| **N1ZNPJWFZYPV0MVB8FP137GRJP** | Establish the minimum trusted operator and tenant context | `in-progress` | high | — | None |
-| **X51S43NTMRW5ASYSKJBF7FW845** | Expose the governed schema lifecycle through a versioned API | `backlog` | high | — | None |
-| **H98W5WTJBWT8EY0Q10P3KPCEEB** | Build the accessible Schema Workbench | `backlog` | high | — | None |
-| **265YM4FNANJAH2J338BKAWFXDM** | Prove the draft-to-published Schema Workbench journey | `backlog` | high | — | None |
+| **N1ZNPJWFZYPV0MVB8FP137GRJP** | Establish the minimum trusted operator and tenant context | `done` | high | — | None |
+| **X51S43NTMRW5ASYSKJBF7FW845** | Expose the governed schema lifecycle through a versioned API | `backlog` | high | — | 0VJ9SHA39TA291D8QXB0TQS3HQ, N1ZNPJWFZYPV0MVB8FP137GRJP |
+| **H98W5WTJBWT8EY0Q10P3KPCEEB** | Build the accessible Schema Workbench | `backlog` | high | — | STORY-017, X51S43NTMRW5ASYSKJBF7FW845 |
+| **265YM4FNANJAH2J338BKAWFXDM** | Prove the draft-to-published Schema Workbench journey | `backlog` | high | — | STORY-017, X51S43NTMRW5ASYSKJBF7FW845, H98W5WTJBWT8EY0Q10P3KPCEEB, STORY-018 |
+| **STORY-017** | Establish the authenticated application shell and generated API boundary | `backlog` | critical | 8 pts | N1ZNPJWFZYPV0MVB8FP137GRJP |
+| **STORY-018** | Import export compare and evolve governed schemas | `backlog` | high | 8 pts | X51S43NTMRW5ASYSKJBF7FW845, H98W5WTJBWT8EY0Q10P3KPCEEB |
 
 ## 3. Dependency Structure (Mermaid DAG)
 
 ```mermaid
 flowchart TD
     0VJ9SHA39TA291D8QXB0TQS3HQ["Persist governed schemas for interactive use (done)"]
-    N1ZNPJWFZYPV0MVB8FP137GRJP["Establish the minimum trusted operator and tenant context (in-progress)"]
+    N1ZNPJWFZYPV0MVB8FP137GRJP["Establish the minimum trusted operator and tenant context (done)"]
     X51S43NTMRW5ASYSKJBF7FW845["Expose the governed schema lifecycle through a versioned API (backlog)"]
+    0VJ9SHA39TA291D8QXB0TQS3HQ --> X51S43NTMRW5ASYSKJBF7FW845
+    N1ZNPJWFZYPV0MVB8FP137GRJP --> X51S43NTMRW5ASYSKJBF7FW845
     H98W5WTJBWT8EY0Q10P3KPCEEB["Build the accessible Schema Workbench (backlog)"]
+    STORY-017 --> H98W5WTJBWT8EY0Q10P3KPCEEB
+    X51S43NTMRW5ASYSKJBF7FW845 --> H98W5WTJBWT8EY0Q10P3KPCEEB
     265YM4FNANJAH2J338BKAWFXDM["Prove the draft-to-published Schema Workbench journey (backlog)"]
+    STORY-017 --> 265YM4FNANJAH2J338BKAWFXDM
+    X51S43NTMRW5ASYSKJBF7FW845 --> 265YM4FNANJAH2J338BKAWFXDM
+    H98W5WTJBWT8EY0Q10P3KPCEEB --> 265YM4FNANJAH2J338BKAWFXDM
+    STORY-018 --> 265YM4FNANJAH2J338BKAWFXDM
+    STORY-017["Establish the authenticated application shell and generated API boundary (backlog)"]
+    N1ZNPJWFZYPV0MVB8FP137GRJP --> STORY-017
+    STORY-018["Import export compare and evolve governed schemas (backlog)"]
+    X51S43NTMRW5ASYSKJBF7FW845 --> STORY-018
+    H98W5WTJBWT8EY0Q10P3KPCEEB --> STORY-018
 ```
 
 ## 4. Execution Guidance for AI Agents & Engineers
