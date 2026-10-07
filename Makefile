@@ -1,4 +1,4 @@
-.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generate-api-contract generated-check container-smoke local-init local-env-upgrade native-db-init native-db-verify native-api native-web db-upgrade db-downgrade identity-init postgres-test local-up local-verify local-down check
+.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generate-api-contract generated-check authenticated-shell-check container-smoke local-init local-env-upgrade native-db-init native-db-verify native-api native-web db-upgrade db-downgrade identity-init postgres-test local-up local-verify local-down check
 
 UV_CACHE_DIR ?= $(CURDIR)/.uv-cache
 export UV_CACHE_DIR
@@ -33,6 +33,9 @@ generate-api-contract:
 
 generated-check:
 	./ci/generated-check.sh
+
+authenticated-shell-check:
+	./ci/authenticated-shell-check.sh
 
 container-smoke:
 	./ci/container-smoke.sh

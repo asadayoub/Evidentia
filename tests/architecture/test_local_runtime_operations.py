@@ -29,6 +29,23 @@ def test_makefile_exposes_loopback_native_web_command() -> None:
     assert "native-web" in makefile.splitlines()[0]
 
 
+def test_makefile_exposes_reproducible_authenticated_shell_proof() -> None:
+    """Keep the cross-layer shell proof discoverable and disposable.
+
+    @skyhook-implements NFR-006
+    @skyhook-story STORY-017
+    """
+    makefile = (_REPOSITORY_ROOT / "Makefile").read_text(encoding="utf-8")
+    proof = (_REPOSITORY_ROOT / "ci" / "authenticated-shell-check.sh").read_text(encoding="utf-8")
+
+    assert "authenticated-shell-check:" in makefile
+    assert "./ci/authenticated-shell-check.sh" in makefile
+    assert "authenticated-shell-check" in makefile.splitlines()[0]
+    assert "generated-check.sh" in proof
+    assert "src/App.test.tsx" in proof
+    assert "--postgres backend/tests/api/access/test_access_api_postgres.py" in proof
+
+
 def test_local_environment_generator_creates_private_random_secret(
     tmp_path: Path, monkeypatch: MonkeyPatch
 ) -> None:
