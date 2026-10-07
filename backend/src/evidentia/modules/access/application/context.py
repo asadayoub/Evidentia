@@ -10,6 +10,8 @@ from dataclasses import dataclass
 from datetime import UTC, datetime
 from enum import StrEnum
 
+from evidentia.modules.access.application.ports import OpaqueSessionToken
+from evidentia.modules.access.application.sessions import ManageSessions, SessionDeniedError
 from evidentia.modules.access.domain.identity import (
     Capability,
     MembershipId,
@@ -37,6 +39,9 @@ class AccessDenialReason(StrEnum):
 
     SESSION_INACTIVE = "session_inactive"
     SESSION_OPERATOR_MISMATCH = "session_operator_mismatch"
+    SESSION_TENANT_MISMATCH = "session_tenant_mismatch"
+    TENANT_CONTEXT_REQUIRED = "tenant_context_required"
+    TENANT_SCOPE_MISMATCH = "tenant_scope_mismatch"
     OPERATOR_DISABLED = "operator_disabled"
     TENANT_UNAVAILABLE = "tenant_unavailable"
     MEMBERSHIP_INACTIVE = "membership_inactive"
@@ -149,6 +154,8 @@ def build_trusted_context(
         raise AccessDeniedError(AccessDenialReason.INVALID_CONTEXT)
     if session.operator_id != operator.operator_id:
         raise AccessDeniedError(AccessDenialReason.SESSION_OPERATOR_MISMATCH)
+    if session.active_tenant_id != tenant.tenant_id:
+        raise AccessDeniedError(AccessDenialReason.SESSION_TENANT_MISMATCH)
     if not session.is_active_at(now):
         raise AccessDeniedError(AccessDenialReason.SESSION_INACTIVE)
     if operator.status is not OperatorStatus.ACTIVE:
@@ -173,3 +180,37 @@ def build_trusted_context(
         )
     except ValueError as error:
         raise AccessDeniedError(AccessDenialReason.INVALID_CONTEXT) from error
+
+
+class ResolveTrustedContext:
+    """Resolve the only downstream-trusted context from a persisted session.
+
+    @skyhook-implements NFR-008
+    @skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
+    """
+
+    def __init__(self, sessions: ManageSessions) -> None:
+        self._sessions = sessions
+
+    async def execute(
+        self,
+        token: OpaqueSessionToken,
+        *,
+        correlation_id: str,
+        now: datetime,
+    ) -> TrustedRequestContext:
+        """Validate current persisted access state and construct tenant context."""
+        try:
+            validated = await self._sessions.validate(token, now=now)
+        except SessionDeniedError as error:
+            raise AccessDeniedError(AccessDenialReason.SESSION_INACTIVE) from error
+        if validated.tenant is None or validated.membership is None:
+            raise AccessDeniedError(AccessDenialReason.TENANT_CONTEXT_REQUIRED)
+        return build_trusted_context(
+            session=validated.session,
+            operator=validated.operator,
+            tenant=validated.tenant,
+            membership=validated.membership,
+            correlation_id=correlation_id,
+            now=now,
+        )

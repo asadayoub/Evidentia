@@ -10,6 +10,10 @@ from evidentia.modules.access.application.authenticate import (
     AuthenticationDeniedError,
     LocalAuthenticationRequest,
 )
+from evidentia.modules.access.application.authorization import (
+    CapabilityRequirement,
+    authorize,
+)
 from evidentia.modules.access.application.bootstrap import (
     BOOTSTRAP_ADMIN_CAPABILITIES,
     BootstrapFirstIdentity,
@@ -21,6 +25,7 @@ from evidentia.modules.access.application.bootstrap import (
 from evidentia.modules.access.application.context import (
     AccessDenialReason,
     AccessDeniedError,
+    ResolveTrustedContext,
     TrustedRequestContext,
     build_trusted_context,
 )
@@ -83,6 +88,7 @@ __all__ = (
     "AuthenticationThrottle",
     "BootstrapFirstIdentity",
     "Capability",
+    "CapabilityRequirement",
     "CredentialId",
     "CredentialIdentity",
     "CredentialRepository",
@@ -107,6 +113,7 @@ __all__ = (
     "OperatorStatus",
     "PasswordHasher",
     "ProviderSubject",
+    "ResolveTrustedContext",
     "SessionDenialReason",
     "SessionDeniedError",
     "SessionId",
@@ -120,5 +127,6 @@ __all__ = (
     "TenantStatus",
     "TrustedRequestContext",
     "ValidatedSession",
+    "authorize",
     "build_trusted_context",
 )

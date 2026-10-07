@@ -45,6 +45,7 @@ def _access_state() -> tuple[AccessSession, Operator, Tenant, Membership]:
         _NOW - timedelta(minutes=5),
         _NOW - timedelta(minutes=1),
         _NOW + timedelta(hours=1),
+        active_tenant_id=tenant.tenant_id,
     )
     return session, operator, tenant, membership
 
@@ -78,6 +79,7 @@ def test_context_is_derived_only_from_matching_active_state() -> None:
     (
         ("expired", AccessDenialReason.SESSION_INACTIVE),
         ("operator_mismatch", AccessDenialReason.SESSION_OPERATOR_MISMATCH),
+        ("session_tenant_mismatch", AccessDenialReason.SESSION_TENANT_MISMATCH),
         ("operator_disabled", AccessDenialReason.OPERATOR_DISABLED),
         ("tenant_suspended", AccessDenialReason.TENANT_UNAVAILABLE),
         ("membership_suspended", AccessDenialReason.MEMBERSHIP_INACTIVE),
@@ -96,6 +98,8 @@ def test_context_fails_closed_for_stale_or_cross_tenant_state(
         session = replace(session, operator_id=OperatorId.new())
     elif change == "operator_disabled":
         operator = replace(operator, status=OperatorStatus.DISABLED)
+    elif change == "session_tenant_mismatch":
+        session = replace(session, active_tenant_id=TenantId.new())
     elif change == "tenant_suspended":
         tenant = replace(tenant, status=TenantStatus.SUSPENDED)
     elif change == "membership_suspended":
