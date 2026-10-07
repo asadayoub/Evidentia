@@ -1,6 +1,11 @@
 # Changelog
 
 ## [Unreleased]
+- Task D1KWVTV4A2PCZDQ1YY4TV1C9K1: backlog to cancelled
+- Task R5TKQHSSMXWZYVH4FS7076N2N8: backlog to cancelled
+- Task 88WD0RN7M46MBNDS469VBNSC0B: backlog to cancelled
+- Task 0P2Q18S7JJVZMWC0XZW6793XNG: backlog to cancelled
+- Task MH5NTGAWXFX9RS65Z1CAST13X8: ready to cancelled
 - Story 0VJ9SHA39TA291D8QXB0TQS3HQ: in-review to done
 - Task TASK-012: in-review to done
 - Task TASK-012: in-progress to in-review

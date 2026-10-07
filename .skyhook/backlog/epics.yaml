@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T08:55:02.167Z"
+  updatedAt: "2026-10-07T08:56:18.829Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1982,7 +1982,7 @@ tasks:
     description: Defines the authoritative backend context inventory and public surfaces so later packages have explicit ownership and dependency direction.
     type: task
     storyId: STORY-008
-    status: ready
+    status: cancelled
     priority: 100
     estimate: "{ value: 3, unit: hours, confidence: 0.8 }"
     standards:
@@ -1997,13 +1997,17 @@ tasks:
       contribution: Establishes the module boundaries that every later backend feature must respect.
       outOfScope: Production domain behavior and persistence models.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-07T08:56:10.400Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
   - id: 0P2Q18S7JJVZMWC0XZW6793XNG
     title: "Pass 008.2: Scaffold context packages and public surfaces"
     description: Creates importable src-layout packages and minimal public application or contract surfaces for every bounded context.
     type: task
     storyId: STORY-008
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 5, unit: hours, confidence: 0.75 }"
     standards:
@@ -2019,13 +2023,17 @@ tasks:
       contribution: Provides stable locations and public seams for incremental domain implementation.
       outOfScope: Concrete adapters and database schemas.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-07T08:56:12.429Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
   - id: 88WD0RN7M46MBNDS469VBNSC0B
     title: "Pass 008.3: Enforce architectural import contracts"
     description: Adds executable import rules that prohibit framework leakage into domains and unauthorized cross-context dependencies.
     type: task
     storyId: STORY-008
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 4, unit: hours, confidence: 0.8 }"
     standards:
@@ -2040,13 +2048,17 @@ tasks:
       contribution: Converts the architectural design into continuously enforceable rules.
       outOfScope: Runtime authorization and tenant isolation.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-07T08:56:14.489Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
   - id: R5TKQHSSMXWZYVH4FS7076N2N8
     title: "Pass 008.4: Prove forbidden and circular dependencies fail"
     description: Adds repository-owned negative fixtures and cycle tests so architecture checks are proven effective rather than merely configured.
     type: task
     storyId: STORY-008
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 4, unit: hours, confidence: 0.75 }"
     standards:
@@ -2062,13 +2074,17 @@ tasks:
       contribution: Prevents silent erosion of DDD boundaries as the codebase grows.
       outOfScope: Product behavior tests.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-07T08:56:16.778Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
   - id: D1KWVTV4A2PCZDQ1YY4TV1C9K1
     title: "Pass 008.5: Integrate boundary checks into quality commands"
     description: Makes architectural validation part of the normal provider-neutral development workflow and documents extension rules.
     type: task
     storyId: STORY-008
-    status: backlog
+    status: cancelled
     priority: 100
     estimate: "{ value: 3, unit: hours, confidence: 0.85 }"
     standards:
@@ -2083,7 +2099,11 @@ tasks:
       contribution: Ensures local and CI execution enforce the same module rules.
       outOfScope: CI-provider configuration.
     createdAt: "2026-10-02T17:30:08.000Z"
-    updatedAt: "2026-10-02T17:30:08.000Z"
+    updatedAt: "2026-10-07T08:56:18.829Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
   - id: FV595298S33682ZG245328MQZP
     title: "Pass 009.1: Implement typed environment configuration"
     description: Introduces validated development, test, and production settings with fail-closed production secret handling.
