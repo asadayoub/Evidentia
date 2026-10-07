@@ -25,6 +25,7 @@ from evidentia.modules.access.application.bootstrap import (
 from evidentia.modules.access.application.context import (
     AccessDenialReason,
     AccessDeniedError,
+    ResolvedTrustedContext,
     ResolveTrustedContext,
     TrustedRequestContext,
     build_trusted_context,
@@ -114,6 +115,7 @@ __all__ = (
     "PasswordHasher",
     "ProviderSubject",
     "ResolveTrustedContext",
+    "ResolvedTrustedContext",
     "SessionDenialReason",
     "SessionDeniedError",
     "SessionId",

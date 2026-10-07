@@ -199,6 +199,25 @@ class ApiRuntimeSettings(BaseModel):
     host: str = Field(default="127.0.0.1", min_length=1)
     port: int = Field(default=8000, ge=1, le=65535)
     reload: bool = False
+    allowed_origins: tuple[str, ...] = (
+        "http://127.0.0.1:3000",
+        "http://127.0.0.1:5173",
+        "http://localhost:3000",
+        "http://localhost:5173",
+    )
+
+    @field_validator("allowed_origins")
+    @classmethod
+    def validate_allowed_origins(cls, value: tuple[str, ...]) -> tuple[str, ...]:
+        """Require explicit HTTP origins for credentialed browser requests."""
+        if not value or len(set(value)) != len(value):
+            raise ValueError("API allowed origins must be non-empty and unique")
+        for origin in value:
+            if origin == "*" or not origin.startswith(("http://", "https://")):
+                raise ValueError("API allowed origins must be explicit HTTP origins")
+            if origin.endswith("/") or any(character.isspace() for character in origin):
+                raise ValueError("API allowed origins must not contain padding or trailing slashes")
+        return value
 
 
 class WorkerRuntimeSettings(BaseModel):

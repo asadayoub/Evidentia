@@ -190,10 +190,41 @@ class ManageSessions:
     ) -> IssuedSession:
         """Replace one active token and atomically revoke its predecessor."""
         validated = await self.validate(token, now=now)
+        return await self._replace_validated(
+            validated,
+            now=now,
+            active_tenant_id=validated.session.active_tenant_id,
+        )
+
+    async def select_tenant(
+        self,
+        token: OpaqueSessionToken,
+        tenant_id: TenantId,
+        *,
+        now: datetime,
+    ) -> IssuedSession:
+        """Rotate a valid session into a currently authorized tenant boundary.
+
+        @skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
+        """
+        validated = await self.validate(token, now=now)
+        return await self._replace_validated(
+            validated,
+            now=now,
+            active_tenant_id=tenant_id,
+        )
+
+    async def _replace_validated(
+        self,
+        validated: ValidatedSession,
+        *,
+        now: datetime,
+        active_tenant_id: TenantId | None,
+    ) -> IssuedSession:
         successor = await self.issue(
             validated.operator.operator_id,
             now=now,
-            active_tenant_id=validated.session.active_tenant_id,
+            active_tenant_id=active_tenant_id,
         )
         claimed = await self._sessions.revoke_if_active(
             validated.session.session_id,

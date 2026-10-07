@@ -22,6 +22,38 @@ def test_create_app_exposes_liveness_operation() -> None:
     assert "platform_readiness" in operation_ids
 
 
+def test_openapi_exposes_versioned_access_contract_and_cookie_security() -> None:
+    """Keep access operations and cookie authentication explicit in OpenAPI.
+
+    @skyhook-implements REQ-012
+    @skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
+    """
+    app = create_app(ApiSettings())
+
+    schema = app.openapi()
+    operations = {
+        operation["operationId"]
+        for path in schema["paths"].values()
+        for operation in path.values()
+        if isinstance(operation, dict) and "operationId" in operation
+    }
+
+    assert {
+        "access_login_local",
+        "access_logout",
+        "access_get_current_context",
+        "access_select_tenant",
+    } <= operations
+    assert schema["components"]["securitySchemes"]["sessionCookie"] == {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "evidentia_session",
+        "description": "Opaque revocable browser session; never expose it to JavaScript.",
+    }
+    assert schema["paths"]["/api/v1/access/context"]["get"]["security"] == [{"sessionCookie": []}]
+    assert "422" not in schema["paths"]["/api/v1/access/sessions"]["post"]["responses"]
+
+
 def test_api_readiness_returns_service_unavailable_for_a_failed_dependency() -> None:
     async def unavailable_database() -> None:
         raise ConnectionError("private database host must not escape")

@@ -1,4 +1,4 @@
-.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generated-check container-smoke local-init local-env-upgrade native-db-init native-db-verify db-upgrade db-downgrade identity-init postgres-test local-up local-verify local-down check
+.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generate-api-contract generated-check container-smoke local-init local-env-upgrade native-db-init native-db-verify db-upgrade db-downgrade identity-init postgres-test local-up local-verify local-down check
 
 UV_CACHE_DIR ?= $(CURDIR)/.uv-cache
 export UV_CACHE_DIR
@@ -28,6 +28,9 @@ type-check:
 unit-test:
 	./ci/unit-test.sh
 
+generate-api-contract:
+	uv run python tools/export_openapi.py
+
 generated-check:
 	./ci/generated-check.sh
 
@@ -56,7 +59,7 @@ identity-init:
 	uv run evidentia-identity-init --env-file .env
 
 postgres-test:
-	uv run pytest --postgres backend/tests/integration
+	uv run pytest --postgres backend/tests/integration backend/tests/api/access
 
 local-up:
 	./scripts/local-up.sh

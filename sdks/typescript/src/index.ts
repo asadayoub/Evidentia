@@ -7,3 +7,8 @@
 export function sdkVersion(): string {
   return "0.1.0";
 }
+
+export {
+  accessOperationIds,
+  type AccessOperationId,
+} from "./generated/access-operations.js";

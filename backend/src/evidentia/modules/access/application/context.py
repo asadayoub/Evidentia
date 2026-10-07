@@ -136,6 +136,20 @@ class TrustedRequestContext:
             )
 
 
+@dataclass(frozen=True, slots=True)
+class ResolvedTrustedContext:
+    """Trusted request context paired with its current access snapshots.
+
+    @skyhook-implements NFR-008
+    @skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
+    """
+
+    context: TrustedRequestContext
+    operator: Operator
+    tenant: Tenant
+    membership: Membership
+
+
 def build_trusted_context(
     *,
     session: AccessSession,
@@ -200,17 +214,39 @@ class ResolveTrustedContext:
         now: datetime,
     ) -> TrustedRequestContext:
         """Validate current persisted access state and construct tenant context."""
+        return (
+            await self.resolve(
+                token,
+                correlation_id=correlation_id,
+                now=now,
+            )
+        ).context
+
+    async def resolve(
+        self,
+        token: OpaqueSessionToken,
+        *,
+        correlation_id: str,
+        now: datetime,
+    ) -> ResolvedTrustedContext:
+        """Return trusted context together with current display-safe snapshots."""
         try:
             validated = await self._sessions.validate(token, now=now)
         except SessionDeniedError as error:
             raise AccessDeniedError(AccessDenialReason.SESSION_INACTIVE) from error
         if validated.tenant is None or validated.membership is None:
             raise AccessDeniedError(AccessDenialReason.TENANT_CONTEXT_REQUIRED)
-        return build_trusted_context(
+        context = build_trusted_context(
             session=validated.session,
             operator=validated.operator,
             tenant=validated.tenant,
             membership=validated.membership,
             correlation_id=correlation_id,
             now=now,
+        )
+        return ResolvedTrustedContext(
+            context=context,
+            operator=validated.operator,
+            tenant=validated.tenant,
+            membership=validated.membership,
         )
