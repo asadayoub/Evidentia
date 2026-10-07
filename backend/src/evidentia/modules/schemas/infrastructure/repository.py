@@ -15,7 +15,7 @@ from collections.abc import Iterable
 from typing import Any
 from uuid import UUID, uuid4
 
-from sqlalchemy import func, insert, select, update
+from sqlalchemy import desc, func, insert, select, update
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -293,6 +293,28 @@ class PostgresSchemaRepository:
             )
         ).all()
         return _stored_publication(record, artifact_records)
+
+    async def get_latest_publication(
+        self, tenant_id: UUID, schema_id: SchemaId
+    ) -> StoredSchemaPublication | None:
+        """Load the latest immutable publication without crossing tenant scope.
+
+        @skyhook-implements REQ-003
+        @skyhook-implements NFR-008
+        @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+        """
+        version = await self._session.scalar(
+            select(SchemaPublicationRecord.version)
+            .where(
+                SchemaPublicationRecord.tenant_id == tenant_id,
+                SchemaPublicationRecord.schema_id == UUID(schema_id.value),
+            )
+            .order_by(desc(SchemaPublicationRecord.version))
+            .limit(1)
+        )
+        if version is None:
+            return None
+        return await self.get_publication(tenant_id, schema_id, SchemaVersion(version))
 
 
 def _require_actor(actor_id: str) -> None:

@@ -170,3 +170,9 @@ class SchemaRepository(Protocol):
     ) -> StoredSchemaPublication | None:
         """Load one exact immutable tenant-scoped publication."""
         ...
+
+    async def get_latest_publication(
+        self, tenant_id: UUID, schema_id: SchemaId
+    ) -> StoredSchemaPublication | None:
+        """Load the greatest published version within one tenant boundary."""
+        ...

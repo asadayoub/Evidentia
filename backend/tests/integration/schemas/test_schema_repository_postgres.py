@@ -13,8 +13,9 @@ All writes run below an outer transaction and are rolled back.
 from __future__ import annotations
 
 import asyncio
+from collections.abc import Mapping
 from pathlib import Path
-from uuid import uuid4
+from uuid import UUID, uuid4
 
 import pytest
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -38,10 +39,35 @@ from evidentia.modules.schemas.domain.field_types import StringType
 from evidentia.modules.schemas.domain.identity import FieldKey, SchemaId, SchemaVersion
 from evidentia.modules.schemas.infrastructure.database import create_schema_engine
 from evidentia.modules.schemas.infrastructure.repository import PostgresSchemaRepository
+from evidentia.modules.schemas.public import (
+    SCHEMAS_PUBLISH,
+    ArtifactKey,
+    ManageSchemaLifecycle,
+    SchemaCommandContext,
+)
 
 pytestmark = pytest.mark.postgres
 
 _REPOSITORY_ROOT = Path(__file__).parents[4]
+
+
+class FixtureArtifactCatalog:
+    """Return the one trusted artifact used by this persistence fixture."""
+
+    def __init__(self, artifact: PublishedArtifactReference) -> None:
+        self._artifact = artifact
+
+    async def available_artifacts(
+        self, tenant_id: UUID, draft: SchemaDraft
+    ) -> Mapping[ArtifactKey, str]:
+        reference = self._artifact
+        return {
+            (
+                reference.artifact_id,
+                reference.version.value,
+                reference.kind.value,
+            ): reference.content_sha256
+        }
 
 
 def _draft(schema_id: SchemaId, *, artifact: PublishedArtifactReference) -> SchemaDraft:
@@ -139,6 +165,8 @@ async def _exercise_repository() -> None:
 
             loaded = await repository.get_publication(tenant_id, schema_id, SchemaVersion(1))
             assert loaded == stored
+            assert await repository.get_latest_publication(tenant_id, schema_id) == stored
+            assert await repository.get_latest_publication(other_tenant_id, schema_id) is None
             with pytest.raises(PublicationAlreadyExistsError):
                 await repository.add_publication(
                     tenant_id,
@@ -184,6 +212,26 @@ async def _exercise_repository() -> None:
                 await repository.get_publication(tenant_id, schema_id, SchemaVersion(2))
                 == stored_second
             )
+            assert await repository.get_latest_publication(tenant_id, schema_id) == stored_second
+
+            lifecycle = ManageSchemaLifecycle(repository, FixtureArtifactCatalog(artifact))
+            advanced = await lifecycle.publish_draft(
+                SchemaCommandContext(
+                    tenant_id=tenant_id,
+                    actor_id="publisher-3",
+                    capabilities=frozenset({SCHEMAS_PUBLISH}),
+                    correlation_id="request-3",
+                ),
+                schema_id,
+                expected_revision=updated.revision,
+                acknowledgement="Reviewed removal from the next canonical version",
+            )
+            assert advanced.publication.publication.schema.version == SchemaVersion(3)
+            assert advanced.next_draft.draft.version == SchemaVersion(4)
+            assert advanced.next_draft.revision == 3
+            assert await repository.get_latest_publication(tenant_id, schema_id) == (
+                advanced.publication
+            )
         finally:
             await session.close()
             if transaction.is_active:
@@ -198,5 +246,6 @@ def test_repository_enforces_tenant_concurrency_and_publication_invariants() -> 
     @skyhook-implements NFR-001
     @skyhook-implements NFR-008
     @skyhook-story 0VJ9SHA39TA291D8QXB0TQS3HQ
+    @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
     """
     asyncio.run(_exercise_repository())
