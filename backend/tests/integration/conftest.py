@@ -1,8 +1,9 @@
-"""Disposable native PostgreSQL database support for durability tests.
+"""Disposable native PostgreSQL database support for integration tests.
 
 @skyhook-implements NFR-004
 @skyhook-implements NFR-008
 @skyhook-story 0VJ9SHA39TA291D8QXB0TQS3HQ
+@skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
 """
 
 from __future__ import annotations
@@ -17,12 +18,12 @@ from uuid import uuid4
 
 import psycopg
 import pytest
-from backend.tests.integration.schemas.support import DisposablePostgresDatabase
+from backend.tests.integration.support import DisposablePostgresDatabase
 from psycopg import sql
 
 from evidentia.config.settings import load_api_settings
 
-_REPOSITORY_ROOT = Path(__file__).parents[4]
+_REPOSITORY_ROOT = Path(__file__).parents[3]
 _TEST_DATABASE = re.compile(r"^evidentia_test_[0-9a-f]{16}$")
 
 
@@ -54,10 +55,10 @@ def disposable_postgres_database(
 ) -> Iterator[DisposablePostgresDatabase]:
     """Create, migrate, yield, and reliably remove an isolated database.
 
-    @skyhook-implements REQ-003
     @skyhook-implements NFR-004
     @skyhook-implements NFR-008
     @skyhook-story 0VJ9SHA39TA291D8QXB0TQS3HQ
+    @skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
     """
     configured_admin = request.config.getoption("--postgres-admin-user")
     admin_user = configured_admin if isinstance(configured_admin, str) else getpass.getuser()

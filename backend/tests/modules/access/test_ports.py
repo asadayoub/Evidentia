@@ -1,6 +1,9 @@
 """Tests for secret-safe provider and persistence port contracts."""
 
+import pytest
+
 from evidentia.modules.access.public import (
+    Argon2idPasswordHash,
     AuthenticationSecret,
     OpaqueSessionToken,
     SessionTokenDigest,
@@ -24,3 +27,14 @@ def test_session_token_digest_is_separate_from_the_raw_token_contract() -> None:
     digest = SessionTokenDigest("c" * 64)
 
     assert token.reveal() != digest.value
+
+
+def test_argon2id_hash_contract_rejects_other_formats_and_redacts_output() -> None:
+    encoded = "$argon2id$v=19$m=65536,t=3,p=4$c2FsdA$dmVyaWZpZXI"
+    password_hash = Argon2idPasswordHash(encoded)
+
+    assert password_hash.reveal() == encoded
+    assert encoded not in str(password_hash)
+    assert encoded not in repr(password_hash)
+    with pytest.raises(ValueError, match="Argon2id"):
+        Argon2idPasswordHash("$argon2i$v=19$not-the-approved-variant")

@@ -22,7 +22,13 @@ from evidentia.modules.access.domain.identity import (
     TenantId,
     TenantSlug,
 )
-from evidentia.modules.access.domain.models import AccessSession, Membership, Operator, Tenant
+from evidentia.modules.access.domain.models import (
+    AccessSession,
+    CredentialIdentity,
+    Membership,
+    Operator,
+    Tenant,
+)
 
 _CredentialT_contra = TypeVar("_CredentialT_contra", contravariant=True)
 
@@ -79,6 +85,36 @@ class OpaqueSessionToken:
 
     def __repr__(self) -> str:
         return "OpaqueSessionToken('<redacted>')"
+
+    def __str__(self) -> str:
+        return "<redacted>"
+
+
+class Argon2idPasswordHash:
+    """Encoded Argon2id verifier kept redacted outside credential adapters.
+
+    @skyhook-implements NFR-008
+    @skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
+    """
+
+    __slots__ = ("__value",)
+
+    def __init__(self, value: str) -> None:
+        if (
+            not isinstance(value, str)
+            or not value.startswith("$argon2id$")
+            or len(value) > 1024
+            or any(character.isspace() for character in value)
+        ):
+            raise ValueError("password hash must be a valid encoded Argon2id value")
+        self.__value = value
+
+    def reveal(self) -> str:
+        """Reveal the encoded verifier only at hashing or persistence boundaries."""
+        return self.__value
+
+    def __repr__(self) -> str:
+        return "Argon2idPasswordHash('<redacted>')"
 
     def __str__(self) -> str:
         return "<redacted>"
@@ -213,6 +249,44 @@ class MembershipRepository(Protocol):
 
     async def list_for_operator(self, operator_id: OperatorId) -> tuple[Membership, ...]:
         """List memberships visible to one operator."""
+        ...
+
+
+class CredentialRepository(Protocol):
+    """Provider-neutral mappings with optional local Argon2id material.
+
+    @skyhook-implements NFR-008
+    @skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
+    """
+
+    async def add(
+        self,
+        credential: CredentialIdentity,
+        password_hash: Argon2idPasswordHash | None = None,
+    ) -> None:
+        """Stage a provider mapping and optional local password verifier."""
+        ...
+
+    async def get_by_provider_subject(
+        self,
+        provider: IdentityProviderKey,
+        subject: ProviderSubject,
+    ) -> CredentialIdentity | None:
+        """Load the unique mapping for a provider-issued subject."""
+        ...
+
+    async def get_local_password_hash(
+        self, credential_id: CredentialId
+    ) -> Argon2idPasswordHash | None:
+        """Load a redacted local verifier wrapper."""
+        ...
+
+    async def replace_local_password_hash(
+        self,
+        credential_id: CredentialId,
+        password_hash: Argon2idPasswordHash,
+    ) -> None:
+        """Rotate local verification material in the caller transaction."""
         ...
 
 

@@ -1,7 +1,8 @@
-"""Typed values shared by schemas PostgreSQL integration fixtures.
+"""Typed values shared by PostgreSQL integration fixtures.
 
 @skyhook-implements NFR-004
 @skyhook-story 0VJ9SHA39TA291D8QXB0TQS3HQ
+@skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
 """
 
 from __future__ import annotations
@@ -18,6 +19,7 @@ class DisposablePostgresDatabase:
     @skyhook-implements NFR-004
     @skyhook-implements NFR-008
     @skyhook-story 0VJ9SHA39TA291D8QXB0TQS3HQ
+    @skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
     """
 
     name: str

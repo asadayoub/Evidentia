@@ -191,6 +191,8 @@ class AccessSession:
     last_seen_at: datetime
     expires_at: datetime
     revoked_at: datetime | None = None
+    active_tenant_id: TenantId | None = None
+    replaced_by_session_id: SessionId | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.session_id, SessionId):
@@ -202,6 +204,14 @@ class AccessSession:
         _require_utc(self.expires_at, "session expires_at")
         if self.revoked_at is not None:
             _require_utc(self.revoked_at, "session revoked_at")
+        if self.active_tenant_id is not None and not isinstance(self.active_tenant_id, TenantId):
+            raise ValueError("session active tenant identity must be a TenantId")
+        if self.replaced_by_session_id is not None and not isinstance(
+            self.replaced_by_session_id, SessionId
+        ):
+            raise ValueError("replacement session identity must be a SessionId")
+        if self.replaced_by_session_id == self.session_id:
+            raise ValueError("a session cannot replace itself")
         if self.last_seen_at < self.authenticated_at:
             raise ValueError("session last_seen_at cannot precede authentication")
         if self.expires_at <= self.authenticated_at:

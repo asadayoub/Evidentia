@@ -15,7 +15,7 @@ from datetime import UTC, datetime
 from uuid import UUID, uuid4
 
 import pytest
-from backend.tests.integration.schemas.support import DisposablePostgresDatabase
+from backend.tests.integration.support import DisposablePostgresDatabase
 from sqlalchemy import update
 from sqlalchemy.exc import DBAPIError
 
