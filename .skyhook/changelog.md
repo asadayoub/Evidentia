@@ -1,6 +1,10 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-017: in-review to done
+- Task TASK-017: in-progress to in-review
+- Recorded decision: Use replaceable bounded authentication throttling (TXEQ9J0ARXYKS7CMQ0V1Z9FT5R)
+- Task TASK-017: ready to in-progress
 - Task TASK-016: in-review to done
 - Task TASK-016: in-progress to in-review
 - Task TASK-016: ready to in-progress

@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T10:06:40.674Z"
+  updatedAt: "2026-10-07T10:22:14.785Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -4034,7 +4034,7 @@ tasks:
     parentType: story
     parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
     type: feature
-    status: ready
+    status: done
     priority: critical
     storyPoints: 5
     estimatedMinutes: 360
@@ -4056,30 +4056,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Verify Argon2id credentials with generic failure responses and timing-safe behavior
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:24.300Z"
+        completedAt: "2026-10-07T10:21:57.407Z"
       - id: SUB-002
         title: Issue cryptographically random opaque session tokens and persist only their digests
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:24.300Z"
+        completedAt: "2026-10-07T10:21:55.151Z"
       - id: SUB-003
         title: Validate session expiry, revocation, operator state, and membership state
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:24.300Z"
+        completedAt: "2026-10-07T10:21:50.550Z"
       - id: SUB-004
         title: Rotate sessions and revoke them on logout or detected token reuse
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:24.300Z"
+        completedAt: "2026-10-07T10:22:00.009Z"
       - id: SUB-005
         title: Add unit and PostgreSQL integration tests for successful and adversarial session flows
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:24.300Z"
+        completedAt: "2026-10-07T10:22:02.709Z"
       - id: SUB-006
         title: Throttle failed authentication attempts with bounded backoff and generic responses without enabling permanent lockout denial-of-service
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:21:35.774Z"
+        completedAt: "2026-10-07T10:22:05.021Z"
     createdAt: "2026-10-07T09:19:24.300Z"
-    updatedAt: "2026-10-07T09:21:35.774Z"
+    updatedAt: "2026-10-07T10:22:14.785Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-07T10:12:09.202Z"
+    completedAt: "2026-10-07T10:22:14.785Z"
   - id: TASK-018
     title: Resolve trusted tenant context and enforce capability checks
     description: "Purpose: turn a valid session into a verified operator-and-tenant context that downstream application services can trust. Contribution: prevents confused-deputy and cross-tenant access by deriving active tenant and capabilities from current persisted membership instead of request headers or client claims."
