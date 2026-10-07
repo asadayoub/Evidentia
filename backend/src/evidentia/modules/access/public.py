@@ -5,6 +5,14 @@
 @skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
 """
 
+from evidentia.modules.access.application.bootstrap import (
+    BOOTSTRAP_ADMIN_CAPABILITIES,
+    BootstrapFirstIdentity,
+    IdentityBootstrapConflictError,
+    IdentityBootstrapError,
+    IdentityBootstrapRequest,
+    IdentityBootstrapResult,
+)
 from evidentia.modules.access.application.context import (
     AccessDenialReason,
     AccessDeniedError,
@@ -20,6 +28,7 @@ from evidentia.modules.access.application.ports import (
     MembershipRepository,
     OpaqueSessionToken,
     OperatorRepository,
+    PasswordHasher,
     SessionRepository,
     SessionTokenProvider,
     TenantRepository,
@@ -49,16 +58,22 @@ from evidentia.modules.access.domain.models import (
 )
 
 __all__ = (
+    "BOOTSTRAP_ADMIN_CAPABILITIES",
     "AccessDenialReason",
     "AccessDeniedError",
     "AccessSession",
     "Argon2idPasswordHash",
     "AuthenticatedIdentity",
     "AuthenticationSecret",
+    "BootstrapFirstIdentity",
     "Capability",
     "CredentialId",
     "CredentialIdentity",
     "CredentialRepository",
+    "IdentityBootstrapConflictError",
+    "IdentityBootstrapError",
+    "IdentityBootstrapRequest",
+    "IdentityBootstrapResult",
     "IdentityProvider",
     "IdentityProviderKey",
     "LoginIdentifier",
@@ -71,6 +86,7 @@ __all__ = (
     "OperatorId",
     "OperatorRepository",
     "OperatorStatus",
+    "PasswordHasher",
     "ProviderSubject",
     "SessionId",
     "SessionRepository",

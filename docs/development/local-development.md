@@ -20,7 +20,7 @@ make local-env-upgrade
 
 The upgrade is atomic, refuses symlink targets, adds only missing keys, restores owner-only `0600` permissions, and is safe to repeat. It generates a random local bootstrap password and a separate 256-bit session secret without printing either value.
 
-Fresh and upgraded local environments define the initial identity as `admin@localhost` in the `local` tenant. These are configuration defaults, not automatically created accounts. The later explicit `make identity-init` task will consume them once to create the first tenant and administrator; ordinary API startup will never create or replace that identity.
+Fresh and upgraded local environments define the initial identity as `admin@localhost` in the `local` tenant. These are configuration defaults, not automatically created accounts. The explicit `make identity-init` command consumes them to create the first tenant and administrator; ordinary API startup never creates or replaces that identity.
 
 Start and inspect Homebrew PostgreSQL:
 
@@ -43,6 +43,19 @@ Apply all module-owned migrations after initialization:
 ```sh
 make db-upgrade
 ```
+
+Create the configured first tenant and administrator after migrations are current:
+
+```sh
+make identity-init
+```
+
+The command creates the tenant, operator, membership, administrator capability grants,
+and local Argon2id credential in one transaction. Repeating it with exactly the same
+configuration is safe and reports that the identity is already initialized. It fails
+closed if matching tenant or login names are attached to different state, if capabilities
+or display names differ, or if the configured password does not match the stored hash.
+It never prints the password or its hash.
 
 During unreleased migration development, verify reversibility with `make db-downgrade` followed by `make db-upgrade`. Once a migration has shipped, its file is append-only and corrections use a new forward migration.
 
@@ -78,7 +91,14 @@ Local bootstrap identity uses `EVIDENTIA_IDENTITY__BOOTSTRAP_LOGIN_IDENTIFIER`, 
 
 Opaque browser sessions use `EVIDENTIA_SESSION__SECRET`, `IDLE_TIMEOUT_SECONDS`, `ABSOLUTE_TIMEOUT_SECONDS`, `COOKIE_NAME`, `COOKIE_SECURE`, and `COOKIE_SAMESITE`. The defaults are a 30-minute idle timeout and a 12-hour absolute lifetime. Local HTTP development permits `COOKIE_SECURE=false`; production fails closed unless a secret of at least 32 characters is supplied and secure cookies are enabled.
 
-The committed `.env.example` contains placeholders only. Deployment environments must inject database, bootstrap, and session secrets through their secret manager rather than copying local values. Rotate the session secret through a controlled deployment; rotation invalidates existing sessions once session issuance is implemented. Remove or rotate the bootstrap password after initial provisioning according to the installation runbook that will accompany `make identity-init`.
+The committed `.env.example` contains placeholders only. Deployment environments must inject database, bootstrap, and session secrets through their secret manager rather than copying local values. Rotate the session secret through a controlled deployment; rotation invalidates existing sessions once session issuance is implemented.
+
+After successful provisioning, remove the bootstrap password from the runtime environment
+or rotate it to a separately protected recovery value. Ordinary API and worker startup do
+not need this password. Password rotation for an existing administrator is intentionally
+not performed by `identity-init`: use the dedicated recovery/credential-rotation workflow
+when that capability is implemented. Changing the configured bootstrap password and
+re-running this command produces a conflict instead of silently replacing a credential.
 
 ## Troubleshooting
 

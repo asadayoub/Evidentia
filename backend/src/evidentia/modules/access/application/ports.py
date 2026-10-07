@@ -184,6 +184,26 @@ class SessionTokenProvider(Protocol):
         ...
 
 
+class PasswordHasher(Protocol):
+    """Port for producing and verifying encoded Argon2id password hashes.
+
+    @skyhook-implements NFR-008
+    @skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
+    """
+
+    def hash(self, secret: AuthenticationSecret) -> Argon2idPasswordHash:
+        """Hash a plaintext secret with a library-generated random salt."""
+        ...
+
+    def verify(
+        self,
+        password_hash: Argon2idPasswordHash,
+        secret: AuthenticationSecret,
+    ) -> bool:
+        """Return whether a plaintext secret matches an encoded verifier."""
+        ...
+
+
 class OperatorRepository(Protocol):
     """Transaction-neutral persistence port for operators.
 

@@ -1,4 +1,4 @@
-.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generated-check container-smoke local-init local-env-upgrade native-db-init native-db-verify db-upgrade db-downgrade postgres-test local-up local-verify local-down check
+.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generated-check container-smoke local-init local-env-upgrade native-db-init native-db-verify db-upgrade db-downgrade identity-init postgres-test local-up local-verify local-down check
 
 UV_CACHE_DIR ?= $(CURDIR)/.uv-cache
 export UV_CACHE_DIR
@@ -51,6 +51,9 @@ db-upgrade:
 
 db-downgrade:
 	uv run alembic -c backend/alembic.ini downgrade base
+
+identity-init:
+	uv run evidentia-identity-init --env-file .env
 
 postgres-test:
 	uv run pytest --postgres backend/tests/integration
