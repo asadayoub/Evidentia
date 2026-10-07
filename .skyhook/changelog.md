@@ -1,6 +1,300 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-167: ready to backlog
+- Task TASK-166: ready to backlog
+- Task TASK-165: ready to backlog
+- Task TASK-164: ready to backlog
+- Task TASK-163: ready to backlog
+- Task TASK-162: ready to backlog
+- Task TASK-161: ready to backlog
+- Task TASK-160: ready to backlog
+- Task TASK-159: ready to backlog
+- Task TASK-158: ready to backlog
+- Task TASK-157: ready to backlog
+- Task TASK-156: ready to backlog
+- Task TASK-155: ready to backlog
+- Task TASK-154: ready to backlog
+- Task TASK-153: ready to backlog
+- Task TASK-152: ready to backlog
+- Task TASK-151: ready to backlog
+- Task TASK-150: ready to backlog
+- Task TASK-149: ready to backlog
+- Task TASK-148: ready to backlog
+- Task TASK-147: ready to backlog
+- Task TASK-146: ready to backlog
+- Task TASK-145: ready to backlog
+- Task TASK-144: ready to backlog
+- Task TASK-143: ready to backlog
+- Task TASK-142: ready to backlog
+- Task TASK-141: ready to backlog
+- Task TASK-140: ready to backlog
+- Task TASK-139: ready to backlog
+- Task TASK-138: ready to backlog
+- Task TASK-137: ready to backlog
+- Task TASK-136: ready to backlog
+- Task TASK-135: ready to backlog
+- Task TASK-134: ready to backlog
+- Task TASK-133: ready to backlog
+- Task TASK-132: ready to backlog
+- Task TASK-131: ready to backlog
+- Task TASK-130: ready to backlog
+- Task TASK-129: ready to backlog
+- Task TASK-128: ready to backlog
+- Task TASK-127: ready to backlog
+- Task TASK-126: ready to backlog
+- Task TASK-125: ready to backlog
+- Task TASK-124: ready to backlog
+- Task TASK-123: ready to backlog
+- Task TASK-122: ready to backlog
+- Task TASK-121: ready to backlog
+- Task TASK-120: ready to backlog
+- Task TASK-119: ready to backlog
+- Task TASK-118: ready to backlog
+- Task TASK-117: ready to backlog
+- Task TASK-116: ready to backlog
+- Task TASK-115: ready to backlog
+- Task TASK-114: ready to backlog
+- Task TASK-113: ready to backlog
+- Task TASK-112: ready to backlog
+- Task TASK-111: ready to backlog
+- Task TASK-110: ready to backlog
+- Task TASK-109: ready to backlog
+- Task TASK-108: ready to backlog
+- Task TASK-107: ready to backlog
+- Task TASK-106: ready to backlog
+- Task TASK-105: ready to backlog
+- Task TASK-104: ready to backlog
+- Task TASK-103: ready to backlog
+- Task TASK-102: ready to backlog
+- Task TASK-101: ready to backlog
+- Task TASK-100: ready to backlog
+- Task TASK-099: ready to backlog
+- Task TASK-098: ready to backlog
+- Task TASK-097: ready to backlog
+- Task TASK-096: ready to backlog
+- Task TASK-095: ready to backlog
+- Task TASK-094: ready to backlog
+- Task TASK-093: ready to backlog
+- Task TASK-092: ready to backlog
+- Task TASK-091: ready to backlog
+- Task TASK-090: ready to backlog
+- Task TASK-089: ready to backlog
+- Task TASK-088: ready to backlog
+- Task TASK-087: ready to backlog
+- Task TASK-086: ready to backlog
+- Task TASK-085: ready to backlog
+- Task TASK-084: ready to backlog
+- Task TASK-083: ready to backlog
+- Task TASK-082: ready to backlog
+- Task TASK-081: ready to backlog
+- Task TASK-080: ready to backlog
+- Task TASK-079: ready to backlog
+- Task TASK-078: ready to backlog
+- Task TASK-077: ready to backlog
+- Task TASK-076: ready to backlog
+- Task TASK-075: ready to backlog
+- Task TASK-074: ready to backlog
+- Task TASK-073: ready to backlog
+- Task TASK-072: ready to backlog
+- Task TASK-071: ready to backlog
+- Task TASK-070: ready to backlog
+- Task TASK-069: ready to backlog
+- Task TASK-068: ready to backlog
+- Task TASK-067: ready to backlog
+- Task TASK-066: ready to backlog
+- Task TASK-065: ready to backlog
+- Task TASK-064: ready to backlog
+- Task TASK-063: ready to backlog
+- Task TASK-062: ready to backlog
+- Task TASK-061: ready to backlog
+- Task TASK-060: ready to backlog
+- Task TASK-059: ready to backlog
+- Task TASK-058: ready to backlog
+- Task TASK-057: ready to backlog
+- Task TASK-056: ready to backlog
+- Task TASK-055: ready to backlog
+- Task TASK-054: ready to backlog
+- Task TASK-053: ready to backlog
+- Task TASK-052: ready to backlog
+- Task TASK-051: ready to backlog
+- Task TASK-050: ready to backlog
+- Task TASK-049: ready to backlog
+- Task TASK-048: ready to backlog
+- Task TASK-047: ready to backlog
+- Task TASK-046: ready to backlog
+- Task TASK-045: ready to backlog
+- Task TASK-044: ready to backlog
+- Task TASK-043: ready to backlog
+- Task TASK-042: ready to backlog
+- Task TASK-041: ready to backlog
+- Task TASK-040: ready to backlog
+- Task TASK-039: ready to backlog
+- Task TASK-038: ready to backlog
+- Task TASK-037: ready to backlog
+- Task TASK-036: ready to backlog
+- Task TASK-035: ready to backlog
+- Task TASK-034: ready to backlog
+- Task TASK-033: ready to backlog
+- Task TASK-032: ready to backlog
+- Task TASK-031: ready to backlog
+- Task TASK-030: ready to backlog
+- Task TASK-029: ready to backlog
+- Task TASK-028: ready to backlog
+- Task TASK-027: ready to backlog
+- Task TASK-026: ready to backlog
+- Task TASK-025: ready to backlog
+- Task TASK-024: ready to backlog
+- Task TASK-023: ready to backlog
+- Task TASK-022: ready to backlog
+- Task TASK-021: ready to backlog
+- Added task: Prove and document Prove production and release readiness with bounded claims (TASK-167) under story STORY-037
+- Added task: Exercise production recovery and release gates for Prove production and release readiness with bounded claims (TASK-166) under story STORY-037
+- Added task: Assemble production evidence fixtures for Prove production and release readiness with bounded claims (TASK-165) under story STORY-037
+- Added task: Prove and document Prove backup restore migration and upgrade recovery (TASK-164) under story STORY-036
+- Added task: Exercise production recovery and release gates for Prove backup restore migration and upgrade recovery (TASK-163) under story STORY-036
+- Added task: Assemble production evidence fixtures for Prove backup restore migration and upgrade recovery (TASK-162) under story STORY-036
+- Added task: Prove and document Establish the English supplier-invoice benchmark (TASK-161) under story STORY-035
+- Added task: Implement and integrate Establish the English supplier-invoice benchmark (TASK-160) under story STORY-035
+- Added task: Define production controls and evidence for Establish the English supplier-invoice benchmark (TASK-159) under story STORY-035
+- Added task: Prove and document Establish lifecycle telemetry and measured service objectives (TASK-158) under story STORY-034
+- Added task: Implement and integrate Establish lifecycle telemetry and measured service objectives (TASK-157) under story STORY-034
+- Added task: Define production controls and evidence for Establish lifecycle telemetry and measured service objectives (TASK-156) under story STORY-034
+- Added task: Prove and document Enforce configurable retention deletion and audit preservation (TASK-155) under story STORY-033
+- Added task: Implement and integrate Enforce configurable retention deletion and audit preservation (TASK-154) under story STORY-033
+- Added task: Define production controls and evidence for Enforce configurable retention deletion and audit preservation (TASK-153) under story STORY-033
+- Added task: Prove and document Maintain evaluation and release evidence (TASK-152) under story 4QGB75ND0XME0JVSYJN9K3PMTW
+- Added task: Implement and integrate Maintain evaluation and release evidence (TASK-151) under story 4QGB75ND0XME0JVSYJN9K3PMTW
+- Added task: Define production controls and evidence for Maintain evaluation and release evidence (TASK-150) under story 4QGB75ND0XME0JVSYJN9K3PMTW
+- Added task: Prove and document Create deployment, backup, restore, and upgrade profiles (TASK-149) under story ECMWWJT024W5QXBQ5G6C1YMHQQ
+- Added task: Implement and integrate Create deployment, backup, restore, and upgrade profiles (TASK-148) under story ECMWWJT024W5QXBQ5G6C1YMHQQ
+- Added task: Confirm support policy and activation decisions for Create deployment, backup, restore, and upgrade profiles (TASK-147) under story ECMWWJT024W5QXBQ5G6C1YMHQQ
+- Added task: Prove and document Publish extension contracts for providers and adapters (TASK-146) under story 7D8Q1STZ5VEWBSAR6W87P4DH1W
+- Added task: Implement and integrate Publish extension contracts for providers and adapters (TASK-145) under story 7D8Q1STZ5VEWBSAR6W87P4DH1W
+- Added task: Confirm support policy and activation decisions for Publish extension contracts for providers and adapters (TASK-144) under story 7D8Q1STZ5VEWBSAR6W87P4DH1W
+- Added task: Prove and document Publish stable public APIs and SDKs after contracts mature (TASK-143) under story 5KENKXMX9EZDJ75R0JHJQ2KSSJ
+- Added task: Implement and integrate Publish stable public APIs and SDKs after contracts mature (TASK-142) under story 5KENKXMX9EZDJ75R0JHJQ2KSSJ
+- Added task: Define production controls and evidence for Publish stable public APIs and SDKs after contracts mature (TASK-141) under story 5KENKXMX9EZDJ75R0JHJQ2KSSJ
+- Added task: Prove and document Harden identity, tenancy, privacy, and audit for production (TASK-140) under story M7ZMYQSYB6G0W2T5M7TYCCZNHH
+- Added task: Implement and integrate Harden identity, tenancy, privacy, and audit for production (TASK-139) under story M7ZMYQSYB6G0W2T5M7TYCCZNHH
+- Added task: Define production controls and evidence for Harden identity, tenancy, privacy, and audit for production (TASK-138) under story M7ZMYQSYB6G0W2T5M7TYCCZNHH
+- Added task: Prove and document Prove collaborative and recoverable operational work (TASK-137) under story STORY-032
+- Added task: Exercise collaborative scale and recovery for Prove collaborative and recoverable operational work (TASK-136) under story STORY-032
+- Added task: Assemble collaborative operations fixtures for Prove collaborative and recoverable operational work (TASK-135) under story STORY-032
+- Added task: Prove and document Relate document bundles and match cross-document evidence (TASK-134) under story STORY-031
+- Added task: Implement and integrate Relate document bundles and match cross-document evidence (TASK-133) under story STORY-031
+- Added task: Define scalable work contracts for Relate document bundles and match cross-document evidence (TASK-132) under story STORY-031
+- Added task: Prove and document Process batch and connector document intake (TASK-131) under story STORY-030
+- Added task: Implement and integrate Process batch and connector document intake (TASK-130) under story STORY-030
+- Added task: Define scalable work contracts for Process batch and connector document intake (TASK-129) under story STORY-030
+- Added task: Prove and document Operate prioritized exception queues and saved views (TASK-128) under story STORY-029
+- Added task: Implement the accessible operational workspace for Operate prioritized exception queues and saved views (TASK-127) under story STORY-029
+- Added task: Define scalable work contracts for Operate prioritized exception queues and saved views (TASK-126) under story STORY-029
+- Added task: Prove and document Build an operational recovery and observability workspace (TASK-125) under story PEE73AVQEAC75HKDMA3FA1S4YJ
+- Added task: Implement the accessible operational workspace for Build an operational recovery and observability workspace (TASK-124) under story PEE73AVQEAC75HKDMA3FA1S4YJ
+- Added task: Define scalable work contracts for Build an operational recovery and observability workspace (TASK-123) under story PEE73AVQEAC75HKDMA3FA1S4YJ
+- Added task: Prove and document Add outbox, inbox, and reconciliation at the first external reliability boundary (TASK-122) under story 3F1QK0FAD4X03Q4CB5XKDC1BJH
+- Added task: Implement and integrate Add outbox, inbox, and reconciliation at the first external reliability boundary (TASK-121) under story 3F1QK0FAD4X03Q4CB5XKDC1BJH
+- Added task: Evaluate activation conditions and record the decision for Add outbox, inbox, and reconciliation at the first external reliability boundary (TASK-120) under story 3F1QK0FAD4X03Q4CB5XKDC1BJH
+- Added task: Prove and document Introduce durable background work when workloads require it (TASK-119) under story C29D8MCQWYGWY6FFSP4YW7MNX7
+- Added task: Implement and integrate Introduce durable background work when workloads require it (TASK-118) under story C29D8MCQWYGWY6FFSP4YW7MNX7
+- Added task: Evaluate activation conditions and record the decision for Introduce durable background work when workloads require it (TASK-117) under story C29D8MCQWYGWY6FFSP4YW7MNX7
+- Added task: Prove and document Choose and add realtime transport when collaboration requires it (TASK-116) under story AV6YSSGTH46ET6J9NN0DDK7E6B
+- Added task: Implement and integrate Choose and add realtime transport when collaboration requires it (TASK-115) under story AV6YSSGTH46ET6J9NN0DDK7E6B
+- Added task: Evaluate activation conditions and record the decision for Choose and add realtime transport when collaboration requires it (TASK-114) under story AV6YSSGTH46ET6J9NN0DDK7E6B
+- Added task: Prove and document Coordinate assignments, comments, and concurrent review (TASK-113) under story 2BJ99DB0QWS3FE3J0F50N6EPW4
+- Added task: Implement the accessible operational workspace for Coordinate assignments, comments, and concurrent review (TASK-112) under story 2BJ99DB0QWS3FE3J0F50N6EPW4
+- Added task: Define scalable work contracts for Coordinate assignments, comments, and concurrent review (TASK-111) under story 2BJ99DB0QWS3FE3J0F50N6EPW4
+- Added task: Prove and document Prove the local approval-to-authorized-delivery journey (TASK-110) under story STORY-028
+- Added task: Exercise exact-revision authorization and delivery for Prove the local approval-to-authorized-delivery journey (TASK-109) under story STORY-028
+- Added task: Assemble authorization and delivery fixtures for Prove the local approval-to-authorized-delivery journey (TASK-108) under story STORY-028
+- Added task: Prove and document Reconcile ambiguous and failed delivery outcomes (TASK-107) under story STORY-027
+- Added task: Implement and expose Reconcile ambiguous and failed delivery outcomes (TASK-106) under story STORY-027
+- Added task: Define authorization integrity and lifecycle contracts for Reconcile ambiguous and failed delivery outcomes (TASK-105) under story STORY-027
+- Added task: Prove and document Administer approval decisions and delivery outcomes (TASK-104) under story STORY-026
+- Added task: Implement the accessible approval and delivery operations for Administer approval decisions and delivery outcomes (TASK-103) under story STORY-026
+- Added task: Define authorization integrity and lifecycle contracts for Administer approval decisions and delivery outcomes (TASK-102) under story STORY-026
+- Added task: Prove and document Add optional Delibera approval integration when selected (TASK-101) under story R26DFKYKFWHH981YK1QJEM18WN
+- Added task: Implement and expose Add optional Delibera approval integration when selected (TASK-100) under story R26DFKYKFWHH981YK1QJEM18WN
+- Added task: Confirm contracts and activation decision for Add optional Delibera approval integration when selected (TASK-099) under story R26DFKYKFWHH981YK1QJEM18WN
+- Added task: Prove and document Deliver only the exact authorized revision (TASK-098) under story CDSSWKJ0X91XHKD7X3Q8XHXKE5
+- Added task: Implement and expose Deliver only the exact authorized revision (TASK-097) under story CDSSWKJ0X91XHKD7X3Q8XHXKE5
+- Added task: Define authorization integrity and lifecycle contracts for Deliver only the exact authorized revision (TASK-096) under story CDSSWKJ0X91XHKD7X3Q8XHXKE5
+- Added task: Prove and document Configure versioned destination mappings (TASK-095) under story 1A43QS6QGZ4YWH5FG25XZWYEH2
+- Added task: Implement and expose Configure versioned destination mappings (TASK-094) under story 1A43QS6QGZ4YWH5FG25XZWYEH2
+- Added task: Confirm contracts and activation decision for Configure versioned destination mappings (TASK-093) under story 1A43QS6QGZ4YWH5FG25XZWYEH2
+- Added task: Prove and document Approve a submitted revision locally (TASK-092) under story 7GZK6H8HR3XKPQ94Q89N85WH0Q
+- Added task: Implement and expose Approve a submitted revision locally (TASK-091) under story 7GZK6H8HR3XKPQ94Q89N85WH0Q
+- Added task: Define authorization integrity and lifecycle contracts for Approve a submitted revision locally (TASK-090) under story 7GZK6H8HR3XKPQ94Q89N85WH0Q
+- Added task: Prove and document Define revision-bound approval semantics (TASK-089) under story ACCCV50MZW87EEEPS6Y1HXGNAZ
+- Added task: Implement and expose Define revision-bound approval semantics (TASK-088) under story ACCCV50MZW87EEEPS6Y1HXGNAZ
+- Added task: Define authorization integrity and lifecycle contracts for Define revision-bound approval semantics (TASK-087) under story ACCCV50MZW87EEEPS6Y1HXGNAZ
+- Added task: Prove and document Prove the source-to-submitted-revision journey (TASK-086) under story STORY-025
+- Added task: Exercise the full evidence-backed workflow for Prove the source-to-submitted-revision journey (TASK-085) under story STORY-025
+- Added task: Assemble evidence-chain fixtures for Prove the source-to-submitted-revision journey (TASK-084) under story STORY-025
+- Added task: Prove and document Promote unmapped candidates through governed schema discovery (TASK-083) under story STORY-024
+- Added task: Implement the accessible evidence interaction for Promote unmapped candidates through governed schema discovery (TASK-082) under story STORY-024
+- Added task: Define evidence and revision contracts for Promote unmapped candidates through governed schema discovery (TASK-081) under story STORY-024
+- Added task: Prove and document Record extraction attempts and compare reprocessing outcomes (TASK-080) under story STORY-023
+- Added task: Implement the accessible evidence interaction for Record extraction attempts and compare reprocessing outcomes (TASK-079) under story STORY-023
+- Added task: Define provider-neutral execution and provenance for Record extraction attempts and compare reprocessing outcomes (TASK-078) under story STORY-023
+- Added task: Prove and document Submit an immutable reviewed record revision (TASK-077) under story ZSHX48Q9AHPEBJCDM0DAD8ED2H
+- Added task: Implement the accessible evidence interaction for Submit an immutable reviewed record revision (TASK-076) under story ZSHX48Q9AHPEBJCDM0DAD8ED2H
+- Added task: Define evidence and revision contracts for Submit an immutable reviewed record revision (TASK-075) under story ZSHX48Q9AHPEBJCDM0DAD8ED2H
+- Added task: Prove and document Review and correct a dynamic evidence-linked record (TASK-074) under story MAQPX7K4Z5MD3BNT93YFJBRZR5
+- Added task: Implement the accessible evidence interaction for Review and correct a dynamic evidence-linked record (TASK-073) under story MAQPX7K4Z5MD3BNT93YFJBRZR5
+- Added task: Define evidence and revision contracts for Review and correct a dynamic evidence-linked record (TASK-072) under story MAQPX7K4Z5MD3BNT93YFJBRZR5
+- Added task: Prove and document Run versioned validation with explainable findings (TASK-071) under story YKQFD89QJYH87GQSMKCVQ104AK
+- Added task: Expose and orchestrate Run versioned validation with explainable findings (TASK-070) under story YKQFD89QJYH87GQSMKCVQ104AK
+- Added task: Define evidence and revision contracts for Run versioned validation with explainable findings (TASK-069) under story YKQFD89QJYH87GQSMKCVQ104AK
+- Added task: Prove and document Attach source evidence to every extracted value (TASK-068) under story QM5MGN4VTK1J9CWEXMC50RM00G
+- Added task: Expose and orchestrate Attach source evidence to every extracted value (TASK-067) under story QM5MGN4VTK1J9CWEXMC50RM00G
+- Added task: Define provider-neutral execution and provenance for Attach source evidence to every extracted value (TASK-066) under story QM5MGN4VTK1J9CWEXMC50RM00G
+- Added task: Prove and document Extract a candidate record through a provider-neutral port (TASK-065) under story WN341EKS97VGCX76ZFR0KHX96Y
+- Added task: Expose and orchestrate Extract a candidate record through a provider-neutral port (TASK-064) under story WN341EKS97VGCX76ZFR0KHX96Y
+- Added task: Define provider-neutral execution and provenance for Extract a candidate record through a provider-neutral port (TASK-063) under story WN341EKS97VGCX76ZFR0KHX96Y
+- Added task: Prove and document Resolve the applicable schema from document context (TASK-062) under story SHF26TB4C43PC4KD2W3PRZ3R78
+- Added task: Expose and orchestrate Resolve the applicable schema from document context (TASK-061) under story SHF26TB4C43PC4KD2W3PRZ3R78
+- Added task: Define evidence and revision contracts for Resolve the applicable schema from document context (TASK-060) under story SHF26TB4C43PC4KD2W3PRZ3R78
+- Added task: Prove and document Prove the secure document intake and source-understanding journey (TASK-059) under story STORY-022
+- Added task: Exercise complete source interaction and recovery paths for Prove the secure document intake and source-understanding journey (TASK-058) under story STORY-022
+- Added task: Assemble representative fixtures for Prove the secure document intake and source-understanding journey (TASK-057) under story STORY-022
+- Added task: Prove and document Confine untrusted document processing and preview (TASK-056) under story STORY-021
+- Added task: Expose and integrate Confine untrusted document processing and preview (TASK-055) under story STORY-021
+- Added task: Define custody and processing contracts for Confine untrusted document processing and preview (TASK-054) under story STORY-021
+- Added task: Prove and document Classify documents and govern type corrections (TASK-053) under story STORY-020
+- Added task: Expose and integrate Classify documents and govern type corrections (TASK-052) under story STORY-020
+- Added task: Define custody and processing contracts for Classify documents and govern type corrections (TASK-051) under story STORY-020
+- Added task: Prove and document Accept programmatic and resumable document intake (TASK-050) under story STORY-019
+- Added task: Expose and integrate Accept programmatic and resumable document intake (TASK-049) under story STORY-019
+- Added task: Define custody and processing contracts for Accept programmatic and resumable document intake (TASK-048) under story STORY-019
+- Added task: Prove and document Build the document intake and source viewer (TASK-047) under story AN2RM9JX2PBR6J1NQ1KSHBYHSQ
+- Added task: Implement the accessible source interaction for Build the document intake and source viewer (TASK-046) under story AN2RM9JX2PBR6J1NQ1KSHBYHSQ
+- Added task: Define custody and processing contracts for Build the document intake and source viewer (TASK-045) under story AN2RM9JX2PBR6J1NQ1KSHBYHSQ
+- Added task: Prove and document Activate OCR for scanned documents when needed (TASK-044) under story 9M4MDW7FN1SGECW2X23WF01501
+- Added task: Expose and integrate Activate OCR for scanned documents when needed (TASK-043) under story 9M4MDW7FN1SGECW2X23WF01501
+- Added task: Define custody and processing contracts for Activate OCR for scanned documents when needed (TASK-042) under story 9M4MDW7FN1SGECW2X23WF01501
+- Added task: Prove and document Parse native document text and page structure (TASK-041) under story J2ZHMCR2DNQSHD1VZY7CECT2HT
+- Added task: Expose and integrate Parse native document text and page structure (TASK-040) under story J2ZHMCR2DNQSHD1VZY7CECT2HT
+- Added task: Define custody and processing contracts for Parse native document text and page structure (TASK-039) under story J2ZHMCR2DNQSHD1VZY7CECT2HT
+- Added task: Prove and document Upload and preserve an original document (TASK-038) under story XRSZ0A5WZEQB0PQYD34PYR8EW3
+- Added task: Expose and integrate Upload and preserve an original document (TASK-037) under story XRSZ0A5WZEQB0PQYD34PYR8EW3
+- Added task: Define custody and processing contracts for Upload and preserve an original document (TASK-036) under story XRSZ0A5WZEQB0PQYD34PYR8EW3
+- Added task: Prove and document Import export compare and evolve governed schemas (TASK-035) under story STORY-018
+- Added task: Expose and integrate Import export compare and evolve governed schemas (TASK-034) under story STORY-018
+- Added task: Define lifecycle contracts and durable state for Import export compare and evolve governed schemas (TASK-033) under story STORY-018
+- Added task: Prove and document Establish the authenticated application shell and generated API boundary (TASK-032) under story STORY-017
+- Added task: Implement the accessible browser experience for Establish the authenticated application shell and generated API boundary (TASK-031) under story STORY-017
+- Added task: Define interaction and client contracts for Establish the authenticated application shell and generated API boundary (TASK-030) under story STORY-017
+- Added task: Prove and document Prove the draft-to-published Schema Workbench journey (TASK-029) under story 265YM4FNANJAH2J338BKAWFXDM
+- Added task: Exercise complete interaction and recovery paths for Prove the draft-to-published Schema Workbench journey (TASK-028) under story 265YM4FNANJAH2J338BKAWFXDM
+- Added task: Assemble representative fixtures for Prove the draft-to-published Schema Workbench journey (TASK-027) under story 265YM4FNANJAH2J338BKAWFXDM
+- Added task: Prove and document Build the accessible Schema Workbench (TASK-026) under story H98W5WTJBWT8EY0Q10P3KPCEEB
+- Added task: Implement the accessible browser experience for Build the accessible Schema Workbench (TASK-025) under story H98W5WTJBWT8EY0Q10P3KPCEEB
+- Added task: Define interaction and client contracts for Build the accessible Schema Workbench (TASK-024) under story H98W5WTJBWT8EY0Q10P3KPCEEB
+- Added task: Prove and document Expose the governed schema lifecycle through a versioned API (TASK-023) under story X51S43NTMRW5ASYSKJBF7FW845
+- Added task: Expose and integrate Expose the governed schema lifecycle through a versioned API (TASK-022) under story X51S43NTMRW5ASYSKJBF7FW845
+- Added task: Define lifecycle contracts and durable state for Expose the governed schema lifecycle through a versioned API (TASK-021) under story X51S43NTMRW5ASYSKJBF7FW845
 - Story 44E3PFDX5EVQE4FRTAN1A5RMGC: backlog to cancelled
 - Story STORY-016: backlog to cancelled
 - Story STORY-015: backlog to cancelled
