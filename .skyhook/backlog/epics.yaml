@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T10:49:05.391Z"
+  updatedAt: "2026-10-07T15:05:34.273Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1591,12 +1591,12 @@ stories:
     acceptanceCriteria:
       - Local identity establishes trusted actor and tenant context; enterprise OIDC remains deferred.
     priority: high
-    status: in-progress
+    status: in-review
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-03T08:20:53.861Z"
-    updatedAt: "2026-10-07T09:26:26.342Z"
+    updatedAt: "2026-10-07T15:05:34.273Z"
     childTasks:
       - TASK-013
       - TASK-014
@@ -4219,7 +4219,7 @@ tasks:
     parentType: story
     parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
     type: test
-    status: ready
+    status: done
     priority: critical
     storyPoints: 3
     estimatedMinutes: 300
@@ -4240,30 +4240,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Prove bootstrap then login then current-context through the API
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:20:02.249Z"
+        completedAt: "2026-10-07T15:05:08.361Z"
       - id: SUB-002
         title: Prove tenant selection is restricted to current memberships
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:20:02.249Z"
+        completedAt: "2026-10-07T15:05:05.160Z"
       - id: SUB-003
         title: Prove restart-safe sessions, expiry, rotation, revocation, and logout
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:20:02.249Z"
+        completedAt: "2026-10-07T15:05:11.701Z"
       - id: SUB-004
         title: Prove responses, logs, and database rows never expose raw passwords or session tokens
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:20:02.249Z"
+        completedAt: "2026-10-07T15:05:14.676Z"
       - id: SUB-005
         title: Document exact native PostgreSQL setup and interactive OpenAPI verification steps
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:20:02.249Z"
+        completedAt: "2026-10-07T15:05:17.150Z"
       - id: SUB-006
         title: Prove security-relevant bootstrap, login, tenant-selection, denial, rotation, and logout events are attributable without secret leakage
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:21:43.313Z"
+        completedAt: "2026-10-07T15:05:19.798Z"
     createdAt: "2026-10-07T09:20:02.249Z"
-    updatedAt: "2026-10-07T09:21:43.313Z"
+    updatedAt: "2026-10-07T15:05:34.273Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-07T10:51:16.765Z"
+    completedAt: "2026-10-07T15:05:34.273Z"
 prioritization:
   method: wsjf
   criteria: {}
