@@ -1,7 +1,7 @@
 # Project Plan: Evidentia
 
 > **Project ID**: `GPNKKMYX2EHA0GZ82WDJASXKGX` | **Profile**: `web-app`
-> **Compiled**: 2026-10-07T08:56:29.332Z by Skyhook Dynamic Plan Compiler
+> **Compiled**: 2026-10-07T09:20:20.298Z by Skyhook Dynamic Plan Compiler
 
 ## Executive Summary
 
@@ -11,11 +11,11 @@ An open-source, self-hostable platform that converts documents into inspectable,
 
 | Metric | Current Value | Notes |
 |:-------|:--------------|:------|
-| **Weekly Velocity** | **33.3 pts/wk** | Derived from 14-day rolling events |
+| **Weekly Velocity** | **33.2 pts/wk** | Derived from 14-day rolling events |
 | **Average Cycle Time** | **11.5 hours** | Average in-progress to done duration |
 | **Backlog Work Remaining** | **118 pts** (35 stories) | Unfinished scope |
-| **Expected Completion (P50)** | 📅 **2026-10-31** | Standard velocity projection (3.5 wks) |
-| **Conservative Completion (P90)** | 📅 **2026-11-09** | Risk-adjusted delivery date (4.7 wks) |
+| **Expected Completion (P50)** | 📅 **2026-11-01** | Standard velocity projection (3.6 wks) |
+| **Conservative Completion (P90)** | 📅 **2026-11-10** | Risk-adjusted delivery date (4.9 wks) |
 
 > [!WARNING]
 > **Scope Creep Alert**: Net backlog growth (+199 pts) exceeds recent completion rate. Delivery target may shift.
@@ -168,10 +168,10 @@ gantt
 |:-------|:------------------|:---------|:--------|:-------------|:-----|:-------|
 | **REQ-001** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-002** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-003** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `upgrade`<br/>`downgrade`<br/>`SchemaInterchangeEnvelope` | — | 🟢 Implemented |
+| **REQ-003** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `upgrade`<br/>`downgrade`<br/>`SchemaInterchangeEnvelope` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
 | **REQ-004** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-005** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | — | 🔴 Untraced |
-| **REQ-006** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | — | 🔴 Untraced |
+| **REQ-005** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
+| **REQ-006** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
 | **REQ-007** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-008** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-009** | Untitled | `functional` | — | — | — | 🔴 Untraced |
@@ -179,19 +179,19 @@ gantt
 | **REQ-011** | Untitled | `functional` | — | — | — | 🔴 Untraced |
 | **REQ-012** | Untitled | `functional` | STORY-007 (done)<br/>STORY-012 (cancelled)<br/>STORY-013 (backlog)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `main`<br/>`App`<br/>`sdk_version` | — | 🟢 Implemented |
 | **REQ-013** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **REQ-014** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-014 (backlog)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `WorkerRuntimeSettings`<br/>`WorkerSettings`<br/>`load_worker_settings` | — | 🟢 Implemented |
-| **REQ-015** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | — | 🔴 Untraced |
-| **REQ-016** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `FieldSelector`<br/>`FieldAlias`<br/>`FieldMapping` | — | 🟢 Implemented |
-| **REQ-017** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | — | 🔴 Untraced |
+| **REQ-014** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-014 (backlog)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `WorkerRuntimeSettings`<br/>`WorkerSettings`<br/>`load_worker_settings` | 8VC3FRAN1GRTK2F99NB459BWWJ | 🟢 Implemented |
+| **REQ-015** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
+| **REQ-016** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `FieldSelector`<br/>`FieldAlias`<br/>`FieldMapping` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
+| **REQ-017** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | — | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
 | **REQ-018** | Untitled | `functional` | — | — | — | 🔴 Untraced |
-| **NFR-001** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `PublicationProvenance`<br/>`StoredSchemaIntegrityError` | — | 🟢 Implemented |
-| **NFR-002** | Untitled | `functional` | STORY-010 (cancelled)<br/>STORY-011 (cancelled)<br/>STORY-014 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
+| **NFR-001** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done) | `PublicationProvenance`<br/>`StoredSchemaIntegrityError` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
+| **NFR-002** | Untitled | `functional` | STORY-010 (cancelled)<br/>STORY-011 (cancelled)<br/>STORY-014 (backlog)<br/>STORY-016 (backlog) | — | 8VC3FRAN1GRTK2F99NB459BWWJ | 🔴 Untraced |
 | **NFR-003** | Untitled | `functional` | STORY-014 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
-| **NFR-004** | Untitled | `functional` | STORY-007 (done)<br/>STORY-009 (in-review)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `RuntimeEnvironment`<br/>`DatabaseSettings`<br/>`StorageSettings` | — | 🟢 Implemented |
+| **NFR-004** | Untitled | `functional` | STORY-007 (done)<br/>STORY-009 (in-review)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `RuntimeEnvironment`<br/>`DatabaseSettings`<br/>`StorageSettings` | 8VC3FRAN1GRTK2F99NB459BWWJ<br/>HKSQBTGX2CZT36GCS8D3ZTM2PA | 🟢 Implemented |
 | **NFR-005** | Untitled | `functional` | STORY-013 (backlog)<br/>STORY-016 (backlog) | — | — | 🔴 Untraced |
-| **NFR-006** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-012 (cancelled)<br/>STORY-014 (backlog)<br/>STORY-016 (backlog) | `LoggingSettings`<br/>`HealthReport`<br/>`as_dict` | — | 🟢 Implemented |
-| **NFR-007** | Untitled | `functional` | STORY-010 (cancelled) | — | — | 🔴 Untraced |
-| **NFR-008** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-007 (done)<br/>STORY-008 (done)<br/>STORY-010 (cancelled)<br/>STORY-012 (cancelled)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `test_real_contexts_are_importable_and_policy_compliant`<br/>`test_framework_import_from_domain_is_rejected`<br/>`test_private_cross_context_import_is_rejected` | — | 🟢 Implemented |
+| **NFR-006** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-012 (cancelled)<br/>STORY-014 (backlog)<br/>STORY-016 (backlog) | `LoggingSettings`<br/>`HealthReport`<br/>`as_dict` | 8VC3FRAN1GRTK2F99NB459BWWJ | 🟢 Implemented |
+| **NFR-007** | Untitled | `functional` | STORY-010 (cancelled) | — | HKSQBTGX2CZT36GCS8D3ZTM2PA | 🔴 Untraced |
+| **NFR-008** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-007 (done)<br/>STORY-008 (done)<br/>STORY-010 (cancelled)<br/>STORY-012 (cancelled)<br/>STORY-015 (backlog)<br/>STORY-016 (backlog) | `test_real_contexts_are_importable_and_policy_compliant`<br/>`test_framework_import_from_domain_is_rejected`<br/>`test_private_cross_context_import_is_rejected` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
 | **NFR-009** | Untitled | `functional` | STORY-015 (backlog) | — | — | 🔴 Untraced |
 
 
@@ -218,6 +218,7 @@ gantt
 - **X5BHHCAWFJ2SZKPBCP5ECENB97**: Define the dynamic schema lifecycle, type system, and compatibility contract (Status: `accepted`, Category: `architecture`)
 - **GC27J7X510394MDYVWSK5M14C2**: Plan delivery through interaction-first vertical slices (Status: `accepted`, Category: `architecture`)
 - **SW33NV9PVTRT60GMH1497PZD62**: Use native PostgreSQL now and add a hybrid Docker profile before release (Status: `accepted`, Category: `database`)
+- **VVWYJKD93R4A9A7B5009H07F73**: Use provider-neutral local identity with opaque server-side sessions (Status: `accepted`, Category: `security`)
 
 ## 4. Declared Tech Stack
 

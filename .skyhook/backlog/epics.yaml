@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T08:56:18.829Z"
+  updatedAt: "2026-10-07T09:20:10.974Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1591,12 +1591,25 @@ stories:
     acceptanceCriteria:
       - Local identity establishes trusted actor and tenant context; enterprise OIDC remains deferred.
     priority: high
-    status: backlog
+    status: ready
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-03T08:20:53.861Z"
-    updatedAt: "2026-10-03T08:20:53.861Z"
+    updatedAt: "2026-10-07T09:20:10.974Z"
+    childTasks:
+      - TASK-013
+      - TASK-014
+      - TASK-015
+      - TASK-016
+      - TASK-017
+      - TASK-018
+      - TASK-019
+      - TASK-020
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
   - id: X51S43NTMRW5ASYSKJBF7FW845
     epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
     title: Expose the governed schema lifecycle through a versioned API
@@ -3785,6 +3798,380 @@ tasks:
       name: Codex
     startedAt: "2026-10-03T17:52:26.314Z"
     completedAt: "2026-10-07T08:54:11.330Z"
+  - id: TASK-013
+    title: Define provider-neutral identity, membership, and trusted-context contracts
+    description: "Purpose: define the access-context domain and public application seams before choosing transport or persistence details. Contribution: gives every later API and module one stable, tenant-safe representation of operators, memberships, capabilities, sessions, and trusted request context while keeping future OIDC replaceable."
+    parentType: story
+    parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
+    type: feature
+    status: ready
+    priority: critical
+    storyPoints: 3
+    estimatedMinutes: 240
+    targetFiles:
+      - backend/src/evidentia/modules/access/domain/
+      - backend/src/evidentia/modules/access/application/
+      - backend/src/evidentia/modules/access/public.py
+      - backend/tests/modules/access/
+    standards:
+      - STD-ARCH-001
+      - STD-SOFT-002
+      - STD-SOFT-003
+    dependsOn: []
+    subtasks:
+      - id: SUB-001
+        title: Define immutable operator, tenant, membership, capability, credential, and session identities
+        completed: false
+        createdAt: "2026-10-07T09:18:33.082Z"
+      - id: SUB-002
+        title: Define normalized login-identifier and tenant-slug rules without provider coupling
+        completed: false
+        createdAt: "2026-10-07T09:18:33.082Z"
+      - id: SUB-003
+        title: Define trusted request context and authorization-denial contracts
+        completed: false
+        createdAt: "2026-10-07T09:18:33.082Z"
+      - id: SUB-004
+        title: Define identity-provider, session, and repository application ports
+        completed: false
+        createdAt: "2026-10-07T09:18:33.082Z"
+      - id: SUB-005
+        title: Add unit tests for invariants, normalization, capability evaluation, and invalid contexts
+        completed: false
+        createdAt: "2026-10-07T09:18:33.082Z"
+    createdAt: "2026-10-07T09:18:33.082Z"
+    updatedAt: "2026-10-07T09:18:33.082Z"
+  - id: TASK-014
+    title: Configure secure local identity and bootstrap secrets
+    description: "Purpose: establish centrally validated configuration for local credentials, session security, expiry, cookie policy, and bootstrap identity. Contribution: prevents secret sprawl and unsafe defaults while making native local setup reproducible and future deployment secret-manager compatible."
+    parentType: story
+    parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
+    type: feature
+    status: ready
+    priority: critical
+    storyPoints: 2
+    estimatedMinutes: 180
+    targetFiles:
+      - backend/src/evidentia/config/settings.py
+      - .env.example
+      - scripts/generate-local-env.sh
+      - Makefile
+      - backend/tests/test_settings.py
+      - docs/development/local-development.md
+    standards:
+      - STD-SEC-001
+      - STD-SEC-003
+      - STD-SOFT-003
+      - STD-DEV-001
+    dependsOn:
+      - TASK-013
+    subtasks:
+      - id: SUB-001
+        title: Define validated identity, session, cookie, and bootstrap settings
+        completed: false
+        createdAt: "2026-10-07T09:18:45.375Z"
+      - id: SUB-002
+        title: Generate high-entropy local bootstrap and session secrets without exposing them
+        completed: false
+        createdAt: "2026-10-07T09:18:45.375Z"
+      - id: SUB-003
+        title: Reject placeholder secrets and unsafe production cookie settings
+        completed: false
+        createdAt: "2026-10-07T09:18:45.375Z"
+      - id: SUB-004
+        title: Preserve owner-only ignored environment-file behavior
+        completed: false
+        createdAt: "2026-10-07T09:18:45.375Z"
+      - id: SUB-005
+        title: Document secret rotation and deployment secret-manager expectations
+        completed: false
+        createdAt: "2026-10-07T09:18:45.375Z"
+    createdAt: "2026-10-07T09:18:45.375Z"
+    updatedAt: "2026-10-07T09:18:45.375Z"
+  - id: TASK-015
+    title: Persist tenants, operators, memberships, capabilities, credentials, and sessions
+    description: "Purpose: add access-context-owned PostgreSQL persistence without leaking identity storage into API routes or other modules. Contribution: creates durable tenant and operator identity, many-to-many memberships, capability grants, Argon2id credential records, and revocable hashed sessions suitable for local use and later OIDC linking."
+    parentType: story
+    parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
+    type: feature
+    status: ready
+    priority: critical
+    storyPoints: 5
+    estimatedMinutes: 420
+    targetFiles:
+      - backend/src/evidentia/modules/access/infrastructure/
+      - backend/migrations/access/
+      - backend/tests/integration/access/
+      - docs/architecture/access-persistence.md
+    standards:
+      - STD-ARCH-001
+      - STD-SEC-002
+      - STD-SEC-003
+      - STD-TEST-002
+      - STD-DEV-001
+    dependsOn:
+      - TASK-013
+      - TASK-014
+    subtasks:
+      - id: SUB-001
+        title: Design access-owned tables, tenant-scoped keys, uniqueness rules, and indexes
+        completed: false
+        createdAt: "2026-10-07T09:18:59.814Z"
+      - id: SUB-002
+        title: Create a reversible Alembic migration without cross-context foreign keys
+        completed: false
+        createdAt: "2026-10-07T09:18:59.814Z"
+      - id: SUB-003
+        title: Implement repository adapters for operators, tenants, memberships, capabilities, credentials, and sessions
+        completed: false
+        createdAt: "2026-10-07T09:18:59.814Z"
+      - id: SUB-004
+        title: Store Argon2id password hashes and only SHA-256 digests of opaque session tokens
+        completed: false
+        createdAt: "2026-10-07T09:18:59.814Z"
+      - id: SUB-005
+        title: Prove migration reversibility, tenant isolation, expiry, revocation, and persistence across sessions
+        completed: false
+        createdAt: "2026-10-07T09:18:59.814Z"
+    createdAt: "2026-10-07T09:18:59.814Z"
+    updatedAt: "2026-10-07T09:18:59.814Z"
+  - id: TASK-016
+    title: Bootstrap the first tenant and administrator explicitly
+    description: "Purpose: give a new self-hosted installation a safe, repeatable way to create its first trusted operator and tenant. Contribution: enables initial access without startup-time backdoors, default passwords, or manual SQL, while remaining idempotent and automatable."
+    parentType: story
+    parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
+    type: feature
+    status: ready
+    priority: critical
+    storyPoints: 3
+    estimatedMinutes: 240
+    targetFiles:
+      - backend/src/evidentia/modules/access/application/bootstrap.py
+      - backend/src/evidentia/entrypoints/cli/
+      - backend/pyproject.toml
+      - Makefile
+      - backend/tests/integration/access/
+      - docs/development/local-development.md
+    standards:
+      - STD-ARCH-001
+      - STD-SEC-002
+      - STD-SEC-003
+      - STD-SOFT-001
+      - STD-DEV-001
+    dependsOn:
+      - TASK-015
+    subtasks:
+      - id: SUB-001
+        title: Implement an explicit bootstrap application command and CLI entrypoint
+        completed: false
+        createdAt: "2026-10-07T09:19:12.375Z"
+      - id: SUB-002
+        title: Create the first tenant, operator, membership, and administrator capability grants atomically
+        completed: false
+        createdAt: "2026-10-07T09:19:12.375Z"
+      - id: SUB-003
+        title: Hash the bootstrap password with Argon2id before persistence
+        completed: false
+        createdAt: "2026-10-07T09:19:12.375Z"
+      - id: SUB-004
+        title: Make repeated identical bootstrap safe and reject conflicting existing identity
+        completed: false
+        createdAt: "2026-10-07T09:19:12.375Z"
+      - id: SUB-005
+        title: Add make identity-init and document first-run, recovery, and rotation behavior
+        completed: false
+        createdAt: "2026-10-07T09:19:12.375Z"
+    createdAt: "2026-10-07T09:19:12.375Z"
+    updatedAt: "2026-10-07T09:19:12.375Z"
+  - id: TASK-017
+    title: Implement local authentication and revocable session lifecycle
+    description: "Purpose: authenticate local operators and manage secure browser sessions independently of FastAPI and future identity providers. Contribution: supplies reusable login, verification, rotation, expiry, and logout behavior with no plaintext passwords or session tokens at rest."
+    parentType: story
+    parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
+    type: feature
+    status: ready
+    priority: critical
+    storyPoints: 5
+    estimatedMinutes: 360
+    targetFiles:
+      - backend/src/evidentia/modules/access/application/authenticate.py
+      - backend/src/evidentia/modules/access/application/sessions.py
+      - backend/src/evidentia/modules/access/infrastructure/passwords.py
+      - backend/src/evidentia/modules/access/infrastructure/tokens.py
+      - backend/tests/modules/access/
+      - backend/tests/integration/access/
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-SEC-001
+      - STD-SEC-003
+      - STD-SOFT-001
+    dependsOn:
+      - TASK-015
+    subtasks:
+      - id: SUB-001
+        title: Verify Argon2id credentials with generic failure responses and timing-safe behavior
+        completed: false
+        createdAt: "2026-10-07T09:19:24.300Z"
+      - id: SUB-002
+        title: Issue cryptographically random opaque session tokens and persist only their digests
+        completed: false
+        createdAt: "2026-10-07T09:19:24.300Z"
+      - id: SUB-003
+        title: Validate session expiry, revocation, operator state, and membership state
+        completed: false
+        createdAt: "2026-10-07T09:19:24.300Z"
+      - id: SUB-004
+        title: Rotate sessions and revoke them on logout or detected token reuse
+        completed: false
+        createdAt: "2026-10-07T09:19:24.300Z"
+      - id: SUB-005
+        title: Add unit and PostgreSQL integration tests for successful and adversarial session flows
+        completed: false
+        createdAt: "2026-10-07T09:19:24.300Z"
+    createdAt: "2026-10-07T09:19:24.300Z"
+    updatedAt: "2026-10-07T09:19:24.300Z"
+  - id: TASK-018
+    title: Resolve trusted tenant context and enforce capability checks
+    description: "Purpose: turn a valid session into a verified operator-and-tenant context that downstream application services can trust. Contribution: prevents confused-deputy and cross-tenant access by deriving active tenant and capabilities from current persisted membership instead of request headers or client claims."
+    parentType: story
+    parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
+    type: feature
+    status: ready
+    priority: critical
+    storyPoints: 3
+    estimatedMinutes: 300
+    targetFiles:
+      - backend/src/evidentia/modules/access/application/context.py
+      - backend/src/evidentia/modules/access/application/authorization.py
+      - backend/src/evidentia/modules/access/public.py
+      - backend/tests/modules/access/
+      - backend/tests/integration/access/
+    standards:
+      - STD-ARCH-001
+      - STD-SEC-001
+      - STD-SOFT-001
+      - STD-SOFT-003
+    dependsOn:
+      - TASK-016
+      - TASK-017
+    subtasks:
+      - id: SUB-001
+        title: Resolve active tenant only from current operator memberships
+        completed: false
+        createdAt: "2026-10-07T09:19:37.079Z"
+      - id: SUB-002
+        title: Evaluate named capabilities through the access public application boundary
+        completed: false
+        createdAt: "2026-10-07T09:19:37.079Z"
+      - id: SUB-003
+        title: Reject disabled operators, tenants, memberships, and stale capability state
+        completed: false
+        createdAt: "2026-10-07T09:19:37.079Z"
+      - id: SUB-004
+        title: Carry session, operator, tenant, capability, and correlation identifiers without framework types
+        completed: false
+        createdAt: "2026-10-07T09:19:37.079Z"
+      - id: SUB-005
+        title: Prove cross-tenant and insufficient-capability requests fail closed
+        completed: false
+        createdAt: "2026-10-07T09:19:37.079Z"
+    createdAt: "2026-10-07T09:19:37.079Z"
+    updatedAt: "2026-10-07T09:19:37.079Z"
+  - id: TASK-019
+    title: Expose secure local session and current-context API operations
+    description: "Purpose: provide the first real operator interaction through versioned HTTP operations while keeping authentication logic out of routes. Contribution: allows login, logout, current-operator inspection, and authorized tenant selection through OpenAPI and establishes the trusted dependency used by later schema endpoints."
+    parentType: story
+    parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
+    type: feature
+    status: ready
+    priority: critical
+    storyPoints: 5
+    estimatedMinutes: 360
+    targetFiles:
+      - backend/src/evidentia/entrypoints/api/
+      - backend/tests/api/access/
+      - sdks/typescript/
+      - sdks/python/
+    standards:
+      - STD-ARCH-001
+      - STD-SEC-001
+      - STD-SEC-004
+      - STD-SOFT-001
+      - STD-SOFT-003
+      - STD-DEV-001
+    dependsOn:
+      - TASK-018
+    subtasks:
+      - id: SUB-001
+        title: Add versioned login, logout, current-context, and tenant-selection operations
+        completed: false
+        createdAt: "2026-10-07T09:19:48.579Z"
+      - id: SUB-002
+        title: Set and clear HttpOnly SameSite session cookies with environment-safe Secure behavior
+        completed: false
+        createdAt: "2026-10-07T09:19:48.579Z"
+      - id: SUB-003
+        title: Add request correlation and trusted-context dependencies without accepting identity headers
+        completed: false
+        createdAt: "2026-10-07T09:19:48.579Z"
+      - id: SUB-004
+        title: Return stable sanitized authentication and authorization errors
+        completed: false
+        createdAt: "2026-10-07T09:19:48.579Z"
+      - id: SUB-005
+        title: Expose deterministic OpenAPI contracts and update generated-client boundaries
+        completed: false
+        createdAt: "2026-10-07T09:19:48.579Z"
+    createdAt: "2026-10-07T09:19:48.579Z"
+    updatedAt: "2026-10-07T09:19:48.579Z"
+  - id: TASK-020
+    title: Prove the local operator and tenant-context journey
+    description: "Purpose: verify the complete first-user path against native PostgreSQL and the running API rather than isolated units alone. Contribution: establishes trustworthy evidence that bootstrap, login, cookie sessions, tenant selection, logout, restart durability, and cross-tenant denial work together before schema APIs depend on them."
+    parentType: story
+    parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
+    type: test
+    status: ready
+    priority: critical
+    storyPoints: 3
+    estimatedMinutes: 300
+    targetFiles:
+      - backend/tests/integration/access/
+      - backend/tests/api/access/
+      - docs/development/local-development.md
+      - Makefile
+    standards:
+      - STD-SEC-001
+      - STD-SEC-003
+      - STD-SEC-004
+      - STD-TEST-001
+      - STD-TEST-002
+      - STD-DEV-001
+    dependsOn:
+      - TASK-019
+    subtasks:
+      - id: SUB-001
+        title: Prove bootstrap then login then current-context through the API
+        completed: false
+        createdAt: "2026-10-07T09:20:02.249Z"
+      - id: SUB-002
+        title: Prove tenant selection is restricted to current memberships
+        completed: false
+        createdAt: "2026-10-07T09:20:02.249Z"
+      - id: SUB-003
+        title: Prove restart-safe sessions, expiry, rotation, revocation, and logout
+        completed: false
+        createdAt: "2026-10-07T09:20:02.249Z"
+      - id: SUB-004
+        title: Prove responses, logs, and database rows never expose raw passwords or session tokens
+        completed: false
+        createdAt: "2026-10-07T09:20:02.249Z"
+      - id: SUB-005
+        title: Document exact native PostgreSQL setup and interactive OpenAPI verification steps
+        completed: false
+        createdAt: "2026-10-07T09:20:02.249Z"
+    createdAt: "2026-10-07T09:20:02.249Z"
+    updatedAt: "2026-10-07T09:20:02.249Z"
 prioritization:
   method: wsjf
   criteria: {}

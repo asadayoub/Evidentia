@@ -1,6 +1,16 @@
 # Changelog
 
 ## [Unreleased]
+- Story N1ZNPJWFZYPV0MVB8FP137GRJP: backlog to ready
+- Added task: Prove the local operator and tenant-context journey (TASK-020) under story N1ZNPJWFZYPV0MVB8FP137GRJP
+- Added task: Expose secure local session and current-context API operations (TASK-019) under story N1ZNPJWFZYPV0MVB8FP137GRJP
+- Added task: Resolve trusted tenant context and enforce capability checks (TASK-018) under story N1ZNPJWFZYPV0MVB8FP137GRJP
+- Added task: Implement local authentication and revocable session lifecycle (TASK-017) under story N1ZNPJWFZYPV0MVB8FP137GRJP
+- Added task: Bootstrap the first tenant and administrator explicitly (TASK-016) under story N1ZNPJWFZYPV0MVB8FP137GRJP
+- Added task: Persist tenants, operators, memberships, capabilities, credentials, and sessions (TASK-015) under story N1ZNPJWFZYPV0MVB8FP137GRJP
+- Added task: Configure secure local identity and bootstrap secrets (TASK-014) under story N1ZNPJWFZYPV0MVB8FP137GRJP
+- Added task: Define provider-neutral identity, membership, and trusted-context contracts (TASK-013) under story N1ZNPJWFZYPV0MVB8FP137GRJP
+- Recorded decision: Use provider-neutral local identity with opaque server-side sessions (VVWYJKD93R4A9A7B5009H07F73)
 - Task D1KWVTV4A2PCZDQ1YY4TV1C9K1: backlog to cancelled
 - Task R5TKQHSSMXWZYVH4FS7076N2N8: backlog to cancelled
 - Task 88WD0RN7M46MBNDS469VBNSC0B: backlog to cancelled
