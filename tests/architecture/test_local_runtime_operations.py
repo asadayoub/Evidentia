@@ -16,6 +16,19 @@ from pytest import MonkeyPatch
 _REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 
 
+def test_makefile_exposes_loopback_native_web_command() -> None:
+    """Keep the browser application runnable without the deferred Docker profile.
+
+    @skyhook-implements NFR-004
+    @skyhook-story STORY-017
+    """
+    makefile = (_REPOSITORY_ROOT / "Makefile").read_text(encoding="utf-8")
+
+    assert "native-web:" in makefile
+    assert "pnpm --filter @evidentia/web dev" in makefile
+    assert "native-web" in makefile.splitlines()[0]
+
+
 def test_local_environment_generator_creates_private_random_secret(
     tmp_path: Path, monkeypatch: MonkeyPatch
 ) -> None:

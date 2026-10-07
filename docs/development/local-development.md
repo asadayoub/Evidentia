@@ -91,6 +91,18 @@ make native-api
 used by the application. It does not source the file in the shell or print any
 credential. The default API address is `http://127.0.0.1:8000`.
 
+In a second terminal, start the native browser development server:
+
+```sh
+make native-web
+```
+
+`native-web` uses the locked pnpm workspace and the Vite configuration committed
+with the frontend. It binds to `http://127.0.0.1:5173`, which is already included
+in the API's explicit credentialed-CORS development origins. Keep `native-api`
+running in the first terminal so login and protected routes can restore their
+server-owned session.
+
 Open `http://127.0.0.1:8000/docs` and use the access operations in this order:
 
 1. Run `POST /api/v1/access/sessions` using the configured bootstrap login and
