@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T10:29:10.506Z"
+  updatedAt: "2026-10-07T10:49:05.391Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -4156,7 +4156,7 @@ tasks:
     parentType: story
     parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
     type: feature
-    status: ready
+    status: done
     priority: critical
     storyPoints: 5
     estimatedMinutes: 360
@@ -4177,30 +4177,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Add versioned login, logout, current-context, and tenant-selection operations
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:48.579Z"
+        completedAt: "2026-10-07T10:48:43.025Z"
       - id: SUB-002
         title: Set and clear HttpOnly SameSite session cookies with environment-safe Secure behavior
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:48.579Z"
+        completedAt: "2026-10-07T10:48:40.237Z"
       - id: SUB-003
         title: Add request correlation and trusted-context dependencies without accepting identity headers
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:48.579Z"
+        completedAt: "2026-10-07T10:48:45.800Z"
       - id: SUB-004
         title: Return stable sanitized authentication and authorization errors
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:48.579Z"
+        completedAt: "2026-10-07T10:48:47.569Z"
       - id: SUB-005
         title: Expose deterministic OpenAPI contracts and update generated-client boundaries
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:19:48.579Z"
+        completedAt: "2026-10-07T10:48:49.390Z"
       - id: SUB-006
         title: Enforce CSRF and trusted-origin protection for cookie-authenticated mutations with restrictive credentialed CORS and security headers
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:21:39.791Z"
+        completedAt: "2026-10-07T10:48:51.387Z"
     createdAt: "2026-10-07T09:19:48.579Z"
-    updatedAt: "2026-10-07T09:21:39.791Z"
+    updatedAt: "2026-10-07T10:49:05.391Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-07T10:31:15.418Z"
+    completedAt: "2026-10-07T10:49:05.391Z"
   - id: TASK-020
     title: Prove the local operator and tenant-context journey
     description: "Purpose: verify the complete first-user path against native PostgreSQL and the running API rather than isolated units alone. Contribution: establishes trustworthy evidence that bootstrap, login, cookie sessions, tenant selection, logout, restart durability, and cross-tenant denial work together before schema APIs depend on them."
