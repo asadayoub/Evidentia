@@ -197,10 +197,29 @@ class PasswordHasher(Protocol):
 
     def verify(
         self,
-        password_hash: Argon2idPasswordHash,
+        password_hash: Argon2idPasswordHash | None,
         secret: AuthenticationSecret,
     ) -> bool:
-        """Return whether a plaintext secret matches an encoded verifier."""
+        """Verify a hash or perform equivalent dummy work when it is absent."""
+        ...
+
+
+class AuthenticationThrottle(Protocol):
+    """Replaceable bounded backoff for authentication failures.
+
+    @skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
+    """
+
+    async def retry_after_seconds(self, key: LoginIdentifier, *, now: datetime) -> int:
+        """Return a bounded delay remaining for a normalized identifier."""
+        ...
+
+    async def record_failure(self, key: LoginIdentifier, *, now: datetime) -> int:
+        """Record a failure and return the newly applicable bounded delay."""
+        ...
+
+    async def clear(self, key: LoginIdentifier) -> None:
+        """Clear transient failure state after successful authentication."""
         ...
 
 
@@ -331,4 +350,28 @@ class SessionRepository(Protocol):
 
     async def get(self, session_id: SessionId) -> AccessSession | None:
         """Load a session for administrative revocation."""
+        ...
+
+    async def revoke_if_active(
+        self,
+        session_id: SessionId,
+        *,
+        revoked_at: datetime,
+        replaced_by_session_id: SessionId | None = None,
+    ) -> bool:
+        """Atomically claim an unrevoked session for logout or rotation."""
+        ...
+
+    async def delete(self, session_id: SessionId) -> None:
+        """Delete an uncommitted successor after a lost rotation race."""
+        ...
+
+    async def touch_if_active(
+        self,
+        session_id: SessionId,
+        *,
+        last_seen_at: datetime,
+        expires_at: datetime,
+    ) -> bool:
+        """Atomically refresh an unrevoked session without resurrecting it."""
         ...

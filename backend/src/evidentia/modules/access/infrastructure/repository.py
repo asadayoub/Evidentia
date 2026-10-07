@@ -319,7 +319,10 @@ class PostgresSessionRepository:
         """Persist mutable session metadata without changing its token digest."""
         await self._session.execute(
             update(AccessSessionRecord)
-            .where(AccessSessionRecord.session_id == UUID(session.session_id.value))
+            .where(
+                AccessSessionRecord.session_id == UUID(session.session_id.value),
+                AccessSessionRecord.revoked_at.is_(None),
+            )
             .values(
                 active_tenant_id=(
                     None
@@ -342,6 +345,58 @@ class PostgresSessionRepository:
         """Load a session by opaque identity."""
         record = await self._session.get(AccessSessionRecord, UUID(session_id.value))
         return None if record is None else _session(record)
+
+    async def revoke_if_active(
+        self,
+        session_id: SessionId,
+        *,
+        revoked_at: datetime,
+        replaced_by_session_id: SessionId | None = None,
+    ) -> bool:
+        """Atomically revoke exactly one currently unrevoked session."""
+        result = await self._session.execute(
+            update(AccessSessionRecord)
+            .where(
+                AccessSessionRecord.session_id == UUID(session_id.value),
+                AccessSessionRecord.revoked_at.is_(None),
+            )
+            .values(
+                revoked_at=revoked_at,
+                replaced_by_session_id=(
+                    None if replaced_by_session_id is None else UUID(replaced_by_session_id.value)
+                ),
+            )
+            .returning(AccessSessionRecord.session_id)
+        )
+        return result.scalar_one_or_none() is not None
+
+    async def delete(self, session_id: SessionId) -> None:
+        """Delete a session staged by a rotation that lost its atomic claim."""
+        await self._session.execute(
+            delete(AccessSessionRecord).where(
+                AccessSessionRecord.session_id == UUID(session_id.value)
+            )
+        )
+        await self._session.flush()
+
+    async def touch_if_active(
+        self,
+        session_id: SessionId,
+        *,
+        last_seen_at: datetime,
+        expires_at: datetime,
+    ) -> bool:
+        """Refresh activity only while concurrent revocation has not won."""
+        result = await self._session.execute(
+            update(AccessSessionRecord)
+            .where(
+                AccessSessionRecord.session_id == UUID(session_id.value),
+                AccessSessionRecord.revoked_at.is_(None),
+            )
+            .values(last_seen_at=last_seen_at, expires_at=expires_at)
+            .returning(AccessSessionRecord.session_id)
+        )
+        return result.scalar_one_or_none() is not None
 
 
 def _operator(record: OperatorRecord) -> Operator:

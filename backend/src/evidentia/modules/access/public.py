@@ -5,6 +5,11 @@
 @skyhook-story N1ZNPJWFZYPV0MVB8FP137GRJP
 """
 
+from evidentia.modules.access.application.authenticate import (
+    AuthenticateLocalOperator,
+    AuthenticationDeniedError,
+    LocalAuthenticationRequest,
+)
 from evidentia.modules.access.application.bootstrap import (
     BOOTSTRAP_ADMIN_CAPABILITIES,
     BootstrapFirstIdentity,
@@ -23,6 +28,7 @@ from evidentia.modules.access.application.ports import (
     Argon2idPasswordHash,
     AuthenticatedIdentity,
     AuthenticationSecret,
+    AuthenticationThrottle,
     CredentialRepository,
     IdentityProvider,
     MembershipRepository,
@@ -32,6 +38,13 @@ from evidentia.modules.access.application.ports import (
     SessionRepository,
     SessionTokenProvider,
     TenantRepository,
+)
+from evidentia.modules.access.application.sessions import (
+    IssuedSession,
+    ManageSessions,
+    SessionDenialReason,
+    SessionDeniedError,
+    ValidatedSession,
 )
 from evidentia.modules.access.domain.identity import (
     Capability,
@@ -63,8 +76,11 @@ __all__ = (
     "AccessDeniedError",
     "AccessSession",
     "Argon2idPasswordHash",
+    "AuthenticateLocalOperator",
     "AuthenticatedIdentity",
+    "AuthenticationDeniedError",
     "AuthenticationSecret",
+    "AuthenticationThrottle",
     "BootstrapFirstIdentity",
     "Capability",
     "CredentialId",
@@ -76,7 +92,10 @@ __all__ = (
     "IdentityBootstrapResult",
     "IdentityProvider",
     "IdentityProviderKey",
+    "IssuedSession",
+    "LocalAuthenticationRequest",
     "LoginIdentifier",
+    "ManageSessions",
     "Membership",
     "MembershipId",
     "MembershipRepository",
@@ -88,6 +107,8 @@ __all__ = (
     "OperatorStatus",
     "PasswordHasher",
     "ProviderSubject",
+    "SessionDenialReason",
+    "SessionDeniedError",
     "SessionId",
     "SessionRepository",
     "SessionTokenDigest",
@@ -98,5 +119,6 @@ __all__ = (
     "TenantSlug",
     "TenantStatus",
     "TrustedRequestContext",
+    "ValidatedSession",
     "build_trusted_context",
 )
