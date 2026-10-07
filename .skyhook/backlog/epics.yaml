@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T16:03:50.319Z"
+  updatedAt: "2026-10-07T16:17:49.225Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -2327,7 +2327,7 @@ stories:
     title: Establish the authenticated application shell and generated API boundary
     description: "Requirements: REQ-012, NFR-002, NFR-005, NFR-006, NFR-008, CON-005. Purpose: connect the completed access APIs to the React application and make the generated TypeScript client the only supported browser-to-API boundary."
     epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
-    status: ready
+    status: in-progress
     storyPoints: 8
     priority: critical
     standards:
@@ -2351,7 +2351,7 @@ stories:
     dependsOn:
       - N1ZNPJWFZYPV0MVB8FP137GRJP
     createdAt: "2026-10-07T15:20:58.224Z"
-    updatedAt: "2026-10-07T16:03:27.838Z"
+    updatedAt: "2026-10-07T16:06:06.410Z"
     childTasks:
       - TASK-030
       - TASK-031
@@ -2360,6 +2360,7 @@ stories:
       type: agent
       identifier: Codex
       name: Codex
+    startedAt: "2026-10-07T16:06:06.410Z"
   - id: STORY-018
     title: Import export compare and evolve governed schemas
     description: "Requirements: REQ-003, REQ-016, REQ-017, NFR-001, NFR-008. Purpose: complete the administrator-facing schema lifecycle beyond basic draft editing and publication."
@@ -5773,7 +5774,7 @@ tasks:
     parentType: story
     parentId: STORY-017
     type: feature
-    status: ready
+    status: done
     priority: critical
     storyPoints: 3
     estimatedMinutes: 240
@@ -5791,30 +5792,37 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Confirm owning bounded context, requirements, lifecycle invariants, and public collaboration boundaries
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:32.350Z"
+        completedAt: "2026-10-07T16:16:28.010Z"
       - id: SUB-002
         title: Define typed domain and application contracts without framework or provider coupling
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:32.350Z"
+        completedAt: "2026-10-07T16:16:31.014Z"
       - id: SUB-003
         title: Define tenant scope, actor authority, concurrency, idempotency, and audit expectations
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:32.350Z"
+        completedAt: "2026-10-07T16:16:34.278Z"
       - id: SUB-004
         title: Add or plan module-owned persistence and migration changes only where durable state is required
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:32.350Z"
+        completedAt: "2026-10-07T16:16:37.157Z"
       - id: SUB-005
         title: Add focused unit and persistence tests plus Skyhook traceability annotations
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:32.350Z"
+        completedAt: "2026-10-07T16:16:39.887Z"
     createdAt: "2026-10-07T15:26:32.350Z"
-    updatedAt: "2026-10-07T16:03:50.319Z"
+    updatedAt: "2026-10-07T16:17:49.225Z"
     assignee:
       type: agent
-      identifier: Codex
-      name: Codex
+      identifier: codex
+      name: codex
+    startedAt: "2026-10-07T16:06:06.410Z"
+    completedAt: "2026-10-07T16:17:49.225Z"
   - id: TASK-031
     title: Implement the accessible browser experience for Establish the authenticated application shell and generated API boundary
     description: "Purpose: make \"Establish the authenticated application shell and generated API boundary\" usable through its supported application boundaries. Contribution: connects tenant-authorized backend behavior to versioned API, generated-client, and accessible browser interactions where required by the story."

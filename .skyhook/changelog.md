@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-030: in-review to done
+- Task TASK-030: in-progress to in-review
+- Task TASK-030: ready to in-progress
 - Task TASK-030: backlog to ready
 - Story STORY-017: backlog to ready
 - Recorded decision: Use routed protected shell with query-managed server state (0QR0XKZ86E1Y637NZK7SM6YG1Z)
