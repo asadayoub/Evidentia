@@ -1,7 +1,7 @@
 # Epic Plan: WABR3N79SKBQ915Y0KCN0HVK7S — Authorization framework and optional Delibera integration
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-07T09:34:40.668Z
+> **Generated**: 2026-10-07T09:44:12.858Z
 
 ---
 

@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T09:34:27.763Z"
+  updatedAt: "2026-10-07T09:44:05.830Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -3859,7 +3859,7 @@ tasks:
     parentType: story
     parentId: N1ZNPJWFZYPV0MVB8FP137GRJP
     type: feature
-    status: ready
+    status: done
     priority: critical
     storyPoints: 2
     estimatedMinutes: 180
@@ -3880,26 +3880,37 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Define validated identity, session, cookie, and bootstrap settings
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:45.375Z"
+        completedAt: "2026-10-07T09:43:30.720Z"
       - id: SUB-002
         title: Generate high-entropy local bootstrap and session secrets without exposing them
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:45.375Z"
+        completedAt: "2026-10-07T09:43:34.299Z"
       - id: SUB-003
         title: Reject placeholder secrets and unsafe production cookie settings
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:45.375Z"
+        completedAt: "2026-10-07T09:43:37.944Z"
       - id: SUB-004
         title: Preserve owner-only ignored environment-file behavior
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:45.375Z"
+        completedAt: "2026-10-07T09:43:43.695Z"
       - id: SUB-005
         title: Document secret rotation and deployment secret-manager expectations
-        completed: false
+        completed: true
         createdAt: "2026-10-07T09:18:45.375Z"
+        completedAt: "2026-10-07T09:43:47.811Z"
     createdAt: "2026-10-07T09:18:45.375Z"
-    updatedAt: "2026-10-07T09:18:45.375Z"
+    updatedAt: "2026-10-07T09:44:05.830Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-07T09:38:20.473Z"
+    completedAt: "2026-10-07T09:44:05.830Z"
   - id: TASK-015
     title: Persist tenants, operators, memberships, capabilities, credentials, and sessions
     description: "Purpose: add access-context-owned PostgreSQL persistence without leaking identity storage into API routes or other modules. Contribution: creates durable tenant and operator identity, many-to-many memberships, capability grants, Argon2id credential records, and revocable hashed sessions suitable for local use and later OIDC linking."
