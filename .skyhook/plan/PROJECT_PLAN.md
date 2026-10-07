@@ -1,7 +1,7 @@
 # Project Plan: Evidentia
 
 > **Project ID**: `GPNKKMYX2EHA0GZ82WDJASXKGX` | **Profile**: `web-app`
-> **Compiled**: 2026-10-03T17:50:12.544Z by Skyhook Dynamic Plan Compiler
+> **Compiled**: 2026-10-07T08:55:08.091Z by Skyhook Dynamic Plan Compiler
 
 ## Executive Summary
 
@@ -11,14 +11,14 @@ An open-source, self-hostable platform that converts documents into inspectable,
 
 | Metric | Current Value | Notes |
 |:-------|:--------------|:------|
-| **Weekly Velocity** | **81.9 pts/wk** | Derived from 14-day rolling events |
-| **Average Cycle Time** | **1.9 hours** | Average in-progress to done duration |
-| **Backlog Work Remaining** | **121 pts** (36 stories) | Unfinished scope |
-| **Expected Completion (P50)** | 📅 **2026-10-14** | Standard velocity projection (1.5 wks) |
-| **Conservative Completion (P90)** | 📅 **2026-10-17** | Risk-adjusted delivery date (2 wks) |
+| **Weekly Velocity** | **33.3 pts/wk** | Derived from 14-day rolling events |
+| **Average Cycle Time** | **11.5 hours** | Average in-progress to done duration |
+| **Backlog Work Remaining** | **118 pts** (35 stories) | Unfinished scope |
+| **Expected Completion (P50)** | 📅 **2026-10-31** | Standard velocity projection (3.5 wks) |
+| **Conservative Completion (P90)** | 📅 **2026-11-09** | Risk-adjusted delivery date (4.7 wks) |
 
 > [!WARNING]
-> **Scope Creep Alert**: Net backlog growth (+202 pts) exceeds recent completion rate. Delivery target may shift.
+> **Scope Creep Alert**: Net backlog growth (+199 pts) exceeds recent completion rate. Delivery target may shift.
 
 ## 1. Visual Delivery Roadmap & Timeline
 
@@ -112,7 +112,7 @@ gantt
     Prove the tenant-aware API-worker-web walking skeleton :crit, s_STORY_016, after s_STORY_009, 8d
 
     section Interactive Schema Workbench
-    Persist governed schemas for interactive use :active, s_0VJ9SHA39TA291D8QXB0TQS3HQ, 2026-10-03, 5d
+    Persist governed schemas for interactive use :done, s_0VJ9SHA39TA291D8QXB0TQS3HQ, 2026-10-03, 2026-10-07
     Establish the minimum trusted operator and tenant context : s_N1ZNPJWFZYPV0MVB8FP137GRJP, 2026-10-03, 5d
     Expose the governed schema lifecycle through a versioned API : s_X51S43NTMRW5ASYSKJBF7FW845, 2026-10-03, 5d
     Build the accessible Schema Workbench : s_H98W5WTJBWT8EY0Q10P3KPCEEB, 2026-10-03, 5d

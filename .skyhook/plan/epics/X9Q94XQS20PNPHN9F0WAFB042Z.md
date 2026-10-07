@@ -1,7 +1,7 @@
 # Epic Plan: X9Q94XQS20PNPHN9F0WAFB042Z — Durable jobs observability and operational recovery
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-03T17:50:12.672Z
+> **Generated**: 2026-10-07T08:55:08.227Z
 
 ---
 

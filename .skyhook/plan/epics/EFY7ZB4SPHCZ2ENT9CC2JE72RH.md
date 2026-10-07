@@ -1,7 +1,7 @@
 # Epic Plan: EFY7ZB4SPHCZ2ENT9CC2JE72RH — Authorized delivery and destination integrations
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-03T17:50:12.660Z
+> **Generated**: 2026-10-07T08:55:08.216Z
 
 ---
 

@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T08:53:10.613Z"
+  updatedAt: "2026-10-07T08:55:02.167Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1566,12 +1566,12 @@ stories:
     acceptanceCriteria:
       - PostgreSQL workflow is approved before implementation; tenant-owned drafts and immutable publications persist.
     priority: high
-    status: in-progress
+    status: done
     storyPoints: null
     dependsOn: []
     standards: []
     createdAt: "2026-10-03T08:20:53.861Z"
-    updatedAt: "2026-10-03T16:53:46.617Z"
+    updatedAt: "2026-10-07T08:55:02.167Z"
     childTasks:
       - TASK-007
       - TASK-009
@@ -1579,6 +1579,11 @@ stories:
       - TASK-011
       - TASK-012
     startedAt: "2026-10-03T16:53:46.617Z"
+    completedAt: "2026-10-07T08:55:02.167Z"
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
   - id: N1ZNPJWFZYPV0MVB8FP137GRJP
     epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
     title: Establish the minimum trusted operator and tenant context
@@ -3713,7 +3718,7 @@ tasks:
     parentType: story
     parentId: 0VJ9SHA39TA291D8QXB0TQS3HQ
     type: test
-    status: in-review
+    status: done
     priority: critical
     storyPoints: 3
     estimatedMinutes: 240
@@ -3753,18 +3758,13 @@ tasks:
         createdAt: "2026-10-03T16:55:21.251Z"
         completedAt: "2026-10-07T08:53:00.059Z"
     createdAt: "2026-10-03T16:55:21.251Z"
-    updatedAt: "2026-10-07T08:53:10.613Z"
+    updatedAt: "2026-10-07T08:54:11.330Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
-    lease:
-      agentId: Codex
-      leasedAt: "2026-10-03T17:52:16.392Z"
-      expiresAt: "2026-10-03T19:52:16.392Z"
-      durationMinutes: 120
-      heartbeatAt: "2026-10-03T17:52:16.392Z"
     startedAt: "2026-10-03T17:52:26.314Z"
+    completedAt: "2026-10-07T08:54:11.330Z"
 prioritization:
   method: wsjf
   criteria: {}

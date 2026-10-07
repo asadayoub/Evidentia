@@ -1,7 +1,7 @@
 # Epic Plan: 37GEDS1AHPKD75TVFA4TGN1VD4 — Interactive Schema Workbench
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-03T17:50:12.680Z
+> **Generated**: 2026-10-07T08:55:08.236Z
 
 ---
 
@@ -13,7 +13,7 @@ Let an administrator govern dynamic schemas through a real browser workflow.
 
 | Story ID | Title | Status | Priority | Estimate | Dependencies |
 |:---------|:------|:-------|:---------|:---------|:-------------|
-| **0VJ9SHA39TA291D8QXB0TQS3HQ** | Persist governed schemas for interactive use | `in-progress` | high | — | None |
+| **0VJ9SHA39TA291D8QXB0TQS3HQ** | Persist governed schemas for interactive use | `done` | high | — | None |
 | **N1ZNPJWFZYPV0MVB8FP137GRJP** | Establish the minimum trusted operator and tenant context | `backlog` | high | — | None |
 | **X51S43NTMRW5ASYSKJBF7FW845** | Expose the governed schema lifecycle through a versioned API | `backlog` | high | — | None |
 | **H98W5WTJBWT8EY0Q10P3KPCEEB** | Build the accessible Schema Workbench | `backlog` | high | — | None |
@@ -23,7 +23,7 @@ Let an administrator govern dynamic schemas through a real browser workflow.
 
 ```mermaid
 flowchart TD
-    0VJ9SHA39TA291D8QXB0TQS3HQ["Persist governed schemas for interactive use (in-progress)"]
+    0VJ9SHA39TA291D8QXB0TQS3HQ["Persist governed schemas for interactive use (done)"]
     N1ZNPJWFZYPV0MVB8FP137GRJP["Establish the minimum trusted operator and tenant context (backlog)"]
     X51S43NTMRW5ASYSKJBF7FW845["Expose the governed schema lifecycle through a versioned API (backlog)"]
     H98W5WTJBWT8EY0Q10P3KPCEEB["Build the accessible Schema Workbench (backlog)"]
