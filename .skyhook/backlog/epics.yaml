@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T16:17:49.225Z"
+  updatedAt: "2026-10-07T17:02:47.402Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -5829,7 +5829,7 @@ tasks:
     parentType: story
     parentId: STORY-017
     type: feature
-    status: backlog
+    status: done
     priority: critical
     storyPoints: 5
     estimatedMinutes: 300
@@ -5849,34 +5849,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Define versioned request, response, error, pagination, concurrency, and idempotency behavior
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:35.529Z"
+        completedAt: "2026-10-07T17:02:15.709Z"
       - id: SUB-002
         title: Enforce trusted operator, tenant, capability, and resource context at the application boundary
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:35.529Z"
+        completedAt: "2026-10-07T17:02:19.664Z"
       - id: SUB-003
         title: Export deterministic OpenAPI and regenerate supported client operations without hand edits
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:35.529Z"
+        completedAt: "2026-10-07T17:02:23.375Z"
       - id: SUB-004
         title: Implement required browser or administrator interaction with loading, empty, forbidden, conflict, and failure states
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:35.529Z"
+        completedAt: "2026-10-07T17:02:27.290Z"
       - id: SUB-005
         title: Add correlation-safe structured events and sanitize responses, logs, and client-visible failures
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:35.529Z"
+        completedAt: "2026-10-07T17:02:30.262Z"
       - id: SUB-006
         title: Add contract and interaction tests that reject ad-hoc or cross-boundary integration
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:35.529Z"
+        completedAt: "2026-10-07T17:02:33.328Z"
     createdAt: "2026-10-07T15:26:35.529Z"
-    updatedAt: "2026-10-07T15:42:39.400Z"
+    updatedAt: "2026-10-07T17:02:47.402Z"
     assignee:
       type: agent
-      identifier: Codex
-      name: Codex
+      identifier: codex
+      name: codex
+    startedAt: "2026-10-07T16:21:30.843Z"
+    completedAt: "2026-10-07T17:02:47.402Z"
   - id: TASK-032
     title: Prove and document Establish the authenticated application shell and generated API boundary
     description: "Purpose: close \"Establish the authenticated application shell and generated API boundary\" with reproducible evidence. Contribution: gives future maintainers automated and manual proof that the acceptance criteria work through the real application and survive failure, restart, concurrency, and tenant-isolation cases."
