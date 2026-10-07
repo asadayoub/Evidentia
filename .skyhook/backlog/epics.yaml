@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T17:02:47.402Z"
+  updatedAt: "2026-10-07T17:09:40.310Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -2356,6 +2356,7 @@ stories:
       - TASK-030
       - TASK-031
       - TASK-032
+      - TASK-168
     assignee:
       type: agent
       identifier: Codex
@@ -13157,6 +13158,49 @@ tasks:
       type: agent
       identifier: Codex
       name: Codex
+  - id: TASK-168
+    title: Add a native web development command
+    description: "Purpose: provide a first-class Make target matching native-api for starting the React/Vite development server without Docker. Contribution: makes the completed authenticated browser shell directly runnable through a documented, regression-tested workspace command."
+    parentType: story
+    parentId: STORY-017
+    type: chore
+    status: done
+    priority: high
+    storyPoints: 1
+    estimatedMinutes: 30
+    targetFiles:
+      - Makefile
+      - tests/architecture
+      - docs/development
+    standards:
+      - STD-DEV-001
+      - STD-ARCH-004
+    dependsOn:
+      - TASK-031
+    subtasks:
+      - id: SUB-001
+        title: Add a loopback-only native-web Make target
+        completed: true
+        createdAt: "2026-10-07T17:06:27.912Z"
+        completedAt: "2026-10-07T17:09:28.497Z"
+      - id: SUB-002
+        title: Add a regression check for the supported command
+        completed: true
+        createdAt: "2026-10-07T17:06:27.912Z"
+        completedAt: "2026-10-07T17:09:30.562Z"
+      - id: SUB-003
+        title: Run focused and full repository verification
+        completed: true
+        createdAt: "2026-10-07T17:06:27.912Z"
+        completedAt: "2026-10-07T17:09:32.979Z"
+    createdAt: "2026-10-07T17:06:27.912Z"
+    updatedAt: "2026-10-07T17:09:40.310Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
+    startedAt: "2026-10-07T17:06:36.429Z"
+    completedAt: "2026-10-07T17:09:40.310Z"
 prioritization:
   method: wsjf
   criteria: {}

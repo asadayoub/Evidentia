@@ -1,6 +1,10 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-168: in-review to done
+- Task TASK-168: in-progress to in-review
+- Task TASK-168: ready to in-progress
+- Added task: Add a native web development command (TASK-168) under story STORY-017
 - Task TASK-031: in-review to done
 - Task TASK-031: in-progress to in-review
 - Task TASK-031: ready to in-progress
