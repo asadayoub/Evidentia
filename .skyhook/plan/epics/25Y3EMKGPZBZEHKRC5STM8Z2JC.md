@@ -1,7 +1,7 @@
 # Epic Plan: 25Y3EMKGPZBZEHKRC5STM8Z2JC — Evaluation release evidence and open-source operations
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-07T15:53:49.869Z
+> **Generated**: 2026-10-07T16:00:34.417Z
 
 ---
 

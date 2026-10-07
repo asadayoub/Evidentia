@@ -5359,7 +5359,7 @@ tasks:
     targetFiles:
       - backend/src/evidentia/entrypoints/api
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -5463,7 +5463,7 @@ tasks:
     estimatedMinutes: 240
     targetFiles:
       - frontend/src
-      - sdk/typescript
+      - sdks/typescript
       - contracts/openapi
       - backend/src/evidentia/entrypoints/api
     standards:
@@ -5513,7 +5513,7 @@ tasks:
     targetFiles:
       - backend/src/evidentia/entrypoints/api
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -5618,7 +5618,7 @@ tasks:
     estimatedMinutes: 240
     targetFiles:
       - frontend/src
-      - sdk/typescript
+      - sdks/typescript
       - contracts/openapi
       - backend/src/evidentia/entrypoints/api
     standards:
@@ -5670,7 +5670,7 @@ tasks:
     targetFiles:
       - backend/src/evidentia/entrypoints/api
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -5775,7 +5775,7 @@ tasks:
     estimatedMinutes: 240
     targetFiles:
       - frontend/src
-      - sdk/typescript
+      - sdks/typescript
       - contracts/openapi
       - backend/src/evidentia/entrypoints/api
     standards:
@@ -5824,7 +5824,7 @@ tasks:
     targetFiles:
       - backend/src/evidentia/entrypoints/api
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -5979,7 +5979,7 @@ tasks:
     targetFiles:
       - backend/src/evidentia/entrypoints/api
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -6132,7 +6132,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -6287,7 +6287,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -6443,7 +6443,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -6601,7 +6601,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -6757,7 +6757,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -6913,7 +6913,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -7068,7 +7068,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -7229,7 +7229,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -7387,7 +7387,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -7545,7 +7545,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -7702,7 +7702,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -7859,7 +7859,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -8018,7 +8018,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -8177,7 +8177,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -8335,7 +8335,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -8495,7 +8495,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -8661,7 +8661,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -8818,8 +8818,8 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
     standards:
       - STD-ARCH-003
@@ -8871,8 +8871,8 @@ tasks:
     estimatedMinutes: 180
     targetFiles:
       - backend/tests
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src/test
       - docs
       - contracts
@@ -8978,8 +8978,8 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
     standards:
       - STD-ARCH-003
@@ -9031,8 +9031,8 @@ tasks:
     estimatedMinutes: 180
     targetFiles:
       - backend/tests
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src/test
       - docs
       - contracts
@@ -9138,8 +9138,8 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
     standards:
       - STD-ARCH-003
@@ -9191,8 +9191,8 @@ tasks:
     estimatedMinutes: 180
     targetFiles:
       - backend/tests
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src/test
       - docs
       - contracts
@@ -9299,8 +9299,8 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
     standards:
       - STD-ARCH-003
@@ -9352,8 +9352,8 @@ tasks:
     estimatedMinutes: 180
     targetFiles:
       - backend/tests
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src/test
       - docs
       - contracts
@@ -9460,8 +9460,8 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
     standards:
       - STD-ARCH-003
@@ -9513,8 +9513,8 @@ tasks:
     estimatedMinutes: 180
     targetFiles:
       - backend/tests
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src/test
       - docs
       - contracts
@@ -9621,8 +9621,8 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
     standards:
       - STD-ARCH-003
@@ -9674,8 +9674,8 @@ tasks:
     estimatedMinutes: 180
     targetFiles:
       - backend/tests
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src/test
       - docs
       - contracts
@@ -9781,8 +9781,8 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
     standards:
       - STD-ARCH-003
@@ -9834,8 +9834,8 @@ tasks:
     estimatedMinutes: 180
     targetFiles:
       - backend/tests
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src/test
       - docs
       - contracts
@@ -9947,8 +9947,8 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
     standards:
       - STD-ARCH-003
@@ -10000,8 +10000,8 @@ tasks:
     estimatedMinutes: 180
     targetFiles:
       - backend/tests
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src/test
       - docs
       - contracts
@@ -10106,7 +10106,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-A11Y-002
@@ -10264,7 +10264,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -10420,7 +10420,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -10577,7 +10577,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -10735,7 +10735,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-A11Y-002
@@ -10893,7 +10893,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-A11Y-002
@@ -11051,7 +11051,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -11208,7 +11208,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -11370,7 +11370,7 @@ tasks:
       - backend/src/evidentia/entrypoints/api
       - backend/src/evidentia/entrypoints/worker
       - contracts/openapi
-      - sdk/typescript
+      - sdks/typescript
       - frontend/src
     standards:
       - STD-ARCH-004
@@ -11529,8 +11529,8 @@ tasks:
       - backend/src/evidentia
       - backend/src/evidentia/entrypoints
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
       - infra
       - ci
@@ -11587,7 +11587,7 @@ tasks:
     targetFiles:
       - backend/tests
       - frontend/src/test
-      - sdk
+      - sdks
       - ci
       - evaluation
       - infra
@@ -11696,8 +11696,8 @@ tasks:
       - backend/src/evidentia
       - backend/src/evidentia/entrypoints
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
       - infra
       - ci
@@ -11754,7 +11754,7 @@ tasks:
     targetFiles:
       - backend/tests
       - frontend/src/test
-      - sdk
+      - sdks
       - ci
       - evaluation
       - infra
@@ -11863,8 +11863,8 @@ tasks:
       - backend/src/evidentia
       - backend/src/evidentia/entrypoints
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
       - infra
       - ci
@@ -11921,7 +11921,7 @@ tasks:
     targetFiles:
       - backend/tests
       - frontend/src/test
-      - sdk
+      - sdks
       - ci
       - evaluation
       - infra
@@ -12028,8 +12028,8 @@ tasks:
       - backend/src/evidentia
       - backend/src/evidentia/entrypoints
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
       - infra
       - ci
@@ -12086,7 +12086,7 @@ tasks:
     targetFiles:
       - backend/tests
       - frontend/src/test
-      - sdk
+      - sdks
       - ci
       - evaluation
       - infra
@@ -12194,8 +12194,8 @@ tasks:
       - backend/src/evidentia
       - backend/src/evidentia/entrypoints
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
       - infra
       - ci
@@ -12252,7 +12252,7 @@ tasks:
     targetFiles:
       - backend/tests
       - frontend/src/test
-      - sdk
+      - sdks
       - ci
       - evaluation
       - infra
@@ -12360,8 +12360,8 @@ tasks:
       - backend/src/evidentia
       - backend/src/evidentia/entrypoints
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
       - infra
       - ci
@@ -12418,7 +12418,7 @@ tasks:
     targetFiles:
       - backend/tests
       - frontend/src/test
-      - sdk
+      - sdks
       - ci
       - evaluation
       - infra
@@ -12525,8 +12525,8 @@ tasks:
       - backend/src/evidentia
       - backend/src/evidentia/entrypoints
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
       - infra
       - ci
@@ -12583,7 +12583,7 @@ tasks:
     targetFiles:
       - backend/tests
       - frontend/src/test
-      - sdk
+      - sdks
       - ci
       - evaluation
       - infra
@@ -12691,8 +12691,8 @@ tasks:
       - backend/src/evidentia
       - backend/src/evidentia/entrypoints
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
       - infra
       - ci
@@ -12749,7 +12749,7 @@ tasks:
     targetFiles:
       - backend/tests
       - frontend/src/test
-      - sdk
+      - sdks
       - ci
       - evaluation
       - infra
@@ -12857,8 +12857,8 @@ tasks:
       - backend/src/evidentia
       - backend/src/evidentia/entrypoints
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
       - infra
       - ci
@@ -12915,7 +12915,7 @@ tasks:
     targetFiles:
       - backend/tests
       - frontend/src/test
-      - sdk
+      - sdks
       - ci
       - evaluation
       - infra
@@ -13036,8 +13036,8 @@ tasks:
       - backend/src/evidentia
       - backend/src/evidentia/entrypoints
       - contracts/openapi
-      - sdk/typescript
-      - sdk/python
+      - sdks/typescript
+      - sdks/python
       - frontend/src
       - infra
       - ci
@@ -13094,7 +13094,7 @@ tasks:
     targetFiles:
       - backend/tests
       - frontend/src/test
-      - sdk
+      - sdks
       - ci
       - evaluation
       - infra

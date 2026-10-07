@@ -1,7 +1,7 @@
 # Project Plan: Evidentia
 
 > **Project ID**: `GPNKKMYX2EHA0GZ82WDJASXKGX` | **Profile**: `web-app`
-> **Compiled**: 2026-10-07T15:53:49.348Z by Skyhook Dynamic Plan Compiler
+> **Compiled**: 2026-10-07T16:00:34.016Z by Skyhook Dynamic Plan Compiler
 
 ## Executive Summary
 
@@ -11,7 +11,7 @@ An open-source, self-hostable platform that converts documents into inspectable,
 
 | Metric | Current Value | Notes |
 |:-------|:--------------|:------|
-| **Weekly Velocity** | **35.2 pts/wk** | Derived from 14-day rolling events |
+| **Weekly Velocity** | **35.1 pts/wk** | Derived from 14-day rolling events |
 | **Average Cycle Time** | **10.9 hours** | Average in-progress to done duration |
 | **Backlog Work Remaining** | **302 pts** (50 stories) | Unfinished scope |
 | **Expected Completion (P50)** | 📅 **2026-12-06** | Standard velocity projection (8.6 wks) |
