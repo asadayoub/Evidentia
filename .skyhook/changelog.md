@@ -1,6 +1,10 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-030: backlog to ready
+- Story STORY-017: backlog to ready
+- Recorded decision: Use routed protected shell with query-managed server state (0QR0XKZ86E1Y637NZK7SM6YG1Z)
+- Recorded decision: Generate a framework-neutral typed TypeScript API client from OpenAPI (G1NEKECAE2MSH73WGGZVSY43JM)
 - Task TASK-167: ready to backlog
 - Task TASK-166: ready to backlog
 - Task TASK-165: ready to backlog

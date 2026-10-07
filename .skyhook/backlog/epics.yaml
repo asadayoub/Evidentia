@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T15:52:23.376Z"
+  updatedAt: "2026-10-07T16:03:50.319Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -2327,7 +2327,7 @@ stories:
     title: Establish the authenticated application shell and generated API boundary
     description: "Requirements: REQ-012, NFR-002, NFR-005, NFR-006, NFR-008, CON-005. Purpose: connect the completed access APIs to the React application and make the generated TypeScript client the only supported browser-to-API boundary."
     epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
-    status: backlog
+    status: ready
     storyPoints: 8
     priority: critical
     standards:
@@ -2351,11 +2351,15 @@ stories:
     dependsOn:
       - N1ZNPJWFZYPV0MVB8FP137GRJP
     createdAt: "2026-10-07T15:20:58.224Z"
-    updatedAt: "2026-10-07T15:20:58.224Z"
+    updatedAt: "2026-10-07T16:03:27.838Z"
     childTasks:
       - TASK-030
       - TASK-031
       - TASK-032
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
   - id: STORY-018
     title: Import export compare and evolve governed schemas
     description: "Requirements: REQ-003, REQ-016, REQ-017, NFR-001, NFR-008. Purpose: complete the administrator-facing schema lifecycle beyond basic draft editing and publication."
@@ -5769,7 +5773,7 @@ tasks:
     parentType: story
     parentId: STORY-017
     type: feature
-    status: backlog
+    status: ready
     priority: critical
     storyPoints: 3
     estimatedMinutes: 240
@@ -5806,7 +5810,7 @@ tasks:
         completed: false
         createdAt: "2026-10-07T15:26:32.350Z"
     createdAt: "2026-10-07T15:26:32.350Z"
-    updatedAt: "2026-10-07T15:42:36.167Z"
+    updatedAt: "2026-10-07T16:03:50.319Z"
     assignee:
       type: agent
       identifier: Codex

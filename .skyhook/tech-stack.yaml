@@ -79,5 +79,9 @@ technologies:
   - name: argon2-cffi
     category: Identity Security
     version: 25.x
+  - name: React Router
+    category: Frontend Routing
+  - name: TanStack Query
+    category: Frontend Server State
 patterns: []
 constraints: []
