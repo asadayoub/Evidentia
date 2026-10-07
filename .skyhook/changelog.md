@@ -1,6 +1,11 @@
 # Changelog
 
 ## [Unreleased]
+- Story STORY-017: in-review to done
+- Task TASK-032: in-review to done
+- Task TASK-032: in-progress to in-review
+- Task TASK-032: ready to in-progress
+- Task TASK-032: backlog to ready
 - Task TASK-168: in-review to done
 - Task TASK-168: in-progress to in-review
 - Task TASK-168: ready to in-progress

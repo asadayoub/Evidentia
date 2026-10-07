@@ -83,5 +83,8 @@ technologies:
     category: Frontend Routing
   - name: TanStack Query
     category: Frontend Server State
+  - name: axe-core
+    category: Testing
+    version: "4.14"
 patterns: []
 constraints: []
