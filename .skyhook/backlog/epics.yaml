@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-07T17:24:09.186Z"
+  updatedAt: "2026-10-07T17:43:21.990Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1647,7 +1647,7 @@ stories:
     acceptanceCriteria:
       - API supports lifecycle operations with safe errors, OpenAPI, and a generated client.
     priority: high
-    status: backlog
+    status: in-progress
     storyPoints: null
     dependsOn:
       - 0VJ9SHA39TA291D8QXB0TQS3HQ
@@ -1660,11 +1660,12 @@ stories:
       - REQ-017
       - NFR-008
     createdAt: "2026-10-03T08:20:53.861Z"
-    updatedAt: "2026-10-03T08:20:53.861Z"
+    updatedAt: "2026-10-07T17:27:57.682Z"
     childTasks:
       - TASK-021
       - TASK-022
       - TASK-023
+    startedAt: "2026-10-07T17:27:57.682Z"
   - id: H98W5WTJBWT8EY0Q10P3KPCEEB
     epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
     title: Build the accessible Schema Workbench
@@ -5310,7 +5311,7 @@ tasks:
     parentType: story
     parentId: X51S43NTMRW5ASYSKJBF7FW845
     type: feature
-    status: backlog
+    status: done
     priority: high
     storyPoints: 3
     estimatedMinutes: 240
@@ -5329,30 +5330,37 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Confirm owning bounded context, requirements, lifecycle invariants, and public collaboration boundaries
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:25:59.799Z"
+        completedAt: "2026-10-07T17:42:52.033Z"
       - id: SUB-002
         title: Define typed domain and application contracts without framework or provider coupling
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:25:59.799Z"
+        completedAt: "2026-10-07T17:42:55.279Z"
       - id: SUB-003
         title: Define tenant scope, actor authority, concurrency, idempotency, and audit expectations
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:25:59.799Z"
+        completedAt: "2026-10-07T17:42:59.836Z"
       - id: SUB-004
         title: Add or plan module-owned persistence and migration changes only where durable state is required
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:25:59.799Z"
+        completedAt: "2026-10-07T17:43:03.299Z"
       - id: SUB-005
         title: Add focused unit and persistence tests plus Skyhook traceability annotations
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:25:59.799Z"
+        completedAt: "2026-10-07T17:43:07.175Z"
     createdAt: "2026-10-07T15:25:59.799Z"
-    updatedAt: "2026-10-07T15:41:32.429Z"
+    updatedAt: "2026-10-07T17:43:21.990Z"
     assignee:
       type: agent
-      identifier: Codex
-      name: Codex
+      identifier: codex
+      name: codex
+    startedAt: "2026-10-07T17:27:57.682Z"
+    completedAt: "2026-10-07T17:43:21.990Z"
   - id: TASK-022
     title: Expose and integrate Expose the governed schema lifecycle through a versioned API
     description: "Purpose: make \"Expose the governed schema lifecycle through a versioned API\" usable through its supported application boundaries. Contribution: connects tenant-authorized backend behavior to versioned API, generated-client, and accessible browser interactions where required by the story."
