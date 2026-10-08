@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T06:38:57.803Z"
+  updatedAt: "2026-10-08T06:56:36.114Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -2379,7 +2379,7 @@ stories:
     title: Import export compare and evolve governed schemas
     description: "Requirements: REQ-003, REQ-016, REQ-017, NFR-001, NFR-008. Purpose: complete the administrator-facing schema lifecycle beyond basic draft editing and publication."
     epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
-    status: backlog
+    status: in-progress
     storyPoints: 8
     priority: high
     standards:
@@ -2402,11 +2402,16 @@ stories:
       - X51S43NTMRW5ASYSKJBF7FW845
       - H98W5WTJBWT8EY0Q10P3KPCEEB
     createdAt: "2026-10-07T15:21:02.506Z"
-    updatedAt: "2026-10-07T15:21:02.506Z"
+    updatedAt: "2026-10-08T06:52:56.640Z"
     childTasks:
       - TASK-033
       - TASK-034
       - TASK-035
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
+    startedAt: "2026-10-08T06:52:56.640Z"
   - id: STORY-019
     title: Accept programmatic and resumable document intake
     description: "Requirements: REQ-001, REQ-012, NFR-003, NFR-008. Purpose: complement browser upload with a durable automation boundary for larger and retried submissions."
@@ -6011,7 +6016,7 @@ tasks:
     parentType: story
     parentId: STORY-018
     type: feature
-    status: backlog
+    status: done
     priority: high
     storyPoints: 3
     estimatedMinutes: 240
@@ -6030,30 +6035,37 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Confirm owning bounded context, requirements, lifecycle invariants, and public collaboration boundaries
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:42.571Z"
+        completedAt: "2026-10-08T06:56:22.123Z"
       - id: SUB-002
         title: Define typed domain and application contracts without framework or provider coupling
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:42.571Z"
+        completedAt: "2026-10-08T06:56:24.363Z"
       - id: SUB-003
         title: Define tenant scope, actor authority, concurrency, idempotency, and audit expectations
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:42.571Z"
+        completedAt: "2026-10-08T06:56:26.874Z"
       - id: SUB-004
         title: Add or plan module-owned persistence and migration changes only where durable state is required
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:42.571Z"
+        completedAt: "2026-10-08T06:56:29.286Z"
       - id: SUB-005
         title: Add focused unit and persistence tests plus Skyhook traceability annotations
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:42.571Z"
+        completedAt: "2026-10-08T06:56:31.987Z"
     createdAt: "2026-10-07T15:26:42.571Z"
-    updatedAt: "2026-10-07T15:42:46.388Z"
+    updatedAt: "2026-10-08T06:56:36.114Z"
     assignee:
       type: agent
-      identifier: Codex
-      name: Codex
+      identifier: codex
+      name: codex
+    startedAt: "2026-10-08T06:52:56.640Z"
+    completedAt: "2026-10-08T06:56:36.114Z"
   - id: TASK-034
     title: Expose and integrate Import export compare and evolve governed schemas
     description: "Purpose: make \"Import export compare and evolve governed schemas\" usable through its supported application boundaries. Contribution: connects tenant-authorized backend behavior to versioned API, generated-client, and accessible browser interactions where required by the story."

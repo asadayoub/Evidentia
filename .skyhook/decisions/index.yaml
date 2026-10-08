@@ -13,7 +13,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 921453b9c9008f41f7669f3def2cd497010c6aaae0e98a7cb848b5a0e371d628
-    updatedAt: "2026-10-08T06:25:09.706Z"
+    updatedAt: "2026-10-08T06:54:19.226Z"
   - id: 74P7E9CAH91FZZ6PNFYNZPJ93T
     title: Use a pluggable approval boundary with optional Delibera integration
     status: accepted
@@ -28,7 +28,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: e337059f0ab84a01e899af492e02fce83d6e92f33e6417223eca177c10a91429
-    updatedAt: "2026-10-08T06:25:09.703Z"
+    updatedAt: "2026-10-08T06:54:19.220Z"
     relatedDecisions:
       - 9M0TE8Z5N6VWW459X5N1P7EG95
   - id: M71RADRBCJCY0VBD3KEG9FA020
@@ -48,7 +48,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 09c745bfec123f1914bf31f8fa23b364db061e2b0403bd3a4da2c06340819a99
-    updatedAt: "2026-10-08T06:25:09.711Z"
+    updatedAt: "2026-10-08T06:54:19.227Z"
   - id: QQAK9DE77WFYENB2474V7XJW8W
     title: Adopt an accessibility-first dense review interface
     status: accepted
@@ -62,7 +62,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: abad484e323df79f89a531d97b1c11e92196e51afd288ce872bdf0caa12d08e0
-    updatedAt: "2026-10-08T06:25:09.714Z"
+    updatedAt: "2026-10-08T06:54:19.228Z"
     relatedDecisions:
       - 9M0TE8Z5N6VWW459X5N1P7EG95
       - 74P7E9CAH91FZZ6PNFYNZPJ93T
@@ -83,7 +83,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 6e4ad25e72ade1ae6cbc7abd94d56d1a18fe6ecde6dccf551e1fdbe755c84579
-    updatedAt: "2026-10-08T06:25:09.702Z"
+    updatedAt: "2026-10-08T06:54:19.220Z"
     relatedDecisions:
       - 9M0TE8Z5N6VWW459X5N1P7EG95
       - 74P7E9CAH91FZZ6PNFYNZPJ93T
@@ -106,7 +106,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 2177c6bd13118e4578ef10b3473f5fd1a84a109e9461960916ef268b493ea068
-    updatedAt: "2026-10-08T06:25:09.710Z"
+    updatedAt: "2026-10-08T06:54:19.227Z"
     supersededBy: "[Govern dynamic schema composition and schema discovery](VPCJJY62YNW6VXJ80S7BRK9447.md)"
     relatedDecisions:
       - 9M0TE8Z5N6VWW459X5N1P7EG95
@@ -130,7 +130,7 @@ decisions:
     supersedes: "[Use schema-driven dynamic records with reproducible context resolution](GNCDV7AB7331S5JN3FXTGB6QZJ.md)"
     enforcement: null
     contentHash: 489cab6bd941749de24821f47e1af38a723df0d04eb1112d8d819738a1fdb6c0
-    updatedAt: "2026-10-08T06:25:09.717Z"
+    updatedAt: "2026-10-08T06:54:19.229Z"
     relatedRequirements:
       - REQ-003
       - schema-defined
@@ -160,7 +160,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: c0b359c19ff65774d81b2a4ba4abb9436c4984cd797bff9ae22f41d50f0aa968
-    updatedAt: "2026-10-08T06:25:09.701Z"
+    updatedAt: "2026-10-08T06:54:19.220Z"
     relatedDecisions:
       - 9M0TE8Z5N6VWW459X5N1P7EG95
       - 74P7E9CAH91FZZ6PNFYNZPJ93T
@@ -189,7 +189,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 34fc64be9f9dafb6b9d0c26e32b8213abfa831a9ed8cabc100fec281fdff495c
-    updatedAt: "2026-10-08T06:25:09.720Z"
+    updatedAt: "2026-10-08T06:54:19.229Z"
     relatedDecisions:
       - 9M0TE8Z5N6VWW459X5N1P7EG95
       - 74P7E9CAH91FZZ6PNFYNZPJ93T
@@ -211,7 +211,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 5e802256492e22012d9a095bce8b2fa1c83a17f6bb931a0f3f73bceeaf4c2079
-    updatedAt: "2026-10-08T06:25:09.712Z"
+    updatedAt: "2026-10-08T06:54:19.227Z"
   - id: RKA75WM1ER5MRE3WGWWN161PVC
     title: Keep realtime delivery replaceable and durable state authoritative
     status: accepted
@@ -228,7 +228,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: b77aad18293f04d2e3e5a00fa2afd55e58cd5c841ee2b563f19441336f8ff26d
-    updatedAt: "2026-10-08T06:25:09.715Z"
+    updatedAt: "2026-10-08T06:54:19.229Z"
     relatedDecisions:
       - 9M0TE8Z5N6VWW459X5N1P7EG95
       - 74P7E9CAH91FZZ6PNFYNZPJ93T
@@ -264,7 +264,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: adfaeef3dae34330ebeb589f6a6b2111e9c2deb03042d29f8e010fe649bfc14e
-    updatedAt: "2026-10-08T06:25:09.701Z"
+    updatedAt: "2026-10-08T06:54:19.220Z"
     relatedDecisions:
       - 9M0TE8Z5N6VWW459X5N1P7EG95
       - 74P7E9CAH91FZZ6PNFYNZPJ93T
@@ -293,7 +293,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 76e633dccef391182cfa7d186647c74ba10c0f173f4a8f47e6bc38acf70d7b38
-    updatedAt: "2026-10-08T06:25:09.713Z"
+    updatedAt: "2026-10-08T06:54:19.228Z"
     relatedDecisions:
       - 9M0TE8Z5N6VWW459X5N1P7EG95
       - 74P7E9CAH91FZZ6PNFYNZPJ93T
@@ -321,7 +321,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 649f65f406fdfaddcea9c0e8e72e606b9e47e71beedfdb60c790afb303b622df
-    updatedAt: "2026-10-08T06:25:09.704Z"
+    updatedAt: "2026-10-08T06:54:19.220Z"
   - id: CGT2WV3E3VQDP8EX8B4K8BWMMK
     title: Use one product monorepo for Evidentia
     status: accepted
@@ -340,7 +340,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: c938ce8a4ca49a044c2f1de8762c441a45880c507adc0842315deedeb3ceb250
-    updatedAt: "2026-10-08T06:25:09.707Z"
+    updatedAt: "2026-10-08T06:54:19.226Z"
     relatedDecisions:
       - 9M0TE8Z5N6VWW459X5N1P7EG95
       - 74P7E9CAH91FZZ6PNFYNZPJ93T
@@ -361,7 +361,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: e7f6f4618486f669390cdbaf5e98b26138dafff3f4aba140e9ee8dcb962e86bb
-    updatedAt: "2026-10-08T06:25:09.700Z"
+    updatedAt: "2026-10-08T06:54:19.219Z"
     relatedDecisions:
       - M71RADRBCJCY0VBD3KEG9FA020
   - id: 8VC3FRAN1GRTK2F99NB459BWWJ
@@ -375,7 +375,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: ff8d7af9bf70c5af073887011395b9664d624df8dd14c2586238917817bc6ca9
-    updatedAt: "2026-10-08T06:25:09.705Z"
+    updatedAt: "2026-10-08T06:54:19.225Z"
     relatedRequirements:
       - REQ-014
       - NFR-002
@@ -397,7 +397,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 6eb027b57ceae9f6edbecfcd7763c11c32345b2582528e9b2b9f5486e820e0e6
-    updatedAt: "2026-10-08T06:25:09.710Z"
+    updatedAt: "2026-10-08T06:54:19.227Z"
     relatedRequirements:
       - NFR-004
       - NFR-007
@@ -417,7 +417,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: a59c575c5b2b92644d859f6377b5771ce31a9e1e3cd42044bbaf075162bb12b7
-    updatedAt: "2026-10-08T06:25:09.721Z"
+    updatedAt: "2026-10-08T06:54:19.230Z"
     relatedRequirements:
       - REQ-003
       - schema-defined
@@ -448,7 +448,7 @@ decisions:
     supersededBy: null
     contentHash: fac5a42400b126786fe03502148d1296494712aea86fe4c6884913e56fdee914
     file: decisions/records/GC27J7X510394MDYVWSK5M14C2.md
-    updatedAt: "2026-10-08T06:25:09.709Z"
+    updatedAt: "2026-10-08T06:54:19.227Z"
   - id: SW33NV9PVTRT60GMH1497PZD62
     title: Use native PostgreSQL now and add a hybrid Docker profile before release
     status: accepted
@@ -460,7 +460,7 @@ decisions:
     supersedes: []
     enforcement: null
     contentHash: 1d59ecb505ac6702b90196ebb188138b05a590f63132a70c62f936257b84cc24
-    updatedAt: "2026-10-08T06:25:09.716Z"
+    updatedAt: "2026-10-08T06:54:19.229Z"
   - id: VVWYJKD93R4A9A7B5009H07F73
     title: Use provider-neutral local identity with opaque server-side sessions
     status: accepted
@@ -483,7 +483,7 @@ decisions:
       - SHA-256
     enforcement: null
     contentHash: 1f577c2933d357c91dfc6943e919dba38a4e8e3cd9622559d5888650d4fdca39
-    updatedAt: "2026-10-08T06:25:09.719Z"
+    updatedAt: "2026-10-08T06:54:19.229Z"
   - id: TXEQ9J0ARXYKS7CMQ0V1Z9FT5R
     title: Use replaceable bounded authentication throttling
     status: accepted
@@ -504,7 +504,7 @@ decisions:
       - server-side
     enforcement: null
     contentHash: 70b904c77fb2d4641f8ef7a42ce88e8703e9f3d7b7ecc93d433df9f02a1398f4
-    updatedAt: "2026-10-08T06:25:09.716Z"
+    updatedAt: "2026-10-08T06:54:19.229Z"
   - id: G1NEKECAE2MSH73WGGZVSY43JM
     title: Generate a framework-neutral typed TypeScript API client from OpenAPI
     status: accepted
@@ -519,7 +519,7 @@ decisions:
     relatedDecisions: []
     enforcement: null
     contentHash: b3a03f57120eefbd37793cc5cc0f5f39f9dcda7aeb532af744b30ee0138aca83
-    updatedAt: "2026-10-08T06:25:09.708Z"
+    updatedAt: "2026-10-08T06:54:19.226Z"
   - id: 0QR0XKZ86E1Y637NZK7SM6YG1Z
     title: Use routed protected shell with query-managed server state
     status: accepted
@@ -537,7 +537,7 @@ decisions:
     relatedDecisions: []
     enforcement: null
     contentHash: 548fdde0fe15d79dc8902b7e7e66ab829dde29a024afa0c4cc8405e4cf8a1b94
-    updatedAt: "2026-10-08T06:25:09.699Z"
+    updatedAt: "2026-10-08T06:54:19.219Z"
   - id: P1HA6FMJ1Q1J375Y86KM2QQ0GH
     title: Use a registry-driven visual Schema Workbench with explicit lifecycle commands
     status: accepted
@@ -559,4 +559,26 @@ decisions:
       - schema-driven
     enforcement: null
     contentHash: 2cd2f842a5c2a9adeb10e9a16a69eb3b872a34cb58c2134250cd3a37a1b3ff53
-    updatedAt: "2026-10-08T06:25:09.712Z"
+    updatedAt: "2026-10-08T06:54:19.227Z"
+  - id: C0G6H4W34FE915CSVHGQXDVQHZ
+    title: Evolve schemas through portable canonical packages and revision-guarded drafts
+    status: accepted
+    category: architecture
+    createdAt: "2026-10-08T06:54:19.212Z"
+    standards:
+      - STD-ARCH-001
+      - STD-ARCH-002
+      - STD-SOFT-003
+    supersedes: []
+    relatedRequirements: []
+    relatedDecisions:
+      - 9M0TE8Z5N6VWW459X5N1P7EG95
+      - 74P7E9CAH91FZZ6PNFYNZPJ93T
+      - QQAK9DE77WFYENB2474V7XJW8W
+      - accessibility-first
+      - 4SWENJ85M4CKNH60Q071BFK2WW
+      - GNCDV7AB7331S5JN3FXTGB6QZJ
+      - schema-driven
+    enforcement: null
+    contentHash: 518bd85a0d3840833b8662b67a41eccc291b4eb9673d0bfdb6229503d873a247
+    updatedAt: "2026-10-08T06:54:19.226Z"
