@@ -55,6 +55,36 @@ def test_openapi_exposes_versioned_access_contract_and_cookie_security() -> None
     assert "422" not in schema["paths"]["/api/v1/access/sessions"]["post"]["responses"]
 
 
+def test_openapi_exposes_governed_schema_lifecycle_contract() -> None:
+    """Keep schema operations, retries, and cookie authority explicit.
+
+    @skyhook-implements REQ-003
+    @skyhook-implements REQ-012
+    @skyhook-implements NFR-001
+    @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+    """
+    schema = create_app(ApiSettings()).openapi()
+    operations = {
+        operation["operationId"]
+        for path in schema["paths"].values()
+        for operation in path.values()
+        if isinstance(operation, dict) and "operationId" in operation
+    }
+
+    assert {
+        "schemas_create_draft",
+        "schemas_get_draft",
+        "schemas_get_publication",
+        "schemas_list_drafts",
+        "schemas_publish_draft",
+        "schemas_replace_draft",
+    } <= operations
+    create = schema["paths"]["/api/v1/schemas/drafts"]["post"]
+    assert create["security"] == [{"sessionCookie": []}]
+    assert any(parameter["name"] == "Idempotency-Key" for parameter in create["parameters"])
+    assert "422" not in create["responses"]
+
+
 def test_api_readiness_returns_service_unavailable_for_a_failed_dependency() -> None:
     async def unavailable_database() -> None:
         raise ConnectionError("private database host must not escape")

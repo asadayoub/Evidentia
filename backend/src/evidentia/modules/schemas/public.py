@@ -14,7 +14,9 @@ from evidentia.modules.schemas.application.interchange import (
     INTERCHANGE_VERSION,
     SchemaInterchangeEnvelope,
     export_schema,
+    export_schema_draft_content,
     import_schema,
+    import_schema_draft_content,
 )
 from evidentia.modules.schemas.application.manage_schema import (
     SCHEMAS_PUBLISH,
@@ -188,7 +190,9 @@ __all__ = (
     "ensure_schema_transition",
     "ensure_unique_root_fields",
     "export_schema",
+    "export_schema_draft_content",
     "import_schema",
+    "import_schema_draft_content",
     "plan_reprocessing",
     "plan_schema_migration",
     "publish_schema",

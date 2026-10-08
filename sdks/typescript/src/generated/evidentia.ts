@@ -80,6 +80,76 @@ export type paths = {
     patch?: never;
     trace?: never;
   };
+  "/api/v1/schemas/{schema_id}/versions/{version}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get Publication */
+    get: operations["schemas_get_publication"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/schemas/drafts": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** List Drafts */
+    get: operations["schemas_list_drafts"];
+    put?: never;
+    /** Create Draft */
+    post: operations["schemas_create_draft"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/schemas/drafts/{schema_id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get Draft */
+    get: operations["schemas_get_draft"];
+    /** Replace Draft */
+    put: operations["schemas_replace_draft"];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/schemas/drafts/{schema_id}/publications": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /** Publish Draft */
+    post: operations["schemas_publish_draft"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/health/live": {
     parameters: {
       query?: never;
@@ -118,6 +188,15 @@ export type paths = {
 export type webhooks = Record<string, never>;
 export type components = {
   schemas: {
+    /**
+     * CreateSchemaDraftRequest
+     * @description Create command containing only client-owned mutable content.
+     *
+     *     @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+     */
+    CreateSchemaDraftRequest: {
+      content: components["schemas"]["SchemaDraftContentRequest"];
+    };
     /**
      * CurrentContextResponse
      * @description Current database-backed operator and tenant context.
@@ -180,6 +259,144 @@ export type components = {
       password: string;
       /** Tenant Id */
       tenant_id?: string | null;
+    };
+    /**
+     * PublishSchemaDraftRequest
+     * @description Revision-guarded publication command with optional breaking-change acknowledgement.
+     *
+     *     @skyhook-implements NFR-001
+     *     @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+     */
+    PublishSchemaDraftRequest: {
+      /** Acknowledgement */
+      acknowledgement?: string | null;
+      /** Expected Revision */
+      expected_revision: number;
+    };
+    /**
+     * PublishSchemaDraftResponse
+     * @description Atomic publication result and advanced working draft.
+     *
+     *     @skyhook-implements NFR-001
+     *     @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+     */
+    PublishSchemaDraftResponse: {
+      next_draft: components["schemas"]["SchemaDraftResponse"];
+      publication: components["schemas"]["SchemaPublicationResponse"];
+    };
+    /**
+     * ReplaceSchemaDraftRequest
+     * @description Revision-guarded full replacement command.
+     *
+     *     @skyhook-implements NFR-001
+     *     @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+     */
+    ReplaceSchemaDraftRequest: {
+      content: components["schemas"]["SchemaDraftContentRequest"];
+      /** Expected Revision */
+      expected_revision: number;
+    };
+    /**
+     * SchemaDraftContentRequest
+     * @description Dynamic canonical content whose shape is governed by the domain parser.
+     *
+     *     @skyhook-implements REQ-003
+     *     @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+     */
+    SchemaDraftContentRequest: {
+      /** Artifacts */
+      artifacts?: {
+        [key: string]: unknown;
+      }[];
+      /** Fields */
+      fields?: {
+        [key: string]: unknown;
+      }[];
+      /** Modules */
+      modules?: {
+        [key: string]: unknown;
+      }[];
+      /** Releaselabel */
+      releaseLabel?: string | null;
+    };
+    /**
+     * SchemaDraftPageResponse
+     * @description Stable cursor page of tenant-visible schema drafts.
+     *
+     *     @skyhook-implements REQ-003
+     *     @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+     */
+    SchemaDraftPageResponse: {
+      /** Items */
+      items: components["schemas"]["SchemaDraftResponse"][];
+      /** Next Cursor */
+      next_cursor: string | null;
+    };
+    /**
+     * SchemaDraftResponse
+     * @description Mutable schema snapshot with concurrency and audit metadata.
+     *
+     *     @skyhook-implements REQ-003
+     *     @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+     */
+    SchemaDraftResponse: {
+      /** Content */
+      content: {
+        [key: string]: unknown;
+      };
+      /**
+       * Created At
+       * Format: date-time
+       */
+      created_at: string;
+      /** Created By */
+      created_by: string;
+      /** Revision */
+      revision: number;
+      /** Schema Id */
+      schema_id: string;
+      /**
+       * Updated At
+       * Format: date-time
+       */
+      updated_at: string;
+      /** Updated By */
+      updated_by: string;
+      /** Version */
+      version: number;
+    };
+    /**
+     * SchemaPublicationResponse
+     * @description Immutable published snapshot and provenance evidence.
+     *
+     *     @skyhook-implements REQ-003
+     *     @skyhook-implements NFR-001
+     *     @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+     */
+    SchemaPublicationResponse: {
+      /** Acknowledgement */
+      acknowledgement: string | null;
+      /** Actor Id */
+      actor_id: string;
+      /** Content Sha256 */
+      content_sha256: string;
+      /** Correlation Id */
+      correlation_id: string;
+      /** Previous Version */
+      previous_version: number | null;
+      /**
+       * Published At
+       * Format: date-time
+       */
+      published_at: string;
+      /** Schema Id */
+      schema_id: string;
+      /** Snapshot */
+      snapshot: {
+        [key: string]: unknown;
+      };
+      /** Version */
+      version: number;
     };
     /**
      * SessionResponse
@@ -556,6 +773,426 @@ export interface operations {
       };
       /** @description Authentication is temporarily throttled */
       429: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+    };
+  };
+  schemas_get_publication: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        schema_id: string;
+        version: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SchemaPublicationResponse"];
+        };
+      };
+      /** @description Invalid request */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Authentication failed or expired */
+      401: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Request is not authorized */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Schema resource was not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Command conflicts with current state */
+      409: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+    };
+  };
+  schemas_list_drafts: {
+    parameters: {
+      query?: {
+        cursor?: string | null;
+        limit?: number;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SchemaDraftPageResponse"];
+        };
+      };
+      /** @description Invalid request */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Authentication failed or expired */
+      401: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Request is not authorized */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Schema resource was not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Command conflicts with current state */
+      409: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+    };
+  };
+  schemas_create_draft: {
+    parameters: {
+      query?: never;
+      header: {
+        "Idempotency-Key": string;
+      };
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["CreateSchemaDraftRequest"];
+      };
+    };
+    responses: {
+      /** @description Successful Response */
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SchemaDraftResponse"];
+        };
+      };
+      /** @description Invalid request */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Authentication failed or expired */
+      401: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Request is not authorized */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Schema resource was not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Command conflicts with current state */
+      409: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+    };
+  };
+  schemas_get_draft: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        schema_id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SchemaDraftResponse"];
+        };
+      };
+      /** @description Invalid request */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Authentication failed or expired */
+      401: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Request is not authorized */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Schema resource was not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Command conflicts with current state */
+      409: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+    };
+  };
+  schemas_replace_draft: {
+    parameters: {
+      query?: never;
+      header: {
+        "Idempotency-Key": string;
+      };
+      path: {
+        schema_id: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["ReplaceSchemaDraftRequest"];
+      };
+    };
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SchemaDraftResponse"];
+        };
+      };
+      /** @description Invalid request */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Authentication failed or expired */
+      401: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Request is not authorized */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Schema resource was not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Command conflicts with current state */
+      409: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+    };
+  };
+  schemas_publish_draft: {
+    parameters: {
+      query?: never;
+      header: {
+        "Idempotency-Key": string;
+      };
+      path: {
+        schema_id: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["PublishSchemaDraftRequest"];
+      };
+    };
+    responses: {
+      /** @description Successful Response */
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PublishSchemaDraftResponse"];
+        };
+      };
+      /** @description Invalid request */
+      400: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Authentication failed or expired */
+      401: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Request is not authorized */
+      403: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Schema resource was not found */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Command conflicts with current state */
+      409: {
         headers: {
           [name: string]: unknown;
         };

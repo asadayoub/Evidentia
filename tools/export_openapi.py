@@ -21,6 +21,9 @@ from evidentia.entrypoints.api import create_app
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 OPENAPI_PATH = REPOSITORY_ROOT / "contracts/openapi/evidentia.openapi.json"
 TYPESCRIPT_OPERATIONS_PATH = REPOSITORY_ROOT / "sdks/typescript/src/generated/access-operations.ts"
+TYPESCRIPT_SCHEMA_OPERATIONS_PATH = (
+    REPOSITORY_ROOT / "sdks/typescript/src/generated/schema-operations.ts"
+)
 TYPESCRIPT_SCHEMA_PATH = REPOSITORY_ROOT / "sdks/typescript/src/generated/evidentia.ts"
 PYTHON_OPERATIONS_PATH = (
     REPOSITORY_ROOT / "sdks/python/src/evidentia_sdk/generated/access_operations.py"
@@ -34,31 +37,34 @@ def _contract() -> dict[str, Any]:
         "@generated; Generated from: evidentia.entrypoints.api.create_app"
     )
     asyncio.run(application.state.access_runtime.close())
+    asyncio.run(application.state.schema_runtime.close())
     return schema
 
 
-def _access_operations(schema: dict[str, Any]) -> tuple[str, ...]:
+def _operations(schema: dict[str, Any], prefix: str) -> tuple[str, ...]:
     operations: list[str] = []
     for path in schema["paths"].values():
         for operation in path.values():
             operation_id = operation.get("operationId")
-            if isinstance(operation_id, str) and operation_id.startswith("access_"):
+            if isinstance(operation_id, str) and operation_id.startswith(prefix):
                 operations.append(operation_id)
     return tuple(sorted(operations))
 
 
-def _typescript_operations(operations: tuple[str, ...]) -> str:
+def _typescript_operations(
+    operations: tuple[str, ...], *, constant_name: str, type_name: str
+) -> str:
     values = "\n".join(f'  "{operation}",' for operation in operations)
     return f"""/**
  * @generated
  * Generated from: contracts/openapi/evidentia.openapi.json
  * Regenerate with `make generate-api-contract`.
  */
-export const accessOperationIds = [
+export const {constant_name} = [
 {values}
 ] as const;
 
-export type AccessOperationId = (typeof accessOperationIds)[number];
+export type {type_name} = (typeof {constant_name})[number];
 """
 
 
@@ -94,11 +100,21 @@ def _prettier_json(value: dict[str, Any]) -> str:
 
 def _outputs() -> dict[Path, str]:
     schema = _contract()
-    operations = _access_operations(schema)
+    access_operations = _operations(schema, "access_")
+    schema_operations = _operations(schema, "schemas_")
     return {
         OPENAPI_PATH: _prettier_json(schema),
-        TYPESCRIPT_OPERATIONS_PATH: _typescript_operations(operations),
-        PYTHON_OPERATIONS_PATH: _python_operations(operations),
+        TYPESCRIPT_OPERATIONS_PATH: _typescript_operations(
+            access_operations,
+            constant_name="accessOperationIds",
+            type_name="AccessOperationId",
+        ),
+        TYPESCRIPT_SCHEMA_OPERATIONS_PATH: _typescript_operations(
+            schema_operations,
+            constant_name="schemaOperationIds",
+            type_name="SchemaOperationId",
+        ),
+        PYTHON_OPERATIONS_PATH: _python_operations(access_operations),
     }
 
 

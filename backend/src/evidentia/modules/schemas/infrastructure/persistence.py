@@ -203,3 +203,38 @@ class SchemaPublicationArtifactRecord(SchemaPersistenceBase):
     artifact_version: Mapped[int] = mapped_column(Integer, nullable=False)
     kind: Mapped[str] = mapped_column(String(32), nullable=False)
     content_sha256: Mapped[str] = mapped_column(String(64), nullable=False)
+
+
+class SchemaCommandReceiptRecord(SchemaPersistenceBase):
+    """Tenant-scoped durable replay record for mutating API commands.
+
+    @skyhook-implements NFR-001
+    @skyhook-implements NFR-008
+    @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+    """
+
+    __tablename__ = "schema_command_receipts"
+    __table_args__ = (
+        CheckConstraint("length(operation) > 0", name="operation_not_empty"),
+        CheckConstraint("length(idempotency_key) > 0", name="idempotency_key_not_empty"),
+        CheckConstraint("request_sha256 ~ '^[0-9a-f]{64}$'", name="request_sha256_lower_hex"),
+        CheckConstraint(
+            "(response_status IS NULL AND response_body IS NULL) OR "
+            "(response_status BETWEEN 200 AND 299 AND jsonb_typeof(response_body) = 'object')",
+            name="response_completion",
+        ),
+        {"schema": SCHEMAS_DATABASE_NAMESPACE},
+    )
+
+    tenant_id: Mapped[UUID] = mapped_column(PostgreSQLUUID(as_uuid=True), primary_key=True)
+    operation: Mapped[str] = mapped_column(String(64), primary_key=True)
+    idempotency_key: Mapped[str] = mapped_column(String(128), primary_key=True)
+    request_sha256: Mapped[str] = mapped_column(String(64), nullable=False)
+    actor_id: Mapped[str] = mapped_column(String(255), nullable=False)
+    correlation_id: Mapped[str] = mapped_column(String(255), nullable=False)
+    response_status: Mapped[int | None] = mapped_column(Integer)
+    response_body: Mapped[dict[str, object] | None] = mapped_column(JSONB(none_as_null=True))
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=text("CURRENT_TIMESTAMP")
+    )
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))

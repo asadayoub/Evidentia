@@ -35,6 +35,39 @@ export type SessionResponse = components["schemas"]["SessionResponse"];
  */
 export type CurrentContext = components["schemas"]["CurrentContextResponse"];
 
+/** Dynamic, domain-validated content for a mutable schema draft.
+ * @skyhook-implements REQ-003
+ * @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+ */
+export type SchemaDraftContent =
+  components["schemas"]["SchemaDraftContentRequest"];
+
+/** Mutable draft plus optimistic-concurrency and audit metadata.
+ * @skyhook-implements REQ-003
+ * @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+ */
+export type SchemaDraft = components["schemas"]["SchemaDraftResponse"];
+
+/** Cursor page of tenant-visible schema drafts.
+ * @skyhook-implements REQ-003
+ * @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+ */
+export type SchemaDraftPage = components["schemas"]["SchemaDraftPageResponse"];
+
+/** Immutable publication snapshot and provenance.
+ * @skyhook-implements REQ-003
+ * @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+ */
+export type SchemaPublication =
+  components["schemas"]["SchemaPublicationResponse"];
+
+/** Atomic publication result including the advanced next draft.
+ * @skyhook-implements REQ-003
+ * @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+ */
+export type PublishSchemaResult =
+  components["schemas"]["PublishSchemaDraftResponse"];
+
 /** Generated, framework-neutral transport for every public Evidentia route.
  * @skyhook-implements REQ-012
  * @skyhook-story STORY-017
@@ -64,6 +97,27 @@ export interface EvidentiaClientOptions {
  */
 export interface AccessRequestOptions {
   readonly signal?: AbortSignal;
+}
+
+/** Optional controls for schema read operations.
+ * @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+ */
+export type SchemaRequestOptions = AccessRequestOptions;
+
+/** Required replay identity and optional cancellation for schema mutations.
+ * @skyhook-implements NFR-001
+ * @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+ */
+export interface SchemaMutationOptions extends SchemaRequestOptions {
+  readonly idempotencyKey: string;
+}
+
+/** Pagination controls for deterministic schema draft traversal.
+ * @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+ */
+export interface SchemaDraftListOptions extends SchemaRequestOptions {
+  readonly cursor?: string;
+  readonly limit?: number;
 }
 
 /** Stable SDK error carrying the public code and request correlation ID.
@@ -112,6 +166,40 @@ export interface AccessClient {
   ): Promise<SessionResponse>;
   /** Revoke the current session. Repeated calls may resolve as already unauthenticated. */
   logout(options?: AccessRequestOptions): Promise<void>;
+}
+
+/** Governed schema lifecycle operations for authenticated applications.
+ * @skyhook-implements REQ-003
+ * @skyhook-implements NFR-001
+ * @skyhook-implements NFR-002
+ * @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+ */
+export interface SchemaClient {
+  createDraft(
+    content: SchemaDraftContent,
+    options: SchemaMutationOptions,
+  ): Promise<SchemaDraft>;
+  listDrafts(options?: SchemaDraftListOptions): Promise<SchemaDraftPage>;
+  getDraft(
+    schemaId: string,
+    options?: SchemaRequestOptions,
+  ): Promise<SchemaDraft>;
+  replaceDraft(
+    schemaId: string,
+    content: SchemaDraftContent,
+    expectedRevision: number,
+    options: SchemaMutationOptions,
+  ): Promise<SchemaDraft>;
+  publishDraft(
+    schemaId: string,
+    expectedRevision: number,
+    options: SchemaMutationOptions & { readonly acknowledgement?: string },
+  ): Promise<PublishSchemaResult>;
+  getPublication(
+    schemaId: string,
+    version: number,
+    options?: SchemaRequestOptions,
+  ): Promise<SchemaPublication>;
 }
 
 function defaultCookieReader(name: string): string | undefined {
@@ -272,6 +360,108 @@ export function createAccessClient(client: EvidentiaClient): AccessClient {
       if (result.error !== undefined) {
         throw apiError(result.error, result.response);
       }
+    },
+  };
+}
+
+/** Create schema-specific commands over the generated Evidentia transport.
+ * @skyhook-implements REQ-003
+ * @skyhook-implements NFR-001
+ * @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+ */
+export function createSchemaClient(client: EvidentiaClient): SchemaClient {
+  return {
+    async createDraft(content, options) {
+      const result = await client.POST("/api/v1/schemas/drafts", {
+        body: { content },
+        params: { header: { "Idempotency-Key": options.idempotencyKey } },
+        ...(options.signal === undefined ? {} : { signal: options.signal }),
+      });
+      if (result.error !== undefined) {
+        throw apiError(result.error, result.response);
+      }
+      return result.data;
+    },
+
+    async listDrafts(options) {
+      const result = await client.GET("/api/v1/schemas/drafts", {
+        params: {
+          query: {
+            ...(options?.cursor === undefined
+              ? {}
+              : { cursor: options.cursor }),
+            ...(options?.limit === undefined ? {} : { limit: options.limit }),
+          },
+        },
+        ...(options?.signal === undefined ? {} : { signal: options.signal }),
+      });
+      if (result.error !== undefined) {
+        throw apiError(result.error, result.response);
+      }
+      return result.data;
+    },
+
+    async getDraft(schemaId, options) {
+      const result = await client.GET("/api/v1/schemas/drafts/{schema_id}", {
+        params: { path: { schema_id: schemaId } },
+        ...(options?.signal === undefined ? {} : { signal: options.signal }),
+      });
+      if (result.error !== undefined) {
+        throw apiError(result.error, result.response);
+      }
+      return result.data;
+    },
+
+    async replaceDraft(schemaId, content, expectedRevision, options) {
+      const result = await client.PUT("/api/v1/schemas/drafts/{schema_id}", {
+        params: {
+          header: { "Idempotency-Key": options.idempotencyKey },
+          path: { schema_id: schemaId },
+        },
+        body: { content, expected_revision: expectedRevision },
+        ...(options.signal === undefined ? {} : { signal: options.signal }),
+      });
+      if (result.error !== undefined) {
+        throw apiError(result.error, result.response);
+      }
+      return result.data;
+    },
+
+    async publishDraft(schemaId, expectedRevision, options) {
+      const result = await client.POST(
+        "/api/v1/schemas/drafts/{schema_id}/publications",
+        {
+          params: {
+            header: { "Idempotency-Key": options.idempotencyKey },
+            path: { schema_id: schemaId },
+          },
+          body: {
+            expected_revision: expectedRevision,
+            ...(options.acknowledgement === undefined
+              ? {}
+              : { acknowledgement: options.acknowledgement }),
+          },
+          ...(options.signal === undefined ? {} : { signal: options.signal }),
+        },
+      );
+      if (result.error !== undefined) {
+        throw apiError(result.error, result.response);
+      }
+      return result.data;
+    },
+
+    async getPublication(schemaId, version, options) {
+      const result = await client.GET(
+        "/api/v1/schemas/{schema_id}/versions/{version}",
+        {
+          params: { path: { schema_id: schemaId, version } },
+          ...(options?.signal === undefined ? {} : { signal: options.signal }),
+        },
+      );
+      if (result.error !== undefined) {
+        throw apiError(result.error, result.response);
+      }
+      return result.data;
     },
   };
 }

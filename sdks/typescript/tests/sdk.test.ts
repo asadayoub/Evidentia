@@ -4,7 +4,9 @@ import {
   accessOperationIds,
   createAccessClient,
   createEvidentiaClient,
+  createSchemaClient,
   EvidentiaApiError,
+  schemaOperationIds,
   sdkVersion,
 } from "../src/index";
 
@@ -20,6 +22,17 @@ describe("TypeScript SDK boundary", () => {
       "access_login_local",
       "access_logout",
       "access_select_tenant",
+    ]);
+  });
+
+  it("exposes schema operations generated from the checked contract", () => {
+    expect(schemaOperationIds).toEqual([
+      "schemas_create_draft",
+      "schemas_get_draft",
+      "schemas_get_publication",
+      "schemas_list_drafts",
+      "schemas_publish_draft",
+      "schemas_replace_draft",
     ]);
   });
 
@@ -123,5 +136,43 @@ describe("TypeScript SDK boundary", () => {
         status: 401,
       }),
     );
+  });
+
+  it("sends schema idempotency and browser security metadata", async () => {
+    const fetch = vi.fn(async (request: Request) => {
+      expect(request.headers.get("idempotency-key")).toBe("draft-command-1");
+      expect(request.headers.get("x-csrf-token")).toBe("csrf-proof");
+      expect(await request.json()).toEqual({
+        content: { artifacts: [], fields: [], modules: [] },
+      });
+      return Response.json(
+        {
+          content: { artifacts: [], fields: [], modules: [] },
+          created_at: "2026-10-07T16:00:00Z",
+          created_by: "operator-1",
+          revision: 1,
+          schema_id: "00000000-0000-4000-8000-000000000001",
+          updated_at: "2026-10-07T16:00:00Z",
+          updated_by: "operator-1",
+          version: 1,
+        },
+        { status: 201 },
+      );
+    });
+    const client = createSchemaClient(
+      createEvidentiaClient({
+        baseUrl: "https://api.example.test",
+        createCorrelationId: () => "request-schema-1",
+        fetch,
+        readCookie: () => "csrf-proof",
+      }),
+    );
+
+    const draft = await client.createDraft(
+      { artifacts: [], fields: [], modules: [] },
+      { idempotencyKey: "draft-command-1" },
+    );
+
+    expect(draft.revision).toBe(1);
   });
 });

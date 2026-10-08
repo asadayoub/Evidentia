@@ -37,6 +37,7 @@ def test_schema_context_owns_only_its_namespaced_tables() -> None:
     """
     assert set(SchemaPersistenceBase.metadata.tables) == {
         f"{SCHEMAS_DATABASE_NAMESPACE}.schema_drafts",
+        f"{SCHEMAS_DATABASE_NAMESPACE}.schema_command_receipts",
         f"{SCHEMAS_DATABASE_NAMESPACE}.schema_publications",
         f"{SCHEMAS_DATABASE_NAMESPACE}.schema_publication_artifacts",
     }
@@ -121,7 +122,10 @@ def test_alembic_has_one_owned_reversible_schema_head() -> None:
     """
     configuration = Config(str(_REPOSITORY_ROOT / "backend" / "alembic.ini"))
     scripts = ScriptDirectory.from_config(configuration)
-    assert set(scripts.get_heads()) == {"20261003_01_schemas", "20261007_01_access"}
+    assert set(scripts.get_heads()) == {
+        "20261007_01_access",
+        "20261007_02_schema_receipts",
+    }
     revision = scripts.get_revision("20261003_01_schemas")
     assert revision is not None
     assert revision.down_revision is None

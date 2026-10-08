@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from collections.abc import Callable
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 from decimal import Decimal
 from typing import Any
@@ -146,6 +146,39 @@ def import_schema_draft(payload: bytes | str) -> SchemaDraft:
         release_label=_label(data.get("releaseLabel")),
         artifacts=_artifacts_in(data.get("artifacts", [])),
     )
+
+
+def export_schema_draft_content(draft: SchemaDraft) -> dict[str, object]:
+    """Return only client-editable canonical content from a draft.
+
+    Server-owned identity and version fields are deliberately omitted.
+
+    @skyhook-implements REQ-003
+    @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+    """
+    return {
+        "releaseLabel": None if draft.release_label is None else draft.release_label.value,
+        "fields": [_field_out(item) for item in draft.fields],
+        "modules": [_module_out(item) for item in draft.modules],
+        "artifacts": _artifacts_out(draft.artifacts),
+    }
+
+
+def import_schema_draft_content(
+    content: Mapping[str, object], *, schema_id: SchemaId, version: SchemaVersion
+) -> SchemaDraft:
+    """Validate client-editable content while deriving identity on the server.
+
+    @skyhook-implements REQ-003
+    @skyhook-implements NFR-008
+    @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+    """
+    document = {
+        "format": DRAFT_INTERCHANGE_FORMAT,
+        "version": DRAFT_INTERCHANGE_VERSION,
+        "schema": {"id": schema_id.value, "version": version.value, **content},
+    }
+    return import_schema_draft(json.dumps(document, separators=(",", ":"), ensure_ascii=False))
 
 
 def _schema_out(schema: PublishedSchemaVersion) -> dict[str, Any]:

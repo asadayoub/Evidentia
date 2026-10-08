@@ -14,8 +14,14 @@ export {
 } from "./generated/access-operations.js";
 
 export {
+  schemaOperationIds,
+  type SchemaOperationId,
+} from "./generated/schema-operations.js";
+
+export {
   createAccessClient,
   createEvidentiaClient,
+  createSchemaClient,
   EvidentiaApiError,
   type AccessClient,
   type AccessRequestOptions,
@@ -25,6 +31,15 @@ export {
   type EvidentiaClientOptions,
   type LoginRequest,
   type SessionResponse,
+  type PublishSchemaResult,
+  type SchemaClient,
+  type SchemaDraft,
+  type SchemaDraftContent,
+  type SchemaDraftListOptions,
+  type SchemaDraftPage,
+  type SchemaMutationOptions,
+  type SchemaPublication,
+  type SchemaRequestOptions,
   type TenantSummary,
 } from "./client.js";
 
