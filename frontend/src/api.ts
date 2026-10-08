@@ -1,6 +1,7 @@
 import {
   createAccessClient,
   createEvidentiaClient,
+  createDocumentClient,
   createSchemaClient,
 } from "@evidentia/typescript-sdk";
 
@@ -31,3 +32,10 @@ export const browserAccessClient = createAccessClient(browserClient);
  * @skyhook-story H98W5WTJBWT8EY0Q10P3KPCEEB
  */
 export const browserSchemaClient = createSchemaClient(browserClient);
+
+/** Document custody client over the shared credentialed generated transport.
+ * @skyhook-implements REQ-001
+ * @skyhook-implements REQ-012
+ * @skyhook-story XRSZ0A5WZEQB0PQYD34PYR8EW3
+ */
+export const browserDocumentClient = createDocumentClient(browserClient);

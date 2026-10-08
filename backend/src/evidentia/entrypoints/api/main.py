@@ -23,6 +23,7 @@ from starlette.middleware.base import RequestResponseEndpoint
 
 from evidentia.config.settings import ApiSettings, load_api_settings
 from evidentia.entrypoints.api.access import AccessApiRuntime, create_access_router
+from evidentia.entrypoints.api.documents import DocumentApiRuntime, create_document_router
 from evidentia.entrypoints.api.errors import ApiError, ErrorResponse
 from evidentia.entrypoints.api.schemas import SchemaApiRuntime, create_schema_router
 from evidentia.entrypoints.api.security import CORRELATION_HEADER_NAME, correlation_id
@@ -44,6 +45,7 @@ def create_app(
     *,
     access_runtime: AccessApiRuntime | None = None,
     schema_runtime: SchemaApiRuntime | None = None,
+    document_runtime: DocumentApiRuntime | None = None,
 ) -> FastAPI:
     """Create the API composition root.
 
@@ -57,12 +59,14 @@ def create_app(
     resolved_checks = dict(readiness_checks or {})
     resolved_access_runtime = access_runtime or AccessApiRuntime(resolved_settings)
     resolved_schema_runtime = schema_runtime or SchemaApiRuntime(resolved_settings)
+    resolved_document_runtime = document_runtime or DocumentApiRuntime(resolved_settings)
 
     @asynccontextmanager
     async def lifespan(_: FastAPI) -> AsyncIterator[None]:
         yield
         await resolved_access_runtime.close()
         await resolved_schema_runtime.close()
+        await resolved_document_runtime.close()
 
     application = FastAPI(
         title=APP_TITLE,
@@ -73,6 +77,7 @@ def create_app(
     application.state.settings = resolved_settings
     application.state.access_runtime = resolved_access_runtime
     application.state.schema_runtime = resolved_schema_runtime
+    application.state.document_runtime = resolved_document_runtime
     application.add_middleware(
         CORSMiddleware,
         allow_origins=list(resolved_settings.api.allowed_origins),
@@ -133,7 +138,7 @@ def create_app(
         )
         response.headers["Referrer-Policy"] = "no-referrer"
         response.headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=()"
-        if request.url.path.startswith(("/api/v1/access", "/api/v1/schemas")):
+        if request.url.path.startswith(("/api/v1/access", "/api/v1/schemas", "/api/v1/documents")):
             response.headers["Cache-Control"] = "no-store"
         return response
 
@@ -190,6 +195,9 @@ def create_app(
     application.include_router(create_access_router(resolved_access_runtime))
     application.include_router(
         create_schema_router(resolved_schema_runtime, resolved_access_runtime)
+    )
+    application.include_router(
+        create_document_router(resolved_document_runtime, resolved_access_runtime)
     )
 
     def _openapi() -> dict[str, object]:

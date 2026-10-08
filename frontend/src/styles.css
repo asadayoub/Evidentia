@@ -515,6 +515,76 @@ p {
   letter-spacing: 0.1em;
 }
 
+.document-intake {
+  max-width: 76rem;
+}
+
+.document-upload-panel {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+}
+
+.document-file-field {
+  display: grid;
+  width: min(100%, 38rem);
+  gap: 0.55rem;
+  color: var(--ink);
+  font-size: 0.87rem;
+  font-weight: 750;
+}
+
+.document-file-field input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  padding: 0.75rem;
+  background: var(--paper);
+}
+
+.document-upload-button {
+  min-width: 12rem;
+}
+
+.document-receipt-meta {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.document-receipt-meta div {
+  min-width: 0;
+}
+
+.document-receipt-meta dt {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.document-receipt-meta dd {
+  margin: 0.3rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+.document-digest {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+}
+
+.success-banner {
+  width: 100%;
+  border: 1px solid #83ae99;
+  border-radius: 0.6rem;
+  padding: 0.8rem 1rem;
+  color: #174832;
+  background: #eff8f1;
+}
+
 .workbench-page {
   max-width: 88rem;
 }
@@ -993,6 +1063,7 @@ p {
 
   .feature-panel,
   .capability-grid,
+  .document-receipt-meta,
   .field-editor-grid,
   .add-field-form,
   .package-input-row {

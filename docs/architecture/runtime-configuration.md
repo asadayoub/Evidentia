@@ -33,6 +33,7 @@ EVIDENTIA_LOGGING__LEVEL=INFO
 EVIDENTIA_LOGGING__JSON=false
 EVIDENTIA_STORAGE__BACKEND=filesystem
 EVIDENTIA_STORAGE__ROOT=/var/lib/evidentia/artifacts
+EVIDENTIA_STORAGE__MAXIMUM_UPLOAD_BYTES=26214400
 EVIDENTIA_IDENTITY__BOOTSTRAP_LOGIN_IDENTIFIER=admin@localhost
 EVIDENTIA_IDENTITY__BOOTSTRAP_TENANT_SLUG=local
 EVIDENTIA_IDENTITY__BOOTSTRAP_PASSWORD=<generated-local-value>
@@ -47,6 +48,11 @@ EVIDENTIA_API__PORT=8000
 EVIDENTIA_API__RELOAD=false
 EVIDENTIA_WORKER__SHUTDOWN_GRACE_SECONDS=30
 ```
+
+The local artifact directory stores originals outside PostgreSQL. Restrict its
+filesystem permissions and include it in deployment backup and restore plans.
+The default upload limit is 25 MiB and can be adjusted with
+`EVIDENTIA_STORAGE__MAXIMUM_UPLOAD_BYTES`.
 
 This naming contract is represented by the deliberately unusable `.env.example`. The supported `make local-init` workflow generates a private `.env` with separate random database, bootstrap, and session secrets and refuses to replace an existing environment. `make local-env-upgrade` atomically adds missing settings to an older file without replacing any existing value.
 

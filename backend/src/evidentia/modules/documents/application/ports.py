@@ -82,6 +82,10 @@ class DocumentCustodyRepository(Protocol):
         """Resolve a retry only inside the trusted tenant scope."""
         ...
 
+    async def get(self, tenant_id: UUID, document_id: DocumentId) -> DocumentCustody | None:
+        """Load custody only inside the trusted tenant scope."""
+        ...
+
     async def begin(
         self,
         custody: DocumentCustody,

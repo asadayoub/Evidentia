@@ -24,6 +24,9 @@ TYPESCRIPT_OPERATIONS_PATH = REPOSITORY_ROOT / "sdks/typescript/src/generated/ac
 TYPESCRIPT_SCHEMA_OPERATIONS_PATH = (
     REPOSITORY_ROOT / "sdks/typescript/src/generated/schema-operations.ts"
 )
+TYPESCRIPT_DOCUMENT_OPERATIONS_PATH = (
+    REPOSITORY_ROOT / "sdks/typescript/src/generated/document-operations.ts"
+)
 TYPESCRIPT_SCHEMA_PATH = REPOSITORY_ROOT / "sdks/typescript/src/generated/evidentia.ts"
 PYTHON_OPERATIONS_PATH = (
     REPOSITORY_ROOT / "sdks/python/src/evidentia_sdk/generated/access_operations.py"
@@ -38,6 +41,7 @@ def _contract() -> dict[str, Any]:
     )
     asyncio.run(application.state.access_runtime.close())
     asyncio.run(application.state.schema_runtime.close())
+    asyncio.run(application.state.document_runtime.close())
     return schema
 
 
@@ -102,6 +106,7 @@ def _outputs() -> dict[Path, str]:
     schema = _contract()
     access_operations = _operations(schema, "access_")
     schema_operations = _operations(schema, "schemas_")
+    document_operations = _operations(schema, "documents_")
     return {
         OPENAPI_PATH: _prettier_json(schema),
         TYPESCRIPT_OPERATIONS_PATH: _typescript_operations(
@@ -113,6 +118,11 @@ def _outputs() -> dict[Path, str]:
             schema_operations,
             constant_name="schemaOperationIds",
             type_name="SchemaOperationId",
+        ),
+        TYPESCRIPT_DOCUMENT_OPERATIONS_PATH: _typescript_operations(
+            document_operations,
+            constant_name="documentOperationIds",
+            type_name="DocumentOperationId",
         ),
         PYTHON_OPERATIONS_PATH: _python_operations(access_operations),
     }

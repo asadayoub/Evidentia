@@ -2,6 +2,7 @@ import {
   EvidentiaApiError,
   type AccessClient,
   type CurrentContext,
+  type DocumentClient,
   type SchemaClient,
 } from "@evidentia/typescript-sdk";
 import {
@@ -23,7 +24,7 @@ import {
   useNavigate,
 } from "react-router";
 
-import { browserAccessClient, browserSchemaClient } from "./api";
+import { browserAccessClient, browserDocumentClient, browserSchemaClient } from "./api";
 import {
   AccessStatus,
   hasCapability,
@@ -37,6 +38,7 @@ import {
   SchemaDraftEditorPage,
   SchemaWorkbenchPage,
 } from "./schemas/workbench";
+import { DocumentIntakePage } from "./documents/intake";
 
 interface NavigationItem {
   readonly label: string;
@@ -48,6 +50,7 @@ interface NavigationItem {
 const NAVIGATION: readonly NavigationItem[] = [
   { label: "Overview", to: "/app", end: true },
   { label: "Schemas", to: "/app/schemas", capability: "schemas.read" },
+  { label: "Documents", to: "/app/documents", capability: "documents.read" },
 ];
 
 /** Injectable application boundary used by tests and alternative hosts.
@@ -57,6 +60,7 @@ const NAVIGATION: readonly NavigationItem[] = [
 export interface AppProps {
   readonly access?: AccessClient;
   readonly schemas?: SchemaClient;
+  readonly documents?: DocumentClient;
   readonly initialEntries?: readonly string[];
 }
 
@@ -285,9 +289,11 @@ function NotFound() {
 function ApplicationRoutes({
   access,
   schemas,
+  documents,
 }: {
   readonly access: AccessClient;
   readonly schemas: SchemaClient;
+  readonly documents: DocumentClient;
 }) {
   return (
     <Routes>
@@ -306,6 +312,10 @@ function ApplicationRoutes({
         }
       >
         <Route index element={<Dashboard />} />
+        <Route
+          path="documents"
+          element={<DocumentIntakePage documents={documents} />}
+        />
         <Route
           path="schemas"
           element={<SchemaWorkbenchPage schemas={schemas} />}
@@ -329,6 +339,7 @@ function ApplicationRoutes({
 export function App({
   access = browserAccessClient,
   schemas = browserSchemaClient,
+  documents = browserDocumentClient,
   initialEntries,
 }: AppProps) {
   const [queryClient] = useState(
@@ -342,7 +353,7 @@ export function App({
   );
   const application = (
     <QueryClientProvider client={queryClient}>
-      <ApplicationRoutes access={access} schemas={schemas} />
+      <ApplicationRoutes access={access} schemas={schemas} documents={documents} />
     </QueryClientProvider>
   );
 

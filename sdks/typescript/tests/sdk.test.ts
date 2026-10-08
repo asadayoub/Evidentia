@@ -3,10 +3,12 @@ import { describe, expect, it, vi } from "vitest";
 import {
   accessOperationIds,
   createAccessClient,
+  createDocumentClient,
   createEvidentiaClient,
   createSchemaClient,
   EvidentiaApiError,
   schemaOperationIds,
+  documentOperationIds,
   sdkVersion,
 } from "../src/index";
 
@@ -37,6 +39,13 @@ describe("TypeScript SDK boundary", () => {
       "schemas_preview_import",
       "schemas_publish_draft",
       "schemas_replace_draft",
+    ]);
+  });
+
+  it("exposes document operations generated from the checked contract", () => {
+    expect(documentOperationIds).toEqual([
+      "documents_get_custody",
+      "documents_upload_original",
     ]);
   });
 
@@ -178,6 +187,46 @@ describe("TypeScript SDK boundary", () => {
     );
 
     expect(draft.revision).toBe(1);
+  });
+
+  it("uploads multipart bytes with idempotency, CSRF, and correlation metadata", async () => {
+    const fetch = vi.fn(async (request: Request) => {
+      expect(request.headers.get("idempotency-key")).toBe("original-upload-1");
+      expect(request.headers.get("x-csrf-token")).toBe("csrf-proof");
+      expect(request.headers.get("x-correlation-id")).toBe("document-request-1");
+      expect(request.headers.get("content-type")).toContain("multipart/form-data");
+      const form = await request.formData();
+      expect(form.get("document")).toBeInstanceOf(File);
+      expect((form.get("document") as File).name).toBe("invoice.pdf");
+      return Response.json({
+        byte_size: 12,
+        content_sha256: "a".repeat(64),
+        created_at: "2026-10-08T08:00:00Z",
+        document_id: "document-1",
+        failure_code: null,
+        media_type: "application/pdf",
+        original_filename: "invoice.pdf",
+        revision: 2,
+        status: "preserved",
+        updated_at: "2026-10-08T08:00:00Z",
+      }, { status: 201 });
+    });
+    const client = createDocumentClient(
+      createEvidentiaClient({
+        baseUrl: "https://api.example.test",
+        createCorrelationId: () => "document-request-1",
+        fetch,
+        readCookie: () => "csrf-proof",
+      }),
+    );
+
+    const receipt = await client.uploadOriginal(
+      new File(["%PDF fixture"], "invoice.pdf", { type: "application/pdf" }),
+      "original-upload-1",
+    );
+
+    expect(receipt.status).toBe("preserved");
+    expect(fetch).toHaveBeenCalledOnce();
   });
 
   it("previews and applies portable packages through generated operations", async () => {

@@ -35,6 +35,7 @@ from evidentia.modules.documents.domain.identity import (
     UploadAttemptId,
 )
 
+DOCUMENTS_READ = "documents.read"
 DOCUMENTS_WRITE = "documents.write"
 DEFAULT_MAX_UPLOAD_BYTES = 25 * 1024 * 1024
 DEFAULT_UPLOAD_MEDIA_TYPES = frozenset(

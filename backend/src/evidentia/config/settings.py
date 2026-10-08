@@ -85,6 +85,7 @@ class StorageSettings(BaseModel):
 
     backend: Literal["filesystem"] = "filesystem"
     root: Path = Path(".local/artifacts")
+    maximum_upload_bytes: int = Field(default=25 * 1024 * 1024, ge=1, le=1024 * 1024 * 1024)
 
 
 class IdentitySettings(BaseModel):

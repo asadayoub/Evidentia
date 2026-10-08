@@ -23,6 +23,7 @@ from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from evidentia.config.settings import load_api_settings
+from evidentia.modules.documents.infrastructure.database import create_document_engine
 from evidentia.modules.documents.infrastructure.persistence import DocumentCustodyEventRecord
 from evidentia.modules.documents.infrastructure.repository import PostgresDocumentCustodyRepository
 from evidentia.modules.documents.public import (
@@ -39,7 +40,6 @@ from evidentia.modules.documents.public import (
     PreserveOriginalDocument,
     Sha256Digest,
 )
-from evidentia.modules.schemas.infrastructure.database import create_schema_engine
 
 pytestmark = pytest.mark.postgres
 _REPOSITORY_ROOT = Path(__file__).parents[4]
@@ -65,7 +65,7 @@ class IntegrityArtifactStore:
 
 async def _exercise_repository() -> None:
     settings = load_api_settings(_REPOSITORY_ROOT / ".env").database
-    engine = create_schema_engine(settings, purpose="document-repository-test")
+    engine = create_document_engine(settings, purpose="document-repository-test")
     tenant_id, other_tenant_id = uuid4(), uuid4()
     context = DocumentCommandContext(
         tenant_id,

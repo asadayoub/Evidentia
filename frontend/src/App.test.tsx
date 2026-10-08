@@ -2,6 +2,8 @@ import {
   EvidentiaApiError,
   type AccessClient,
   type CurrentContext,
+  type DocumentClient,
+  type DocumentCustody,
   type SchemaClient,
   type SessionResponse,
 } from "@evidentia/typescript-sdk";
@@ -71,6 +73,26 @@ function fakeSchemas(overrides: Partial<SchemaClient> = {}): SchemaClient {
   };
 }
 
+function fakeDocuments(overrides: Partial<DocumentClient> = {}): DocumentClient {
+  const receipt: DocumentCustody = {
+    byte_size: 16,
+    content_sha256: "a".repeat(64),
+    created_at: "2026-10-08T08:00:00Z",
+    document_id: "document-1",
+    failure_code: null,
+    media_type: "application/pdf",
+    original_filename: "invoice.pdf",
+    revision: 2,
+    status: "preserved",
+    updated_at: "2026-10-08T08:00:00Z",
+  };
+  return {
+    getCustody: () => Promise.resolve(receipt),
+    uploadOriginal: () => Promise.resolve(receipt),
+    ...overrides,
+  };
+}
+
 describe("Evidentia authenticated application shell", () => {
   it("has no detectable accessibility violations in the authenticated shell", async () => {
     const { container } = render(
@@ -88,6 +110,75 @@ describe("Evidentia authenticated application shell", () => {
     });
 
     expect(result.violations).toEqual([]);
+  });
+
+  it("uploads an original and presents the custody receipt", async () => {
+    const uploadOriginal = vi.fn<DocumentClient["uploadOriginal"]>(() =>
+      Promise.resolve({
+        byte_size: 24,
+        content_sha256: "b".repeat(64),
+        created_at: "2026-10-08T08:00:00Z",
+        document_id: "document-2",
+        failure_code: null,
+        media_type: "application/pdf",
+        original_filename: "supplier-invoice.pdf",
+        revision: 2,
+        status: "preserved",
+        updated_at: "2026-10-08T08:00:00Z",
+      }),
+    );
+    render(
+      <App
+        access={fakeAccess({
+          getCurrentContext: () =>
+            Promise.resolve({
+              ...TRUSTED_CONTEXT,
+              capabilities: ["documents.read", "documents.write"],
+            }),
+        })}
+        documents={fakeDocuments({ uploadOriginal })}
+        initialEntries={["/app/documents"]}
+      />,
+    );
+
+    const file = new File(["%PDF fixture"], "supplier-invoice.pdf", {
+      type: "application/pdf",
+    });
+    fireEvent.change(await screen.findByLabelText("Document file"), {
+      target: { files: [file] },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Preserve original" }));
+
+    expect(
+      await screen.findByRole("heading", { name: "supplier-invoice.pdf" }),
+    ).toBeInTheDocument();
+    expect(uploadOriginal).toHaveBeenCalledWith(file, expect.any(String));
+  });
+
+  it("does not offer uploads to a read-only document member", async () => {
+    const uploadOriginal = vi.fn<DocumentClient["uploadOriginal"]>();
+    render(
+      <App
+        access={fakeAccess({
+          getCurrentContext: () =>
+            Promise.resolve({
+              ...TRUSTED_CONTEXT,
+              capabilities: ["documents.read"],
+            }),
+        })}
+        documents={fakeDocuments({ uploadOriginal })}
+        initialEntries={["/app/documents"]}
+      />,
+    );
+
+    expect(
+      await screen.findByText(/read access to document custody/i),
+    ).toBeInTheDocument();
+    expect(screen.queryByLabelText("Document file")).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: "Preserve original" }),
+    ).not.toBeInTheDocument();
+    expect(uploadOriginal).not.toHaveBeenCalled();
   });
 
   it("redirects an unauthenticated protected route to login", async () => {

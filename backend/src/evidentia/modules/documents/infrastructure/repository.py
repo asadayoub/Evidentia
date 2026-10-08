@@ -84,6 +84,21 @@ class PostgresDocumentCustodyRepository:
         except ValueError as error:
             raise StoredCustodyIntegrityError("stored document custody is invalid") from error
 
+    async def get(self, tenant_id: UUID, document_id: DocumentId) -> DocumentCustody | None:
+        """Load one custody root without exposing another tenant's identity."""
+        record = await self._session.scalar(
+            select(DocumentRecord).where(
+                DocumentRecord.tenant_id == tenant_id,
+                DocumentRecord.document_id == UUID(document_id.value),
+            )
+        )
+        if record is None:
+            return None
+        try:
+            return _custody(record)
+        except ValueError as error:
+            raise StoredCustodyIntegrityError("stored document custody is invalid") from error
+
     async def begin(
         self,
         custody: DocumentCustody,

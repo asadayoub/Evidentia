@@ -19,6 +19,7 @@ from evidentia.modules.documents.application.ports import (
 from evidentia.modules.documents.application.preserve import (
     DEFAULT_MAX_UPLOAD_BYTES,
     DEFAULT_UPLOAD_MEDIA_TYPES,
+    DOCUMENTS_READ,
     DOCUMENTS_WRITE,
     ArtifactPreservationError,
     DocumentAuthorizationError,
@@ -51,6 +52,7 @@ from evidentia.modules.documents.domain.identity import (
 __all__ = (
     "DEFAULT_MAX_UPLOAD_BYTES",
     "DEFAULT_UPLOAD_MEDIA_TYPES",
+    "DOCUMENTS_READ",
     "DOCUMENTS_WRITE",
     "ArtifactPreservationError",
     "CustodyAlreadyExistsError",

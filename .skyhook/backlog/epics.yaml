@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T08:09:38.175Z"
+  updatedAt: "2026-10-08T08:10:13.529Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -6282,7 +6282,7 @@ tasks:
     parentType: story
     parentId: XRSZ0A5WZEQB0PQYD34PYR8EW3
     type: feature
-    status: backlog
+    status: in-progress
     priority: high
     storyPoints: 5
     estimatedMinutes: 300
@@ -6329,11 +6329,18 @@ tasks:
         completed: false
         createdAt: "2026-10-08T07:54:39.632Z"
     createdAt: "2026-10-07T15:27:18.037Z"
-    updatedAt: "2026-10-08T07:54:39.632Z"
+    updatedAt: "2026-10-08T08:10:13.529Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
+    lease:
+      agentId: Codex
+      leasedAt: "2026-10-08T08:10:11.612Z"
+      expiresAt: "2026-10-08T11:10:11.612Z"
+      durationMinutes: 180
+      heartbeatAt: "2026-10-08T08:10:11.612Z"
+    startedAt: "2026-10-08T08:10:13.529Z"
   - id: TASK-038
     title: Prove and document Upload and preserve an original document
     description: "Purpose: close \"Upload and preserve an original document\" with reproducible interaction and recovery evidence. Contribution: proves source custody, processing, accessibility, hostile-input confinement, and restart behavior on native PostgreSQL without touching developer data."

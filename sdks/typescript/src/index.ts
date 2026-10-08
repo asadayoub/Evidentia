@@ -19,7 +19,13 @@ export {
 } from "./generated/schema-operations.js";
 
 export {
+  documentOperationIds,
+  type DocumentOperationId,
+} from "./generated/document-operations.js";
+
+export {
   createAccessClient,
+  createDocumentClient,
   createEvidentiaClient,
   createSchemaClient,
   EvidentiaApiError,
@@ -28,6 +34,8 @@ export {
   type AccessRequestOptions,
   type CookieReader,
   type CurrentContext,
+  type DocumentClient,
+  type DocumentCustody,
   type EvidentiaClient,
   type EvidentiaClientOptions,
   type LoginRequest,

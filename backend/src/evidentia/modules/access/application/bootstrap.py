@@ -41,6 +41,8 @@ LOCAL_IDENTITY_PROVIDER = IdentityProviderKey("local")
 BOOTSTRAP_ADMIN_CAPABILITIES = frozenset(
     {
         Capability("access.manage"),
+        Capability("documents.read"),
+        Capability("documents.write"),
         Capability("schemas.publish"),
         Capability("schemas.read"),
         Capability("schemas.write"),

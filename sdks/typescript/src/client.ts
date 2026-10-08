@@ -35,6 +35,13 @@ export type SessionResponse = components["schemas"]["SessionResponse"];
  */
 export type CurrentContext = components["schemas"]["CurrentContextResponse"];
 
+/** Tenant scoped original-document custody receipt and status.
+ * @skyhook-implements REQ-001
+ * @skyhook-implements NFR-002
+ * @skyhook-story XRSZ0A5WZEQB0PQYD34PYR8EW3
+ */
+export type DocumentCustody = components["schemas"]["DocumentResponse"];
+
 /** Dynamic, domain-validated content for a mutable schema draft.
  * @skyhook-implements REQ-003
  * @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
@@ -249,6 +256,23 @@ export interface SchemaClient {
     target: SchemaImportTarget | undefined,
     options: SchemaMutationOptions,
   ): Promise<ApplySchemaImportResult>;
+}
+
+/** Authenticated original-document upload and custody status operations.
+ * @skyhook-implements REQ-001
+ * @skyhook-implements NFR-002
+ * @skyhook-story XRSZ0A5WZEQB0PQYD34PYR8EW3
+ */
+export interface DocumentClient {
+  uploadOriginal(
+    file: File,
+    idempotencyKey: string,
+    options?: AccessRequestOptions,
+  ): Promise<DocumentCustody>;
+  getCustody(
+    documentId: string,
+    options?: AccessRequestOptions,
+  ): Promise<DocumentCustody>;
 }
 
 function defaultCookieReader(name: string): string | undefined {
@@ -571,6 +595,45 @@ export function createSchemaClient(client: EvidentiaClient): SchemaClient {
               }),
         },
         ...(options.signal === undefined ? {} : { signal: options.signal }),
+      });
+      if (result.error !== undefined) {
+        throw apiError(result.error, result.response);
+      }
+      return result.data;
+    },
+  };
+}
+
+/** Create document custody operations over the generated Evidentia transport.
+ * @skyhook-implements REQ-001
+ * @skyhook-implements REQ-012
+ * @skyhook-story XRSZ0A5WZEQB0PQYD34PYR8EW3
+ */
+export function createDocumentClient(client: EvidentiaClient): DocumentClient {
+  return {
+    async uploadOriginal(file, idempotencyKey, options) {
+      const result = await client.POST("/api/v1/documents", {
+        body: { document: file as unknown as string },
+        bodySerializer: (body) => {
+          const form = new FormData();
+          // The checked OpenAPI generator represents `format: binary` as string;
+          // at runtime this value is the File selected by the browser.
+          form.append("document", body.document as unknown as File, file.name);
+          return form;
+        },
+        params: { header: { "Idempotency-Key": idempotencyKey } },
+        ...(options?.signal === undefined ? {} : { signal: options.signal }),
+      });
+      if (result.error !== undefined) {
+        throw apiError(result.error, result.response);
+      }
+      return result.data;
+    },
+
+    async getCustody(documentId, options) {
+      const result = await client.GET("/api/v1/documents/{document_id}", {
+        params: { path: { document_id: documentId } },
+        ...(options?.signal === undefined ? {} : { signal: options.signal }),
       });
       if (result.error !== undefined) {
         throw apiError(result.error, result.response);
