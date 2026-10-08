@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T06:56:36.114Z"
+  updatedAt: "2026-10-08T07:06:25.216Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -6072,7 +6072,7 @@ tasks:
     parentType: story
     parentId: STORY-018
     type: feature
-    status: backlog
+    status: done
     priority: high
     storyPoints: 5
     estimatedMinutes: 300
@@ -6091,34 +6091,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Define versioned request, response, error, pagination, concurrency, and idempotency behavior
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:46.060Z"
+        completedAt: "2026-10-08T07:06:09.070Z"
       - id: SUB-002
         title: Enforce trusted operator, tenant, capability, and resource context at the application boundary
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:46.060Z"
+        completedAt: "2026-10-08T07:06:11.889Z"
       - id: SUB-003
         title: Export deterministic OpenAPI and regenerate supported client operations without hand edits
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:46.060Z"
+        completedAt: "2026-10-08T07:06:13.998Z"
       - id: SUB-004
         title: Implement required browser or administrator interaction with loading, empty, forbidden, conflict, and failure states
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:46.060Z"
+        completedAt: "2026-10-08T07:06:16.051Z"
       - id: SUB-005
         title: Add correlation-safe structured events and sanitize responses, logs, and client-visible failures
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:46.060Z"
+        completedAt: "2026-10-08T07:06:18.445Z"
       - id: SUB-006
         title: Add contract and interaction tests that reject ad-hoc or cross-boundary integration
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:46.060Z"
+        completedAt: "2026-10-08T07:06:20.971Z"
     createdAt: "2026-10-07T15:26:46.060Z"
-    updatedAt: "2026-10-07T15:42:49.372Z"
+    updatedAt: "2026-10-08T07:06:25.216Z"
     assignee:
       type: agent
-      identifier: Codex
-      name: Codex
+      identifier: codex
+      name: codex
+    startedAt: "2026-10-08T06:56:56.449Z"
+    completedAt: "2026-10-08T07:06:25.216Z"
   - id: TASK-035
     title: Prove and document Import export compare and evolve governed schemas
     description: "Purpose: close \"Import export compare and evolve governed schemas\" with reproducible evidence. Contribution: gives future maintainers automated and manual proof that the acceptance criteria work through the real application and survive failure, restart, concurrency, and tenant-isolation cases."

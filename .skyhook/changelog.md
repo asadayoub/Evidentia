@@ -1,6 +1,10 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-034: in-review to done
+- Task TASK-034: in-progress to in-review
+- Task TASK-034: ready to in-progress
+- Task TASK-034: backlog to ready
 - Task TASK-033: in-review to done
 - Task TASK-033: in-progress to in-review
 - Recorded decision: Evolve schemas through portable canonical packages and revision-guarded drafts (C0G6H4W34FE915CSVHGQXDVQHZ)
