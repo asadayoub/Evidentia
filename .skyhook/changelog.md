@@ -1,6 +1,10 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-036: ready to in-progress
+- Task TASK-036: backlog to ready
+- Story XRSZ0A5WZEQB0PQYD34PYR8EW3: backlog to ready
+- Recorded decision: Preserve originals through a replaceable local artifact storage port (W1YPD1S7FZC6BDFHBZ3BCMHMXF)
 - Story 265YM4FNANJAH2J338BKAWFXDM: in-review to done
 - Story 265YM4FNANJAH2J338BKAWFXDM: in-review to in-review
 - Task TASK-029: in-review to done

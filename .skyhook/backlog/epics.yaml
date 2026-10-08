@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T07:42:46.350Z"
+  updatedAt: "2026-10-08T07:55:14.868Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1741,7 +1741,7 @@ stories:
     acceptanceCriteria:
       - Original bytes, integrity metadata, tenant scope, and safe input limits are enforced.
     priority: high
-    status: backlog
+    status: in-progress
     storyPoints: null
     dependsOn: []
     standards: []
@@ -1752,11 +1752,16 @@ stories:
       - NFR-002
       - CON-004
     createdAt: "2026-10-03T08:20:57.690Z"
-    updatedAt: "2026-10-03T08:20:57.690Z"
+    updatedAt: "2026-10-08T07:55:14.868Z"
     childTasks:
       - TASK-036
       - TASK-037
       - TASK-038
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-08T07:55:14.868Z"
   - id: J2ZHMCR2DNQSHD1VZY7CECT2HT
     epicId: JA6EY894YZ69F5JN40GG143M2S
     title: Parse native document text and page structure
@@ -6223,7 +6228,7 @@ tasks:
     parentType: story
     parentId: XRSZ0A5WZEQB0PQYD34PYR8EW3
     type: feature
-    status: backlog
+    status: in-progress
     priority: high
     storyPoints: 3
     estimatedMinutes: 240
@@ -6240,16 +6245,19 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Confirm document custody processing ownership requirements and lifecycle transitions
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:14.937Z"
+        completedAt: "2026-10-08T08:01:24.330Z"
       - id: SUB-002
         title: Define typed ports and records for source metadata artifact integrity attempts and failures
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:14.937Z"
+        completedAt: "2026-10-08T08:01:26.685Z"
       - id: SUB-003
         title: Define tenant scope limits idempotency concurrency audit and retention interactions
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:14.937Z"
+        completedAt: "2026-10-08T08:01:28.531Z"
       - id: SUB-004
         title: Add module-owned persistence and migrations only for durable state required by this pass
         completed: false
@@ -6259,11 +6267,18 @@ tasks:
         completed: false
         createdAt: "2026-10-07T15:27:14.937Z"
     createdAt: "2026-10-07T15:27:14.937Z"
-    updatedAt: "2026-10-07T15:42:55.380Z"
+    updatedAt: "2026-10-08T08:01:28.531Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
+    lease:
+      agentId: Codex
+      leasedAt: "2026-10-08T07:55:01.426Z"
+      expiresAt: "2026-10-08T09:55:01.426Z"
+      durationMinutes: 120
+      heartbeatAt: "2026-10-08T07:55:01.426Z"
+    startedAt: "2026-10-08T07:55:14.868Z"
   - id: TASK-037
     title: Expose and integrate Upload and preserve an original document
     description: "Purpose: make \"Upload and preserve an original document\" available through supported API, worker, generated-client, and browser boundaries. Contribution: lets authorized users or integrations observe progress and failures without giving untrusted documents execution, credential, or network authority."
@@ -6312,8 +6327,12 @@ tasks:
         title: Test duplicate retry cancellation restart cross-tenant hostile-content and unavailable-provider behavior
         completed: false
         createdAt: "2026-10-07T15:27:18.037Z"
+      - id: SUB-007
+        title: Keep this pass limited to preservation and custody status; expose later parser OCR and classification activation only as owned downstream ports
+        completed: false
+        createdAt: "2026-10-08T07:54:39.632Z"
     createdAt: "2026-10-07T15:27:18.037Z"
-    updatedAt: "2026-10-07T15:42:59.918Z"
+    updatedAt: "2026-10-08T07:54:39.632Z"
     assignee:
       type: agent
       identifier: Codex
@@ -6365,8 +6384,12 @@ tasks:
         title: Run Skyhook policy standards traceability and full repository quality gates
         completed: false
         createdAt: "2026-10-07T15:27:21.084Z"
+      - id: SUB-007
+        title: Treat scanned documents as preserved opaque sources and limit provider-failure proof in this pass to the storage adapter
+        completed: false
+        createdAt: "2026-10-08T07:54:42.268Z"
     createdAt: "2026-10-07T15:27:21.084Z"
-    updatedAt: "2026-10-07T15:43:04.108Z"
+    updatedAt: "2026-10-08T07:54:42.268Z"
     assignee:
       type: agent
       identifier: Codex
