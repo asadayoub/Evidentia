@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T06:18:56.532Z"
+  updatedAt: "2026-10-08T06:25:59.357Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1678,7 +1678,7 @@ stories:
     acceptanceCriteria:
       - UI renders fields, groups, and tables from schema metadata and meets primary accessibility needs.
     priority: high
-    status: backlog
+    status: in-progress
     storyPoints: null
     dependsOn:
       - STORY-017
@@ -1690,11 +1690,12 @@ stories:
       - REQ-016
       - NFR-005
     createdAt: "2026-10-03T08:20:53.861Z"
-    updatedAt: "2026-10-03T08:20:53.861Z"
+    updatedAt: "2026-10-08T06:22:31.127Z"
     childTasks:
       - TASK-024
       - TASK-025
       - TASK-026
+    startedAt: "2026-10-08T06:22:31.127Z"
   - id: 265YM4FNANJAH2J338BKAWFXDM
     epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
     title: Prove the draft-to-published Schema Workbench journey
@@ -5493,7 +5494,7 @@ tasks:
     parentType: story
     parentId: H98W5WTJBWT8EY0Q10P3KPCEEB
     type: feature
-    status: backlog
+    status: done
     priority: high
     storyPoints: 3
     estimatedMinutes: 240
@@ -5512,30 +5513,37 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Confirm owning bounded context, requirements, lifecycle invariants, and public collaboration boundaries
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:10.331Z"
+        completedAt: "2026-10-08T06:25:36.575Z"
       - id: SUB-002
         title: Define typed domain and application contracts without framework or provider coupling
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:10.331Z"
+        completedAt: "2026-10-08T06:25:39.451Z"
       - id: SUB-003
         title: Define tenant scope, actor authority, concurrency, idempotency, and audit expectations
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:10.331Z"
+        completedAt: "2026-10-08T06:25:41.868Z"
       - id: SUB-004
         title: Add or plan module-owned persistence and migration changes only where durable state is required
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:10.331Z"
+        completedAt: "2026-10-08T06:25:44.122Z"
       - id: SUB-005
         title: Add focused unit and persistence tests plus Skyhook traceability annotations
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:10.331Z"
+        completedAt: "2026-10-08T06:25:47.751Z"
     createdAt: "2026-10-07T15:26:10.331Z"
-    updatedAt: "2026-10-07T15:41:48.312Z"
+    updatedAt: "2026-10-08T06:25:59.357Z"
     assignee:
       type: agent
-      identifier: Codex
-      name: Codex
+      identifier: codex
+      name: codex
+    startedAt: "2026-10-08T06:22:31.127Z"
+    completedAt: "2026-10-08T06:25:59.357Z"
   - id: TASK-025
     title: Implement the accessible browser experience for Build the accessible Schema Workbench
     description: "Purpose: make \"Build the accessible Schema Workbench\" usable through its supported application boundaries. Contribution: connects tenant-authorized backend behavior to versioned API, generated-client, and accessible browser interactions where required by the story."
