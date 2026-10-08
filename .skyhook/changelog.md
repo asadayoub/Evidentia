@@ -1,6 +1,11 @@
 # Changelog
 
 ## [Unreleased]
+- Story X51S43NTMRW5ASYSKJBF7FW845: in-review to done
+- Task TASK-023: in-review to done
+- Task TASK-023: in-progress to in-review
+- Task TASK-023: ready to in-progress
+- Task TASK-023: backlog to ready
 - Task TASK-022: in-review to done
 - Task TASK-022: in-progress to in-review
 - Task TASK-022: ready to in-progress

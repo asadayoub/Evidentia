@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T06:09:34.625Z"
+  updatedAt: "2026-10-08T06:18:56.532Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1647,7 +1647,7 @@ stories:
     acceptanceCriteria:
       - API supports lifecycle operations with safe errors, OpenAPI, and a generated client.
     priority: high
-    status: in-progress
+    status: done
     storyPoints: null
     dependsOn:
       - 0VJ9SHA39TA291D8QXB0TQS3HQ
@@ -1660,12 +1660,17 @@ stories:
       - REQ-017
       - NFR-008
     createdAt: "2026-10-03T08:20:53.861Z"
-    updatedAt: "2026-10-07T17:27:57.682Z"
+    updatedAt: "2026-10-08T06:18:56.532Z"
     childTasks:
       - TASK-021
       - TASK-022
       - TASK-023
     startedAt: "2026-10-07T17:27:57.682Z"
+    completedAt: "2026-10-08T06:18:56.532Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: H98W5WTJBWT8EY0Q10P3KPCEEB
     epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
     title: Build the accessible Schema Workbench
@@ -5428,7 +5433,7 @@ tasks:
     parentType: story
     parentId: X51S43NTMRW5ASYSKJBF7FW845
     type: test
-    status: backlog
+    status: done
     priority: high
     storyPoints: 3
     estimatedMinutes: 180
@@ -5446,34 +5451,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Verify the primary application journey against disposable native PostgreSQL
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:07.433Z"
+        completedAt: "2026-10-08T06:18:14.302Z"
       - id: SUB-002
         title: Verify validation, authorization, conflict, retry, restart, expiry, and recovery paths applicable to the story
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:07.433Z"
+        completedAt: "2026-10-08T06:18:16.502Z"
       - id: SUB-003
         title: Verify tenant isolation, secret absence, stable errors, correlation, and immutable history
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:07.433Z"
+        completedAt: "2026-10-08T06:18:18.695Z"
       - id: SUB-004
         title: Run focused unit, integration, contract, frontend, accessibility, and end-to-end checks
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:07.433Z"
+        completedAt: "2026-10-08T06:18:21.135Z"
       - id: SUB-005
         title: Document exact manual interaction steps, expected results, limitations, and troubleshooting
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:07.433Z"
+        completedAt: "2026-10-08T06:18:23.286Z"
       - id: SUB-006
         title: Run Skyhook policies, standards, traceability, and full repository quality gates
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:07.433Z"
+        completedAt: "2026-10-08T06:18:25.489Z"
     createdAt: "2026-10-07T15:26:07.433Z"
-    updatedAt: "2026-10-07T15:41:42.967Z"
+    updatedAt: "2026-10-08T06:18:38.758Z"
     assignee:
       type: agent
-      identifier: Codex
-      name: Codex
+      identifier: codex
+      name: codex
+    startedAt: "2026-10-08T06:12:05.981Z"
+    completedAt: "2026-10-08T06:18:38.758Z"
   - id: TASK-024
     title: Define interaction and client contracts for Build the accessible Schema Workbench
     description: "Purpose: establish the first implementation pass for \"Build the accessible Schema Workbench\". Contribution: turns the parent story into explicit contracts, invariants, representative state, and testable boundaries without pulling unrelated later capabilities forward."
