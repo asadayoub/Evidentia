@@ -1,6 +1,10 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-029: in-progress to in-review
+- Task TASK-029: ready to in-progress
+- Task TASK-029: backlog to ready
+- Task TASK-028: in-review to done
 - Task TASK-028: in-progress to in-review
 - Task TASK-028: ready to in-progress
 - Task TASK-028: backlog to ready

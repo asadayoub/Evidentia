@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T07:37:16.463Z"
+  updatedAt: "2026-10-08T07:42:22.658Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -5746,7 +5746,7 @@ tasks:
     parentType: story
     parentId: 265YM4FNANJAH2J338BKAWFXDM
     type: test
-    status: in-review
+    status: done
     priority: high
     storyPoints: 5
     estimatedMinutes: 300
@@ -5795,25 +5795,20 @@ tasks:
         createdAt: "2026-10-07T15:26:25.127Z"
         completedAt: "2026-10-08T07:37:14.362Z"
     createdAt: "2026-10-07T15:26:25.127Z"
-    updatedAt: "2026-10-08T07:37:16.463Z"
+    updatedAt: "2026-10-08T07:37:31.104Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
-    lease:
-      agentId: Codex
-      leasedAt: "2026-10-08T07:35:30.107Z"
-      expiresAt: "2026-10-08T09:35:30.107Z"
-      durationMinutes: 120
-      heartbeatAt: "2026-10-08T07:35:30.107Z"
     startedAt: "2026-10-08T07:35:38.857Z"
+    completedAt: "2026-10-08T07:37:31.104Z"
   - id: TASK-029
     title: Prove and document Prove the draft-to-published Schema Workbench journey
     description: "Purpose: close \"Prove the draft-to-published Schema Workbench journey\" with reproducible evidence. Contribution: gives future maintainers automated and manual proof that the acceptance criteria work through the real application and survive failure, restart, concurrency, and tenant-isolation cases."
     parentType: story
     parentId: 265YM4FNANJAH2J338BKAWFXDM
     type: test
-    status: backlog
+    status: in-review
     priority: high
     storyPoints: 3
     estimatedMinutes: 180
@@ -5831,34 +5826,47 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Verify the primary application journey against disposable native PostgreSQL
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:28.540Z"
+        completedAt: "2026-10-08T07:42:10.795Z"
       - id: SUB-002
         title: Verify validation, authorization, conflict, retry, restart, expiry, and recovery paths applicable to the story
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:28.540Z"
+        completedAt: "2026-10-08T07:42:08.500Z"
       - id: SUB-003
         title: Verify tenant isolation, secret absence, stable errors, correlation, and immutable history
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:28.540Z"
+        completedAt: "2026-10-08T07:42:13.523Z"
       - id: SUB-004
         title: Run focused unit, integration, contract, frontend, accessibility, and end-to-end checks
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:28.540Z"
+        completedAt: "2026-10-08T07:42:15.939Z"
       - id: SUB-005
         title: Document exact manual interaction steps, expected results, limitations, and troubleshooting
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:28.540Z"
+        completedAt: "2026-10-08T07:42:17.994Z"
       - id: SUB-006
         title: Run Skyhook policies, standards, traceability, and full repository quality gates
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:28.540Z"
+        completedAt: "2026-10-08T07:42:20.248Z"
     createdAt: "2026-10-07T15:26:28.540Z"
-    updatedAt: "2026-10-07T15:42:13.695Z"
+    updatedAt: "2026-10-08T07:42:22.658Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
+    lease:
+      agentId: Codex
+      leasedAt: "2026-10-08T07:37:35.368Z"
+      expiresAt: "2026-10-08T09:37:35.368Z"
+      durationMinutes: 120
+      heartbeatAt: "2026-10-08T07:37:35.368Z"
+    startedAt: "2026-10-08T07:37:58.981Z"
   - id: TASK-030
     title: Define interaction and client contracts for Establish the authenticated application shell and generated API boundary
     description: "Purpose: establish the first implementation pass for \"Establish the authenticated application shell and generated API boundary\". Contribution: turns the parent story into explicit contracts, invariants, representative state, and testable boundaries without pulling unrelated later capabilities forward."

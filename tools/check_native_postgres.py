@@ -7,12 +7,13 @@
 
 from __future__ import annotations
 
-import os
 import re
 import shutil
 import subprocess
 import sys
 from pathlib import Path
+
+from evidentia.config.environment import read_process_environment
 
 PREFIX = "EVIDENTIA_DATABASE__"
 IDENTIFIER = re.compile(r"^[a-z][a-z0-9_]{0,62}$")
@@ -39,9 +40,9 @@ def _read_environment(path: Path) -> dict[str, str]:
     return values
 
 
-def _setting(values: dict[str, str], name: str, default: str) -> str:
+def _setting(environment: dict[str, str], values: dict[str, str], name: str, default: str) -> str:
     """Prefer the process environment over the local environment file."""
-    return os.environ.get(f"{PREFIX}{name}", values.get(f"{PREFIX}{name}", default))
+    return environment.get(f"{PREFIX}{name}", values.get(f"{PREFIX}{name}", default))
 
 
 def _bootstrap(
@@ -99,21 +100,22 @@ WHERE NOT EXISTS (SELECT 1 FROM pg_database WHERE datname = '{name}') \\gexec
 def _main() -> int:
     """Verify server readiness and authenticated application connectivity."""
     root = Path(__file__).resolve().parents[1]
-    env_path = Path(os.environ.get("EVIDENTIA_ENV_FILE", root / ".env"))
+    environment = dict(read_process_environment())
+    env_path = Path(environment.get("EVIDENTIA_ENV_FILE", root / ".env"))
     try:
         values = _read_environment(env_path)
     except (OSError, UnicodeError, ValueError) as error:
         print(f"Invalid Evidentia environment file: {error}", file=sys.stderr)
         return 2
 
-    host = _setting(values, "HOST", "127.0.0.1")
-    port = _setting(values, "PORT", values.get("EVIDENTIA_DATABASE_PORT", "5432"))
-    name = _setting(values, "NAME", "evidentia")
-    user = _setting(values, "USER", "evidentia")
-    password = _setting(values, "PASSWORD", values.get("POSTGRES_PASSWORD", ""))
-    timeout = _setting(values, "CONNECT_TIMEOUT_SECONDS", "5")
-    sslmode = _setting(values, "SSLMODE", "prefer")
-    application_name = _setting(values, "APPLICATION_NAME", "evidentia-readiness")
+    host = _setting(environment, values, "HOST", "127.0.0.1")
+    port = _setting(environment, values, "PORT", values.get("EVIDENTIA_DATABASE_PORT", "5432"))
+    name = _setting(environment, values, "NAME", "evidentia")
+    user = _setting(environment, values, "USER", "evidentia")
+    password = _setting(environment, values, "PASSWORD", values.get("POSTGRES_PASSWORD", ""))
+    timeout = _setting(environment, values, "CONNECT_TIMEOUT_SECONDS", "5")
+    sslmode = _setting(environment, values, "SSLMODE", "prefer")
+    application_name = _setting(environment, values, "APPLICATION_NAME", "evidentia-readiness")
 
     if "--bootstrap" in sys.argv[1:]:
         bootstrap_result = _bootstrap(values, host, port, name, user, password)
@@ -141,8 +143,7 @@ def _main() -> int:
         print(f"PostgreSQL is not accepting connections at {host}:{port}.", file=sys.stderr)
         return 1
 
-    process_environment = os.environ.copy()
-    process_environment["PGPASSWORD"] = password
+    environment["PGPASSWORD"] = password
     result = subprocess.run(
         [
             psql,
@@ -166,7 +167,7 @@ def _main() -> int:
         capture_output=True,
         text=True,
         env={
-            **process_environment,
+            **environment,
             "PGCONNECT_TIMEOUT": timeout,
             "PGSSLMODE": sslmode,
             "PGAPPNAME": application_name,

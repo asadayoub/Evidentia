@@ -316,7 +316,7 @@ describe("Schema Workbench", () => {
     };
     const appliedResult: ApplySchemaImportResult = {
       created: true,
-      draft: EMPTY_DRAFT,
+      draft: { ...EMPTY_DRAFT, content: previewResult.content },
       package_sha256: "a".repeat(64),
     };
     const previewImport = vi
@@ -328,7 +328,11 @@ describe("Schema Workbench", () => {
     render(
       <App
         access={accessClient()}
-        schemas={schemaClient({ applyImport, previewImport })}
+        schemas={schemaClient({
+          applyImport,
+          getDraft: () => Promise.resolve(appliedResult.draft),
+          previewImport,
+        })}
         initialEntries={["/app/schemas"]}
       />,
     );
@@ -362,6 +366,9 @@ describe("Schema Workbench", () => {
     );
 
     await waitFor(() => expect(applyImport).toHaveBeenCalledOnce());
+    expect(
+      await screen.findByText("1 embedded immutable module"),
+    ).toBeInTheDocument();
     expect(previewImport).toHaveBeenCalledWith(schemaPackage, undefined);
     expect(applyImport.mock.calls[0]?.[1]).toBeUndefined();
     expect(applyImport.mock.calls[0]?.[2].idempotencyKey).toMatch(

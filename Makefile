@@ -1,4 +1,4 @@
-.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generate-api-contract generated-check authenticated-shell-check schema-api-check schema-workbench-check schema-evolution-check container-smoke local-init local-env-upgrade native-db-init native-db-verify native-api native-web db-upgrade db-downgrade identity-init postgres-test local-up local-verify local-down check
+.PHONY: bootstrap format format-check lint architecture-check type-check unit-test generate-api-contract generated-check authenticated-shell-check schema-api-check schema-workbench-check schema-workbench-journey-check schema-evolution-check container-smoke local-init local-env-upgrade native-db-init native-db-verify native-api native-web db-upgrade db-downgrade identity-init postgres-test local-up local-verify local-down check
 
 UV_CACHE_DIR ?= $(CURDIR)/.uv-cache
 export UV_CACHE_DIR
@@ -43,6 +43,11 @@ schema-api-check:
 schema-workbench-check: schema-api-check
 	pnpm --filter @evidentia/web test
 	pnpm --filter @evidentia/web build
+
+schema-workbench-journey-check: schema-workbench-check
+	uv run pytest backend/tests/modules/schemas/test_schema_interchange.py backend/tests/modules/schemas/test_schema_composition.py
+	./ci/generated-check.sh
+	pnpm --filter @evidentia/typescript-sdk test
 
 schema-evolution-check: schema-api-check
 	uv run pytest backend/tests/modules/schemas/test_schema_evolution.py backend/tests/modules/schemas/test_schema_interchange.py backend/tests/modules/schemas/test_schema_compatibility.py

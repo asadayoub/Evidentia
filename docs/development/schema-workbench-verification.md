@@ -11,7 +11,7 @@ Keep native PostgreSQL 16 running, then execute:
 
 ```sh
 make native-db-verify
-make schema-workbench-check
+make schema-workbench-journey-check
 ```
 
 The check creates a uniquely named disposable PostgreSQL database, applies migrations,
@@ -34,6 +34,13 @@ The combined proof covers:
 | History           | Published snapshots remain immutable while the next working draft advances                                          |
 | Safety            | Stable client errors, correlation identifiers, CSRF enforcement, and secret-free response bodies                    |
 | Accessibility     | Semantic headings, labels, fieldsets, live notices, alert states, keyboard-native controls, and automated axe scans |
+
+The synthetic fixture inventory is documented in
+[`fixtures/schema-workbench/manifest.json`](../../fixtures/schema-workbench/manifest.json).
+It records provenance, permission, identities, isolation, cleanup, and the observable
+assertions for valid composed and invalid cases. The automated PostgreSQL harness creates
+a uniquely named database, applies migrations to that database only, and drops it during
+guaranteed teardown.
 
 ## Prepare the native application
 
@@ -90,6 +97,30 @@ ignored `.env` file.
    version 1 published and the working draft advances to version 2.
 10. Return to **Schemas**, reopen the draft, and confirm the saved dynamic structure is
     restored from PostgreSQL.
+
+## Compare, compose, and publish checkpoint
+
+The repository includes a synthetic composed invoice package with two immutable module
+versions. It is test data, not a recommendation that invoice fields should become static
+product columns.
+
+1. On **Schemas**, choose
+   `fixtures/schema-workbench/composed-invoice-draft.json` under **Import a schema**.
+2. Select **Preview changes**. Confirm the package is validated and reports **Ready to
+   create a new draft**. No record has been created at this point.
+3. Select **Create draft from package**. Confirm Evidentia opens a draft with a new
+   server-owned schema ID rather than trusting the package ID.
+4. Confirm the draft reports two embedded modules and retains the direct dynamic field.
+5. Select **Publish version 1**, review the immutable-action explanation, and confirm it.
+   Confirm the draft advances to version 2.
+6. Export published version 1 and confirm its `schema.modules` contain `supplier` and
+   `invoice_lines` at version 1.
+7. In **Compare and import**, select the same package against the advanced draft and
+   preview the compatibility result before deciding whether to apply it.
+
+For the rejection path, select
+`fixtures/schema-workbench/invalid-duplicate-field-draft.json`. Preview must return a
+safe invalid-package message and must not create or alter a draft.
 
 The manual journey creates real development records. Use a clearly recognizable label;
 draft deletion is intentionally unavailable until governed retention/deletion behavior is
@@ -163,3 +194,4 @@ reader review.
 @skyhook-implements NFR-005
 @skyhook-implements NFR-008
 @skyhook-story H98W5WTJBWT8EY0Q10P3KPCEEB
+@skyhook-story 265YM4FNANJAH2J338BKAWFXDM

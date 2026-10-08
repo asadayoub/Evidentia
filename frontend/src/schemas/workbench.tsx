@@ -604,10 +604,7 @@ function SchemaDraftEditor({
   const reloadCurrent = useMutation({
     mutationFn: () => schemas.getDraft(draft.schemaId),
     onSuccess: (current) => {
-      queryClient.setQueryData(
-        schemaQueryKeys.draft(draft.schemaId),
-        current,
-      );
+      queryClient.setQueryData(schemaQueryKeys.draft(draft.schemaId), current);
       setDraft(parseWorkbenchDraft(current));
       setDirty(false);
       save.reset();
@@ -645,6 +642,12 @@ function SchemaDraftEditor({
           <p>
             Revision {draft.revision} · Last updated by {draft.updatedBy}
           </p>
+          {draft.modules.length === 0 ? null : (
+            <p>
+              {draft.modules.length} embedded immutable{" "}
+              {draft.modules.length === 1 ? "module" : "modules"}
+            </p>
+          )}
         </div>
         <div className="editor-actions">
           <span
