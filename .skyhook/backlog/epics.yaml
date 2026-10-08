@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T06:25:59.357Z"
+  updatedAt: "2026-10-08T06:33:34.189Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -5550,7 +5550,7 @@ tasks:
     parentType: story
     parentId: H98W5WTJBWT8EY0Q10P3KPCEEB
     type: feature
-    status: backlog
+    status: done
     priority: high
     storyPoints: 5
     estimatedMinutes: 300
@@ -5570,34 +5570,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Define versioned request, response, error, pagination, concurrency, and idempotency behavior
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:13.403Z"
+        completedAt: "2026-10-08T06:33:19.951Z"
       - id: SUB-002
         title: Enforce trusted operator, tenant, capability, and resource context at the application boundary
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:13.403Z"
+        completedAt: "2026-10-08T06:33:22.339Z"
       - id: SUB-003
         title: Export deterministic OpenAPI and regenerate supported client operations without hand edits
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:13.403Z"
+        completedAt: "2026-10-08T06:33:24.107Z"
       - id: SUB-004
         title: Implement required browser or administrator interaction with loading, empty, forbidden, conflict, and failure states
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:13.403Z"
+        completedAt: "2026-10-08T06:33:26.020Z"
       - id: SUB-005
         title: Add correlation-safe structured events and sanitize responses, logs, and client-visible failures
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:13.403Z"
+        completedAt: "2026-10-08T06:33:27.790Z"
       - id: SUB-006
         title: Add contract and interaction tests that reject ad-hoc or cross-boundary integration
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:13.403Z"
+        completedAt: "2026-10-08T06:33:29.977Z"
     createdAt: "2026-10-07T15:26:13.403Z"
-    updatedAt: "2026-10-07T15:41:53.326Z"
+    updatedAt: "2026-10-08T06:33:34.189Z"
     assignee:
       type: agent
-      identifier: Codex
-      name: Codex
+      identifier: codex
+      name: codex
+    startedAt: "2026-10-08T06:26:23.301Z"
+    completedAt: "2026-10-08T06:33:34.189Z"
   - id: TASK-026
     title: Prove and document Build the accessible Schema Workbench
     description: "Purpose: close \"Build the accessible Schema Workbench\" with reproducible evidence. Contribution: gives future maintainers automated and manual proof that the acceptance criteria work through the real application and survive failure, restart, concurrency, and tenant-isolation cases."

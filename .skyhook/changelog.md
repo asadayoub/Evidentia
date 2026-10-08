@@ -1,6 +1,10 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-025: in-review to done
+- Task TASK-025: in-progress to in-review
+- Task TASK-025: ready to in-progress
+- Task TASK-025: backlog to ready
 - Task TASK-024: in-review to done
 - Task TASK-024: in-progress to in-review
 - Recorded decision: Use a registry-driven visual Schema Workbench with explicit lifecycle commands (P1HA6FMJ1Q1J375Y86KM2QQ0GH)
