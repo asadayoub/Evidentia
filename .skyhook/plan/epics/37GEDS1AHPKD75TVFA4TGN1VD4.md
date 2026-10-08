@@ -1,7 +1,7 @@
 # Epic Plan: 37GEDS1AHPKD75TVFA4TGN1VD4 — Interactive Schema Workbench
 
-> **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-08T07:27:11.506Z
+> **Status**: `done` | **Target Date**: `TBD`
+> **Generated**: 2026-10-08T07:42:58.150Z
 
 ---
 
@@ -17,7 +17,7 @@ Let an administrator govern dynamic schemas through a real browser workflow.
 | **N1ZNPJWFZYPV0MVB8FP137GRJP** | Establish the minimum trusted operator and tenant context | `done` | high | — | None |
 | **X51S43NTMRW5ASYSKJBF7FW845** | Expose the governed schema lifecycle through a versioned API | `done` | high | — | 0VJ9SHA39TA291D8QXB0TQS3HQ, N1ZNPJWFZYPV0MVB8FP137GRJP |
 | **H98W5WTJBWT8EY0Q10P3KPCEEB** | Build the accessible Schema Workbench | `done` | high | — | STORY-017, X51S43NTMRW5ASYSKJBF7FW845 |
-| **265YM4FNANJAH2J338BKAWFXDM** | Prove the draft-to-published Schema Workbench journey | `backlog` | high | — | STORY-017, X51S43NTMRW5ASYSKJBF7FW845, H98W5WTJBWT8EY0Q10P3KPCEEB, STORY-018 |
+| **265YM4FNANJAH2J338BKAWFXDM** | Prove the draft-to-published Schema Workbench journey | `done` | high | — | STORY-017, X51S43NTMRW5ASYSKJBF7FW845, H98W5WTJBWT8EY0Q10P3KPCEEB, STORY-018 |
 | **STORY-017** | Establish the authenticated application shell and generated API boundary | `done` | critical | 8 pts | N1ZNPJWFZYPV0MVB8FP137GRJP |
 | **STORY-018** | Import export compare and evolve governed schemas | `done` | high | 8 pts | X51S43NTMRW5ASYSKJBF7FW845, H98W5WTJBWT8EY0Q10P3KPCEEB |
 
@@ -33,7 +33,7 @@ flowchart TD
     H98W5WTJBWT8EY0Q10P3KPCEEB["Build the accessible Schema Workbench (done)"]
     STORY-017 --> H98W5WTJBWT8EY0Q10P3KPCEEB
     X51S43NTMRW5ASYSKJBF7FW845 --> H98W5WTJBWT8EY0Q10P3KPCEEB
-    265YM4FNANJAH2J338BKAWFXDM["Prove the draft-to-published Schema Workbench journey (backlog)"]
+    265YM4FNANJAH2J338BKAWFXDM["Prove the draft-to-published Schema Workbench journey (done)"]
     STORY-017 --> 265YM4FNANJAH2J338BKAWFXDM
     X51S43NTMRW5ASYSKJBF7FW845 --> 265YM4FNANJAH2J338BKAWFXDM
     H98W5WTJBWT8EY0Q10P3KPCEEB --> 265YM4FNANJAH2J338BKAWFXDM

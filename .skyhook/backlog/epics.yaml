@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T07:42:22.658Z"
+  updatedAt: "2026-10-08T07:42:46.350Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -195,9 +195,9 @@ epics:
       - H98W5WTJBWT8EY0Q10P3KPCEEB
       - 265YM4FNANJAH2J338BKAWFXDM
     targetDate: null
-    status: backlog
+    status: done
     createdAt: "2026-10-03T08:20:53.861Z"
-    updatedAt: "2026-10-03T08:20:53.861Z"
+    updatedAt: "2026-10-08T07:42:46.350Z"
   - id: JA6EY894YZ69F5JN40GG143M2S
     title: Document Intake and Source Viewer
     description: Native text and local adapters first; OCR, cloud storage, and durable jobs activate only when required.
@@ -1708,7 +1708,7 @@ stories:
     acceptanceCriteria:
       - A user can create, validate, compare, publish, and compose a schema end to end.
     priority: high
-    status: in-progress
+    status: done
     storyPoints: null
     dependsOn:
       - STORY-017
@@ -1723,7 +1723,7 @@ stories:
       - NFR-005
       - NFR-008
     createdAt: "2026-10-03T08:20:53.861Z"
-    updatedAt: "2026-10-08T07:30:38.080Z"
+    updatedAt: "2026-10-08T07:42:46.350Z"
     childTasks:
       - TASK-027
       - TASK-028
@@ -1733,6 +1733,7 @@ stories:
       identifier: Codex
       name: Codex
     startedAt: "2026-10-08T07:30:38.080Z"
+    completedAt: "2026-10-08T07:42:46.350Z"
   - id: XRSZ0A5WZEQB0PQYD34PYR8EW3
     epicId: JA6EY894YZ69F5JN40GG143M2S
     title: Upload and preserve an original document
@@ -5808,7 +5809,7 @@ tasks:
     parentType: story
     parentId: 265YM4FNANJAH2J338BKAWFXDM
     type: test
-    status: in-review
+    status: done
     priority: high
     storyPoints: 3
     estimatedMinutes: 180
@@ -5855,18 +5856,13 @@ tasks:
         createdAt: "2026-10-07T15:26:28.540Z"
         completedAt: "2026-10-08T07:42:20.248Z"
     createdAt: "2026-10-07T15:26:28.540Z"
-    updatedAt: "2026-10-08T07:42:22.658Z"
+    updatedAt: "2026-10-08T07:42:40.485Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
-    lease:
-      agentId: Codex
-      leasedAt: "2026-10-08T07:37:35.368Z"
-      expiresAt: "2026-10-08T09:37:35.368Z"
-      durationMinutes: 120
-      heartbeatAt: "2026-10-08T07:37:35.368Z"
     startedAt: "2026-10-08T07:37:58.981Z"
+    completedAt: "2026-10-08T07:42:40.485Z"
   - id: TASK-030
     title: Define interaction and client contracts for Establish the authenticated application shell and generated API boundary
     description: "Purpose: establish the first implementation pass for \"Establish the authenticated application shell and generated API boundary\". Contribution: turns the parent story into explicit contracts, invariants, representative state, and testable boundaries without pulling unrelated later capabilities forward."

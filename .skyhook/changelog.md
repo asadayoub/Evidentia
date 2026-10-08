@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+- Story 265YM4FNANJAH2J338BKAWFXDM: in-review to done
+- Story 265YM4FNANJAH2J338BKAWFXDM: in-review to in-review
+- Task TASK-029: in-review to done
 - Task TASK-029: in-progress to in-review
 - Task TASK-029: ready to in-progress
 - Task TASK-029: backlog to ready

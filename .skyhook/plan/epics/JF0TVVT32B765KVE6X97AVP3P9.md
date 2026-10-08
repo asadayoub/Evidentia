@@ -1,7 +1,7 @@
 # Epic Plan: JF0TVVT32B765KVE6X97AVP3P9 — Bundles matching batches and advanced document capabilities
 
 > **Status**: `backlog` | **Target Date**: `TBD`
-> **Generated**: 2026-10-08T07:27:11.429Z
+> **Generated**: 2026-10-08T07:42:58.104Z
 
 ---
 
