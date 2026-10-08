@@ -57,6 +57,7 @@ class InspectedSchemaPackage:
     authority during import.
 
     @skyhook-implements REQ-003
+    @skyhook-implements REQ-017
     @skyhook-implements NFR-001
     @skyhook-story STORY-018
     """
@@ -95,6 +96,7 @@ def inspect_schema_package(payload: bytes | str) -> InspectedSchemaPackage:
     """Validate a canonical draft or publication envelope without mutating state.
 
     @skyhook-implements REQ-003
+    @skyhook-implements REQ-017
     @skyhook-implements NFR-008
     @skyhook-story STORY-018
     """
@@ -150,6 +152,7 @@ def preview_schema_import(
 
     @skyhook-implements REQ-003
     @skyhook-implements REQ-016
+    @skyhook-implements REQ-017
     @skyhook-implements NFR-008
     @skyhook-story STORY-018
     """

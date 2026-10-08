@@ -115,6 +115,10 @@ dynamic fields, validation, save, publication, conflict recovery, keyboard use, 
 troubleshooting, follow the
 [Schema Workbench verification runbook](schema-workbench-verification.md).
 
+For portable JSON export, mutation-free import previews, compatibility reports, and
+revision-guarded apply behavior, follow the
+[schema evolution verification runbook](schema-evolution-verification.md).
+
 Open `http://127.0.0.1:8000/docs` and use the access operations in this order:
 
 1. Run `POST /api/v1/access/sessions` using the configured bootstrap login and

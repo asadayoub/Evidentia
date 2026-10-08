@@ -383,6 +383,118 @@ describe("Schema Workbench", () => {
     );
   });
 
+  it("shows existing-target compatibility and preserves state on import conflict", async () => {
+    const previewImport = vi
+      .fn<SchemaClient["previewImport"]>()
+      .mockResolvedValue({
+        canonical_sha256: "b".repeat(64),
+        compatibility: {
+          changes: [
+            {
+              code: "required_field_added",
+              level: "breaking",
+              message: "required field added",
+              path: "approval_code",
+            },
+          ],
+          level: "breaking",
+          requires_acknowledgement: true,
+        },
+        content: { artifacts: [], fields: [], modules: [] },
+        creates_new_draft: false,
+        envelope_version: 1,
+        format: "evidentia.schema-draft",
+        kind: "draft",
+        source_schema_id: "223e4567-e89b-12d3-a456-426614174000",
+        source_schema_version: 2,
+        target_revision: 1,
+        target_schema_id: EMPTY_DRAFT.schema_id,
+      });
+    const applyImport = vi.fn<SchemaClient["applyImport"]>(() =>
+      Promise.reject(
+        new EvidentiaApiError(
+          409,
+          "schema_revision_conflict",
+          "The schema draft has changed.",
+        ),
+      ),
+    );
+    render(
+      <App
+        access={accessClient()}
+        schemas={schemaClient({ applyImport, previewImport })}
+        initialEntries={[`/app/schemas/${EMPTY_DRAFT.schema_id}`]}
+      />,
+    );
+    await screen.findByRole("heading", { name: "Untitled schema" });
+    const schemaPackage = {
+      format: "evidentia.schema-draft",
+      version: 1,
+      schema: {
+        artifacts: [],
+        fields: [],
+        id: "223e4567-e89b-12d3-a456-426614174000",
+        modules: [],
+        releaseLabel: "Imported",
+        version: 2,
+      },
+    };
+    fireEvent.change(screen.getByLabelText("Schema package"), {
+      target: {
+        files: [
+          new File([JSON.stringify(schemaPackage)], "schema.json", {
+            type: "application/json",
+          }),
+        ],
+      },
+    });
+    await waitFor(() =>
+      expect(
+        screen.getByRole("button", { name: "Preview changes" }),
+      ).toBeEnabled(),
+    );
+    fireEvent.click(screen.getByRole("button", { name: "Preview changes" }));
+
+    expect(
+      await screen.findByRole("heading", { name: "breaking" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/approval_code/u)).toBeInTheDocument();
+    fireEvent.click(
+      screen.getByRole("button", { name: "Apply to this draft" }),
+    );
+
+    expect(
+      await screen.findByText("The schema draft has changed."),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Untitled schema" }),
+    ).toBeInTheDocument();
+  });
+
+  it("rejects malformed package files before calling the API", async () => {
+    const previewImport = vi.fn<SchemaClient["previewImport"]>();
+    render(
+      <App
+        access={accessClient()}
+        schemas={schemaClient({ previewImport })}
+        initialEntries={["/app/schemas"]}
+      />,
+    );
+    await screen.findByRole("heading", { name: "Import a schema" });
+    fireEvent.change(screen.getByLabelText("Schema package"), {
+      target: {
+        files: [
+          new File(["not-json"], "schema.json", { type: "application/json" }),
+        ],
+      },
+    });
+
+    expect(
+      await screen.findByText("Package files must contain valid JSON."),
+    ).toBeInTheDocument();
+    expect(previewImport).not.toHaveBeenCalled();
+  });
+
   it("renders forbidden and read-only states from trusted authority", async () => {
     const forbidden = schemaClient({
       listDrafts: () =>

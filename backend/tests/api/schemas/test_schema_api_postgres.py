@@ -404,6 +404,24 @@ async def _exercise_schema_api(database: DisposablePostgresDatabase) -> None:
         assert exported_draft.status == 200
         assert exported_draft.json()["format"] == "evidentia.schema-draft"
         assert exported_draft.json()["schema"]["id"] == schema_id
+        invalid_package = await _request(
+            app,
+            "POST",
+            "/api/v1/schemas/imports/preview",
+            body={"package": {"format": "vendor.schema", "version": 1}},
+            headers=browser,
+        )
+        assert invalid_package.status == 400
+        assert invalid_package.json()["code"] == "invalid_schema_package"
+        oversized_package = await _request(
+            app,
+            "POST",
+            "/api/v1/schemas/imports/preview",
+            body={"package": {"padding": "x" * 1_048_576}},
+            headers=browser,
+        )
+        assert oversized_package.status == 400
+        assert oversized_package.json()["code"] == "schema_package_too_large"
         imported_package = json.loads(json.dumps(exported_draft.json()))
         imported_package["schema"]["fields"].append(
             {
@@ -458,6 +476,15 @@ async def _exercise_schema_api(database: DisposablePostgresDatabase) -> None:
         )
         assert replayed_import.status == 201
         assert replayed_import.json() == applied_import.json()
+        stale_import = await _request(
+            app,
+            "POST",
+            "/api/v1/schemas/imports",
+            body=import_command,
+            headers={**browser, "idempotency-key": "apply-import-stale"},
+        )
+        assert stale_import.status == 409
+        assert stale_import.json()["code"] == "schema_revision_conflict"
 
         created_from_import = await _request(
             app,
@@ -479,14 +506,30 @@ async def _exercise_schema_api(database: DisposablePostgresDatabase) -> None:
         )
         assert exported_publication.status == 200
         assert exported_publication.json() == publication.json()["snapshot"]
+        await app.state.access_runtime.close()
+        await app.state.schema_runtime.close()
+        app = create_app(settings)
+        restarted_import_replay = await _request(
+            app,
+            "POST",
+            "/api/v1/schemas/imports",
+            body=import_command,
+            headers={**browser, "idempotency-key": "apply-import-1"},
+        )
+        assert restarted_import_replay.status == 201
+        assert restarted_import_replay.json() == applied_import.json()
         response_bodies.extend(
             (
                 exported_draft.body,
+                invalid_package.body,
+                oversized_package.body,
                 previewed_import.body,
                 applied_import.body,
                 replayed_import.body,
+                stale_import.body,
                 created_from_import.body,
                 exported_publication.body,
+                restarted_import_replay.body,
             )
         )
 

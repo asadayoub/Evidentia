@@ -129,13 +129,14 @@ reader review.
 
 ## Current intentional limits
 
-- Direct visual creation is limited to field types with safe defaults. Extension fields,
-  complex references, artifact bindings, and advanced type configuration require the
-  later advanced editor/import workflow.
+- Direct visual creation is limited to field types with safe defaults. Portable package
+  import/export now preserves validated extension fields, complex references, artifact
+  bindings, and advanced type configuration, but a raw advanced JSON editor is not
+  provided.
 - The workbench lists the first 100 drafts. Cursor navigation/search belongs with the
   later schema-catalog experience; the API already exposes opaque cursor pagination.
-- Published-version browsing and comparisons are planned separately. Publication is
-  already immutable and retrievable through the API.
+- The latest published version can be exported from the current draft screen. A complete
+  published-version catalog and side-by-side visual diff remain separate enhancements.
 - Realtime collaborative presence is not part of this pass. Optimistic revision checks
   are authoritative; Firebase versus sockets remains a later decision if live
   collaboration becomes necessary.
