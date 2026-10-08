@@ -56,8 +56,8 @@ class InspectedSchemaPackage:
     Source identity is retained for review and audit, but is never target
     authority during import.
 
-    @skyhook-implements REQ-003
     @skyhook-implements REQ-017
+    @skyhook-implements REQ-003
     @skyhook-implements NFR-001
     @skyhook-story STORY-018
     """
@@ -95,8 +95,8 @@ class SchemaImportPreview:
 def inspect_schema_package(payload: bytes | str) -> InspectedSchemaPackage:
     """Validate a canonical draft or publication envelope without mutating state.
 
-    @skyhook-implements REQ-003
     @skyhook-implements REQ-017
+    @skyhook-implements REQ-003
     @skyhook-implements NFR-008
     @skyhook-story STORY-018
     """
