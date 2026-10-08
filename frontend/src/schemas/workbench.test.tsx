@@ -186,6 +186,7 @@ describe("Schema Workbench", () => {
     const getDraft = vi
       .fn<SchemaClient["getDraft"]>()
       .mockResolvedValueOnce(EMPTY_DRAFT)
+      .mockRejectedValueOnce(new TypeError("private network detail"))
       .mockResolvedValue(currentDraft);
     const replaceDraft = vi.fn<SchemaClient["replaceDraft"]>(() =>
       Promise.reject(
@@ -222,7 +223,16 @@ describe("Schema Workbench", () => {
     fireEvent.click(
       screen.getByRole("button", { name: "Reload current draft" }),
     );
-    await waitFor(() => expect(getDraft).toHaveBeenCalledTimes(2));
+    expect(await screen.findByRole("alert")).toHaveTextContent(
+      "Your local edits are still here; try reloading again.",
+    );
+    expect(screen.queryByText(/private network detail/u)).toBeNull();
+    expect(screen.getByDisplayValue("local_change")).toBeInTheDocument();
+
+    fireEvent.click(
+      screen.getByRole("button", { name: "Reload current draft" }),
+    );
+    await waitFor(() => expect(getDraft).toHaveBeenCalledTimes(3));
     expect(await screen.findByText(/Revision 2/)).toBeInTheDocument();
     expect(screen.queryByDisplayValue("local_change")).toBeNull();
   });

@@ -417,6 +417,7 @@ export function createAccessClient(client: EvidentiaClient): AccessClient {
  * @skyhook-implements REQ-003
  * @skyhook-implements NFR-001
  * @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+ * @skyhook-story 265YM4FNANJAH2J338BKAWFXDM
  */
 export function createSchemaClient(client: EvidentiaClient): SchemaClient {
   return {

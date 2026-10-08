@@ -79,6 +79,7 @@ function SchemaStatus({
  * @skyhook-implements NFR-002
  * @skyhook-implements NFR-005
  * @skyhook-story H98W5WTJBWT8EY0Q10P3KPCEEB
+ * @skyhook-story 265YM4FNANJAH2J338BKAWFXDM
  */
 export function SchemaWorkbenchPage({
   schemas,
@@ -499,6 +500,7 @@ function FieldEditor({
  * @skyhook-implements NFR-002
  * @skyhook-implements NFR-005
  * @skyhook-story H98W5WTJBWT8EY0Q10P3KPCEEB
+ * @skyhook-story 265YM4FNANJAH2J338BKAWFXDM
  */
 export function SchemaDraftEditorPage({
   schemas,
@@ -599,6 +601,19 @@ function SchemaDraftEditor({
       notificationRef.current?.focus();
     },
   });
+  const reloadCurrent = useMutation({
+    mutationFn: () => schemas.getDraft(draft.schemaId),
+    onSuccess: (current) => {
+      queryClient.setQueryData(
+        schemaQueryKeys.draft(draft.schemaId),
+        current,
+      );
+      setDraft(parseWorkbenchDraft(current));
+      setDirty(false);
+      save.reset();
+      publish.reset();
+    },
+  });
 
   const issues = validateWorkbenchDraft(draft);
   const publicationIssues = validateWorkbenchDraft(draft, { publishing: true });
@@ -613,6 +628,7 @@ function SchemaDraftEditor({
     setDirty(true);
     save.reset();
     publish.reset();
+    reloadCurrent.reset();
   }
 
   return (
@@ -688,22 +704,18 @@ function SchemaDraftEditor({
           </div>
           <button
             className="button button-quiet"
-            onClick={() => {
-              void schemas.getDraft(draft.schemaId).then((current) => {
-                queryClient.setQueryData(
-                  schemaQueryKeys.draft(draft.schemaId),
-                  current,
-                );
-                setDraft(parseWorkbenchDraft(current));
-                setDirty(false);
-                save.reset();
-                publish.reset();
-              });
-            }}
+            disabled={reloadCurrent.isPending}
+            onClick={() => reloadCurrent.mutate()}
             type="button"
           >
-            Reload current draft
+            {reloadCurrent.isPending ? "Reloading…" : "Reload current draft"}
           </button>
+          {reloadCurrent.error === null ? null : (
+            <p className="inline-error" role="alert">
+              {publicSchemaError(reloadCurrent.error)} Your local edits are
+              still here; try reloading again.
+            </p>
+          )}
         </section>
       ) : null}
       {!conflict && save.error !== null ? (

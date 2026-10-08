@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T07:35:10.217Z"
+  updatedAt: "2026-10-08T07:37:16.463Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -5688,7 +5688,7 @@ tasks:
     parentType: story
     parentId: 265YM4FNANJAH2J338BKAWFXDM
     type: test
-    status: in-review
+    status: done
     priority: high
     storyPoints: 3
     estimatedMinutes: 240
@@ -5733,25 +5733,20 @@ tasks:
         createdAt: "2026-10-07T15:26:21.930Z"
         completedAt: "2026-10-08T07:35:07.727Z"
     createdAt: "2026-10-07T15:26:21.930Z"
-    updatedAt: "2026-10-08T07:35:10.217Z"
+    updatedAt: "2026-10-08T07:35:26.200Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
-    lease:
-      agentId: Codex
-      leasedAt: "2026-10-08T07:30:31.935Z"
-      expiresAt: "2026-10-08T09:30:31.935Z"
-      durationMinutes: 120
-      heartbeatAt: "2026-10-08T07:30:31.935Z"
     startedAt: "2026-10-08T07:30:38.080Z"
+    completedAt: "2026-10-08T07:35:26.200Z"
   - id: TASK-028
     title: Exercise complete interaction and recovery paths for Prove the draft-to-published Schema Workbench journey
     description: "Purpose: make \"Prove the draft-to-published Schema Workbench journey\" usable through its supported application boundaries. Contribution: connects tenant-authorized backend behavior to versioned API, generated-client, and accessible browser interactions where required by the story."
     parentType: story
     parentId: 265YM4FNANJAH2J338BKAWFXDM
     type: test
-    status: backlog
+    status: in-review
     priority: high
     storyPoints: 5
     estimatedMinutes: 300
@@ -5771,34 +5766,47 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Define versioned request, response, error, pagination, concurrency, and idempotency behavior
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:25.127Z"
+        completedAt: "2026-10-08T07:37:03.358Z"
       - id: SUB-002
         title: Enforce trusted operator, tenant, capability, and resource context at the application boundary
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:25.127Z"
+        completedAt: "2026-10-08T07:37:05.447Z"
       - id: SUB-003
         title: Export deterministic OpenAPI and regenerate supported client operations without hand edits
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:25.127Z"
+        completedAt: "2026-10-08T07:37:08.299Z"
       - id: SUB-004
         title: Implement required browser or administrator interaction with loading, empty, forbidden, conflict, and failure states
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:25.127Z"
+        completedAt: "2026-10-08T07:37:10.361Z"
       - id: SUB-005
         title: Add correlation-safe structured events and sanitize responses, logs, and client-visible failures
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:25.127Z"
+        completedAt: "2026-10-08T07:37:12.427Z"
       - id: SUB-006
         title: Add contract and interaction tests that reject ad-hoc or cross-boundary integration
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:25.127Z"
+        completedAt: "2026-10-08T07:37:14.362Z"
     createdAt: "2026-10-07T15:26:25.127Z"
-    updatedAt: "2026-10-07T15:42:07.862Z"
+    updatedAt: "2026-10-08T07:37:16.463Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
+    lease:
+      agentId: Codex
+      leasedAt: "2026-10-08T07:35:30.107Z"
+      expiresAt: "2026-10-08T09:35:30.107Z"
+      durationMinutes: 120
+      heartbeatAt: "2026-10-08T07:35:30.107Z"
+    startedAt: "2026-10-08T07:35:38.857Z"
   - id: TASK-029
     title: Prove and document Prove the draft-to-published Schema Workbench journey
     description: "Purpose: close \"Prove the draft-to-published Schema Workbench journey\" with reproducible evidence. Contribution: gives future maintainers automated and manual proof that the acceptance criteria work through the real application and survive failure, restart, concurrency, and tenant-isolation cases."

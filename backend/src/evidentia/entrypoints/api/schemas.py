@@ -529,6 +529,7 @@ def create_schema_router(runtime: SchemaApiRuntime, access_runtime: AccessApiRun
     @skyhook-implements REQ-012
     @skyhook-implements NFR-002
     @skyhook-story X51S43NTMRW5ASYSKJBF7FW845
+    @skyhook-story 265YM4FNANJAH2J338BKAWFXDM
     """
     router = APIRouter(prefix="/api/v1/schemas", tags=["schemas"])
 
