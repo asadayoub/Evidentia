@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+- Story XRSZ0A5WZEQB0PQYD34PYR8EW3: in-review to done
+- Task TASK-038: in-progress to done
 - Task TASK-038: ready to in-progress
 - Task TASK-038: backlog to ready
 - Task TASK-037: in-progress to done

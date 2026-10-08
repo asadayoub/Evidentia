@@ -121,12 +121,17 @@ def _browser_headers(login: _Response) -> dict[str, str]:
     }
 
 
-def _multipart(filename: str, content: bytes) -> bytes:
+def _multipart(
+    filename: str,
+    content: bytes,
+    *,
+    media_type: str = "application/pdf",
+) -> bytes:
     return (
         (
             f"--{_BOUNDARY}\r\n"
             f'Content-Disposition: form-data; name="document"; filename="{filename}"\r\n'
-            "Content-Type: application/pdf\r\n\r\n"
+            f"Content-Type: {media_type}\r\n\r\n"
         ).encode()
         + content
         + f"\r\n--{_BOUNDARY}--\r\n".encode()
@@ -221,6 +226,47 @@ async def _exercise_upload(database: DisposablePostgresDatabase, artifact_root: 
         assert changed.status == 409
         assert changed.json()["code"] == "idempotency_key_reused"
 
+        too_large = await _request(
+            app,
+            "POST",
+            "/api/v1/documents",
+            body=_multipart("oversized.pdf", b"x" * 1025),
+            headers={**upload_headers, "idempotency-key": "document-too-large"},
+        )
+        assert too_large.status == 413
+
+        unsupported = await _request(
+            app,
+            "POST",
+            "/api/v1/documents",
+            body=_multipart(
+                "webpage.html", b"<script>not executed</script>", media_type="text/html"
+            ),
+            headers={**upload_headers, "idempotency-key": "document-unsupported"},
+        )
+        assert unsupported.status == 415
+
+        unsafe_filename = await _request(
+            app,
+            "POST",
+            "/api/v1/documents",
+            body=_multipart("../outside.pdf", _CONTENT),
+            headers={**upload_headers, "idempotency-key": "document-unsafe-name"},
+        )
+        assert unsafe_filename.status == 400
+
+        scan_bytes = b"\x89PNG\r\nopaque scan fixture"
+        scan = await _request(
+            app,
+            "POST",
+            "/api/v1/documents",
+            body=_multipart("scan.png", scan_bytes, media_type="image/png"),
+            headers={**upload_headers, "idempotency-key": "document-scan-1"},
+        )
+        assert scan.status == 201
+        assert scan.json()["media_type"] == "image/png"
+        assert scan.json()["status"] == "preserved"
+
         status = await _request(
             app,
             "GET",
@@ -232,9 +278,29 @@ async def _exercise_upload(database: DisposablePostgresDatabase, artifact_root: 
 
         stored = list(artifact_root.glob("**/*"))
         files = [path for path in stored if path.is_file()]
-        assert len(files) == 1
+        assert len(files) == 2
+        assert _CONTENT in [path.read_bytes() for path in files]
+        assert scan_bytes in [path.read_bytes() for path in files]
+        assert all(document_id not in str(path) for path in files)
+
+        # Rebuild the API composition root and all database runtimes to model
+        # an application restart while retaining only the database and bytes.
+        await app.state.access_runtime.close()
+        await app.state.schema_runtime.close()
+        await app.state.document_runtime.close()
+        app = create_app(
+            settings,
+            document_runtime=DocumentApiRuntime(settings, artifact_root=artifact_root),
+        )
+        after_restart = await _request(
+            app,
+            "GET",
+            f"/api/v1/documents/{document_id}",
+            headers={key: value for key, value in browser.items() if key != "x-csrf-token"},
+        )
+        assert after_restart.status == 200
+        assert after_restart.json() == receipt
         assert files[0].read_bytes() == _CONTENT
-        assert document_id not in str(files[0])
     finally:
         await app.state.access_runtime.close()
         await app.state.schema_runtime.close()

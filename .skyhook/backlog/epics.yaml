@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T11:29:42.534Z"
+  updatedAt: "2026-10-08T11:45:51.198Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1741,7 +1741,7 @@ stories:
     acceptanceCriteria:
       - Original bytes, integrity metadata, tenant scope, and safe input limits are enforced.
     priority: high
-    status: in-progress
+    status: done
     storyPoints: null
     dependsOn: []
     standards: []
@@ -1752,7 +1752,7 @@ stories:
       - NFR-002
       - CON-004
     createdAt: "2026-10-03T08:20:57.690Z"
-    updatedAt: "2026-10-08T07:55:14.868Z"
+    updatedAt: "2026-10-08T11:45:51.198Z"
     childTasks:
       - TASK-036
       - TASK-037
@@ -1762,6 +1762,7 @@ stories:
       identifier: Codex
       name: Codex
     startedAt: "2026-10-08T07:55:14.868Z"
+    completedAt: "2026-10-08T11:45:51.198Z"
   - id: J2ZHMCR2DNQSHD1VZY7CECT2HT
     epicId: JA6EY894YZ69F5JN40GG143M2S
     title: Parse native document text and page structure
@@ -6349,7 +6350,7 @@ tasks:
     parentType: story
     parentId: XRSZ0A5WZEQB0PQYD34PYR8EW3
     type: test
-    status: in-progress
+    status: done
     priority: high
     storyPoints: 3
     estimatedMinutes: 180
@@ -6368,20 +6369,24 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Verify the primary browser and API journey against disposable native PostgreSQL and isolated artifacts
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:21.084Z"
+        completedAt: "2026-10-08T11:45:22.239Z"
       - id: SUB-002
         title: Verify native scanned image duplicate malformed hostile forbidden and provider-failure cases
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:21.084Z"
+        completedAt: "2026-10-08T11:45:25.069Z"
       - id: SUB-003
         title: Verify restart retry cancellation idempotency tenant isolation and immutable source history
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:21.084Z"
+        completedAt: "2026-10-08T11:45:28.303Z"
       - id: SUB-004
         title: Run parser OCR API client frontend accessibility security and persistence checks
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:21.084Z"
+        completedAt: "2026-10-08T11:45:31.274Z"
       - id: SUB-005
         title: Document exact manual interaction expected results supported scope limitations and troubleshooting
         completed: true
@@ -6398,18 +6403,13 @@ tasks:
         createdAt: "2026-10-08T07:54:42.268Z"
         completedAt: "2026-10-08T11:33:17.316Z"
     createdAt: "2026-10-07T15:27:21.084Z"
-    updatedAt: "2026-10-08T11:33:17.316Z"
+    updatedAt: "2026-10-08T11:45:33.389Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
-    lease:
-      agentId: Codex
-      leasedAt: "2026-10-08T11:29:19.616Z"
-      expiresAt: "2026-10-08T14:29:19.616Z"
-      durationMinutes: 180
-      heartbeatAt: "2026-10-08T11:29:19.616Z"
     startedAt: "2026-10-08T11:29:42.534Z"
+    completedAt: "2026-10-08T11:45:33.389Z"
   - id: TASK-039
     title: Define custody and processing contracts for Parse native document text and page structure
     description: "Purpose: establish the domain, custody, processing, and durable-state pass for \"Parse native document text and page structure\". Contribution: preserves original-source traceability and explicit failure state while keeping parser, OCR, storage, and classification providers replaceable."

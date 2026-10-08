@@ -86,6 +86,9 @@ This pass treats accepted media as opaque bytes; a matching media type does
 not prove that a file is structurally valid or safe to render. Do not open or
 preview uploaded content in the application. Parsing, OCR, malware scanning,
 and document inspection must be added behind separately governed providers.
+The current upload is synchronous and creates no background job, so there is no
+job-cancellation operation in this pass; a client disconnect does not imply
+that a completed custody write was rolled back.
 
 ## Troubleshooting
 
