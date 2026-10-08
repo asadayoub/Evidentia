@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T07:55:14.868Z"
+  updatedAt: "2026-10-08T08:09:38.175Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -6228,7 +6228,7 @@ tasks:
     parentType: story
     parentId: XRSZ0A5WZEQB0PQYD34PYR8EW3
     type: feature
-    status: in-progress
+    status: done
     priority: high
     storyPoints: 3
     estimatedMinutes: 240
@@ -6260,25 +6260,22 @@ tasks:
         completedAt: "2026-10-08T08:01:28.531Z"
       - id: SUB-004
         title: Add module-owned persistence and migrations only for durable state required by this pass
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:14.937Z"
+        completedAt: "2026-10-08T08:09:24.426Z"
       - id: SUB-005
         title: Add unit persistence and adversarial tests with Skyhook traceability annotations
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:14.937Z"
+        completedAt: "2026-10-08T08:09:26.392Z"
     createdAt: "2026-10-07T15:27:14.937Z"
-    updatedAt: "2026-10-08T08:01:28.531Z"
+    updatedAt: "2026-10-08T08:09:38.175Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
-    lease:
-      agentId: Codex
-      leasedAt: "2026-10-08T07:55:01.426Z"
-      expiresAt: "2026-10-08T09:55:01.426Z"
-      durationMinutes: 120
-      heartbeatAt: "2026-10-08T07:55:01.426Z"
     startedAt: "2026-10-08T07:55:14.868Z"
+    completedAt: "2026-10-08T08:09:38.175Z"
   - id: TASK-037
     title: Expose and integrate Upload and preserve an original document
     description: "Purpose: make \"Upload and preserve an original document\" available through supported API, worker, generated-client, and browser boundaries. Contribution: lets authorized users or integrations observe progress and failures without giving untrusted documents execution, credential, or network authority."

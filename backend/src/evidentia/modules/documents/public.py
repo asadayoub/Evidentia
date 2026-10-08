@@ -10,8 +10,11 @@
 """
 
 from evidentia.modules.documents.application.ports import (
+    CustodyAlreadyExistsError,
+    CustodyPersistenceConflictError,
     DocumentCustodyRepository,
     OriginalArtifactStore,
+    StoredCustodyIntegrityError,
 )
 from evidentia.modules.documents.application.preserve import (
     DEFAULT_MAX_UPLOAD_BYTES,
@@ -50,8 +53,10 @@ __all__ = (
     "DEFAULT_UPLOAD_MEDIA_TYPES",
     "DOCUMENTS_WRITE",
     "ArtifactPreservationError",
+    "CustodyAlreadyExistsError",
     "CustodyEvent",
     "CustodyFailureCode",
+    "CustodyPersistenceConflictError",
     "CustodyStatus",
     "DocumentAuthorizationError",
     "DocumentCommandContext",
@@ -68,6 +73,7 @@ __all__ = (
     "PreservedArtifact",
     "Sha256Digest",
     "SourceDescriptor",
+    "StoredCustodyIntegrityError",
     "UploadAttempt",
     "UploadAttemptId",
     "UploadInProgressError",

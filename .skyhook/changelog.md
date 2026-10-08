@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-036: in-review to done
+- Task TASK-036: in-progress to in-review
 - Task TASK-036: ready to in-progress
 - Task TASK-036: backlog to ready
 - Story XRSZ0A5WZEQB0PQYD34PYR8EW3: backlog to ready

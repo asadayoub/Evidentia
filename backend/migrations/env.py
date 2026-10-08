@@ -18,6 +18,7 @@ from sqlalchemy.ext.asyncio import create_async_engine
 
 from evidentia.config.settings import load_api_settings
 from evidentia.modules.access.infrastructure.persistence import AccessPersistenceBase
+from evidentia.modules.documents.infrastructure.persistence import DocumentPersistenceBase
 from evidentia.modules.schemas.infrastructure.database import schema_database_url
 from evidentia.modules.schemas.infrastructure.persistence import SchemaPersistenceBase
 
@@ -27,7 +28,11 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-target_metadata = [SchemaPersistenceBase.metadata, AccessPersistenceBase.metadata]
+target_metadata = [
+    SchemaPersistenceBase.metadata,
+    AccessPersistenceBase.metadata,
+    DocumentPersistenceBase.metadata,
+]
 
 
 def _database_url() -> URL:

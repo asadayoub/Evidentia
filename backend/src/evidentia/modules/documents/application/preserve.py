@@ -252,8 +252,13 @@ class PreserveOriginalDocument:
                     "artifact provider returned inconsistent integrity facts"
                 )
         except Exception as error:
-            failed = custody.fail(CustodyFailureCode.STORAGE_UNAVAILABLE, now=now)
-            failed_attempt = attempt.fail(CustodyFailureCode.STORAGE_UNAVAILABLE, now=now)
+            failure_code = (
+                CustodyFailureCode.INTEGRITY_MISMATCH
+                if isinstance(error, ArtifactPreservationError)
+                else CustodyFailureCode.STORAGE_UNAVAILABLE
+            )
+            failed = custody.fail(failure_code, now=now)
+            failed_attempt = attempt.fail(failure_code, now=now)
             await self._repository.fail(
                 failed,
                 failed_attempt,

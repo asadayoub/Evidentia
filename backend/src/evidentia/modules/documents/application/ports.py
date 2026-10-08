@@ -20,6 +20,30 @@ from evidentia.modules.documents.domain.custody import (
 from evidentia.modules.documents.domain.identity import DocumentId, IdempotencyKey, Sha256Digest
 
 
+class CustodyAlreadyExistsError(RuntimeError):
+    """A document or tenant-scoped retry identity already exists.
+
+    @skyhook-implements NFR-003
+    @skyhook-story XRSZ0A5WZEQB0PQYD34PYR8EW3
+    """
+
+
+class CustodyPersistenceConflictError(RuntimeError):
+    """Custody changed since the caller's expected revision.
+
+    @skyhook-implements NFR-001
+    @skyhook-story XRSZ0A5WZEQB0PQYD34PYR8EW3
+    """
+
+
+class StoredCustodyIntegrityError(RuntimeError):
+    """Persisted custody fields violate the supported domain contract.
+
+    @skyhook-implements NFR-001
+    @skyhook-story XRSZ0A5WZEQB0PQYD34PYR8EW3
+    """
+
+
 class OriginalArtifactStore(Protocol):
     """Replaceable immutable-blob provider isolated from submitted filenames.
 
