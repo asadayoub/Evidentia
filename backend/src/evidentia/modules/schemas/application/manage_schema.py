@@ -146,6 +146,14 @@ class ManageSchemaLifecycle:
         self._repository = repository
         self._artifacts = artifacts
 
+    def authorize_read(self, context: SchemaCommandContext) -> None:
+        """Validate schema read authority for mutation-free derived operations.
+
+        @skyhook-implements NFR-002
+        @skyhook-story STORY-018
+        """
+        _require(context, SCHEMAS_READ)
+
     async def create_draft(
         self,
         context: SchemaCommandContext,

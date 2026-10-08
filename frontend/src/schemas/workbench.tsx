@@ -20,6 +20,7 @@ import {
   schemaDraftsQueryOptions,
   schemaQueryKeys,
 } from "./contracts";
+import { SchemaExportButton, SchemaImportPanel } from "./evolution";
 import {
   createWorkbenchField,
   FIELD_TYPE_DESCRIPTORS,
@@ -151,6 +152,18 @@ export function SchemaWorkbenchPage({
           {publicSchemaError(createDraft.error)}
         </p>
       )}
+
+      {canWrite ? (
+        <SchemaImportPanel
+          onApplied={(result) => {
+            void queryClient.invalidateQueries({
+              queryKey: schemaQueryKeys.drafts(),
+            });
+            void navigate(`/app/schemas/${result.draft.schema_id}`);
+          }}
+          schemas={schemas}
+        />
+      ) : null}
 
       {drafts.data.items.length === 0 ? (
         <section
@@ -741,6 +754,54 @@ function SchemaDraftEditor({
         <p className="field-help">
           A human-readable label. Stable machine identity remains server-owned.
         </p>
+      </section>
+
+      <section className="editor-panel" aria-labelledby="portability-title">
+        <div className="editor-panel-heading">
+          <div>
+            <p className="panel-kicker">Evolution</p>
+            <h2 id="portability-title">Portable schema package</h2>
+          </div>
+          <div className="export-action">
+            <SchemaExportButton
+              schemaId={draft.schemaId}
+              schemas={schemas}
+              version={draft.version}
+            />
+            {draft.version > 1 ? (
+              <SchemaExportButton
+                kind="publication"
+                schemaId={draft.schemaId}
+                schemas={schemas}
+                version={draft.version - 1}
+              />
+            ) : null}
+          </div>
+        </div>
+        {canWrite ? (
+          <SchemaImportPanel
+            key={`${draft.schemaId}:${draft.revision}`}
+            onApplied={(result) => {
+              setDraft(parseWorkbenchDraft(result.draft));
+              setDirty(false);
+              save.reset();
+              publish.reset();
+              void queryClient.invalidateQueries({
+                queryKey: schemaQueryKeys.drafts(),
+              });
+            }}
+            schemas={schemas}
+            target={{
+              expectedRevision: draft.revision,
+              schemaId: draft.schemaId,
+            }}
+          />
+        ) : (
+          <p>
+            Export is available with read access. Import requires schema editing
+            permission.
+          </p>
+        )}
       </section>
 
       <section className="editor-panel" aria-labelledby="fields-title">

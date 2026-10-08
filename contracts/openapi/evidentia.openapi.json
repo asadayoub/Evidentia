@@ -1,6 +1,63 @@
 {
   "components": {
     "schemas": {
+      "ApplySchemaImportRequest": {
+        "additionalProperties": false,
+        "description": "Create or revision-guardedly replace a draft from validated content.\n\n@skyhook-implements REQ-003\n@skyhook-implements NFR-001\n@skyhook-story STORY-018",
+        "properties": {
+          "expected_revision": {
+            "anyOf": [
+              {
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Revision"
+          },
+          "package": {
+            "additionalProperties": true,
+            "title": "Package",
+            "type": "object"
+          },
+          "target_schema_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target Schema Id"
+          }
+        },
+        "required": ["package"],
+        "title": "ApplySchemaImportRequest",
+        "type": "object"
+      },
+      "ApplySchemaImportResponse": {
+        "additionalProperties": false,
+        "description": "Applied draft and package evidence returned by an idempotent command.\n\n@skyhook-implements REQ-003\n@skyhook-implements NFR-001\n@skyhook-story STORY-018",
+        "properties": {
+          "created": {
+            "title": "Created",
+            "type": "boolean"
+          },
+          "draft": {
+            "$ref": "#/components/schemas/SchemaDraftResponse"
+          },
+          "package_sha256": {
+            "title": "Package Sha256",
+            "type": "string"
+          }
+        },
+        "required": ["draft", "package_sha256", "created"],
+        "title": "ApplySchemaImportResponse",
+        "type": "object"
+      },
       "CreateSchemaDraftRequest": {
         "additionalProperties": false,
         "description": "Create command containing only client-owned mutable content.\n\n@skyhook-story X51S43NTMRW5ASYSKJBF7FW845",
@@ -133,6 +190,31 @@
         "title": "LoginRequest",
         "type": "object"
       },
+      "PreviewSchemaImportRequest": {
+        "additionalProperties": false,
+        "description": "Mutation-free package preview against a new or existing draft.\n\n@skyhook-implements REQ-003\n@skyhook-story STORY-018",
+        "properties": {
+          "package": {
+            "additionalProperties": true,
+            "title": "Package",
+            "type": "object"
+          },
+          "target_schema_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target Schema Id"
+          }
+        },
+        "required": ["package"],
+        "title": "PreviewSchemaImportRequest",
+        "type": "object"
+      },
       "PublishSchemaDraftRequest": {
         "additionalProperties": false,
         "description": "Revision-guarded publication command with optional breaking-change acknowledgement.\n\n@skyhook-implements NFR-001\n@skyhook-story X51S43NTMRW5ASYSKJBF7FW845",
@@ -190,6 +272,62 @@
         },
         "required": ["expected_revision", "content"],
         "title": "ReplaceSchemaDraftRequest",
+        "type": "object"
+      },
+      "SchemaCompatibilityChangeResponse": {
+        "additionalProperties": false,
+        "description": "One stable path-addressed package difference.\n\n@skyhook-implements REQ-003\n@skyhook-story STORY-018",
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "level": {
+            "title": "Level",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          },
+          "path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Path"
+          }
+        },
+        "required": ["code", "level", "path", "message"],
+        "title": "SchemaCompatibilityChangeResponse",
+        "type": "object"
+      },
+      "SchemaCompatibilityResponse": {
+        "additionalProperties": false,
+        "description": "Deterministic compatibility classification for an existing target.\n\n@skyhook-implements REQ-003\n@skyhook-story STORY-018",
+        "properties": {
+          "changes": {
+            "items": {
+              "$ref": "#/components/schemas/SchemaCompatibilityChangeResponse"
+            },
+            "title": "Changes",
+            "type": "array"
+          },
+          "level": {
+            "title": "Level",
+            "type": "string"
+          },
+          "requires_acknowledgement": {
+            "title": "Requires Acknowledgement",
+            "type": "boolean"
+          }
+        },
+        "required": ["level", "requires_acknowledgement", "changes"],
+        "title": "SchemaCompatibilityResponse",
         "type": "object"
       },
       "SchemaDraftContentRequest": {
@@ -314,6 +452,92 @@
           "updated_at"
         ],
         "title": "SchemaDraftResponse",
+        "type": "object"
+      },
+      "SchemaImportPreviewResponse": {
+        "additionalProperties": false,
+        "description": "Validated package provenance, editable content, target, and impact.\n\n@skyhook-implements REQ-003\n@skyhook-implements NFR-008\n@skyhook-story STORY-018",
+        "properties": {
+          "canonical_sha256": {
+            "title": "Canonical Sha256",
+            "type": "string"
+          },
+          "compatibility": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SchemaCompatibilityResponse"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "content": {
+            "additionalProperties": true,
+            "title": "Content",
+            "type": "object"
+          },
+          "creates_new_draft": {
+            "title": "Creates New Draft",
+            "type": "boolean"
+          },
+          "envelope_version": {
+            "title": "Envelope Version",
+            "type": "integer"
+          },
+          "format": {
+            "title": "Format",
+            "type": "string"
+          },
+          "kind": {
+            "title": "Kind",
+            "type": "string"
+          },
+          "source_schema_id": {
+            "title": "Source Schema Id",
+            "type": "string"
+          },
+          "source_schema_version": {
+            "title": "Source Schema Version",
+            "type": "integer"
+          },
+          "target_revision": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target Revision"
+          },
+          "target_schema_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target Schema Id"
+          }
+        },
+        "required": [
+          "kind",
+          "format",
+          "envelope_version",
+          "source_schema_id",
+          "source_schema_version",
+          "canonical_sha256",
+          "creates_new_draft",
+          "target_schema_id",
+          "target_revision",
+          "content",
+          "compatibility"
+        ],
+        "title": "SchemaImportPreviewResponse",
         "type": "object"
       },
       "SchemaPublicationResponse": {
@@ -1279,6 +1503,93 @@
         "tags": ["schemas"]
       }
     },
+    "/api/v1/schemas/drafts/{schema_id}/package": {
+      "get": {
+        "operationId": "schemas_export_draft_package",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "schema_id",
+            "required": true,
+            "schema": {
+              "title": "Schema Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Schemas Export Draft Package",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Invalid request"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Authentication failed or expired"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Request is not authorized"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Schema resource was not found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Command conflicts with current state"
+          }
+        },
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Export Draft Package",
+        "tags": ["schemas"]
+      }
+    },
     "/api/v1/schemas/drafts/{schema_id}/publications": {
       "post": {
         "operationId": "schemas_publish_draft",
@@ -1385,6 +1696,187 @@
         "tags": ["schemas"]
       }
     },
+    "/api/v1/schemas/imports": {
+      "post": {
+        "operationId": "schemas_apply_import",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 1,
+              "title": "Idempotency-Key",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplySchemaImportRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplySchemaImportResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Invalid request"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Authentication failed or expired"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Request is not authorized"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Schema resource was not found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Command conflicts with current state"
+          }
+        },
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Apply Import",
+        "tags": ["schemas"]
+      }
+    },
+    "/api/v1/schemas/imports/preview": {
+      "post": {
+        "operationId": "schemas_preview_import",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PreviewSchemaImportRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemaImportPreviewResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Invalid request"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Authentication failed or expired"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Request is not authorized"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Schema resource was not found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Command conflicts with current state"
+          }
+        },
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Preview Import",
+        "tags": ["schemas"]
+      }
+    },
     "/api/v1/schemas/{schema_id}/versions/{version}": {
       "get": {
         "operationId": "schemas_get_publication",
@@ -1476,6 +1968,102 @@
           }
         ],
         "summary": "Get Publication",
+        "tags": ["schemas"]
+      }
+    },
+    "/api/v1/schemas/{schema_id}/versions/{version}/package": {
+      "get": {
+        "operationId": "schemas_export_publication_package",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "schema_id",
+            "required": true,
+            "schema": {
+              "title": "Schema Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "version",
+            "required": true,
+            "schema": {
+              "title": "Version",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Schemas Export Publication Package",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Invalid request"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Authentication failed or expired"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Request is not authorized"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Schema resource was not found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Command conflicts with current state"
+          }
+        },
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "summary": "Export Publication Package",
         "tags": ["schemas"]
       }
     },

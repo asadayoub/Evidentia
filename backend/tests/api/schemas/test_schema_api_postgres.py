@@ -395,6 +395,101 @@ async def _exercise_schema_api(database: DisposablePostgresDatabase) -> None:
         assert unchanged_publication.json() == publication.json()
         response_bodies.extend((changed_draft.body, unchanged_publication.body))
 
+        exported_draft = await _request(
+            app,
+            "GET",
+            f"/api/v1/schemas/drafts/{schema_id}/package",
+            headers={"cookie": browser["cookie"]},
+        )
+        assert exported_draft.status == 200
+        assert exported_draft.json()["format"] == "evidentia.schema-draft"
+        assert exported_draft.json()["schema"]["id"] == schema_id
+        imported_package = json.loads(json.dumps(exported_draft.json()))
+        imported_package["schema"]["fields"].append(
+            {
+                "key": "approval_code",
+                "cardinality": {"minimum": 1, "maximum": 1},
+                "artifacts": [],
+                "value": {
+                    "type": {
+                        "kind": "string",
+                        "min_length": 0,
+                        "max_length": None,
+                        "pattern": None,
+                    },
+                    "artifacts": [],
+                },
+            }
+        )
+        previewed_import = await _request(
+            app,
+            "POST",
+            "/api/v1/schemas/imports/preview",
+            body={"package": imported_package, "target_schema_id": schema_id},
+            headers=browser,
+        )
+        assert previewed_import.status == 200
+        assert previewed_import.json()["compatibility"]["level"] == "breaking"
+        assert previewed_import.json()["target_revision"] == 4
+        assert previewed_import.json()["canonical_sha256"]
+
+        import_command = {
+            "package": imported_package,
+            "target_schema_id": schema_id,
+            "expected_revision": 4,
+        }
+        applied_import = await _request(
+            app,
+            "POST",
+            "/api/v1/schemas/imports",
+            body=import_command,
+            headers={**browser, "idempotency-key": "apply-import-1"},
+        )
+        assert applied_import.status == 201
+        assert applied_import.json()["created"] is False
+        assert applied_import.json()["draft"]["schema_id"] == schema_id
+        assert applied_import.json()["draft"]["revision"] == 5
+        replayed_import = await _request(
+            app,
+            "POST",
+            "/api/v1/schemas/imports",
+            body=import_command,
+            headers={**browser, "idempotency-key": "apply-import-1"},
+        )
+        assert replayed_import.status == 201
+        assert replayed_import.json() == applied_import.json()
+
+        created_from_import = await _request(
+            app,
+            "POST",
+            "/api/v1/schemas/imports",
+            body={"package": imported_package},
+            headers={**browser, "idempotency-key": "apply-import-new"},
+        )
+        assert created_from_import.status == 201
+        assert created_from_import.json()["created"] is True
+        assert created_from_import.json()["draft"]["schema_id"] != schema_id
+        assert created_from_import.json()["draft"]["revision"] == 1
+
+        exported_publication = await _request(
+            app,
+            "GET",
+            f"/api/v1/schemas/{schema_id}/versions/1/package",
+            headers={"cookie": browser["cookie"]},
+        )
+        assert exported_publication.status == 200
+        assert exported_publication.json() == publication.json()["snapshot"]
+        response_bodies.extend(
+            (
+                exported_draft.body,
+                previewed_import.body,
+                applied_import.body,
+                replayed_import.body,
+                created_from_import.body,
+                exported_publication.body,
+            )
+        )
+
         isolated_tenant_id = uuid4()
         isolated_membership_id = uuid4()
         async with app.state.access_runtime.engine.begin() as connection:
@@ -446,7 +541,32 @@ async def _exercise_schema_api(database: DisposablePostgresDatabase) -> None:
         )
         assert isolated_create.status == 403
         assert isolated_create.json()["code"] == "access_denied"
-        response_bodies.extend((selected_isolated.body, isolated_get.body, isolated_create.body))
+        isolated_preview = await _request(
+            app,
+            "POST",
+            "/api/v1/schemas/imports/preview",
+            body={"package": imported_package, "target_schema_id": schema_id},
+            headers=isolated_browser,
+        )
+        assert isolated_preview.status == 404
+        isolated_apply = await _request(
+            app,
+            "POST",
+            "/api/v1/schemas/imports",
+            body={"package": imported_package},
+            headers={**isolated_browser, "idempotency-key": "isolated-import"},
+        )
+        assert isolated_apply.status == 403
+        assert isolated_apply.json()["code"] == "access_denied"
+        response_bodies.extend(
+            (
+                selected_isolated.body,
+                isolated_get.body,
+                isolated_create.body,
+                isolated_preview.body,
+                isolated_apply.body,
+            )
+        )
 
         recovered = await _request(
             app,

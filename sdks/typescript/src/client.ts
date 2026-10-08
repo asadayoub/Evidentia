@@ -68,6 +68,36 @@ export type SchemaPublication =
 export type PublishSchemaResult =
   components["schemas"]["PublishSchemaDraftResponse"];
 
+/** Validated preview of portable schema content and its target impact.
+ * @skyhook-implements REQ-003
+ * @skyhook-story STORY-018
+ */
+export type SchemaImportPreview =
+  components["schemas"]["SchemaImportPreviewResponse"];
+
+/** Result of applying a package to a new or existing working draft.
+ * @skyhook-implements REQ-003
+ * @skyhook-implements NFR-001
+ * @skyhook-story STORY-018
+ */
+export type ApplySchemaImportResult =
+  components["schemas"]["ApplySchemaImportResponse"];
+
+/** JSON object carried by the versioned portable schema envelope.
+ * @skyhook-implements REQ-003
+ * @skyhook-story STORY-018
+ */
+export type SchemaPackage = Record<string, unknown>;
+
+/** Optional existing-draft target for preview and apply operations.
+ * @skyhook-implements NFR-001
+ * @skyhook-story STORY-018
+ */
+export interface SchemaImportTarget {
+  readonly schemaId: string;
+  readonly expectedRevision: number;
+}
+
 /** Generated, framework-neutral transport for every public Evidentia route.
  * @skyhook-implements REQ-012
  * @skyhook-story STORY-017
@@ -200,6 +230,25 @@ export interface SchemaClient {
     version: number,
     options?: SchemaRequestOptions,
   ): Promise<SchemaPublication>;
+  exportDraftPackage(
+    schemaId: string,
+    options?: SchemaRequestOptions,
+  ): Promise<SchemaPackage>;
+  exportPublicationPackage(
+    schemaId: string,
+    version: number,
+    options?: SchemaRequestOptions,
+  ): Promise<SchemaPackage>;
+  previewImport(
+    schemaPackage: SchemaPackage,
+    target?: Pick<SchemaImportTarget, "schemaId">,
+    options?: SchemaRequestOptions,
+  ): Promise<SchemaImportPreview>;
+  applyImport(
+    schemaPackage: SchemaPackage,
+    target: SchemaImportTarget | undefined,
+    options: SchemaMutationOptions,
+  ): Promise<ApplySchemaImportResult>;
 }
 
 function defaultCookieReader(name: string): string | undefined {
@@ -458,6 +507,70 @@ export function createSchemaClient(client: EvidentiaClient): SchemaClient {
           ...(options?.signal === undefined ? {} : { signal: options.signal }),
         },
       );
+      if (result.error !== undefined) {
+        throw apiError(result.error, result.response);
+      }
+      return result.data;
+    },
+
+    async exportDraftPackage(schemaId, options) {
+      const result = await client.GET(
+        "/api/v1/schemas/drafts/{schema_id}/package",
+        {
+          params: { path: { schema_id: schemaId } },
+          ...(options?.signal === undefined ? {} : { signal: options.signal }),
+        },
+      );
+      if (result.error !== undefined) {
+        throw apiError(result.error, result.response);
+      }
+      return result.data;
+    },
+
+    async exportPublicationPackage(schemaId, version, options) {
+      const result = await client.GET(
+        "/api/v1/schemas/{schema_id}/versions/{version}/package",
+        {
+          params: { path: { schema_id: schemaId, version } },
+          ...(options?.signal === undefined ? {} : { signal: options.signal }),
+        },
+      );
+      if (result.error !== undefined) {
+        throw apiError(result.error, result.response);
+      }
+      return result.data;
+    },
+
+    async previewImport(schemaPackage, target, options) {
+      const result = await client.POST("/api/v1/schemas/imports/preview", {
+        body: {
+          package: schemaPackage,
+          ...(target === undefined
+            ? {}
+            : { target_schema_id: target.schemaId }),
+        },
+        ...(options?.signal === undefined ? {} : { signal: options.signal }),
+      });
+      if (result.error !== undefined) {
+        throw apiError(result.error, result.response);
+      }
+      return result.data;
+    },
+
+    async applyImport(schemaPackage, target, options) {
+      const result = await client.POST("/api/v1/schemas/imports", {
+        params: { header: { "Idempotency-Key": options.idempotencyKey } },
+        body: {
+          package: schemaPackage,
+          ...(target === undefined
+            ? {}
+            : {
+                target_schema_id: target.schemaId,
+                expected_revision: target.expectedRevision,
+              }),
+        },
+        ...(options.signal === undefined ? {} : { signal: options.signal }),
+      });
       if (result.error !== undefined) {
         throw apiError(result.error, result.response);
       }

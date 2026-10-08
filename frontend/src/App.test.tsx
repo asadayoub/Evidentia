@@ -51,13 +51,20 @@ function fakeAccess(overrides: Partial<AccessClient> = {}): AccessClient {
 
 function fakeSchemas(overrides: Partial<SchemaClient> = {}): SchemaClient {
   return {
+    applyImport: () => Promise.reject(new Error("unexpected schema import")),
     createDraft: () => Promise.reject(new Error("unexpected schema creation")),
+    exportDraftPackage: () =>
+      Promise.reject(new Error("unexpected draft export")),
+    exportPublicationPackage: () =>
+      Promise.reject(new Error("unexpected publication export")),
     getDraft: () => Promise.reject(new Error("unexpected schema retrieval")),
     getPublication: () =>
       Promise.reject(new Error("unexpected publication retrieval")),
     listDrafts: () => Promise.resolve({ items: [], next_cursor: null }),
     publishDraft: () =>
       Promise.reject(new Error("unexpected schema publication")),
+    previewImport: () =>
+      Promise.reject(new Error("unexpected schema import preview")),
     replaceDraft: () =>
       Promise.reject(new Error("unexpected schema replacement")),
     ...overrides,

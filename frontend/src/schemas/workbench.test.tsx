@@ -1,10 +1,12 @@
 import {
+  type ApplySchemaImportResult,
   EvidentiaApiError,
   type AccessClient,
   type CurrentContext,
   type PublishSchemaResult,
   type SchemaClient,
   type SchemaDraft,
+  type SchemaImportPreview,
   type SessionResponse,
 } from "@evidentia/typescript-sdk";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
@@ -57,11 +59,15 @@ function accessClient(context: CurrentContext = CONTEXT): AccessClient {
 
 function schemaClient(overrides: Partial<SchemaClient> = {}): SchemaClient {
   return {
+    applyImport: () => Promise.reject(new Error("not used")),
     createDraft: () => Promise.resolve(EMPTY_DRAFT),
+    exportDraftPackage: () => Promise.reject(new Error("not used")),
+    exportPublicationPackage: () => Promise.reject(new Error("not used")),
     getDraft: () => Promise.resolve(EMPTY_DRAFT),
     getPublication: () => Promise.reject(new Error("not used")),
     listDrafts: () => Promise.resolve({ items: [], next_cursor: null }),
     publishDraft: () => Promise.reject(new Error("not used")),
+    previewImport: () => Promise.reject(new Error("not used")),
     replaceDraft: () => Promise.reject(new Error("not used")),
     ...overrides,
   };
@@ -295,6 +301,86 @@ describe("Schema Workbench", () => {
       }),
     ).toBeInTheDocument();
     expect(listDrafts).toHaveBeenCalledTimes(2);
+  });
+
+  it("previews a portable package before creating a server-owned draft", async () => {
+    const previewResult: SchemaImportPreview = {
+      canonical_sha256: "a".repeat(64),
+      compatibility: null,
+      content: { artifacts: [], fields: [], modules: [] },
+      creates_new_draft: true,
+      envelope_version: 1,
+      format: "evidentia.schema-draft",
+      kind: "draft",
+      source_schema_id: EMPTY_DRAFT.schema_id,
+      source_schema_version: 1,
+      target_revision: null,
+      target_schema_id: null,
+    };
+    const appliedResult: ApplySchemaImportResult = {
+      created: true,
+      draft: EMPTY_DRAFT,
+      package_sha256: "a".repeat(64),
+    };
+    const previewImport = vi
+      .fn<SchemaClient["previewImport"]>()
+      .mockResolvedValue(previewResult);
+    const applyImport = vi
+      .fn<SchemaClient["applyImport"]>()
+      .mockResolvedValue(appliedResult);
+    render(
+      <App
+        access={accessClient()}
+        schemas={schemaClient({ applyImport, previewImport })}
+        initialEntries={["/app/schemas"]}
+      />,
+    );
+    await screen.findByRole("heading", {
+      name: "Start with the structure your documents need",
+    });
+    const schemaPackage = {
+      format: "evidentia.schema-draft",
+      version: 1,
+      schema: {
+        artifacts: [],
+        fields: [],
+        id: EMPTY_DRAFT.schema_id,
+        modules: [],
+        releaseLabel: null,
+        version: 1,
+      },
+    };
+    fireEvent.change(screen.getByLabelText("Schema package"), {
+      target: {
+        files: [
+          new File([JSON.stringify(schemaPackage)], "schema.json", {
+            type: "application/json",
+          }),
+        ],
+      },
+    });
+
+    await waitFor(() =>
+      expect(
+        screen.getByRole("button", { name: "Preview changes" }),
+      ).toBeEnabled(),
+    );
+    fireEvent.click(screen.getByRole("button", { name: "Preview changes" }));
+    expect(
+      await screen.findByRole("heading", {
+        name: "Ready to create a new draft",
+      }),
+    ).toBeInTheDocument();
+    fireEvent.click(
+      screen.getByRole("button", { name: "Create draft from package" }),
+    );
+
+    await waitFor(() => expect(applyImport).toHaveBeenCalledOnce());
+    expect(previewImport).toHaveBeenCalledWith(schemaPackage, undefined);
+    expect(applyImport.mock.calls[0]?.[1]).toBeUndefined();
+    expect(applyImport.mock.calls[0]?.[2].idempotencyKey).toMatch(
+      /^[0-9a-f-]{36}$/u,
+    );
   });
 
   it("renders forbidden and read-only states from trusted authority", async () => {

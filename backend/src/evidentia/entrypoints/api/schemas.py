@@ -14,12 +14,12 @@ import hashlib
 import json
 from collections.abc import Mapping
 from datetime import UTC, datetime
-from typing import Annotated, Any
+from typing import Annotated, Any, cast
 from uuid import UUID
 
 from fastapi import APIRouter, Header, Query, Request, status
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker
 
 from evidentia.config.settings import ApiSettings
@@ -50,6 +50,7 @@ from evidentia.modules.schemas.infrastructure.idempotency import PostgresSchemaC
 from evidentia.modules.schemas.infrastructure.repository import PostgresSchemaRepository
 from evidentia.modules.schemas.public import (
     ArtifactKey,
+    InspectedSchemaPackage,
     ManageSchemaLifecycle,
     SchemaArtifactCatalog,
     SchemaAuthorizationError,
@@ -57,14 +58,19 @@ from evidentia.modules.schemas.public import (
     SchemaDraft,
     SchemaDraftContent,
     SchemaId,
+    SchemaImportPreview,
     SchemaVersion,
     export_schema,
+    export_schema_draft,
     export_schema_draft_content,
     import_schema_draft_content,
+    inspect_schema_package,
+    preview_schema_import,
 )
 from evidentia.runtime import emit_security_event
 
 IDEMPOTENCY_HEADER_NAME = "Idempotency-Key"
+MAX_SCHEMA_PACKAGE_BYTES = 1_048_576
 _SESSION_SECURITY: dict[str, Any] = {"security": [{"sessionCookie": []}]}
 _ERROR_RESPONSES: dict[int | str, dict[str, Any]] = {
     400: {"model": ErrorResponse, "description": "Invalid request"},
@@ -186,6 +192,110 @@ class PublishSchemaDraftResponse(BaseModel):
     next_draft: SchemaDraftResponse
 
 
+class SchemaPackageRequest(BaseModel):
+    """Untrusted portable package accepted only after domain validation.
+
+    @skyhook-implements REQ-003
+    @skyhook-implements NFR-008
+    @skyhook-story STORY-018
+    """
+
+    model_config = ConfigDict(extra="forbid")
+    package: dict[str, Any]
+
+
+class PreviewSchemaImportRequest(SchemaPackageRequest):
+    """Mutation-free package preview against a new or existing draft.
+
+    @skyhook-implements REQ-003
+    @skyhook-story STORY-018
+    """
+
+    target_schema_id: str | None = None
+
+
+class ApplySchemaImportRequest(SchemaPackageRequest):
+    """Create or revision-guardedly replace a draft from validated content.
+
+    @skyhook-implements REQ-003
+    @skyhook-implements NFR-001
+    @skyhook-story STORY-018
+    """
+
+    target_schema_id: str | None = None
+    expected_revision: int | None = Field(default=None, ge=1)
+
+    @model_validator(mode="after")
+    def validate_target(self) -> ApplySchemaImportRequest:
+        """Require revision and target identity together."""
+        if (self.target_schema_id is None) != (self.expected_revision is None):
+            raise ValueError("target_schema_id and expected_revision must be supplied together")
+        return self
+
+
+class SchemaCompatibilityChangeResponse(BaseModel):
+    """One stable path-addressed package difference.
+
+    @skyhook-implements REQ-003
+    @skyhook-story STORY-018
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    code: str
+    level: str
+    path: str | None
+    message: str
+
+
+class SchemaCompatibilityResponse(BaseModel):
+    """Deterministic compatibility classification for an existing target.
+
+    @skyhook-implements REQ-003
+    @skyhook-story STORY-018
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    level: str
+    requires_acknowledgement: bool
+    changes: tuple[SchemaCompatibilityChangeResponse, ...]
+
+
+class SchemaImportPreviewResponse(BaseModel):
+    """Validated package provenance, editable content, target, and impact.
+
+    @skyhook-implements REQ-003
+    @skyhook-implements NFR-008
+    @skyhook-story STORY-018
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    kind: str
+    format: str
+    envelope_version: int
+    source_schema_id: str
+    source_schema_version: int
+    canonical_sha256: str
+    creates_new_draft: bool
+    target_schema_id: str | None
+    target_revision: int | None
+    content: dict[str, Any]
+    compatibility: SchemaCompatibilityResponse | None
+
+
+class ApplySchemaImportResponse(BaseModel):
+    """Applied draft and package evidence returned by an idempotent command.
+
+    @skyhook-implements REQ-003
+    @skyhook-implements NFR-001
+    @skyhook-story STORY-018
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    draft: SchemaDraftResponse
+    package_sha256: str
+    created: bool
+
+
 class _NoPublishedArtifacts:
     """Fail-safe catalog until the governed artifact context is integrated."""
 
@@ -244,6 +354,59 @@ def _content(value: SchemaDraftContentRequest) -> SchemaDraftContent:
     )
 
 
+def _package(value: Mapping[str, Any]) -> InspectedSchemaPackage:
+    encoded = json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+    if len(encoded.encode()) > MAX_SCHEMA_PACKAGE_BYTES:
+        raise ApiError(400, "schema_package_too_large", "The schema package is too large.")
+    try:
+        return inspect_schema_package(encoded)
+    except (TypeError, ValueError) as error:
+        raise ApiError(400, "invalid_schema_package", "The schema package is invalid.") from error
+
+
+def _preview_response(preview: SchemaImportPreview) -> SchemaImportPreviewResponse:
+    report = preview.compatibility
+    compatibility = (
+        None
+        if report is None
+        else SchemaCompatibilityResponse(
+            level=report.level.value,
+            requires_acknowledgement=report.requires_acknowledgement,
+            changes=tuple(
+                SchemaCompatibilityChangeResponse(
+                    code=change.code.value,
+                    level=change.level.value,
+                    path=None if change.path is None else str(change.path),
+                    message=change.message,
+                )
+                for change in report.changes
+            ),
+        )
+    )
+    package = preview.package
+    synthetic = SchemaDraft(
+        schema_id=SchemaId(package.source_schema_id),
+        version=SchemaVersion(package.source_schema_version),
+        fields=package.content.fields,
+        modules=package.content.modules,
+        release_label=package.content.release_label,
+        artifacts=package.content.artifacts,
+    )
+    return SchemaImportPreviewResponse(
+        kind=package.kind.value,
+        format=package.format,
+        envelope_version=package.envelope_version,
+        source_schema_id=package.source_schema_id,
+        source_schema_version=package.source_schema_version,
+        canonical_sha256=package.canonical_sha256,
+        creates_new_draft=preview.creates_new_draft,
+        target_schema_id=preview.target_schema_id,
+        target_revision=preview.target_revision,
+        content=export_schema_draft_content(synthetic),
+        compatibility=compatibility,
+    )
+
+
 def _draft_response(stored: StoredSchemaDraft) -> SchemaDraftResponse:
     draft = stored.draft
     return SchemaDraftResponse(
@@ -283,6 +446,13 @@ def _digest(operation: str, payload: BaseModel) -> str:
         separators=(",", ":"),
     ).encode()
     return hashlib.sha256(canonical).hexdigest()
+
+
+def _json_object(payload: bytes) -> dict[str, Any]:
+    parsed: object = json.loads(payload)
+    if not isinstance(parsed, dict):
+        raise RuntimeError("canonical schema export must be a JSON object")
+    return cast(dict[str, Any], parsed)
 
 
 def _event(runtime: SchemaApiRuntime, request: Request, event: str, **attributes: object) -> None:
@@ -498,6 +668,127 @@ def create_schema_router(runtime: SchemaApiRuntime, access_runtime: AccessApiRun
             raise ApiError(404, "schema_not_found", "The schema resource was not found.")
         return _draft_response(stored)
 
+    @router.get(
+        "/drafts/{schema_id}/package",
+        operation_id="schemas_export_draft_package",
+        response_model=dict[str, Any],
+        responses=_ERROR_RESPONSES,
+        openapi_extra=_SESSION_SECURITY,
+    )
+    async def export_draft_package(schema_id: str, request: Request) -> dict[str, Any]:
+        context = await _context(access_runtime, request)
+        try:
+            async with runtime.sessions.begin() as database_session:
+                stored = await runtime.lifecycle(database_session).get_draft(
+                    context, _schema_id(schema_id)
+                )
+        except Exception as error:
+            raise _map_schema_error(error) from error
+        if stored is None:
+            raise ApiError(404, "schema_not_found", "The schema resource was not found.")
+        _event(
+            runtime,
+            request,
+            "schema.package.exported",
+            outcome="success",
+            package_kind="draft",
+            schema_id=stored.draft.schema_id.value,
+            operator_id=context.actor_id,
+            tenant_id=str(context.tenant_id),
+        )
+        return _json_object(export_schema_draft(stored.draft))
+
+    @router.post(
+        "/imports/preview",
+        operation_id="schemas_preview_import",
+        response_model=SchemaImportPreviewResponse,
+        responses=_ERROR_RESPONSES,
+        openapi_extra=_SESSION_SECURITY,
+    )
+    async def preview_import(
+        payload: PreviewSchemaImportRequest, request: Request
+    ) -> SchemaImportPreviewResponse:
+        token = session_token(request, access_runtime.settings.session)
+        require_csrf(request, token, request.headers.get(CSRF_HEADER_NAME))
+        context = await _context(access_runtime, request)
+        package = _package(payload.package)
+        try:
+            async with runtime.sessions.begin() as database_session:
+                service = runtime.lifecycle(database_session)
+                service.authorize_read(context)
+                stored = (
+                    None
+                    if payload.target_schema_id is None
+                    else await service.get_draft(context, _schema_id(payload.target_schema_id))
+                )
+        except Exception as error:
+            raise _map_schema_error(error) from error
+        if payload.target_schema_id is not None and stored is None:
+            raise ApiError(404, "schema_not_found", "The schema resource was not found.")
+        preview = preview_schema_import(
+            package,
+            target=None if stored is None else stored.draft,
+            target_revision=None if stored is None else stored.revision,
+        )
+        _event(
+            runtime,
+            request,
+            "schema.import.previewed",
+            outcome="success",
+            package_sha256=package.canonical_sha256,
+            target="new" if stored is None else stored.draft.schema_id.value,
+            operator_id=context.actor_id,
+            tenant_id=str(context.tenant_id),
+        )
+        return _preview_response(preview)
+
+    @router.post(
+        "/imports",
+        operation_id="schemas_apply_import",
+        response_model=ApplySchemaImportResponse,
+        status_code=status.HTTP_201_CREATED,
+        responses=_ERROR_RESPONSES,
+        openapi_extra=_SESSION_SECURITY,
+    )
+    async def apply_import(
+        payload: ApplySchemaImportRequest,
+        request: Request,
+        idempotency_key: Annotated[
+            str, Header(alias=IDEMPOTENCY_HEADER_NAME, min_length=1, max_length=128)
+        ],
+    ) -> JSONResponse:
+        package = _package(payload.package)
+        target = None if payload.target_schema_id is None else _schema_id(payload.target_schema_id)
+
+        async def execute(service: ManageSchemaLifecycle, context: SchemaCommandContext) -> Any:
+            if target is None:
+                stored = await service.create_draft(context, package.content)
+                created = True
+            else:
+                assert payload.expected_revision is not None
+                stored = await service.replace_draft(
+                    context,
+                    target,
+                    expected_revision=payload.expected_revision,
+                    content=package.content,
+                )
+                created = False
+            return ApplySchemaImportResponse(
+                draft=_draft_response(stored),
+                package_sha256=package.canonical_sha256,
+                created=created,
+            )
+
+        operation_target = "new" if target is None else target.value
+        return await mutate(
+            f"apply_import:{operation_target}",
+            payload,
+            request,
+            idempotency_key,
+            execute,
+            201,
+        )
+
     @router.put(
         "/drafts/{schema_id}",
         operation_id="schemas_replace_draft",
@@ -582,5 +873,40 @@ def create_schema_router(runtime: SchemaApiRuntime, access_runtime: AccessApiRun
         if stored is None:
             raise ApiError(404, "schema_not_found", "The schema resource was not found.")
         return _publication_response(stored)
+
+    @router.get(
+        "/{schema_id}/versions/{version}/package",
+        operation_id="schemas_export_publication_package",
+        response_model=dict[str, Any],
+        responses=_ERROR_RESPONSES,
+        openapi_extra=_SESSION_SECURITY,
+    )
+    async def export_publication_package(
+        schema_id: str, version: int, request: Request
+    ) -> dict[str, Any]:
+        context = await _context(access_runtime, request)
+        try:
+            requested_version = SchemaVersion(version)
+            async with runtime.sessions.begin() as database_session:
+                stored = await runtime.lifecycle(database_session).get_publication(
+                    context, _schema_id(schema_id), requested_version
+                )
+        except Exception as error:
+            raise _map_schema_error(error) from error
+        if stored is None:
+            raise ApiError(404, "schema_not_found", "The schema resource was not found.")
+        publication = stored.publication
+        _event(
+            runtime,
+            request,
+            "schema.package.exported",
+            outcome="success",
+            package_kind="publication",
+            schema_id=publication.schema.schema_id.value,
+            schema_version=publication.schema.version.value,
+            operator_id=context.actor_id,
+            tenant_id=str(context.tenant_id),
+        )
+        return _json_object(export_schema(publication.schema))
 
     return router

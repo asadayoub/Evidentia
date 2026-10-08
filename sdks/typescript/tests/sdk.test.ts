@@ -27,10 +27,14 @@ describe("TypeScript SDK boundary", () => {
 
   it("exposes schema operations generated from the checked contract", () => {
     expect(schemaOperationIds).toEqual([
+      "schemas_apply_import",
       "schemas_create_draft",
+      "schemas_export_draft_package",
+      "schemas_export_publication_package",
       "schemas_get_draft",
       "schemas_get_publication",
       "schemas_list_drafts",
+      "schemas_preview_import",
       "schemas_publish_draft",
       "schemas_replace_draft",
     ]);
@@ -174,5 +178,67 @@ describe("TypeScript SDK boundary", () => {
     );
 
     expect(draft.revision).toBe(1);
+  });
+
+  it("previews and applies portable packages through generated operations", async () => {
+    const requests: Request[] = [];
+    const fetch = vi.fn(async (request: Request) => {
+      requests.push(request);
+      const body: unknown = await request.json();
+      if (request.url.endsWith("/imports/preview")) {
+        return Response.json({
+          canonical_sha256: "a".repeat(64),
+          compatibility: null,
+          content: { artifacts: [], fields: [], modules: [] },
+          creates_new_draft: true,
+          envelope_version: 1,
+          format: "evidentia.schema-draft",
+          kind: "draft",
+          source_schema_id: "00000000-0000-4000-8000-000000000001",
+          source_schema_version: 1,
+          target_revision: null,
+          target_schema_id: null,
+        });
+      }
+      expect(request.headers.get("idempotency-key")).toBe("import-1");
+      expect(body).toEqual({
+        package: { format: "evidentia.schema-draft", version: 1 },
+      });
+      return Response.json({
+        created: true,
+        draft: {
+          content: { artifacts: [], fields: [], modules: [] },
+          created_at: "2026-10-08T06:00:00Z",
+          created_by: "operator-1",
+          revision: 1,
+          schema_id: "00000000-0000-4000-8000-000000000002",
+          updated_at: "2026-10-08T06:00:00Z",
+          updated_by: "operator-1",
+          version: 1,
+        },
+        package_sha256: "a".repeat(64),
+      });
+    });
+    const client = createSchemaClient(
+      createEvidentiaClient({
+        baseUrl: "https://api.example.test",
+        createCorrelationId: () => "request-import-1",
+        fetch,
+        readCookie: () => "csrf-proof",
+      }),
+    );
+    const schemaPackage = {
+      format: "evidentia.schema-draft",
+      version: 1,
+    };
+
+    const preview = await client.previewImport(schemaPackage);
+    const applied = await client.applyImport(schemaPackage, undefined, {
+      idempotencyKey: "import-1",
+    });
+
+    expect(preview.creates_new_draft).toBe(true);
+    expect(applied.created).toBe(true);
+    expect(requests).toHaveLength(2);
   });
 });
