@@ -9,6 +9,14 @@ application-port contracts.
 @skyhook-story 4PJTJVE73D2MN7GT64T48S05HT
 """
 
+from evidentia.modules.schemas.application.evolution import (
+    InspectedSchemaPackage,
+    SchemaImportPreview,
+    SchemaPackageKind,
+    exported_package_content,
+    inspect_schema_package,
+    preview_schema_import,
+)
 from evidentia.modules.schemas.application.interchange import (
     INTERCHANGE_FORMAT,
     INTERCHANGE_VERSION,
@@ -150,6 +158,7 @@ __all__ = (
     "FieldType",
     "FieldTypeKind",
     "IdentifierType",
+    "InspectedSchemaPackage",
     "IntegerType",
     "ManageSchemaLifecycle",
     "MoneyType",
@@ -176,10 +185,12 @@ __all__ = (
     "SchemaDraft",
     "SchemaDraftContent",
     "SchemaId",
+    "SchemaImportPreview",
     "SchemaInterchangeEnvelope",
     "SchemaLifecycleState",
     "SchemaModuleId",
     "SchemaModuleReference",
+    "SchemaPackageKind",
     "SchemaPublication",
     "SchemaVersion",
     "StringType",
@@ -191,10 +202,13 @@ __all__ = (
     "ensure_unique_root_fields",
     "export_schema",
     "export_schema_draft_content",
+    "exported_package_content",
     "import_schema",
     "import_schema_draft_content",
+    "inspect_schema_package",
     "plan_reprocessing",
     "plan_schema_migration",
+    "preview_schema_import",
     "publish_schema",
     "resolve_schema",
 )
