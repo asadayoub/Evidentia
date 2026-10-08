@@ -1,6 +1,7 @@
 # Changelog
 
 ## [Unreleased]
+- Recorded decision: Use capability-based provider ports for document understanding, extraction, and delivery (Y87ZMJGAW6CGY7MSPDYKJ2W436)
 - Story STORY-018: in-review to done
 - Task TASK-035: in-review to done
 - Task TASK-035: in-progress to in-review

@@ -6540,8 +6540,20 @@ tasks:
         title: Add unit persistence and adversarial tests with Skyhook traceability annotations
         completed: false
         createdAt: "2026-10-07T15:27:34.544Z"
+      - id: SUB-006
+        title: Define a versioned OCR provider request and result envelope with page, text, layout, table, language, confidence, and coordinate capabilities
+        completed: false
+        createdAt: "2026-10-08T07:26:25.958Z"
+      - id: SUB-007
+        title: Define capability discovery plus normalized provenance, warnings, failures, and protected raw-provider artifact references without vendor types in the domain
+        completed: false
+        createdAt: "2026-10-08T07:26:27.770Z"
+      - id: SUB-008
+        title: Specify synchronous and asynchronous execution, idempotency, retry, timeout, cancellation, polling, and restart semantics for OCR providers
+        completed: false
+        createdAt: "2026-10-08T07:26:29.739Z"
     createdAt: "2026-10-07T15:27:34.544Z"
-    updatedAt: "2026-10-07T15:43:19.446Z"
+    updatedAt: "2026-10-08T07:26:29.739Z"
     assignee:
       type: agent
       identifier: Codex
@@ -6594,8 +6606,20 @@ tasks:
         title: Test duplicate retry cancellation restart cross-tenant hostile-content and unavailable-provider behavior
         completed: false
         createdAt: "2026-10-07T15:27:38.215Z"
+      - id: SUB-007
+        title: Create an OCR adapter conformance kit covering normalized output, unsupported capabilities, partial results, throttling, timeout, cancellation, and unavailable providers
+        completed: false
+        createdAt: "2026-10-08T07:26:34.191Z"
+      - id: SUB-008
+        title: Implement provider registration and capability-based selection with provider configuration and credentials confined to adapter infrastructure
+        completed: false
+        createdAt: "2026-10-08T07:26:36.434Z"
+      - id: SUB-009
+        title: Prove portability with a deterministic reference adapter and the first real local or hosted OCR adapter without changing application or domain contracts
+        completed: false
+        createdAt: "2026-10-08T07:26:38.271Z"
     createdAt: "2026-10-07T15:27:38.215Z"
-    updatedAt: "2026-10-07T15:43:24.348Z"
+    updatedAt: "2026-10-08T07:26:38.271Z"
     assignee:
       type: agent
       identifier: Codex
@@ -7642,8 +7666,20 @@ tasks:
         title: Add transition calculation provenance and persistence tests with Skyhook annotations
         completed: false
         createdAt: "2026-10-07T15:29:24.627Z"
+      - id: SUB-006
+        title: Define a versioned ExtractionProvider request and result envelope using immutable published schemas, understood source content, dynamic candidate values, evidence, confidence, and findings
+        completed: false
+        createdAt: "2026-10-08T07:26:39.991Z"
+      - id: SUB-007
+        title: Define extraction capability discovery and normalized provenance, model version, configuration fingerprint, token or cost metadata, warnings, errors, and protected raw-response references
+        completed: false
+        createdAt: "2026-10-08T07:26:41.725Z"
+      - id: SUB-008
+        title: Prevent extraction providers from mutating schema definitions, reviewed revisions, validation outcomes, or authoritative submission state
+        completed: false
+        createdAt: "2026-10-08T07:26:49.149Z"
     createdAt: "2026-10-07T15:29:24.627Z"
-    updatedAt: "2026-10-07T15:44:38.475Z"
+    updatedAt: "2026-10-08T07:26:49.149Z"
     assignee:
       type: agent
       identifier: Codex
@@ -7696,8 +7732,20 @@ tasks:
         title: Test provider failure retry reprocessing stale writes missing evidence blocking findings and immutable submission
         completed: false
         createdAt: "2026-10-07T15:29:27.990Z"
+      - id: SUB-007
+        title: Implement extraction provider registration, policy-aware capability selection, and adapter-scoped secrets without vendor branches in application services
+        completed: false
+        createdAt: "2026-10-08T07:26:45.264Z"
+      - id: SUB-008
+        title: Create an extraction adapter conformance kit covering schema fidelity, evidence mapping, partial output, unsupported capabilities, retries, cancellation, reprocessing, and provider failures
+        completed: false
+        createdAt: "2026-10-08T07:26:51.387Z"
+      - id: SUB-009
+        title: Prove portability with contrasting local and hosted extraction adapters before publishing the extension contract
+        completed: false
+        createdAt: "2026-10-08T07:26:53.055Z"
     createdAt: "2026-10-07T15:29:27.990Z"
-    updatedAt: "2026-10-07T15:44:42.292Z"
+    updatedAt: "2026-10-08T07:26:53.055Z"
     assignee:
       type: agent
       identifier: Codex

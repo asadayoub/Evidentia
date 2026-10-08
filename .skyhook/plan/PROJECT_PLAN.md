@@ -1,7 +1,7 @@
 # Project Plan: Evidentia
 
 > **Project ID**: `GPNKKMYX2EHA0GZ82WDJASXKGX` | **Profile**: `web-app`
-> **Compiled**: 2026-10-07T16:41:53.367Z by Skyhook Dynamic Plan Compiler
+> **Compiled**: 2026-10-08T07:27:10.633Z by Skyhook Dynamic Plan Compiler
 
 ## Executive Summary
 
@@ -11,14 +11,14 @@ An open-source, self-hostable platform that converts documents into inspectable,
 
 | Metric | Current Value | Notes |
 |:-------|:--------------|:------|
-| **Weekly Velocity** | **35 pts/wk** | Derived from 14-day rolling events |
-| **Average Cycle Time** | **10.9 hours** | Average in-progress to done duration |
-| **Backlog Work Remaining** | **302 pts** (50 stories) | Unfinished scope |
-| **Expected Completion (P50)** | 📅 **2026-12-06** | Standard velocity projection (8.6 wks) |
-| **Conservative Completion (P90)** | 📅 **2026-12-27** | Risk-adjusted delivery date (11.6 wks) |
+| **Weekly Velocity** | **55 pts/wk** | Derived from 14-day rolling events |
+| **Average Cycle Time** | **8.8 hours** | Average in-progress to done duration |
+| **Backlog Work Remaining** | **280 pts** (46 stories) | Unfinished scope |
+| **Expected Completion (P50)** | 📅 **2026-11-13** | Standard velocity projection (5.1 wks) |
+| **Conservative Completion (P90)** | 📅 **2026-11-25** | Risk-adjusted delivery date (6.9 wks) |
 
 > [!WARNING]
-> **Scope Creep Alert**: Net backlog growth (+217 pts) exceeds recent completion rate. Delivery target may shift.
+> **Scope Creep Alert**: Net backlog growth (+195 pts) exceeds recent completion rate. Delivery target may shift.
 
 ## 1. Visual Delivery Roadmap & Timeline
 
@@ -114,11 +114,11 @@ gantt
     section Interactive Schema Workbench
     Persist governed schemas for interactive use :done, s_0VJ9SHA39TA291D8QXB0TQS3HQ, 2026-10-03, 2026-10-07
     Establish the minimum trusted operator and tenant context :crit, done, s_N1ZNPJWFZYPV0MVB8FP137GRJP, 2026-10-07, 2026-10-07
-    Expose the governed schema lifecycle through a versioned API : s_X51S43NTMRW5ASYSKJBF7FW845, after s_0VJ9SHA39TA291D8QXB0TQS3HQ, 5d
-    Build the accessible Schema Workbench :crit, s_H98W5WTJBWT8EY0Q10P3KPCEEB, after s_STORY_017, 5d
+    Expose the governed schema lifecycle through a versioned API :done, s_X51S43NTMRW5ASYSKJBF7FW845, 2026-10-07, 2026-10-08
+    Build the accessible Schema Workbench :crit, done, s_H98W5WTJBWT8EY0Q10P3KPCEEB, 2026-10-08, 2026-10-08
     Prove the draft-to-published Schema Workbench journey :crit, s_265YM4FNANJAH2J338BKAWFXDM, after s_STORY_017, 5d
-    Establish the authenticated application shell and generated API boundary :crit, active, s_STORY_017, after s_N1ZNPJWFZYPV0MVB8FP137GRJP, 12d
-    Import export compare and evolve governed schemas :crit, s_STORY_018, after s_X51S43NTMRW5ASYSKJBF7FW845, 12d
+    Establish the authenticated application shell and generated API boundary :crit, done, s_STORY_017, 2026-10-07, 2026-10-07
+    Import export compare and evolve governed schemas :crit, done, s_STORY_018, 2026-10-08, 2026-10-08
 
     section Document Intake and Source Viewer
     Upload and preserve an original document : s_XRSZ0A5WZEQB0PQYD34PYR8EW3, 2026-10-03, 5d
@@ -189,7 +189,7 @@ gantt
 |:-------|:------------------|:---------|:--------|:-------------|:-----|:-------|
 | **REQ-001** | Untitled | `functional` | XRSZ0A5WZEQB0PQYD34PYR8EW3 (backlog)<br/>AN2RM9JX2PBR6J1NQ1KSHBYHSQ (backlog)<br/>C29D8MCQWYGWY6FFSP4YW7MNX7 (backlog)<br/>STORY-019 (backlog)<br/>STORY-022 (backlog)<br/>STORY-030 (backlog) | — | — | 🔴 Untraced |
 | **REQ-002** | Untitled | `functional` | J2ZHMCR2DNQSHD1VZY7CECT2HT (backlog)<br/>9M4MDW7FN1SGECW2X23WF01501 (backlog)<br/>AN2RM9JX2PBR6J1NQ1KSHBYHSQ (backlog)<br/>STORY-020 (backlog)<br/>STORY-022 (backlog) | — | — | 🔴 Untraced |
-| **REQ-003** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>0VJ9SHA39TA291D8QXB0TQS3HQ (done)<br/>X51S43NTMRW5ASYSKJBF7FW845 (backlog)<br/>H98W5WTJBWT8EY0Q10P3KPCEEB (backlog)<br/>265YM4FNANJAH2J338BKAWFXDM (backlog)<br/>SHF26TB4C43PC4KD2W3PRZ3R78 (backlog)<br/>STORY-018 (backlog)<br/>STORY-024 (backlog)<br/>STORY-025 (backlog) | `upgrade`<br/>`downgrade`<br/>`SchemaInterchangeEnvelope` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
+| **REQ-003** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>0VJ9SHA39TA291D8QXB0TQS3HQ (done)<br/>X51S43NTMRW5ASYSKJBF7FW845 (done)<br/>H98W5WTJBWT8EY0Q10P3KPCEEB (done)<br/>265YM4FNANJAH2J338BKAWFXDM (backlog)<br/>SHF26TB4C43PC4KD2W3PRZ3R78 (backlog)<br/>STORY-018 (done)<br/>STORY-024 (backlog)<br/>STORY-025 (backlog) | `upgrade`<br/>`downgrade`<br/>`SchemaDraftContentRequest` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
 | **REQ-004** | Untitled | `functional` | WN341EKS97VGCX76ZFR0KHX96Y (backlog)<br/>C29D8MCQWYGWY6FFSP4YW7MNX7 (backlog)<br/>7D8Q1STZ5VEWBSAR6W87P4DH1W (backlog)<br/>STORY-023 (backlog)<br/>STORY-024 (backlog)<br/>STORY-025 (backlog) | — | — | 🔴 Untraced |
 | **REQ-005** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>QM5MGN4VTK1J9CWEXMC50RM00G (backlog)<br/>MAQPX7K4Z5MD3BNT93YFJBRZR5 (backlog)<br/>STORY-025 (backlog) | — | X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
 | **REQ-006** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>YKQFD89QJYH87GQSMKCVQ104AK (backlog)<br/>MAQPX7K4Z5MD3BNT93YFJBRZR5 (backlog)<br/>STORY-025 (backlog)<br/>STORY-029 (backlog)<br/>STORY-031 (backlog) | — | X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
@@ -198,21 +198,21 @@ gantt
 | **REQ-009** | Untitled | `functional` | R26DFKYKFWHH981YK1QJEM18WN (backlog)<br/>7D8Q1STZ5VEWBSAR6W87P4DH1W (backlog) | — | — | 🔴 Untraced |
 | **REQ-010** | Untitled | `functional` | 1A43QS6QGZ4YWH5FG25XZWYEH2 (backlog)<br/>CDSSWKJ0X91XHKD7X3Q8XHXKE5 (backlog)<br/>3F1QK0FAD4X03Q4CB5XKDC1BJH (backlog)<br/>7D8Q1STZ5VEWBSAR6W87P4DH1W (backlog)<br/>STORY-026 (backlog)<br/>STORY-027 (backlog)<br/>STORY-028 (backlog) | — | — | 🔴 Untraced |
 | **REQ-011** | Untitled | `functional` | C29D8MCQWYGWY6FFSP4YW7MNX7 (backlog)<br/>STORY-029 (backlog)<br/>STORY-030 (backlog)<br/>STORY-031 (backlog)<br/>STORY-032 (backlog) | — | — | 🔴 Untraced |
-| **REQ-012** | Untitled | `functional` | STORY-007 (done)<br/>STORY-012 (cancelled)<br/>STORY-013 (cancelled)<br/>STORY-015 (cancelled)<br/>STORY-016 (cancelled)<br/>N1ZNPJWFZYPV0MVB8FP137GRJP (done)<br/>X51S43NTMRW5ASYSKJBF7FW845 (backlog)<br/>H98W5WTJBWT8EY0Q10P3KPCEEB (backlog)<br/>AN2RM9JX2PBR6J1NQ1KSHBYHSQ (backlog)<br/>5KENKXMX9EZDJ75R0JHJQ2KSSJ (backlog)<br/>7D8Q1STZ5VEWBSAR6W87P4DH1W (backlog)<br/>STORY-017 (in-progress)<br/>STORY-019 (backlog)<br/>STORY-022 (backlog)<br/>STORY-030 (backlog)<br/>STORY-037 (backlog) | `create_access_router`<br/>`current_session`<br/>`ErrorResponse` | — | 🟢 Implemented |
+| **REQ-012** | Untitled | `functional` | STORY-007 (done)<br/>STORY-012 (cancelled)<br/>STORY-013 (cancelled)<br/>STORY-015 (cancelled)<br/>STORY-016 (cancelled)<br/>N1ZNPJWFZYPV0MVB8FP137GRJP (done)<br/>X51S43NTMRW5ASYSKJBF7FW845 (done)<br/>H98W5WTJBWT8EY0Q10P3KPCEEB (done)<br/>AN2RM9JX2PBR6J1NQ1KSHBYHSQ (backlog)<br/>5KENKXMX9EZDJ75R0JHJQ2KSSJ (backlog)<br/>7D8Q1STZ5VEWBSAR6W87P4DH1W (backlog)<br/>STORY-017 (done)<br/>STORY-019 (backlog)<br/>STORY-022 (backlog)<br/>STORY-030 (backlog)<br/>STORY-037 (backlog) | `create_access_router`<br/>`current_session`<br/>`ErrorResponse` | — | 🟢 Implemented |
 | **REQ-013** | Untitled | `functional` | 4QGB75ND0XME0JVSYJN9K3PMTW (backlog)<br/>STORY-023 (backlog)<br/>STORY-035 (backlog)<br/>STORY-037 (backlog) | — | — | 🔴 Untraced |
 | **REQ-014** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-014 (cancelled)<br/>STORY-015 (cancelled)<br/>STORY-016 (cancelled)<br/>C29D8MCQWYGWY6FFSP4YW7MNX7 (backlog)<br/>3F1QK0FAD4X03Q4CB5XKDC1BJH (backlog)<br/>PEE73AVQEAC75HKDMA3FA1S4YJ (backlog)<br/>M7ZMYQSYB6G0W2T5M7TYCCZNHH (backlog)<br/>ECMWWJT024W5QXBQ5G6C1YMHQQ (backlog)<br/>STORY-026 (backlog)<br/>STORY-027 (backlog)<br/>STORY-032 (backlog)<br/>STORY-033 (backlog)<br/>STORY-034 (backlog)<br/>STORY-036 (backlog)<br/>STORY-037 (backlog) | `WorkerRuntimeSettings`<br/>`WorkerSettings`<br/>`load_worker_settings` | 8VC3FRAN1GRTK2F99NB459BWWJ | 🟢 Implemented |
 | **REQ-015** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>XRSZ0A5WZEQB0PQYD34PYR8EW3 (backlog)<br/>J2ZHMCR2DNQSHD1VZY7CECT2HT (backlog)<br/>9M4MDW7FN1SGECW2X23WF01501 (backlog)<br/>AN2RM9JX2PBR6J1NQ1KSHBYHSQ (backlog)<br/>WN341EKS97VGCX76ZFR0KHX96Y (backlog)<br/>4QGB75ND0XME0JVSYJN9K3PMTW (backlog)<br/>STORY-020 (backlog)<br/>STORY-022 (backlog)<br/>STORY-035 (backlog) | — | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
-| **REQ-016** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>0VJ9SHA39TA291D8QXB0TQS3HQ (done)<br/>X51S43NTMRW5ASYSKJBF7FW845 (backlog)<br/>H98W5WTJBWT8EY0Q10P3KPCEEB (backlog)<br/>265YM4FNANJAH2J338BKAWFXDM (backlog)<br/>SHF26TB4C43PC4KD2W3PRZ3R78 (backlog)<br/>STORY-018 (backlog)<br/>STORY-020 (backlog)<br/>STORY-025 (backlog) | `FieldSelector`<br/>`FieldAlias`<br/>`FieldMapping` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
-| **REQ-017** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>0VJ9SHA39TA291D8QXB0TQS3HQ (done)<br/>X51S43NTMRW5ASYSKJBF7FW845 (backlog)<br/>265YM4FNANJAH2J338BKAWFXDM (backlog)<br/>STORY-018 (backlog)<br/>STORY-024 (backlog) | — | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🔴 Untraced |
+| **REQ-016** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>0VJ9SHA39TA291D8QXB0TQS3HQ (done)<br/>X51S43NTMRW5ASYSKJBF7FW845 (done)<br/>H98W5WTJBWT8EY0Q10P3KPCEEB (done)<br/>265YM4FNANJAH2J338BKAWFXDM (backlog)<br/>SHF26TB4C43PC4KD2W3PRZ3R78 (backlog)<br/>STORY-018 (done)<br/>STORY-020 (backlog)<br/>STORY-025 (backlog) | `FieldSelector`<br/>`FieldAlias`<br/>`FieldMapping` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
+| **REQ-017** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>0VJ9SHA39TA291D8QXB0TQS3HQ (done)<br/>X51S43NTMRW5ASYSKJBF7FW845 (done)<br/>265YM4FNANJAH2J338BKAWFXDM (backlog)<br/>STORY-018 (done)<br/>STORY-024 (backlog) | `InspectedSchemaPackage`<br/>`inspect_schema_package` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
 | **REQ-018** | Untitled | `functional` | 2BJ99DB0QWS3FE3J0F50N6EPW4 (backlog)<br/>AV6YSSGTH46ET6J9NN0DDK7E6B (backlog)<br/>STORY-032 (backlog) | — | — | 🔴 Untraced |
-| **NFR-001** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>0VJ9SHA39TA291D8QXB0TQS3HQ (done)<br/>XRSZ0A5WZEQB0PQYD34PYR8EW3 (backlog)<br/>J2ZHMCR2DNQSHD1VZY7CECT2HT (backlog)<br/>SHF26TB4C43PC4KD2W3PRZ3R78 (backlog)<br/>QM5MGN4VTK1J9CWEXMC50RM00G (backlog)<br/>YKQFD89QJYH87GQSMKCVQ104AK (backlog)<br/>MAQPX7K4Z5MD3BNT93YFJBRZR5 (backlog)<br/>ZSHX48Q9AHPEBJCDM0DAD8ED2H (backlog)<br/>ACCCV50MZW87EEEPS6Y1HXGNAZ (backlog)<br/>7GZK6H8HR3XKPQ94Q89N85WH0Q (backlog)<br/>CDSSWKJ0X91XHKD7X3Q8XHXKE5 (backlog)<br/>STORY-018 (backlog)<br/>STORY-020 (backlog)<br/>STORY-023 (backlog)<br/>STORY-024 (backlog)<br/>STORY-026 (backlog)<br/>STORY-028 (backlog)<br/>STORY-031 (backlog)<br/>STORY-033 (backlog) | `PublicationProvenance`<br/>`StoredSchemaIntegrityError` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
-| **NFR-002** | Untitled | `functional` | STORY-010 (cancelled)<br/>STORY-011 (cancelled)<br/>STORY-014 (cancelled)<br/>STORY-016 (cancelled)<br/>N1ZNPJWFZYPV0MVB8FP137GRJP (done)<br/>XRSZ0A5WZEQB0PQYD34PYR8EW3 (backlog)<br/>7GZK6H8HR3XKPQ94Q89N85WH0Q (backlog)<br/>2BJ99DB0QWS3FE3J0F50N6EPW4 (backlog)<br/>AV6YSSGTH46ET6J9NN0DDK7E6B (backlog)<br/>M7ZMYQSYB6G0W2T5M7TYCCZNHH (backlog)<br/>STORY-017 (in-progress)<br/>STORY-021 (backlog)<br/>STORY-029 (backlog)<br/>STORY-033 (backlog)<br/>STORY-034 (backlog) | `contextQueryOptions`<br/>`TenantSelectionPage`<br/>`ProtectedRoute` | 8VC3FRAN1GRTK2F99NB459BWWJ | 🟢 Implemented |
+| **NFR-001** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>0VJ9SHA39TA291D8QXB0TQS3HQ (done)<br/>XRSZ0A5WZEQB0PQYD34PYR8EW3 (backlog)<br/>J2ZHMCR2DNQSHD1VZY7CECT2HT (backlog)<br/>SHF26TB4C43PC4KD2W3PRZ3R78 (backlog)<br/>QM5MGN4VTK1J9CWEXMC50RM00G (backlog)<br/>YKQFD89QJYH87GQSMKCVQ104AK (backlog)<br/>MAQPX7K4Z5MD3BNT93YFJBRZR5 (backlog)<br/>ZSHX48Q9AHPEBJCDM0DAD8ED2H (backlog)<br/>ACCCV50MZW87EEEPS6Y1HXGNAZ (backlog)<br/>7GZK6H8HR3XKPQ94Q89N85WH0Q (backlog)<br/>CDSSWKJ0X91XHKD7X3Q8XHXKE5 (backlog)<br/>STORY-018 (done)<br/>STORY-020 (backlog)<br/>STORY-023 (backlog)<br/>STORY-024 (backlog)<br/>STORY-026 (backlog)<br/>STORY-028 (backlog)<br/>STORY-031 (backlog)<br/>STORY-033 (backlog) | `ReplaceSchemaDraftRequest`<br/>`PublishSchemaDraftRequest`<br/>`PublishSchemaDraftResponse` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
+| **NFR-002** | Untitled | `functional` | STORY-010 (cancelled)<br/>STORY-011 (cancelled)<br/>STORY-014 (cancelled)<br/>STORY-016 (cancelled)<br/>N1ZNPJWFZYPV0MVB8FP137GRJP (done)<br/>XRSZ0A5WZEQB0PQYD34PYR8EW3 (backlog)<br/>7GZK6H8HR3XKPQ94Q89N85WH0Q (backlog)<br/>2BJ99DB0QWS3FE3J0F50N6EPW4 (backlog)<br/>AV6YSSGTH46ET6J9NN0DDK7E6B (backlog)<br/>M7ZMYQSYB6G0W2T5M7TYCCZNHH (backlog)<br/>STORY-017 (done)<br/>STORY-021 (backlog)<br/>STORY-029 (backlog)<br/>STORY-033 (backlog)<br/>STORY-034 (backlog) | `SchemaAuthorizationError`<br/>`SchemaCommandContext`<br/>`authorize_read` | 8VC3FRAN1GRTK2F99NB459BWWJ | 🟢 Implemented |
 | **NFR-003** | Untitled | `functional` | STORY-014 (cancelled)<br/>STORY-016 (cancelled)<br/>WN341EKS97VGCX76ZFR0KHX96Y (backlog)<br/>CDSSWKJ0X91XHKD7X3Q8XHXKE5 (backlog)<br/>R26DFKYKFWHH981YK1QJEM18WN (backlog)<br/>AV6YSSGTH46ET6J9NN0DDK7E6B (backlog)<br/>C29D8MCQWYGWY6FFSP4YW7MNX7 (backlog)<br/>3F1QK0FAD4X03Q4CB5XKDC1BJH (backlog)<br/>PEE73AVQEAC75HKDMA3FA1S4YJ (backlog)<br/>STORY-019 (backlog)<br/>STORY-023 (backlog)<br/>STORY-027 (backlog)<br/>STORY-028 (backlog)<br/>STORY-030 (backlog)<br/>STORY-032 (backlog) | — | — | 🔴 Untraced |
 | **NFR-004** | Untitled | `functional` | STORY-007 (done)<br/>STORY-009 (in-review)<br/>STORY-015 (cancelled)<br/>STORY-016 (cancelled)<br/>ECMWWJT024W5QXBQ5G6C1YMHQQ (backlog)<br/>STORY-021 (backlog)<br/>STORY-036 (backlog)<br/>STORY-037 (backlog) | `RuntimeEnvironment`<br/>`DatabaseSettings`<br/>`StorageSettings` | 8VC3FRAN1GRTK2F99NB459BWWJ<br/>HKSQBTGX2CZT36GCS8D3ZTM2PA | 🟢 Implemented |
-| **NFR-005** | Untitled | `functional` | STORY-013 (cancelled)<br/>STORY-016 (cancelled)<br/>H98W5WTJBWT8EY0Q10P3KPCEEB (backlog)<br/>265YM4FNANJAH2J338BKAWFXDM (backlog)<br/>AN2RM9JX2PBR6J1NQ1KSHBYHSQ (backlog)<br/>MAQPX7K4Z5MD3BNT93YFJBRZR5 (backlog)<br/>2BJ99DB0QWS3FE3J0F50N6EPW4 (backlog)<br/>STORY-017 (in-progress)<br/>STORY-026 (backlog) | `AccessStatus` | — | 🟢 Implemented |
-| **NFR-006** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-012 (cancelled)<br/>STORY-014 (cancelled)<br/>STORY-016 (cancelled)<br/>N1ZNPJWFZYPV0MVB8FP137GRJP (done)<br/>PEE73AVQEAC75HKDMA3FA1S4YJ (backlog)<br/>STORY-017 (in-progress)<br/>STORY-023 (backlog)<br/>STORY-026 (backlog)<br/>STORY-027 (backlog)<br/>STORY-029 (backlog)<br/>STORY-032 (backlog)<br/>STORY-034 (backlog)<br/>STORY-037 (backlog) | `LoggingSettings`<br/>`correlation_id`<br/>`HealthReport` | 8VC3FRAN1GRTK2F99NB459BWWJ | 🟢 Implemented |
+| **NFR-005** | Untitled | `functional` | STORY-013 (cancelled)<br/>STORY-016 (cancelled)<br/>H98W5WTJBWT8EY0Q10P3KPCEEB (done)<br/>265YM4FNANJAH2J338BKAWFXDM (backlog)<br/>AN2RM9JX2PBR6J1NQ1KSHBYHSQ (backlog)<br/>MAQPX7K4Z5MD3BNT93YFJBRZR5 (backlog)<br/>2BJ99DB0QWS3FE3J0F50N6EPW4 (backlog)<br/>STORY-017 (done)<br/>STORY-026 (backlog) | `AccessStatus` | — | 🟢 Implemented |
+| **NFR-006** | Untitled | `functional` | STORY-009 (in-review)<br/>STORY-012 (cancelled)<br/>STORY-014 (cancelled)<br/>STORY-016 (cancelled)<br/>N1ZNPJWFZYPV0MVB8FP137GRJP (done)<br/>PEE73AVQEAC75HKDMA3FA1S4YJ (backlog)<br/>STORY-017 (done)<br/>STORY-023 (backlog)<br/>STORY-026 (backlog)<br/>STORY-027 (backlog)<br/>STORY-029 (backlog)<br/>STORY-032 (backlog)<br/>STORY-034 (backlog)<br/>STORY-037 (backlog) | `LoggingSettings`<br/>`correlation_id`<br/>`HealthReport` | 8VC3FRAN1GRTK2F99NB459BWWJ | 🟢 Implemented |
 | **NFR-007** | Untitled | `functional` | STORY-010 (cancelled)<br/>M7ZMYQSYB6G0W2T5M7TYCCZNHH (backlog)<br/>STORY-021 (backlog)<br/>STORY-033 (backlog) | — | HKSQBTGX2CZT36GCS8D3ZTM2PA | 🔴 Untraced |
-| **NFR-008** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-007 (done)<br/>STORY-008 (done)<br/>STORY-010 (cancelled)<br/>STORY-012 (cancelled)<br/>STORY-015 (cancelled)<br/>STORY-016 (cancelled)<br/>0VJ9SHA39TA291D8QXB0TQS3HQ (done)<br/>N1ZNPJWFZYPV0MVB8FP137GRJP (done)<br/>X51S43NTMRW5ASYSKJBF7FW845 (backlog)<br/>265YM4FNANJAH2J338BKAWFXDM (backlog)<br/>J2ZHMCR2DNQSHD1VZY7CECT2HT (backlog)<br/>9M4MDW7FN1SGECW2X23WF01501 (backlog)<br/>SHF26TB4C43PC4KD2W3PRZ3R78 (backlog)<br/>WN341EKS97VGCX76ZFR0KHX96Y (backlog)<br/>YKQFD89QJYH87GQSMKCVQ104AK (backlog)<br/>ACCCV50MZW87EEEPS6Y1HXGNAZ (backlog)<br/>1A43QS6QGZ4YWH5FG25XZWYEH2 (backlog)<br/>R26DFKYKFWHH981YK1QJEM18WN (backlog)<br/>3F1QK0FAD4X03Q4CB5XKDC1BJH (backlog)<br/>5KENKXMX9EZDJ75R0JHJQ2KSSJ (backlog)<br/>7D8Q1STZ5VEWBSAR6W87P4DH1W (backlog)<br/>ECMWWJT024W5QXBQ5G6C1YMHQQ (backlog)<br/>STORY-017 (in-progress)<br/>STORY-018 (backlog)<br/>STORY-019 (backlog)<br/>STORY-020 (backlog)<br/>STORY-023 (backlog)<br/>STORY-024 (backlog)<br/>STORY-030 (backlog)<br/>STORY-031 (backlog)<br/>STORY-035 (backlog)<br/>STORY-036 (backlog) | `upgrade`<br/>`AccessApiRuntime`<br/>`AuthenticateLocalOperator` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
+| **NFR-008** | Untitled | `functional` | 4PJTJVE73D2MN7GT64T48S05HT (done)<br/>STORY-007 (done)<br/>STORY-008 (done)<br/>STORY-010 (cancelled)<br/>STORY-012 (cancelled)<br/>STORY-015 (cancelled)<br/>STORY-016 (cancelled)<br/>0VJ9SHA39TA291D8QXB0TQS3HQ (done)<br/>N1ZNPJWFZYPV0MVB8FP137GRJP (done)<br/>X51S43NTMRW5ASYSKJBF7FW845 (done)<br/>265YM4FNANJAH2J338BKAWFXDM (backlog)<br/>J2ZHMCR2DNQSHD1VZY7CECT2HT (backlog)<br/>9M4MDW7FN1SGECW2X23WF01501 (backlog)<br/>SHF26TB4C43PC4KD2W3PRZ3R78 (backlog)<br/>WN341EKS97VGCX76ZFR0KHX96Y (backlog)<br/>YKQFD89QJYH87GQSMKCVQ104AK (backlog)<br/>ACCCV50MZW87EEEPS6Y1HXGNAZ (backlog)<br/>1A43QS6QGZ4YWH5FG25XZWYEH2 (backlog)<br/>R26DFKYKFWHH981YK1QJEM18WN (backlog)<br/>3F1QK0FAD4X03Q4CB5XKDC1BJH (backlog)<br/>5KENKXMX9EZDJ75R0JHJQ2KSSJ (backlog)<br/>7D8Q1STZ5VEWBSAR6W87P4DH1W (backlog)<br/>ECMWWJT024W5QXBQ5G6C1YMHQQ (backlog)<br/>STORY-017 (done)<br/>STORY-018 (done)<br/>STORY-019 (backlog)<br/>STORY-020 (backlog)<br/>STORY-023 (backlog)<br/>STORY-024 (backlog)<br/>STORY-030 (backlog)<br/>STORY-031 (backlog)<br/>STORY-035 (backlog)<br/>STORY-036 (backlog) | `upgrade`<br/>`AccessApiRuntime`<br/>`SchemaApiRuntime` | VPCJJY62YNW6VXJ80S7BRK9447<br/>X5BHHCAWFJ2SZKPBCP5ECENB97 | 🟢 Implemented |
 | **NFR-009** | Untitled | `functional` | STORY-015 (cancelled)<br/>5KENKXMX9EZDJ75R0JHJQ2KSSJ (backlog)<br/>ECMWWJT024W5QXBQ5G6C1YMHQQ (backlog)<br/>4QGB75ND0XME0JVSYJN9K3PMTW (backlog)<br/>STORY-035 (backlog)<br/>STORY-036 (backlog)<br/>STORY-037 (backlog) | — | — | 🔴 Untraced |
 
 
@@ -243,6 +243,9 @@ gantt
 - **TXEQ9J0ARXYKS7CMQ0V1Z9FT5R**: Use replaceable bounded authentication throttling (Status: `accepted`, Category: `security`)
 - **G1NEKECAE2MSH73WGGZVSY43JM**: Generate a framework-neutral typed TypeScript API client from OpenAPI (Status: `accepted`, Category: `frontend-api`)
 - **0QR0XKZ86E1Y637NZK7SM6YG1Z**: Use routed protected shell with query-managed server state (Status: `accepted`, Category: `frontend-architecture`)
+- **P1HA6FMJ1Q1J375Y86KM2QQ0GH**: Use a registry-driven visual Schema Workbench with explicit lifecycle commands (Status: `accepted`, Category: `architecture`)
+- **C0G6H4W34FE915CSVHGQXDVQHZ**: Evolve schemas through portable canonical packages and revision-guarded drafts (Status: `accepted`, Category: `architecture`)
+- **Y87ZMJGAW6CGY7MSPDYKJ2W436**: Use capability-based provider ports for document understanding, extraction, and delivery (Status: `accepted`, Category: `architecture`)
 
 ## 4. Declared Tech Stack
 
@@ -284,6 +287,7 @@ gantt
 - **argon2-cffi** (`Identity Security`)
 - **React Router** (`Frontend Routing`)
 - **TanStack Query** (`Frontend Server State`)
+- **axe-core** (`Testing`)
 
 ## 5. Granular Scoped Plans
 
