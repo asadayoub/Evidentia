@@ -1,6 +1,11 @@
 # Changelog
 
 ## [Unreleased]
+- Story H98W5WTJBWT8EY0Q10P3KPCEEB: in-review to done
+- Task TASK-026: in-review to done
+- Task TASK-026: in-progress to in-review
+- Task TASK-026: ready to in-progress
+- Task TASK-026: backlog to ready
 - Task TASK-025: in-review to done
 - Task TASK-025: in-progress to in-review
 - Task TASK-025: ready to in-progress

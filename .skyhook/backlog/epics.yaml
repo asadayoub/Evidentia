@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T06:33:34.189Z"
+  updatedAt: "2026-10-08T06:38:57.803Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1678,7 +1678,7 @@ stories:
     acceptanceCriteria:
       - UI renders fields, groups, and tables from schema metadata and meets primary accessibility needs.
     priority: high
-    status: in-progress
+    status: done
     storyPoints: null
     dependsOn:
       - STORY-017
@@ -1690,12 +1690,17 @@ stories:
       - REQ-016
       - NFR-005
     createdAt: "2026-10-03T08:20:53.861Z"
-    updatedAt: "2026-10-08T06:22:31.127Z"
+    updatedAt: "2026-10-08T06:38:57.803Z"
     childTasks:
       - TASK-024
       - TASK-025
       - TASK-026
     startedAt: "2026-10-08T06:22:31.127Z"
+    completedAt: "2026-10-08T06:38:57.803Z"
+    assignee:
+      type: agent
+      identifier: codex
+      name: codex
   - id: 265YM4FNANJAH2J338BKAWFXDM
     epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
     title: Prove the draft-to-published Schema Workbench journey
@@ -5612,7 +5617,7 @@ tasks:
     parentType: story
     parentId: H98W5WTJBWT8EY0Q10P3KPCEEB
     type: test
-    status: backlog
+    status: done
     priority: high
     storyPoints: 3
     estimatedMinutes: 180
@@ -5630,34 +5635,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Verify the primary application journey against disposable native PostgreSQL
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:16.529Z"
+        completedAt: "2026-10-08T06:38:16.033Z"
       - id: SUB-002
         title: Verify validation, authorization, conflict, retry, restart, expiry, and recovery paths applicable to the story
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:16.529Z"
+        completedAt: "2026-10-08T06:38:17.855Z"
       - id: SUB-003
         title: Verify tenant isolation, secret absence, stable errors, correlation, and immutable history
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:16.529Z"
+        completedAt: "2026-10-08T06:38:19.702Z"
       - id: SUB-004
         title: Run focused unit, integration, contract, frontend, accessibility, and end-to-end checks
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:16.529Z"
+        completedAt: "2026-10-08T06:38:22.543Z"
       - id: SUB-005
         title: Document exact manual interaction steps, expected results, limitations, and troubleshooting
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:16.529Z"
+        completedAt: "2026-10-08T06:38:25.165Z"
       - id: SUB-006
         title: Run Skyhook policies, standards, traceability, and full repository quality gates
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:16.529Z"
+        completedAt: "2026-10-08T06:38:28.131Z"
     createdAt: "2026-10-07T15:26:16.529Z"
-    updatedAt: "2026-10-07T15:41:58.217Z"
+    updatedAt: "2026-10-08T06:38:34.437Z"
     assignee:
       type: agent
-      identifier: Codex
-      name: Codex
+      identifier: codex
+      name: codex
+    startedAt: "2026-10-08T06:33:57.825Z"
+    completedAt: "2026-10-08T06:38:34.437Z"
   - id: TASK-027
     title: Assemble representative fixtures for Prove the draft-to-published Schema Workbench journey
     description: "Purpose: establish the first implementation pass for \"Prove the draft-to-published Schema Workbench journey\". Contribution: turns the parent story into explicit contracts, invariants, representative state, and testable boundaries without pulling unrelated later capabilities forward."
