@@ -7,45 +7,19 @@ import {
   type SchemaClient,
   type SchemaDraft,
   type SchemaImportPreview,
-  type SessionResponse,
 } from "@evidentia/typescript-sdk";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import axe from "axe-core";
 import { describe, expect, it, vi } from "vitest";
 
 import { App } from "../App";
+import { SCHEMA_WORKBENCH_JOURNEY } from "../test/schema-workbench-fixtures";
 
-const SESSION: SessionResponse = {
-  active_tenant_id: "tenant-1",
-  available_tenants: [],
-  operator_id: "operator-1",
-  tenant_selection_required: false,
-};
-
-const CONTEXT: CurrentContext = {
-  authenticated_at: "2026-10-08T06:00:00Z",
-  capabilities: ["schemas.publish", "schemas.read", "schemas.write"],
-  correlation_id: "request-1",
-  display_name: "Schema Administrator",
-  login_identifier: "schema@example.test",
-  membership_id: "membership-1",
-  operator_id: "operator-1",
-  session_id: "session-1",
-  tenant_id: "tenant-1",
-  tenant_name: "Schema Team",
-  tenant_slug: "schema-team",
-};
-
-const EMPTY_DRAFT: SchemaDraft = {
-  schema_id: "123e4567-e89b-12d3-a456-426614174000",
-  version: 1,
-  revision: 1,
-  content: { artifacts: [], fields: [], modules: [], releaseLabel: null },
-  created_by: "operator-1",
-  updated_by: "operator-1",
-  created_at: "2026-10-08T06:00:00Z",
-  updated_at: "2026-10-08T06:00:00Z",
-};
+const {
+  context: CONTEXT,
+  emptyDraft: EMPTY_DRAFT,
+  session: SESSION,
+} = SCHEMA_WORKBENCH_JOURNEY;
 
 function accessClient(context: CurrentContext = CONTEXT): AccessClient {
   return {
@@ -307,7 +281,20 @@ describe("Schema Workbench", () => {
     const previewResult: SchemaImportPreview = {
       canonical_sha256: "a".repeat(64),
       compatibility: null,
-      content: { artifacts: [], fields: [], modules: [] },
+      content: {
+        artifacts: [],
+        fields: [],
+        modules: [
+          {
+            artifacts: [],
+            fields: [],
+            id: "20000000-0000-4000-8000-000000000001",
+            key: "supplier",
+            releaseLabel: "Synthetic supplier module",
+            version: 1,
+          },
+        ],
+      },
       creates_new_draft: true,
       envelope_version: 1,
       format: "evidentia.schema-draft",
@@ -338,18 +325,7 @@ describe("Schema Workbench", () => {
     await screen.findByRole("heading", {
       name: "Start with the structure your documents need",
     });
-    const schemaPackage = {
-      format: "evidentia.schema-draft",
-      version: 1,
-      schema: {
-        artifacts: [],
-        fields: [],
-        id: EMPTY_DRAFT.schema_id,
-        modules: [],
-        releaseLabel: null,
-        version: 1,
-      },
-    };
+    const schemaPackage = SCHEMA_WORKBENCH_JOURNEY.composedPackage;
     fireEvent.change(screen.getByLabelText("Schema package"), {
       target: {
         files: [

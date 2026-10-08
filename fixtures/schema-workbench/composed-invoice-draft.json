@@ -1,0 +1,104 @@
+{
+  "format": "evidentia.schema-draft",
+  "version": 1,
+  "schema": {
+    "id": "10000000-0000-4000-8000-000000000001",
+    "version": 1,
+    "releaseLabel": "Synthetic composed invoice",
+    "fields": [
+      {
+        "key": "invoice_number",
+        "cardinality": { "minimum": 1, "maximum": 1 },
+        "artifacts": [],
+        "value": {
+          "type": {
+            "kind": "identifier",
+            "min_length": 1,
+            "max_length": 80,
+            "pattern": null
+          },
+          "artifacts": []
+        }
+      }
+    ],
+    "modules": [
+      {
+        "id": "20000000-0000-4000-8000-000000000001",
+        "version": 1,
+        "key": "supplier",
+        "releaseLabel": "Synthetic supplier module",
+        "fields": [
+          {
+            "key": "supplier_name",
+            "cardinality": { "minimum": 1, "maximum": 1 },
+            "artifacts": [],
+            "value": {
+              "type": {
+                "kind": "string",
+                "min_length": 1,
+                "max_length": 200,
+                "pattern": null
+              },
+              "artifacts": []
+            }
+          }
+        ],
+        "artifacts": []
+      },
+      {
+        "id": "20000000-0000-4000-8000-000000000002",
+        "version": 1,
+        "key": "invoice_lines",
+        "releaseLabel": "Synthetic invoice lines module",
+        "fields": [
+          {
+            "key": "line_items",
+            "cardinality": { "minimum": 0, "maximum": 1 },
+            "artifacts": [],
+            "value": {
+              "type": { "kind": "table", "min_rows": 1, "max_rows": null },
+              "artifacts": [],
+              "tableColumns": [
+                {
+                  "key": "description",
+                  "cardinality": { "minimum": 1, "maximum": 1 },
+                  "artifacts": [],
+                  "value": {
+                    "type": {
+                      "kind": "string",
+                      "min_length": 1,
+                      "max_length": 500,
+                      "pattern": null
+                    },
+                    "artifacts": []
+                  }
+                },
+                {
+                  "key": "amount",
+                  "cardinality": { "minimum": 1, "maximum": 1 },
+                  "artifacts": [],
+                  "value": {
+                    "type": {
+                      "kind": "money",
+                      "amount": {
+                        "kind": "decimal",
+                        "precision": 18,
+                        "scale": 2,
+                        "minimum": null,
+                        "maximum": null
+                      },
+                      "allowed_currencies": ["PKR", "USD"]
+                    },
+                    "artifacts": []
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "artifacts": []
+      }
+    ],
+    "artifacts": []
+  }
+}

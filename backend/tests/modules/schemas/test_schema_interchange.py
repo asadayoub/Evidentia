@@ -122,3 +122,29 @@ def test_empty_mutable_draft_has_a_deterministic_round_trip() -> None:
     assert import_schema_draft(payload) == draft
     assert export_schema_draft(draft) == payload
     assert b'"format":"evidentia.schema-draft"' in payload
+
+
+def test_mutable_draft_import_rejects_duplicate_root_fields_before_preview() -> None:
+    """Keep invalid package content outside preview and persistence boundaries.
+
+    @skyhook-implements REQ-003
+    @skyhook-implements NFR-008
+    @skyhook-story 265YM4FNANJAH2J338BKAWFXDM
+    """
+    document = json.loads(
+        export_schema_draft(
+            SchemaDraft(
+                SchemaId("123e4567-e89b-12d3-a456-426614174000"),
+                SchemaVersion(1),
+                fields=(
+                    FieldDefinition(
+                        FieldKey("invoice_number"), ValueDefinition.scalar(StringType())
+                    ),
+                ),
+            )
+        )
+    )
+    document["schema"]["fields"].append(document["schema"]["fields"][0])
+
+    with pytest.raises(ValueError, match="duplicate field keys"):
+        import_schema_draft(json.dumps(document))

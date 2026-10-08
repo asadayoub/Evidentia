@@ -14,6 +14,7 @@ import asyncio
 import json
 from dataclasses import dataclass
 from http.cookies import SimpleCookie
+from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
 from uuid import UUID, uuid4
@@ -36,6 +37,21 @@ pytestmark = pytest.mark.postgres
 
 _PASSWORD = "schema-api-unique-password"
 _ORIGIN = "http://localhost:3000"
+_JOURNEY_FIXTURES = Path(__file__).parents[4] / "fixtures" / "schema-workbench"
+
+
+def _journey_fixture(name: str) -> dict[str, Any]:
+    """Load one permission-clear synthetic Schema Workbench journey fixture.
+
+    @skyhook-implements REQ-003
+    @skyhook-implements REQ-016
+    @skyhook-implements REQ-017
+    @skyhook-story 265YM4FNANJAH2J338BKAWFXDM
+    """
+    value: object = json.loads((_JOURNEY_FIXTURES / name).read_text())
+    if not isinstance(value, dict):
+        raise TypeError("schema journey fixture must be a JSON object")
+    return value
 
 
 @dataclass(frozen=True, slots=True)
@@ -498,6 +514,86 @@ async def _exercise_schema_api(database: DisposablePostgresDatabase) -> None:
         assert created_from_import.json()["draft"]["schema_id"] != schema_id
         assert created_from_import.json()["draft"]["revision"] == 1
 
+        invalid_composed_package = _journey_fixture("invalid-duplicate-field-draft.json")
+        invalid_composed_preview = await _request(
+            app,
+            "POST",
+            "/api/v1/schemas/imports/preview",
+            body={"package": invalid_composed_package},
+            headers=browser,
+        )
+        assert invalid_composed_preview.status == 400
+        assert invalid_composed_preview.json()["code"] == "invalid_schema_package"
+
+        composed_package = _journey_fixture("composed-invoice-draft.json")
+        composed_preview = await _request(
+            app,
+            "POST",
+            "/api/v1/schemas/imports/preview",
+            body={"package": composed_package},
+            headers=browser,
+        )
+        assert composed_preview.status == 200
+        assert composed_preview.json()["creates_new_draft"] is True
+        assert len(composed_preview.json()["content"]["modules"]) == 2
+
+        composed_comparison = await _request(
+            app,
+            "POST",
+            "/api/v1/schemas/imports/preview",
+            body={"package": composed_package, "target_schema_id": schema_id},
+            headers=browser,
+        )
+        assert composed_comparison.status == 200
+        assert composed_comparison.json()["creates_new_draft"] is False
+        assert composed_comparison.json()["compatibility"] is not None
+
+        composed_import = await _request(
+            app,
+            "POST",
+            "/api/v1/schemas/imports",
+            body={"package": composed_package},
+            headers={**browser, "idempotency-key": "apply-composed-import"},
+        )
+        assert composed_import.status == 201
+        assert composed_import.json()["created"] is True
+        composed_id = composed_import.json()["draft"]["schema_id"]
+        assert composed_id != composed_package["schema"]["id"]
+
+        composed_publication = await _request(
+            app,
+            "POST",
+            f"/api/v1/schemas/drafts/{composed_id}/publications",
+            body={"expected_revision": 1},
+            headers={**browser, "idempotency-key": "publish-composed-import"},
+        )
+        assert composed_publication.status == 201
+        composed_snapshot = composed_publication.json()["publication"]["snapshot"]
+        assert [module["key"] for module in composed_snapshot["schema"]["modules"]] == [
+            "supplier",
+            "invoice_lines",
+        ]
+        assert composed_publication.json()["next_draft"]["version"] == 2
+
+        advanced_content = dict(composed_preview.json()["content"])
+        advanced_content["releaseLabel"] = "Synthetic composed invoice next draft"
+        advanced_composed_draft = await _request(
+            app,
+            "PUT",
+            f"/api/v1/schemas/drafts/{composed_id}",
+            body={"expected_revision": 2, "content": advanced_content},
+            headers={**browser, "idempotency-key": "advance-composed-draft"},
+        )
+        assert advanced_composed_draft.status == 200
+        immutable_composed_publication = await _request(
+            app,
+            "GET",
+            f"/api/v1/schemas/{composed_id}/versions/1",
+            headers={"cookie": browser["cookie"]},
+        )
+        assert immutable_composed_publication.status == 200
+        assert immutable_composed_publication.json()["snapshot"] == composed_snapshot
+
         exported_publication = await _request(
             app,
             "GET",
@@ -528,6 +624,13 @@ async def _exercise_schema_api(database: DisposablePostgresDatabase) -> None:
                 replayed_import.body,
                 stale_import.body,
                 created_from_import.body,
+                invalid_composed_preview.body,
+                composed_preview.body,
+                composed_comparison.body,
+                composed_import.body,
+                composed_publication.body,
+                advanced_composed_draft.body,
+                immutable_composed_publication.body,
                 exported_publication.body,
                 restarted_import_replay.body,
             )
@@ -642,5 +745,11 @@ async def _exercise_schema_api(database: DisposablePostgresDatabase) -> None:
 def test_schema_api_lifecycle_is_authorized_atomic_and_retry_safe(
     disposable_postgres_database: DisposablePostgresDatabase,
 ) -> None:
-    """Exercise the browser-visible lifecycle, conflicts, and safe retries."""
+    """Exercise the complete browser-visible schema journey and safe recovery.
+
+    @skyhook-implements REQ-003
+    @skyhook-implements REQ-016
+    @skyhook-implements REQ-017
+    @skyhook-story 265YM4FNANJAH2J338BKAWFXDM
+    """
     asyncio.run(_exercise_schema_api(disposable_postgres_database))

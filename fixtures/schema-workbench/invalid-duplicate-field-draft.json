@@ -1,0 +1,41 @@
+{
+  "format": "evidentia.schema-draft",
+  "version": 1,
+  "schema": {
+    "id": "10000000-0000-4000-8000-000000000002",
+    "version": 1,
+    "releaseLabel": "Invalid duplicate fixture",
+    "fields": [
+      {
+        "key": "invoice_number",
+        "cardinality": { "minimum": 0, "maximum": 1 },
+        "artifacts": [],
+        "value": {
+          "type": {
+            "kind": "string",
+            "min_length": 0,
+            "max_length": null,
+            "pattern": null
+          },
+          "artifacts": []
+        }
+      },
+      {
+        "key": "invoice_number",
+        "cardinality": { "minimum": 0, "maximum": 1 },
+        "artifacts": [],
+        "value": {
+          "type": {
+            "kind": "string",
+            "min_length": 0,
+            "max_length": null,
+            "pattern": null
+          },
+          "artifacts": []
+        }
+      }
+    ],
+    "modules": [],
+    "artifacts": []
+  }
+}

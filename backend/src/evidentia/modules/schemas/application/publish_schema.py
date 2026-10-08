@@ -18,7 +18,10 @@ from evidentia.modules.schemas.domain.compatibility import (
     CompatibilityReport,
     compare_schema_versions,
 )
-from evidentia.modules.schemas.domain.definitions import FieldDefinition
+from evidentia.modules.schemas.domain.definitions import (
+    FieldDefinition,
+    ensure_unique_root_fields,
+)
 from evidentia.modules.schemas.domain.identity import ReleaseLabel, SchemaId, SchemaVersion
 from evidentia.modules.schemas.domain.modules import PublishedSchemaModule, PublishedSchemaVersion
 
@@ -39,6 +42,22 @@ class SchemaDraft:
     modules: tuple[PublishedSchemaModule, ...] = ()
     release_label: ReleaseLabel | None = None
     artifacts: ArtifactBindings = field(default_factory=ArtifactBindings)
+
+    def __post_init__(self) -> None:
+        """Reject structurally invalid mutable content at every ingress boundary.
+
+        @skyhook-implements REQ-003
+        @skyhook-implements NFR-008
+        @skyhook-story 265YM4FNANJAH2J338BKAWFXDM
+        """
+        if not isinstance(self.fields, tuple) or not isinstance(self.modules, tuple):
+            raise ValueError("schema draft fields and modules must use immutable tuples")
+        ensure_unique_root_fields(self.fields)
+        if not all(isinstance(module, PublishedSchemaModule) for module in self.modules):
+            raise ValueError("schema draft modules must be immutable published modules")
+        references = [module.reference for module in self.modules]
+        if len(set(references)) != len(references):
+            raise ValueError("schema draft must not repeat a module version")
 
 
 @dataclass(frozen=True, slots=True)

@@ -1,6 +1,10 @@
 # Changelog
 
 ## [Unreleased]
+- Task TASK-027: in-progress to in-review
+- Task TASK-027: ready to in-progress
+- Task TASK-027: backlog to ready
+- Story 265YM4FNANJAH2J338BKAWFXDM: backlog to ready
 - Recorded decision: Use capability-based provider ports for document understanding, extraction, and delivery (Y87ZMJGAW6CGY7MSPDYKJ2W436)
 - Story STORY-018: in-review to done
 - Task TASK-035: in-review to done

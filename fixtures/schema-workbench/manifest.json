@@ -1,0 +1,49 @@
+{
+  "fixtureSet": "schema-workbench-journey-v1",
+  "provenance": {
+    "origin": "synthetic",
+    "permission": "CC0-1.0",
+    "containsPersonalData": false,
+    "maintainer": "Evidentia project"
+  },
+  "isolation": {
+    "database": "unique disposable PostgreSQL database created by the test harness",
+    "cleanup": "database is dropped during guaranteed fixture teardown",
+    "developerData": "never read, migrated, truncated, or modified"
+  },
+  "identities": {
+    "ownerLogin": "schema-journey-owner@example.test",
+    "readOnlyLogin": "schema-journey-reader@example.test",
+    "tenantSlug": "schema-journey",
+    "note": "Passwords and session tokens are generated or supplied only by the test harness and are not fixture data."
+  },
+  "cases": [
+    {
+      "id": "valid-composed-invoice",
+      "file": "composed-invoice-draft.json",
+      "purpose": "Create, validate, compose, compare, publish, and reload a dynamic invoice schema containing direct fields and immutable modules.",
+      "assertions": [
+        "preview succeeds without mutation",
+        "server assigns the created draft identity",
+        "module versions and dynamic fields survive publication",
+        "published version remains immutable after the draft advances"
+      ]
+    },
+    {
+      "id": "invalid-duplicate-root-field",
+      "file": "invalid-duplicate-field-draft.json",
+      "purpose": "Prove invalid dynamic content is rejected before persistence.",
+      "assertions": [
+        "preview returns invalid_schema_package",
+        "no draft is created"
+      ]
+    }
+  ],
+  "acceptanceCriteria": {
+    "create": "apply the valid package as a new server-owned draft",
+    "validate": "preview both valid and invalid packages",
+    "compare": "preview the valid package against an existing draft and inspect compatibility",
+    "publish": "publish the created draft and retrieve its immutable version",
+    "compose": "retain and publish both embedded immutable module versions"
+  }
+}

@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T07:11:47.838Z"
+  updatedAt: "2026-10-08T07:35:10.217Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -1708,7 +1708,7 @@ stories:
     acceptanceCriteria:
       - A user can create, validate, compare, publish, and compose a schema end to end.
     priority: high
-    status: backlog
+    status: in-progress
     storyPoints: null
     dependsOn:
       - STORY-017
@@ -1723,11 +1723,16 @@ stories:
       - NFR-005
       - NFR-008
     createdAt: "2026-10-03T08:20:53.861Z"
-    updatedAt: "2026-10-03T08:20:53.861Z"
+    updatedAt: "2026-10-08T07:30:38.080Z"
     childTasks:
       - TASK-027
       - TASK-028
       - TASK-029
+    assignee:
+      type: agent
+      identifier: Codex
+      name: Codex
+    startedAt: "2026-10-08T07:30:38.080Z"
   - id: XRSZ0A5WZEQB0PQYD34PYR8EW3
     epicId: JA6EY894YZ69F5JN40GG143M2S
     title: Upload and preserve an original document
@@ -5683,7 +5688,7 @@ tasks:
     parentType: story
     parentId: 265YM4FNANJAH2J338BKAWFXDM
     type: test
-    status: backlog
+    status: in-review
     priority: high
     storyPoints: 3
     estimatedMinutes: 240
@@ -5704,30 +5709,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Map every parent acceptance criterion to a representative fixture and observable assertion
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:21.930Z"
+        completedAt: "2026-10-08T07:35:01.889Z"
       - id: SUB-002
         title: Create tenant-scoped native PostgreSQL fixtures without modifying developer data
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:21.930Z"
+        completedAt: "2026-10-08T07:35:00.083Z"
       - id: SUB-003
         title: Prepare browser, API, generated-client, and persistence test identities
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:21.930Z"
+        completedAt: "2026-10-08T07:35:03.719Z"
       - id: SUB-004
         title: Include representative valid, invalid, forbidden, conflicting, and historical states
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:21.930Z"
+        completedAt: "2026-10-08T07:35:05.896Z"
       - id: SUB-005
         title: Document fixture provenance, setup, cleanup, and deterministic identifiers
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:21.930Z"
+        completedAt: "2026-10-08T07:35:07.727Z"
     createdAt: "2026-10-07T15:26:21.930Z"
-    updatedAt: "2026-10-07T15:42:03.631Z"
+    updatedAt: "2026-10-08T07:35:10.217Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
+    lease:
+      agentId: Codex
+      leasedAt: "2026-10-08T07:30:31.935Z"
+      expiresAt: "2026-10-08T09:30:31.935Z"
+      durationMinutes: 120
+      heartbeatAt: "2026-10-08T07:30:31.935Z"
+    startedAt: "2026-10-08T07:30:38.080Z"
   - id: TASK-028
     title: Exercise complete interaction and recovery paths for Prove the draft-to-published Schema Workbench journey
     description: "Purpose: make \"Prove the draft-to-published Schema Workbench journey\" usable through its supported application boundaries. Contribution: connects tenant-authorized backend behavior to versioned API, generated-client, and accessible browser interactions where required by the story."
