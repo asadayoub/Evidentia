@@ -2,6 +2,7 @@ import {
   EvidentiaApiError,
   type AccessClient,
   type CurrentContext,
+  type SchemaClient,
   type SessionResponse,
 } from "@evidentia/typescript-sdk";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
@@ -44,6 +45,21 @@ function fakeAccess(overrides: Partial<AccessClient> = {}): AccessClient {
     login: () => Promise.resolve(ACTIVE_SESSION),
     logout: () => Promise.resolve(),
     selectTenant: () => Promise.resolve(ACTIVE_SESSION),
+    ...overrides,
+  };
+}
+
+function fakeSchemas(overrides: Partial<SchemaClient> = {}): SchemaClient {
+  return {
+    createDraft: () => Promise.reject(new Error("unexpected schema creation")),
+    getDraft: () => Promise.reject(new Error("unexpected schema retrieval")),
+    getPublication: () =>
+      Promise.reject(new Error("unexpected publication retrieval")),
+    listDrafts: () => Promise.resolve({ items: [], next_cursor: null }),
+    publishDraft: () =>
+      Promise.reject(new Error("unexpected schema publication")),
+    replaceDraft: () =>
+      Promise.reject(new Error("unexpected schema replacement")),
     ...overrides,
   };
 }
@@ -140,7 +156,13 @@ describe("Evidentia authenticated application shell", () => {
       );
     const access = fakeAccess({ getSession });
 
-    render(<App access={access} initialEntries={["/app/schemas"]} />);
+    render(
+      <App
+        access={access}
+        schemas={fakeSchemas()}
+        initialEntries={["/app/schemas"]}
+      />,
+    );
 
     fireEvent.change(
       await screen.findByLabelText("Email or login identifier"),

@@ -1,6 +1,7 @@
 import {
   createAccessClient,
   createEvidentiaClient,
+  createSchemaClient,
 } from "@evidentia/typescript-sdk";
 
 const DEFAULT_API_URL = "http://127.0.0.1:8000";
@@ -20,6 +21,13 @@ export function apiBaseUrl(): string {
  * @skyhook-implements REQ-012
  * @skyhook-story STORY-017
  */
-export const browserAccessClient = createAccessClient(
-  createEvidentiaClient({ baseUrl: apiBaseUrl() }),
-);
+const browserClient = createEvidentiaClient({ baseUrl: apiBaseUrl() });
+
+export const browserAccessClient = createAccessClient(browserClient);
+
+/** Shared schema lifecycle client over the same credentialed browser transport.
+ * @skyhook-implements REQ-003
+ * @skyhook-implements REQ-012
+ * @skyhook-story H98W5WTJBWT8EY0Q10P3KPCEEB
+ */
+export const browserSchemaClient = createSchemaClient(browserClient);

@@ -2,6 +2,7 @@ import {
   EvidentiaApiError,
   type AccessClient,
   type CurrentContext,
+  type SchemaClient,
 } from "@evidentia/typescript-sdk";
 import {
   QueryClient,
@@ -22,7 +23,7 @@ import {
   useNavigate,
 } from "react-router";
 
-import { browserAccessClient } from "./api";
+import { browserAccessClient, browserSchemaClient } from "./api";
 import {
   AccessStatus,
   hasCapability,
@@ -32,6 +33,10 @@ import {
   useLogout,
   useTrustedContext,
 } from "./auth";
+import {
+  SchemaDraftEditorPage,
+  SchemaWorkbenchPage,
+} from "./schemas/workbench";
 
 interface NavigationItem {
   readonly label: string;
@@ -51,6 +56,7 @@ const NAVIGATION: readonly NavigationItem[] = [
  */
 export interface AppProps {
   readonly access?: AccessClient;
+  readonly schemas?: SchemaClient;
   readonly initialEntries?: readonly string[];
 }
 
@@ -261,28 +267,6 @@ function Dashboard() {
   );
 }
 
-function SchemasPlaceholder() {
-  return (
-    <div className="content-stack">
-      <header className="page-header">
-        <p className="eyebrow">Governed structures</p>
-        <h1>Schemas</h1>
-        <p>
-          The schema workbench will use this capability-aware route in its
-          upcoming implementation story.
-        </p>
-      </header>
-      <section className="empty-state" role="status">
-        <h2>No schema workspace yet</h2>
-        <p>
-          The authenticated route is established; schema lifecycle interactions
-          are intentionally scheduled next.
-        </p>
-      </section>
-    </div>
-  );
-}
-
 function NotFound() {
   return (
     <main className="centered-page">
@@ -298,7 +282,13 @@ function NotFound() {
   );
 }
 
-function ApplicationRoutes({ access }: { readonly access: AccessClient }) {
+function ApplicationRoutes({
+  access,
+  schemas,
+}: {
+  readonly access: AccessClient;
+  readonly schemas: SchemaClient;
+}) {
   return (
     <Routes>
       <Route path="/" element={<Navigate replace to="/app" />} />
@@ -316,7 +306,14 @@ function ApplicationRoutes({ access }: { readonly access: AccessClient }) {
         }
       >
         <Route index element={<Dashboard />} />
-        <Route path="schemas" element={<SchemasPlaceholder />} />
+        <Route
+          path="schemas"
+          element={<SchemaWorkbenchPage schemas={schemas} />}
+        />
+        <Route
+          path="schemas/:schemaId"
+          element={<SchemaDraftEditorPage schemas={schemas} />}
+        />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
@@ -331,6 +328,7 @@ function ApplicationRoutes({ access }: { readonly access: AccessClient }) {
  */
 export function App({
   access = browserAccessClient,
+  schemas = browserSchemaClient,
   initialEntries,
 }: AppProps) {
   const [queryClient] = useState(
@@ -344,7 +342,7 @@ export function App({
   );
   const application = (
     <QueryClientProvider client={queryClient}>
-      <ApplicationRoutes access={access} />
+      <ApplicationRoutes access={access} schemas={schemas} />
     </QueryClientProvider>
   );
 

@@ -423,7 +423,8 @@ function parseValue(raw: unknown, path: string): WorkbenchValueDefinition {
   if (!FIELD_KINDS.has(kind as SchemaFieldKind)) {
     throw new Error(`${path}.type.kind is not supported`);
   }
-  const { kind: _kind, ...configuration } = type;
+  const configuration = { ...type };
+  delete configuration["kind"];
   return {
     type: {
       kind: kind as SchemaFieldKind,
