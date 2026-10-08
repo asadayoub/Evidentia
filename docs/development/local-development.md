@@ -107,6 +107,9 @@ For the complete manual login, restoration, recovery, accessibility, and logout
 journey—and its matching disposable-database proof command—follow the
 [authenticated shell verification runbook](authenticated-shell-verification.md).
 
+For the governed draft, concurrency, publication, restart, retry, and tenant-isolation
+journey, follow the [schema API verification runbook](schema-api-verification.md).
+
 Open `http://127.0.0.1:8000/docs` and use the access operations in this order:
 
 1. Run `POST /api/v1/access/sessions` using the configured bootstrap login and

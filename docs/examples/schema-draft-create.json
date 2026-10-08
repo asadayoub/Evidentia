@@ -1,0 +1,26 @@
+{
+  "content": {
+    "releaseLabel": "manual-verification",
+    "fields": [
+      {
+        "key": "title",
+        "cardinality": {
+          "minimum": 0,
+          "maximum": 1
+        },
+        "artifacts": [],
+        "value": {
+          "type": {
+            "kind": "string",
+            "min_length": 0,
+            "max_length": 200,
+            "pattern": null
+          },
+          "artifacts": []
+        }
+      }
+    ],
+    "modules": [],
+    "artifacts": []
+  }
+}

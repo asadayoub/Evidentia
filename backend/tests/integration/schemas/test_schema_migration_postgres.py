@@ -57,6 +57,7 @@ def test_migration_created_only_the_owned_schema_tables() -> None:
             """
         )
         assert [row[0] for row in cursor.fetchall()] == [
+            "schema_command_receipts",
             "schema_drafts",
             "schema_publication_artifacts",
             "schema_publications",
