@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T07:06:25.216Z"
+  updatedAt: "2026-10-08T07:11:47.838Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -2379,7 +2379,7 @@ stories:
     title: Import export compare and evolve governed schemas
     description: "Requirements: REQ-003, REQ-016, REQ-017, NFR-001, NFR-008. Purpose: complete the administrator-facing schema lifecycle beyond basic draft editing and publication."
     epicId: 37GEDS1AHPKD75TVFA4TGN1VD4
-    status: in-progress
+    status: done
     storyPoints: 8
     priority: high
     standards:
@@ -2402,7 +2402,7 @@ stories:
       - X51S43NTMRW5ASYSKJBF7FW845
       - H98W5WTJBWT8EY0Q10P3KPCEEB
     createdAt: "2026-10-07T15:21:02.506Z"
-    updatedAt: "2026-10-08T06:52:56.640Z"
+    updatedAt: "2026-10-08T07:11:47.838Z"
     childTasks:
       - TASK-033
       - TASK-034
@@ -2412,6 +2412,7 @@ stories:
       identifier: codex
       name: codex
     startedAt: "2026-10-08T06:52:56.640Z"
+    completedAt: "2026-10-08T07:11:47.838Z"
   - id: STORY-019
     title: Accept programmatic and resumable document intake
     description: "Requirements: REQ-001, REQ-012, NFR-003, NFR-008. Purpose: complement browser upload with a durable automation boundary for larger and retried submissions."
@@ -6133,7 +6134,7 @@ tasks:
     parentType: story
     parentId: STORY-018
     type: test
-    status: backlog
+    status: done
     priority: high
     storyPoints: 3
     estimatedMinutes: 180
@@ -6151,34 +6152,42 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Verify the primary application journey against disposable native PostgreSQL
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:49.597Z"
+        completedAt: "2026-10-08T07:11:28.586Z"
       - id: SUB-002
         title: Verify validation, authorization, conflict, retry, restart, expiry, and recovery paths applicable to the story
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:49.597Z"
+        completedAt: "2026-10-08T07:11:30.775Z"
       - id: SUB-003
         title: Verify tenant isolation, secret absence, stable errors, correlation, and immutable history
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:49.597Z"
+        completedAt: "2026-10-08T07:11:33.315Z"
       - id: SUB-004
         title: Run focused unit, integration, contract, frontend, accessibility, and end-to-end checks
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:49.597Z"
+        completedAt: "2026-10-08T07:11:35.439Z"
       - id: SUB-005
         title: Document exact manual interaction steps, expected results, limitations, and troubleshooting
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:49.597Z"
+        completedAt: "2026-10-08T07:11:38.101Z"
       - id: SUB-006
         title: Run Skyhook policies, standards, traceability, and full repository quality gates
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:26:49.597Z"
+        completedAt: "2026-10-08T07:11:40.496Z"
     createdAt: "2026-10-07T15:26:49.597Z"
-    updatedAt: "2026-10-07T15:42:52.243Z"
+    updatedAt: "2026-10-08T07:11:45.180Z"
     assignee:
       type: agent
-      identifier: Codex
-      name: Codex
+      identifier: codex
+      name: codex
+    startedAt: "2026-10-08T07:06:46.574Z"
+    completedAt: "2026-10-08T07:11:45.180Z"
   - id: TASK-036
     title: Define custody and processing contracts for Upload and preserve an original document
     description: "Purpose: establish the domain, custody, processing, and durable-state pass for \"Upload and preserve an original document\". Contribution: preserves original-source traceability and explicit failure state while keeping parser, OCR, storage, and classification providers replaceable."
