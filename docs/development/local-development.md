@@ -110,6 +110,11 @@ journey—and its matching disposable-database proof command—follow the
 For the governed draft, concurrency, publication, restart, retry, and tenant-isolation
 journey, follow the [schema API verification runbook](schema-api-verification.md).
 
+For the complete browser journey through the Schema Workbench, including recursive
+dynamic fields, validation, save, publication, conflict recovery, keyboard use, and
+troubleshooting, follow the
+[Schema Workbench verification runbook](schema-workbench-verification.md).
+
 Open `http://127.0.0.1:8000/docs` and use the access operations in this order:
 
 1. Run `POST /api/v1/access/sessions` using the configured bootstrap login and

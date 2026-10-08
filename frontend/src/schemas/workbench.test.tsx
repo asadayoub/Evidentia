@@ -167,7 +167,7 @@ describe("Schema Workbench", () => {
       },
     );
     const schemas = schemaClient({ publishDraft, replaceDraft });
-    render(
+    const { container } = render(
       <App
         access={accessClient()}
         schemas={schemas}
@@ -183,6 +183,7 @@ describe("Schema Workbench", () => {
     });
     fireEvent.click(screen.getByRole("button", { name: "Add field" }));
     fireEvent.click(screen.getByLabelText("Required"));
+    expect((await axe.run(container)).violations).toEqual([]);
     fireEvent.click(screen.getByRole("button", { name: "Save draft" }));
 
     await waitFor(() => expect(replaceDraft).toHaveBeenCalledOnce());
@@ -201,6 +202,11 @@ describe("Schema Workbench", () => {
   });
 
   it("preserves local edits and offers reload after a revision conflict", async () => {
+    const currentDraft = { ...EMPTY_DRAFT, revision: 2 };
+    const getDraft = vi
+      .fn<SchemaClient["getDraft"]>()
+      .mockResolvedValueOnce(EMPTY_DRAFT)
+      .mockResolvedValue(currentDraft);
     const replaceDraft = vi.fn<SchemaClient["replaceDraft"]>(() =>
       Promise.reject(
         new EvidentiaApiError(
@@ -213,7 +219,7 @@ describe("Schema Workbench", () => {
     render(
       <App
         access={accessClient()}
-        schemas={schemaClient({ replaceDraft })}
+        schemas={schemaClient({ getDraft, replaceDraft })}
         initialEntries={[`/app/schemas/${EMPTY_DRAFT.schema_id}`]}
       />,
     );
@@ -233,6 +239,62 @@ describe("Schema Workbench", () => {
     expect(
       screen.getByRole("button", { name: "Reload current draft" }),
     ).toBeInTheDocument();
+    fireEvent.click(
+      screen.getByRole("button", { name: "Reload current draft" }),
+    );
+    await waitFor(() => expect(getDraft).toHaveBeenCalledTimes(2));
+    expect(await screen.findByText(/Revision 2/)).toBeInTheDocument();
+    expect(screen.queryByDisplayValue("local_change")).toBeNull();
+  });
+
+  it("keeps invalid drafts local and disables persistence", async () => {
+    render(
+      <App
+        access={accessClient()}
+        schemas={schemaClient()}
+        initialEntries={[`/app/schemas/${EMPTY_DRAFT.schema_id}`]}
+      />,
+    );
+
+    fireEvent.change(await screen.findByLabelText("New field key"), {
+      target: { value: "Invalid key" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Add field" }));
+
+    expect(
+      screen.getByRole("heading", { name: "Resolve before saving" }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Save draft" })).toBeDisabled();
+    expect(
+      screen.getByRole("button", { name: "Publish version 1" }),
+    ).toBeDisabled();
+  });
+
+  it("recovers the list after a safe transient failure", async () => {
+    const listDrafts = vi
+      .fn<SchemaClient["listDrafts"]>()
+      .mockRejectedValueOnce(new TypeError("network detail must not leak"))
+      .mockResolvedValue({ items: [], next_cursor: null });
+    render(
+      <App
+        access={accessClient()}
+        schemas={schemaClient({ listDrafts })}
+        initialEntries={["/app/schemas"]}
+      />,
+    );
+
+    expect(
+      await screen.findByRole("heading", { name: "Schemas unavailable" }),
+    ).toBeInTheDocument();
+    expect(screen.queryByText(/network detail/u)).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Try again" }));
+
+    expect(
+      await screen.findByRole("heading", {
+        name: "Start with the structure your documents need",
+      }),
+    ).toBeInTheDocument();
+    expect(listDrafts).toHaveBeenCalledTimes(2);
   });
 
   it("renders forbidden and read-only states from trusted authority", async () => {

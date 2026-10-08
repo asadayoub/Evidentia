@@ -676,14 +676,16 @@ function SchemaDraftEditor({
           <button
             className="button button-quiet"
             onClick={() => {
-              void queryClient
-                .fetchQuery(schemaDraftQueryOptions(schemas, draft.schemaId))
-                .then((current) => {
-                  setDraft(parseWorkbenchDraft(current));
-                  setDirty(false);
-                  save.reset();
-                  publish.reset();
-                });
+              void schemas.getDraft(draft.schemaId).then((current) => {
+                queryClient.setQueryData(
+                  schemaQueryKeys.draft(draft.schemaId),
+                  current,
+                );
+                setDraft(parseWorkbenchDraft(current));
+                setDirty(false);
+                save.reset();
+                publish.reset();
+              });
             }}
             type="button"
           >

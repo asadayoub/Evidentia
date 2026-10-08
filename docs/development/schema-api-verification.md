@@ -1,9 +1,8 @@
 # Schema API verification
 
-This runbook proves the first real governed schema interaction through the native API.
-There is not yet a Schema Workbench screen; TASK-024 and TASK-025 own that UI. Until
-then, these commands exercise the same authenticated API and generated-client contract
-that the workbench will use.
+This runbook proves the governed schema lifecycle through the native API. For the
+corresponding browser interaction, follow the
+[Schema Workbench verification runbook](schema-workbench-verification.md).
 
 ## Automated proof
 
@@ -150,8 +149,9 @@ instead returns `schema_revision_conflict`.
 
 ## Current limitations
 
-- The accessible visual Schema Workbench is intentionally scheduled for TASK-024 and
-  TASK-025; this runbook verifies the API and supported generated SDK boundary.
+- Advanced JSON import/export and configuration for extension types remain deferred;
+  the current workbench preserves server-provided advanced configuration but only creates
+  types that have safe visual defaults.
 - Artifact-bound schemas fail publication until the governed artifact catalog is
   integrated. This is fail-closed behavior: client-supplied artifact digests are not
   treated as authority.
