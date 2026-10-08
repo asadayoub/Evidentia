@@ -24,7 +24,11 @@ import {
   useNavigate,
 } from "react-router";
 
-import { browserAccessClient, browserDocumentClient, browserSchemaClient } from "./api";
+import {
+  browserAccessClient,
+  browserDocumentClient,
+  browserSchemaClient,
+} from "./api";
 import {
   AccessStatus,
   hasCapability,
@@ -353,7 +357,11 @@ export function App({
   );
   const application = (
     <QueryClientProvider client={queryClient}>
-      <ApplicationRoutes access={access} schemas={schemas} documents={documents} />
+      <ApplicationRoutes
+        access={access}
+        schemas={schemas}
+        documents={documents}
+      />
     </QueryClientProvider>
   );
 

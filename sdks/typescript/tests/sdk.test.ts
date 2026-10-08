@@ -193,23 +193,30 @@ describe("TypeScript SDK boundary", () => {
     const fetch = vi.fn(async (request: Request) => {
       expect(request.headers.get("idempotency-key")).toBe("original-upload-1");
       expect(request.headers.get("x-csrf-token")).toBe("csrf-proof");
-      expect(request.headers.get("x-correlation-id")).toBe("document-request-1");
-      expect(request.headers.get("content-type")).toContain("multipart/form-data");
+      expect(request.headers.get("x-correlation-id")).toBe(
+        "document-request-1",
+      );
+      expect(request.headers.get("content-type")).toContain(
+        "multipart/form-data",
+      );
       const form = await request.formData();
       expect(form.get("document")).toBeInstanceOf(File);
       expect((form.get("document") as File).name).toBe("invoice.pdf");
-      return Response.json({
-        byte_size: 12,
-        content_sha256: "a".repeat(64),
-        created_at: "2026-10-08T08:00:00Z",
-        document_id: "document-1",
-        failure_code: null,
-        media_type: "application/pdf",
-        original_filename: "invoice.pdf",
-        revision: 2,
-        status: "preserved",
-        updated_at: "2026-10-08T08:00:00Z",
-      }, { status: 201 });
+      return Response.json(
+        {
+          byte_size: 12,
+          content_sha256: "a".repeat(64),
+          created_at: "2026-10-08T08:00:00Z",
+          document_id: "document-1",
+          failure_code: null,
+          media_type: "application/pdf",
+          original_filename: "invoice.pdf",
+          revision: 2,
+          status: "preserved",
+          updated_at: "2026-10-08T08:00:00Z",
+        },
+        { status: 201 },
+      );
     });
     const client = createDocumentClient(
       createEvidentiaClient({

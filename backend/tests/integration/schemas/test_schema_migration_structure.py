@@ -113,8 +113,8 @@ def test_every_publication_reference_is_tenant_scoped() -> None:
     )
 
 
-def test_alembic_has_one_owned_reversible_schema_head() -> None:
-    """Keep the first module migration discoverable and reversible.
+def test_alembic_has_expected_independent_module_heads() -> None:
+    """Keep each module migration branch discoverable and independently reversible.
 
     @skyhook-implements REQ-003
     @skyhook-implements NFR-008
@@ -125,6 +125,7 @@ def test_alembic_has_one_owned_reversible_schema_head() -> None:
     assert set(scripts.get_heads()) == {
         "20261007_01_access",
         "20261007_02_schema_receipts",
+        "20261008_01_documents",
     }
     revision = scripts.get_revision("20261003_01_schemas")
     assert revision is not None

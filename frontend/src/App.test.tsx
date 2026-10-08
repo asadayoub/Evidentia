@@ -73,7 +73,9 @@ function fakeSchemas(overrides: Partial<SchemaClient> = {}): SchemaClient {
   };
 }
 
-function fakeDocuments(overrides: Partial<DocumentClient> = {}): DocumentClient {
+function fakeDocuments(
+  overrides: Partial<DocumentClient> = {},
+): DocumentClient {
   const receipt: DocumentCustody = {
     byte_size: 16,
     content_sha256: "a".repeat(64),

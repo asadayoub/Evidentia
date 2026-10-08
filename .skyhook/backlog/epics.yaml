@@ -1,7 +1,7 @@
 schemaVersion: 1.0.0
 metadata:
   createdAt: "2026-10-01T16:13:56.189Z"
-  updatedAt: "2026-10-08T08:10:13.529Z"
+  updatedAt: "2026-10-08T11:29:42.534Z"
   version: 0.1.0
 epics:
   - id: CP8QDFDKKC659SR1GFMDBPCHG6
@@ -6282,7 +6282,7 @@ tasks:
     parentType: story
     parentId: XRSZ0A5WZEQB0PQYD34PYR8EW3
     type: feature
-    status: in-progress
+    status: done
     priority: high
     storyPoints: 5
     estimatedMinutes: 300
@@ -6302,52 +6302,54 @@ tasks:
     subtasks:
       - id: SUB-001
         title: Define versioned upload processing status source and error contracts with stable operation identifiers
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:18.037Z"
+        completedAt: "2026-10-08T11:28:54.908Z"
       - id: SUB-002
         title: Enforce trusted tenant capability file limits content handling and storage-key isolation
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:18.037Z"
+        completedAt: "2026-10-08T11:28:57.853Z"
       - id: SUB-003
         title: Integrate storage parser OCR or classification adapters only through owned ports
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:18.037Z"
+        completedAt: "2026-10-08T11:29:00.250Z"
       - id: SUB-004
         title: Regenerate clients and implement required accessible upload status preview correction or inspection states
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:18.037Z"
+        completedAt: "2026-10-08T11:29:02.276Z"
       - id: SUB-005
         title: Add correlated secret-safe events progress and actionable failure responses
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:18.037Z"
+        completedAt: "2026-10-08T11:29:04.900Z"
       - id: SUB-006
         title: Test duplicate retry cancellation restart cross-tenant hostile-content and unavailable-provider behavior
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:18.037Z"
+        completedAt: "2026-10-08T11:29:07.356Z"
       - id: SUB-007
         title: Keep this pass limited to preservation and custody status; expose later parser OCR and classification activation only as owned downstream ports
-        completed: false
+        completed: true
         createdAt: "2026-10-08T07:54:39.632Z"
+        completedAt: "2026-10-08T11:29:10.102Z"
     createdAt: "2026-10-07T15:27:18.037Z"
-    updatedAt: "2026-10-08T08:10:13.529Z"
+    updatedAt: "2026-10-08T11:29:12.509Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
-    lease:
-      agentId: Codex
-      leasedAt: "2026-10-08T08:10:11.612Z"
-      expiresAt: "2026-10-08T11:10:11.612Z"
-      durationMinutes: 180
-      heartbeatAt: "2026-10-08T08:10:11.612Z"
     startedAt: "2026-10-08T08:10:13.529Z"
+    completedAt: "2026-10-08T11:29:12.509Z"
   - id: TASK-038
     title: Prove and document Upload and preserve an original document
     description: "Purpose: close \"Upload and preserve an original document\" with reproducible interaction and recovery evidence. Contribution: proves source custody, processing, accessibility, hostile-input confinement, and restart behavior on native PostgreSQL without touching developer data."
     parentType: story
     parentId: XRSZ0A5WZEQB0PQYD34PYR8EW3
     type: test
-    status: backlog
+    status: in-progress
     priority: high
     storyPoints: 3
     estimatedMinutes: 180
@@ -6382,22 +6384,32 @@ tasks:
         createdAt: "2026-10-07T15:27:21.084Z"
       - id: SUB-005
         title: Document exact manual interaction expected results supported scope limitations and troubleshooting
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:21.084Z"
+        completedAt: "2026-10-08T11:33:12.353Z"
       - id: SUB-006
         title: Run Skyhook policy standards traceability and full repository quality gates
-        completed: false
+        completed: true
         createdAt: "2026-10-07T15:27:21.084Z"
+        completedAt: "2026-10-08T11:33:14.994Z"
       - id: SUB-007
         title: Treat scanned documents as preserved opaque sources and limit provider-failure proof in this pass to the storage adapter
-        completed: false
+        completed: true
         createdAt: "2026-10-08T07:54:42.268Z"
+        completedAt: "2026-10-08T11:33:17.316Z"
     createdAt: "2026-10-07T15:27:21.084Z"
-    updatedAt: "2026-10-08T07:54:42.268Z"
+    updatedAt: "2026-10-08T11:33:17.316Z"
     assignee:
       type: agent
       identifier: Codex
       name: Codex
+    lease:
+      agentId: Codex
+      leasedAt: "2026-10-08T11:29:19.616Z"
+      expiresAt: "2026-10-08T14:29:19.616Z"
+      durationMinutes: 180
+      heartbeatAt: "2026-10-08T11:29:19.616Z"
+    startedAt: "2026-10-08T11:29:42.534Z"
   - id: TASK-039
     title: Define custody and processing contracts for Parse native document text and page structure
     description: "Purpose: establish the domain, custody, processing, and durable-state pass for \"Parse native document text and page structure\". Contribution: preserves original-source traceability and explicit failure state while keeping parser, OCR, storage, and classification providers replaceable."
